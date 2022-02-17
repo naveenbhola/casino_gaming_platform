@@ -1,0 +1,109 @@
+.nav-tabs {
+  padding-top: 25px;
+  margin-top: -25px;
+  margin-right: -13px;
+  margin-left: -13px;
+  background-color: #7e1419;
+  border: 0;
+
+  > li {
+    z-index: 3;
+    margin: 0;
+
+    &:first-child a {
+      margin-left: 0;
+    }
+
+    &.active {
+      z-index: 10;
+    }
+
+    > a {
+      width: 171px;
+      height: 40px;
+      padding: 10px 10px 10px 0;
+      margin: 0 0 0 -34px;
+      font-size: 14px;
+      color: #fff;
+      text-align: center;
+      background: url("../bower_components/wdts-common-ui/assets/img/bg-tab.svg") transparent left bottom no-repeat;
+      border: 0;
+
+      &:hover {
+        color: #d9c8af;
+        background-color: transparent;
+      }
+
+      &.keyboard-focus:focus {
+        color: #fff;
+        background: url("../bower_components/wdts-common-ui/assets/img/bg-tab-focus.svg") transparent left top no-repeat;
+        border: 0;
+        outline: none;
+      }
+
+      &:active {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@for $i from 1 through 9 {
+  .nav-tabs > li:nth-child(#{$i}) {
+    z-index: 10 - $i;
+  }
+}
+
+.nav-tabs {
+  > li.active > a {
+    &, &:hover, &:focus {
+      color: $dark-gray;
+      background: url("../bower_components/wdts-common-ui/assets/img/bg-tab-active.svg") transparent left top no-repeat;
+      border: 0;
+      font-weight: 600;
+    }
+
+    &.active > a.keyboard-focus:focus {
+      color: $white;
+      background: url("../bower_components/wdts-common-ui/assets/img/bg-tab-focus.svg") transparent left top no-repeat;
+      border: 0;
+      outline: none;
+    }
+  }
+
+  &.btn-group > li {
+    > a {
+      margin: 0;
+      background: #bb9156;
+    }
+
+    &.active > a {
+      background: rgba(187, 145, 86, 0.3);
+      box-shadow: none;
+    }
+  }
+}
+
+.nav.nav-tabs {
+  &.no-background {
+    background: $lighter-gold;
+    border-bottom: 1px solid $gold;
+
+    &.no-top-margin {
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+  }
+
+  &.config-ui > li {
+    margin-bottom: -2px;
+
+    > a {
+      background: url("../bower_components/wdts-common-ui/assets/img/bg-tab2.svg") transparent left bottom no-repeat;
+    }
+
+    &.active > a {
+      background: url("../bower_components/wdts-common-ui/assets/img/bg-tab3-active.svg") transparent left bottom no-repeat;
+    }
+  }
+}

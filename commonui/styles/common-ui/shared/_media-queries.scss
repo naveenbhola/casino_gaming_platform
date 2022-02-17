@@ -1,0 +1,346 @@
+/************* Kush (1024) ******************/
+
+/* SASS media queries breakpoints
+*/
+//$break-xsmall: 700px;
+//
+//$break-small: 1050px;
+//$break-medium: 1400px;
+//$break-large: 1750px;
+//$break-xlarge: 2200px;
+
+$break-surface-portrait: 912px;
+
+$break-touch-monitor: 1024px;
+
+//Increasing font-size globally
+$fsize: 18px;
+$fsize-small:11px;
+
+.dropdown-menu{
+  min-width: 100px;
+}
+
+srv-filter-drop-down[class^="col-"],
+.tab-content-header{
+  transition: all 0.2s ease-out;
+}
+.table-default {
+  &.has-more-columns {
+    th, td {
+      font-size: inherit;
+    }
+  }
+}
+
+@media screen and (max-width: $break-touch-monitor) {
+  srv-filter-drop-down[class ^= "col-"],
+  .tab-content-header {
+    padding:10px;
+  }
+
+  .filters-with-button {
+    width: 100%;
+
+    + .buttons-wrapper {
+      margin-top:0;
+    }
+
+    &.five-filters {
+      srv-filter-drop-down {
+        width: 20% ;
+      }
+    }
+  }
+  .table-default {
+    &.has-more-columns {
+      th, td {
+        font-size: 0.695em;
+      }
+    }
+  }
+
+  .has-fixed-header .container1 {
+    height: calc(100vh - 400px);
+  }
+
+  .section .btn {
+    min-width: 85px !important;
+  }
+  .box {
+    margin-bottom: 1.5rem;
+    min-height: 3.5rem;
+
+  }
+
+  .btn.btn-secondary, .nav .btn.btn-secondary {
+    margin-right: 20px;
+
+  }
+  .icon-status {
+    width: 30px;
+    height: 30px;
+  }
+
+  .fa-comment:before {
+    font-size: 25px;
+  }
+
+  .btn, .nav .btn {
+    min-height: 44px;
+  }
+  .close{
+    font-size: 33px;
+  }
+
+  .modal-game-details .modal-body{
+    height: 70vh;
+  }
+
+  .side-title {
+    right: -17px;
+    margin-left: 29px;
+  }
+
+  .modal-game-details .cards-on-left {
+    margin-right: -38px;
+  }
+  .modal-game-details .cards-on-right .shoe-cards-container {
+    margin-left: -23px;
+  }
+  .cards-on-right {
+    padding-left: 41px !important;
+  }
+  .shoe-cards-container {
+    padding-right: 25px;
+
+  }
+  pagination.above-fixed-footer {
+    bottom: 87px !important;
+    padding-top: 7px;
+    padding-bottom: 8px;
+  }
+  .five-position {
+    margin-left: 40px;
+    margin-right: 0px;
+  }
+
+  .game-player-card, .game-player-card.empty {
+    min-width: 142px;
+  }
+  .game-player-cards {
+    margin: 64px -3px 13px;
+  }
+
+  .tab-content-header-title {
+    line-height: 2;
+  }
+  .form-control{
+    height:44px;
+    padding:10px;
+  }
+
+  .bankroll-innerTable-td{
+    margin-right: 40px;
+  }
+  .table-default td:last-child {
+    min-width: 73px;
+  }
+
+  .sortorder2ChipSetPlayed:after,
+  .sortorder2ManualCashByIn:after{
+    left: 10px;
+    top: 45px;
+  }
+  .sortorder2SessionDuration:after,
+  .sortorder2CasinoWL:after,
+  .sortorder2TheoWin:after,
+  .sortorder2AverBet:after,
+  .sortorder1Session:after,
+  .sortorder2Status:after,
+  .sortorder2Rating:after,
+  .sortorder2SessionType:after,
+  .sortorder2ManualTable:after,
+  .sortorder2ShoeID:after,
+  .sortorder2RatingID:after,
+  .sortorder2StartDate:after,
+  .sortorder2EndTime:after,
+  .sortorder2BuyIn:after,
+  .sortorder2Handle:after,
+  .sortorder2ManualStatus:after,
+  .sortorder2ManualStartTime:after,
+  .sortorder2ManualStopTime:after,
+  .sortorder2ManualSeat:after,
+  .sortorder2ManualAveBet:after,
+  .sortorder2ManualPlayer:after,
+  .sortorder2ManualCasinoWL:after,
+  .sortorder2ManualIRC:after,
+  .sortorder2ManualCreatedBy:after,
+  .sortorder2ManualCretBy:after,
+  .sortorder1Gaming:after,
+  .sortorder2GamingStartTime:after,
+  .sortorder1GamingEndTime:after,
+  .sortorder2Game:after,
+  .sortorder2GamingDealer:after,
+  .sortorder2GamingLimits:after,
+  .sortorder2GamingHandle:after,
+  .sortorder2GamingCasinoWL:after,
+  .sortorder2GamingResults:after,
+  .sortorder2ManualApprovedBy:after,
+  .sortorder2ManualTotalTime:after {
+    left: 0px;
+    top: 35px;
+  }
+  .nav>li>a {
+    padding: 8px 0px;
+  }
+
+  .caret, .btn .caret {
+    margin: 4px 9px 4px 2px;
+  }
+
+  pagination {
+    .col-xs-10 {
+      [class ^= "col-"] {
+        // value 9 is number of pagination divs
+        width: (100%/9);
+        padding: {
+          left: 15px !important;
+          right: 15px !important;
+        }
+      }
+    }
+  }
+
+  .table-default th, .table-default td {
+    min-width: 6ch !important;
+    font-size : $fsize-small !important;
+    padding-left: 10px !important;
+  }
+
+  pagination .form-control {
+    height: 44px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .tab-opener-closer .panel-body .panel .item-data-value {
+    font-size: 14px !important;
+    word-wrap: break-word !important;
+  }
+
+  .tab-opener-closer .item-data-value {
+    font-weight: 700;
+    font-size: 14px !important;
+  }
+  .table-chip-tray td.narrow .glyphicon {
+    position: absolute;
+    left: 0;
+    top: -4px !important;
+  }
+
+  .shoe-card-cover {
+    padding-left: 5% !important;
+    padding-right: 0;
+    display:table-cell !important ;
+  }
+
+  .cards-on-right .side-title {
+    left: -23px ;
+    right: 0;
+    top: 34px !important;
+  }
+
+
+
+
+  .table-chip-tray td.narrow {
+    padding-left: 40px !important;
+  }
+  .alert-count-elem {
+    min-width: 14em;
+  }
+  .has-header.has-sub-header .main-content.casino-manager {
+    padding-top: 121px !important;
+  }
+  .slidebar-nav,
+  .btn-sidebar-open,
+  .btn-sidebar-close {
+    top: 84px;
+  }
+
+  .overview-casino-landing{
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+
+  .slidebar-nav {
+    //width: 200px;
+  }
+
+  .btn-sidebar-open{
+    margin-left:185px;
+  }
+
+  .left-sidebar-opened {
+    margin-left: 200px;
+
+    .table-default th,
+    .table-default td {
+      font-size: 9px !important;
+      padding-left: 0 !important;
+    }
+  }
+}
+
+@media screen and (max-width: $break-surface-portrait) {
+
+  .shoe-cards-wrapper {
+    margin: 0 auto;
+    padding: 10px;
+    min-width: 500px;
+  }
+
+  .navbar-center {
+    position: absolute;
+    left: 50%;
+    float: none;
+    -webkit-transform: translate(-89%);
+    transform: translate(-89%);
+    top: 4px;
+  }
+
+  .result-cards .banker-cards {
+    border-right: 2px solid #bb9156;
+    margin-right: -15px;
+    padding-left: 0;
+  }
+
+  .result-cards .banker-cards:after {
+    content: "B";
+    top: 35%;
+    position: absolute;
+    right: 0;
+    margin-right: 4px;
+    opacity: 0.5;
+  }
+
+  .result-cards .player-cards:before {
+    content: "P";
+    top: 35%;
+    position: absolute;
+    left: 7px;
+    margin-right: 26px;
+    opacity: 0.5;
+  }
+
+  .table-filters .col-xs-4 button, .table-filters .col-xs-10 button, .table-filters .col-xs-6 button{ margin-top:30px !important}
+
+  .table-default th div, .table-defaultModal th div
+  {
+    min-width:12% !important;
+  }
+
+}
+
+

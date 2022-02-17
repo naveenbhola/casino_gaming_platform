@@ -1,0 +1,62 @@
+<div class="filter-title">
+    <span translate="{{filterTitle}}"></span>
+</div>
+
+<div class="dropdown dropdown-block">
+
+    <button class="btn btn-secondary btn-block dropdown-toggle"
+            type="button"
+            id="filters-variance-filter"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="true">
+
+        {{srange_utc_string | date: 'HH:mm'}} - {{erange_utc_string | date: 'HH:mm'}} <span class="caret"></span>
+
+    </button>
+
+    <div class="dropdown-menu" aria-labelledby="filters-variance-filter" style="max-width: 440px;">
+
+        <div class="dropdown-body">
+
+            <div class="dropdown-content filters-slider">
+
+                <div class="filters-slider-header" >
+
+                    <div class="row">
+                        <div class="col-xs-6" style="font-size:12px">From</div>
+                        <div class="col-xs-6" style="font-size:12px">To</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6" style="font-size:14px">
+                            <input datetime-picker
+                                   ng-model="srange_utc_string"
+                                   date-format="yyyy-MM-dd HH:mm"
+                                   year="{{fromFilterObj.year}}"
+                                   month="{{fromFilterObj.month}}"
+                                   day="{{fromFilterObj.day}}"
+                                   hour="{{fromFilterObj.hrs}}"
+                                   minute="{{fromFilterObj.min}}"
+                                   style="width:100%; padding:4px;"/>
+                        </div>
+
+                        <div class="col-xs-6" style="font-size:14px">
+                            <input datetime-picker
+                                   ng-model="erange_utc_string"
+                                   date-format="yyyy-MM-dd HH:mm"
+                                   year="{{toFilterObj.year}}"
+                                   month="{{toFilterObj.month}}"
+                                   day="{{toFilterObj.day}}"
+                                   hour="{{toFilterObj.hrs}}"
+                                   minute='{{toFilterObj.min}}'
+                                   style="width:100%; padding:4px;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown-footer text-center"></div>
+    </div>
+</div>

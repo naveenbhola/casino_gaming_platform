@@ -1,0 +1,90 @@
+.alert-notification {
+  .carousel-control {
+    width: 52px;
+    text-shadow: 0;
+    opacity: 1;
+
+    &.left, &.right {
+      background: rgba(156, 28, 35, 0.4);
+    }
+
+    &:active {
+      background: #9c1c23;
+      opacity: 1;
+    }
+
+    .icon-dealer-lsaquo,
+    .icon-dealer-rsaquo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      transform: translate(-50%, -50%);
+    }
+
+    .icon-prev,
+    .icon-next {
+      width: 20px;
+      height: 20px;
+      font-family: serif;
+      line-height: 1;
+    }
+  }
+
+  .carousel-indicators {
+    bottom: 1px;
+    margin-bottom: 0;
+
+    li {
+      border: 0;
+      opacity: 0.4;
+
+      &, &.active {
+        width: 9px;
+        height: 9px;
+        margin: 0 3px;
+        background-color: $white;
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.fixed-alert-bar {
+  z-index: 1050;
+  display: flex;
+  padding: 20px 13px 20px 23px;
+  font-size: 18px;
+  color: #fff;
+  background-color: $error-red;
+  transform: translateY(100%);
+  transition: transform 250ms, box-shadow 250ms;
+  justify-content: space-between;
+  align-items: center;
+
+  &.visible {
+    transform: translateY(0);
+    box-shadow: 0 0 50px 25px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.alert-count-elem {
+  display: inline-block;
+  min-width: 10em;
+  ul {
+    padding-left: 10px;
+    white-space: nowrap;
+    li {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 2px;
+      list-style: none;
+      padding-right: 15px;
+      padding-top: 8px;
+    }
+  }
+
+}

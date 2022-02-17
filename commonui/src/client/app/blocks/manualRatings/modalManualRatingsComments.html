@@ -1,0 +1,64 @@
+<div class="modal fade" id="manualRatingsCommentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content less-side-padding" ng-style="{'background-color': '#eee7dd'}">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="text-align: center"><span
+                        translate="application.app.PLAYER_DASH_LABELS.NOTES_FOR">Notes for</span> {{playerName}}
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="table-alerts-text">
+                                <div class="excerpt"></div>
+                                <div class="body">
+
+                                    <div class="comments-box">
+
+                                        <ul class="list-unstyled list-players">
+                                            <li class="list-item clearfix"
+                                                ng-repeat="comment in selectedComments track by $index"
+                                                ng-style="{'padding-left': '10px','padding-right': '10px'}"
+                                                ng-mouseenter="showEditIcon=true"
+                                                ng-mouseleave="showEditIcon=false">
+                                                <div>
+                                                    <p class="small">
+                                                        <span class="highlight">{{comment.createdDtm | date : 'HH:mm'}} {{comment.user.lastName}}, {{comment.user.firstName}}{{comment.user.employeeNumber?' ('+comment.user.employeeNumber+')':''}}</span>
+                                                    </p>
+                                                    <p ng-bind-html="comment.note"></p>
+                                                </div>
+                                            </li>
+                                            <li class="list-item clearfix add-top-margin" ng-if="vm.commentPermission && ratingNote.manuallRatingStatus !== 'CANCELED' && ratingNote.manuallRatingStatus !== 'CLOSED'">
+                                                <div class="form-group"
+                                                     ng-style="{'padding-left':'0px','margin-bottom': '0px'}">
+                                                    <label class="sr-only"
+                                                           translate="application.app.common.labels.ADD_NOTES">Add
+                                                        Notes</label>
+                                                    <textarea class="form-control textarea" maxlength="500"
+                                                              placeholder="{{'application.app.common.labels.ADD_NOTES' | translate}}" ng-model="vm.addComment"
+                                                              ng-style="{'resize':'none'}"></textarea>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="add-top-border" ng-if="vm.commentPermission && ratingNote.manuallRatingStatus !== 'CANCELED' && ratingNote.manuallRatingStatus !== 'CLOSED'">
+                                        <button class="btn btn-primary pull-right add-top-margin"
+                                                ng-click="vm.updateComment()" ng-disabled="!vm.addComment"
+                                                translate="application.app.common.labels.SAVE">Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

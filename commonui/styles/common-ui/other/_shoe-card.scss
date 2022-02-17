@@ -1,0 +1,165 @@
+.shoe-cards-wrapper {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 30px;
+
+  .table-default {
+    td {
+      color: $gold;
+    }
+
+    tr.bdr-top {
+      border-top: 1px solid $gold;
+    }
+  }
+}
+
+.shoe-cards-container {
+  border-right: 1px solid $gold;
+  min-height: 120px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.shoe-card-cover {
+  width: 31.3333%;
+  padding: 0 1%;
+  display: inline-block;
+}
+
+.shoe-card {
+  width: 74px;
+  height: 100px;
+  background-color: $white;
+  border-right: 1px solid $gold;
+  border-bottom: 1px solid $gold;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto;
+
+  .at-mid {
+    margin: 0 auto;
+  }
+
+  .card-value {
+    color: $gold;
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 700;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  &.landscape, &.counter-landscape {
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 100px;
+  }
+
+  &.landscape {
+    border-top: 1px solid $gold;
+    border-bottom: none !important;
+    transform: rotate(90deg);
+  }
+
+  &.counter-landscape {
+    border-left: 1px solid $gold;
+    border-right: none !important;
+    transform: rotate(-90deg);
+  }
+}
+
+.shoe-card-footer {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  color: $gold;
+  padding-top: 20px;
+}
+
+.cards-on-right {
+  padding-left: 0 !important;
+
+  .shoe-cards-container {
+    border-right: none;
+  }
+}
+
+
+.gameCard-shoe-card-cover {
+  padding: 0 1%;
+  display: inline-block;
+  cursor: pointer !important;
+}
+
+.gameCard-shoe-card-override {
+  background-color: rgba(187, 145, 86, 0.53) !important;
+}
+
+.gameCard-shoe-card-selected {
+  border: 1px solid #9d1c22 !important;
+}
+
+.gameCard-shoe-card {
+  width: 50px;
+  height: 40px;
+  background-color: $white;
+  border: 1px solid $gold;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 5px;
+
+  .at-mid {
+    margin: 0 auto;
+  }
+
+  .card-value {
+    color: $gold;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 700;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  &.landscape, &.counter-landscape {
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 100px;
+  }
+
+  &.landscape {
+    border-top: 1px solid $gold;
+    border-bottom: none !important;
+    transform: rotate(90deg);
+  }
+
+  &.counter-landscape {
+    border-left: 1px solid $gold;
+    border-right: none !important;
+    transform: rotate(-90deg);
+  }
+}
+
+.banker-border-right {
+  border-right: 2px solid $gold;
+}
+
+.banker-side-label {
+  color: $gold;
+}
+
+.player-side-label {
+  color: $gold;
+  margin-left: -15px;
+}
+
+.select-card{
+  border: 2px solid #950E12;
+  border-radius: 5px;
+  background-position-x: -2px;
+  background-position-y: -2px;
+}

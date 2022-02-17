@@ -1,0 +1,6 @@
+.lazy-hidden {
+  visibility: hidden;
+  > * {
+    display: none;
+  }
+}

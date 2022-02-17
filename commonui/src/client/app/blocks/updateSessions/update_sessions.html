@@ -1,0 +1,221 @@
+<div class="modal modal-middle fade update-closed-sessions-modal" id="modal-update-closed-sessions" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="table-content-wrapper wrapper-shadow has-filters-above">
+                            <div class="table-responsive">
+                                <table class="table-default sticky-table-header">
+                                    <thead>
+                                    <tr>
+                                        <th class="narrow">
+                                            <div class="checkbox"  style="margin-left: -5px; !important">
+                                                <input type="checkbox"
+                                                       class="input-checkbox table-action-checkbox toggle-all-checkbox"
+                                                       id="checkboxAll" ng-model="checkAll"
+                                                       ng-change="vm.checkAll(checkAll)">
+                                                <label for="checkboxAll"></label>
+                                            </div>
+                                        </th>
+                                        <th sortable-column ng-click="vm.orderBy('sessionId')">
+                                            <div translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.SESSION_ID">Session ID</div> <div
+                                                class="sortorder"
+                                                ng-show="predicate=='sessionId'"
+                                                ng-class="{reverse:predicate=='sessionId' && reverse}"></div>
+                                        </th>
+
+                                        <th ng-click="vm.orderBy('seatNumber')" ng-if="!isCBPTEnabled" class="cbpt-seat-no">
+                                            <span translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.SEAT_NUMBER">Seat Number</span> <span
+                                                class="sortorder"
+                                                ng-show="predicate=='seatNumber'"
+                                                ng-class="{reverse:predicate=='seatNumber' && reverse}"></span>
+                                        </th>
+
+                                        <!--<th sortable-column ng-click="vm.orderBy('sessionType')" ng-if="isCBPTEnabled">-->
+                                            <!--<span translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.SESSION_TYPE">Session Type</span> <span-->
+                                                <!--class="sortorder"-->
+                                                <!--ng-show="predicate=='sessionType'"-->
+                                                <!--ng-class="{reverse:predicate=='sessionType' && reverse}"></span>-->
+                                        <!--</th>-->
+
+                                        <th sortable-column ng-click="vm.orderBy('casinoPlayerId')" ng-if="isCBPTEnabled">
+                                            <div translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.PLAYER_ID">Player ID</div> <div
+                                                class="sortorder"
+                                                ng-show="predicate=='casinoPlayerId'"
+                                                ng-class="{reverse:predicate=='casinoPlayerId' && reverse}"></div>
+                                        </th>
+                                        <th sortable-column ng-click="vm.orderBy('plrName')" ng-if="isCBPTEnabled">
+                                            <div translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.PLAYER_NAME">Player Name</div> <div
+                                                class="sortorder"
+                                                ng-show="predicate=='plrName'"
+                                                ng-class="{reverse:predicate=='plrName' && reverse}"></div>
+                                        </th>
+                                        <th sortable-column ng-click="vm.orderBy('player.playerId')" ng-if="isCBPTEnabled"><div
+                                                translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.CCAS_ID">PP ID</div> <div
+                                                class="sortorder"
+                                                ng-show="predicate=='player.playerId'"
+                                                ng-class="{reverse:predicate=='player.playerId' && reverse}"></div>
+                                        </th>
+                                        <th sortable-column ng-click="vm.orderBy('netCasinoWin')"><div
+                                                translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.SESSION_WL">Session W/L</div> <div
+                                                class="sortorder"
+                                                ng-show="predicate=='netCasinoWin'"
+                                                ng-class="{reverse:predicate=='netCasinoWin' && reverse}"></div>
+                                        </th>
+                                        <th sortable-column ng-click="vm.orderBy('theoWin')"><div
+                                                translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.THEO_WIN">Theo Win</div> <div
+                                                class="sortorder"
+                                                ng-show="predicate=='theoWin'"
+                                                ng-class="{reverse:predicate=='theoWin' && reverse}"></div>
+                                        </th>
+                                        <th sortable-column ng-click="vm.orderBy('adjustedTurnover')"><div
+                                                translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.HANDLE">Handle</div> <div
+                                                class="sortorder"
+                                                ng-show="predicate=='adjustedTurnover'"
+                                                ng-class="{reverse:predicate=='adjustedTurnover' && reverse}"></div>
+                                        </th>
+                                        <th sortable-column ng-click="vm.orderBy('avgBet')"><div
+                                                translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.AVERAGE_BET">Average Bet</div><div
+                                                class="sortorder" ng-show="predicate=='avgBet'"
+                                                ng-class="{reverse:predicate=='avgBet' && reverse}"></div>
+                                        </th>
+                                        <th sortable-column ng-click="vm.orderBy('sessionStartDtm')"><div
+                                                translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.START_TIME">Start Time</div><div
+                                                class="sortorder" ng-show="predicate=='sessionStartDtm'"
+                                                ng-class="{reverse:predicate=='sessionStartDtm' && reverse}"></div>
+                                        </th>
+                                        <th sortable-column ng-click="vm.orderBy('sessionEndDtm')"><div
+                                                translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.END_TIME">End Time</div><div
+                                                class="sortorder" ng-show="predicate=='sessionEndDtm'"
+                                                ng-class="{reverse:predicate=='sessionEndDtm' && reverse}"></div>
+                                        </th>
+                                        <th translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.IRC"></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                    <tr ng-repeat="sessionObj in sessionsForFilter" ng-if="sessionObj.status !=='IN_PROGRESS' && !sessionObj.clockInEventId">
+                                        <td class="narrow" ng-if="!sessionObj.player.anonymous">
+                                            <div class="checkbox">
+                                                <input type="checkbox" ng-disabled="sessionsForFilter[$index].status != 'IN_PROGRESS' && !sessionsForFilter[$index].clockInEventId && sessionsForFilter[$index].isKnownPlayer == true && !updateClosedKnownSessionPermission" class="input-checkbox table-action-checkbox"
+                                                       id="checkbox-{{sessionObj.sessionId}}" ng-model="sessionIds[sessionObj.sessionId]"
+                                                       ng-checked="(checkAll||sessionIds[sessionObj.sessionId]) && (!sessionObj.player.anonymous && updateClosedKnownSessionPermission)" ng-click="vm.sessionSelected(sessionObj)">
+                                                <label for="checkbox-{{sessionObj.sessionId}}"></label>
+                                            </div>
+                                        </td>
+                                        <td class="narrow" ng-if="sessionObj.player.anonymous">
+                                            <div class="checkbox">
+                                                <input type="checkbox" ng-disabled="sessionsForFilter[$index].status != 'IN_PROGRESS' && !sessionsForFilter[$index].clockInEventId && sessionsForFilter[$index].isKnownPlayer == true && !updateClosedKnownSessionPermission" class="input-checkbox table-action-checkbox"
+                                                       id="checkbox-{{sessionObj.sessionId}}" ng-model="sessionIds[sessionObj.sessionId]"
+                                                       ng-checked="(checkAll||sessionIds[sessionObj.sessionId])" ng-click="vm.sessionSelected(sessionObj)">
+                                                <label for="checkbox-{{sessionObj.sessionId}}"></label>
+                                            </div>
+                                        </td>
+                                        <td class="wide-column">{{sessionObj.sessionId}}</td>
+                                        <td class="wide-column" ng-if="!isCBPTEnabled">{{sessionObj.positionLabel}}</td>
+                                        <!--<td class="wide-column" ng-if="isCBPTEnabled">{{sessionObj.isKnownPlayer ? 'Rated' : 'Seated'}}</td>-->
+                                        <td class="wide-column" ng-if="sessionObj.casinoPlayerId && isCBPTEnabled">{{sessionObj.casinoPlayerId}}</td>
+                                        <td class="wide-column" ng-if="sessionObj.player.casinoPlayer.casinoPlayerId && !sessionObj.casinoPlayerId && isCBPTEnabled">{{sessionObj.player.casinoPlayer.casinoPlayerId}}</td>
+                                        <td class="wide-column" ng-if="!sessionObj.player.casinoPlayer.casinoPlayerId && !sessionObj.casinoPlayerId && isCBPTEnabled"></td>
+
+                                        <td class="wide-column" ng-if="sessionObj.plrName && isCBPTEnabled">{{sessionObj.plrName}}</td>
+                                        <td class="wide-column" ng-if="!sessionObj.plrName && sessionObj.player.casinoPlayer.lastName">{{sessionObj.player.casinoPlayer.lastName}} {{sessionObj.player.casinoPlayer.lastName || sessionObj.player.casinoPlayer.firstName ? ",":""}} {{sessionObj.player.casinoPlayer.firstName}}
+                                            <span class="game-table-all-players seated"
+                                                  ng-if="!sessionObj.player.anonymous && hasRatePermission"
+                                                  ng-click="vm.rateKnownPlayer(sessionObj)"
+                                                  wdts-confirm
+                                                  confirm-wrapper="'#confirmWrapper'"
+                                                  selectedplayer="vm.updatePlayerData"
+                                                  message=vm.playerDataOnConfirm
+                                                  include-back-bets="includeBackBets"
+                                                  text-on-success="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.RATEUPDATED' | translate"
+                                                  on-confirm="vm.confirmUpdate()"
+                                                  on-cancel="vm.closeUpdateSessionModal()"></span>
+                                        </td>
+                                        <td class="wide-column" ng-if="!sessionObj.player.casinoPlayer.lastName && !sessionObj.plrName && isCBPTEnabled"></td>
+                                        <td class="wide-column"  ng-if="isCBPTEnabled">{{sessionObj.ccasId?sessionObj.ccasId:sessionObj.player.playerId}}</td>
+                                        <td class="wide-column" ng-if="sessionObj.netCasinoWin < 0" ng-class="{'highlight-red':true}">
+                                            ({{sessionObj.netCasinoWin * -1|number:0}})
+                                        </td>
+                                        <td class="wide-column" ng-if="sessionObj.netCasinoWin >= 0">{{sessionObj.netCasinoWin|number:0}}</td>
+                                        <td class="wide-column">{{sessionObj.theoWin | number:0}}</td>
+                                        <td class="wide-column">{{sessionObj.adjustedTurnover|number:0}}</td>
+                                        <td class="wide-column">{{sessionObj.avgBet | number:0}}</td>
+                                        <td class="wide-column">{{sessionObj.sessionStartDtm | date:'HH:mm'}}</td>
+                                        <td class="wide-column">{{sessionObj.sessionEndDtm | date:'HH:mm'}}</td>
+                                        <td class="TD-nowidth">
+                                            <a href="#" editable-number="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.IRC" onbeforesave="vm.updateIrc($data, sessionObj)">{{sessionObj.ircLabel}}</a>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row top-10" ng-hide="hideSearchbar">
+                    <div class="col-xs-6 col-xs-offset-3 manual-rating-modal">
+                        <select-user-search list="playerList"></select-user-search>
+                    </div>
+                </div>
+                <div class="row top-10 user-search_result_player" ng-if="playerList.length">
+                    <table class="table-default">
+                        <thead>
+                        <tr>
+                            <th translate="application.app.common.labels.PLAYER_ID">Player ID</th>
+                            <th translate="application.app.common.labels.PLAYER_NAME">Player Name</th>
+                            <th translate="application.app.common.labels.PREFERRED_NAME">Preferred Name</th>
+                            <th translate="application.app.common.labels.DATE_OF_BIRTH">Date of Birth</th>
+                            <th translate="application.app.common.labels.CITY">City</th>
+                            <th translate="application.app.common.labels.STATE">State</th>
+                            <th translate="application.app.common.labels.COUNTRY">Country</th>
+                            <th translate="application.app.common.labels.STOPE_CODES">Stop Codes</th>
+                        </tr>
+                        </thead>
+                        <tbody ng-init="vm.playerlistPopulated(playerList)">
+                        <tr ng-repeat="player in playerList" ng-click="vm.selectedPlayer(player)" wdts-confirm
+                            confirm-wrapper="'#confirmWrapper'"
+                            selectedplayer="vm.updatePlayerData"
+                            message=vm.playerDataOnConfirm
+                            text-on-success=""
+                            on-confirm="vm.confirmUpdate()"
+                            include-back-bets="includeBackBets"
+                            on-cancel="vm.closeUpdateSessionModal()" ng-show="(checkAll || sessionChecked) && checkedSessionIds.length>0">
+                            <td>{{player.casinoPlayerId}}</td>
+                            <td ng-if="player.playerName">{{player.playerName}}</td>
+                            <td ng-if="!player.playerName" translate="application.app.common.labels.ANONYMOUS">Anonymous</td>
+                            <td>{{player.preferredName}}</td>
+                            <td>{{player.dateOfBirth}}</td>
+                            <td>{{player.city}}</td>
+                            <td>{{player.state}}</td>
+                            <td>{{player.country}}</td>
+                            <td ng-if="player.stopCodes">
+                                <div ng-repeat="propertyStopCodes in player.stopCodes.propertyStopCodes">
+                                    <div ng-repeat="code in propertyStopCodes.code">
+                                        <span>{{code.stopCodeID}} :</span>
+                                        <span>{{code.stopCodeDescription}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div ng-show="confirmShows" class="row">
+                    <div class="col-xs-10 col-xs-offset-2 text-left">
+                        <div id="confirmWrapper" class="confirm-wrapper"></div>
+                    </div>
+                    <div ng-show="confirmed" class="col-xs-3 pull-right">
+                        <button class="btn btn-primary btn-margins" data-dismiss="modal">Done</button>
+                    </div>
+                </div>
+                <include-back-bets close-update-session-modal="vm.closeUpdateSessionModal" include-back-bets="includeBackBets" is-cbpt-enabled="isCBPTEnabled"></include-back-bets>
+            </div>
+        </div>
+    </div>
+</div>

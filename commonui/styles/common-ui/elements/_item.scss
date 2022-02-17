@@ -1,0 +1,83 @@
+.item-view-row {
+  padding: 7px 15px 8px;
+  margin: 0 0 6px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+
+  &:hover {
+    background: $white;
+  }
+
+  .width-13 {
+    width: 13%;
+  }
+
+  .width-12, .width-13, .width-14 {
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &.small-topMargin {
+    margin-top: 36px;
+  }
+}
+
+.item-view-row-header {
+  margin-bottom: 13px;
+  font-weight: 700;
+  color: $gold;
+  text-transform: uppercase;
+}
+
+.item-data-label {
+  font-weight: 700;
+  color: $gold;
+}
+
+.item-data-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.item-highlight {
+  background: #008000;
+  color: white;
+}
+
+.list-item-flex {
+  flex: 1;
+
+  .item-data-value {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 70px;
+    max-height: 30px;
+  }
+}
+
+
+@media (min-width: 700px) {
+  .item-data-label {
+    font-size: 11px;
+  }
+
+  .item-data-value {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1050px) {
+  .item-data-label {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .item-data-label {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,166 @@
+.bootstrap-datetimepicker-widget {
+  > ul {
+    padding: 0;
+  }
+
+  .picker-switch a {
+    display: block;
+    padding: 7px 0 2px;
+    margin: 6px 0;
+    background-color: #f2ede5;
+    border-radius: 5px;
+  }
+
+  th {
+    &.prev, &.next {
+      position: relative;
+      text-indent: -9999em;
+
+      &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        color: $gold;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        content: '';
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &.prev:after {
+      border-top: 5px solid transparent;
+      border-right: 5px dashed;
+      border-left: 0;
+    }
+
+    &.next:after {
+      border-right: 0;
+      border-left: 5px dashed;
+    }
+  }
+
+  td {
+    position: relative;
+    width: calc(100% / 7);
+
+    &.active {
+      &:active, &:hover:active, &.active, &:hover.active {
+        background: $gold;
+
+        &:after {
+          position: absolute;
+          right: 4px;
+          bottom: 4px;
+          display: block;
+          color: #fff;
+          border-bottom: 7px solid $white;
+          border-left: 7px solid transparent;
+          content: '';
+        }
+      }
+    }
+  }
+
+  &.dropdown-menu {
+    z-index: 1050;
+    width: 200px;
+    min-width: 200px;
+  }
+}
+
+.timepicker {
+  margin: 5px 0;
+
+  .icon-chevron-up,
+  .icon-chevron-down {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    color: $gold;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: '';
+    transform: translate(-50%, -50%);
+  }
+
+  .icon-chevron-up {
+    border-top: 0;
+    border-bottom: 5px dashed;
+  }
+
+  .icon-chevron-down {
+    border-top: 5px dashed;
+    border-bottom: 0;
+  }
+
+  a:active {
+    box-shadow: none;
+  }
+
+  .dropdown-menu:not(.fluid-dropdown-menu):not(.applications-menu) {
+    min-width: 200px;
+    overflow-y: visible;
+  }
+
+  .filters-slider-header,
+  .glyphicon, .separator {
+    color: $gold;
+    font-size: 24px;
+    padding: 10px 4px;
+  }
+
+  .filters-slider-header {
+    padding: 0;
+    font-size: 18px;
+  }
+
+  .glyphicon-chevron-up {
+    font-size: 24px;
+    padding: 10px;
+  }
+
+  .separator {
+    font-size: 30px;
+    line-height: 1;
+    top: 35px;
+    position: relative;
+    margin-left: -5px;
+  }
+
+  .glyphicon {
+    cursor: pointer;
+  }
+}
+
+.timepicker {
+  margin:0;
+
+  .dropdown-body {
+    overflow:hidden;
+  }
+}
+
+.timepicker-hour, .timepicker-minute {
+  left: 8px;
+  position: relative;
+}
+
+.datetimepicker {
+  position: relative;
+
+  &:hover .input-datetimepicker {
+    border-color: $dark-red;
+  }
+
+  .input-datetimepicker {
+    border: 1px solid $gold;
+  }
+}
+
+.angularjs-datetime-picker {
+  z-index: 1050 !important;
+}

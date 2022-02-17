@@ -1,0 +1,1716 @@
+<script id="carousel-control.html" type="text/ng-template">
+    <a class="left carousel-control" href="" role="button"
+       ng-click="showPrevBets()" ng-if="start > 0">
+        <img src='bower_components/wdts-common-ui/assets/img/carousel-nav-left.svg'/>
+        <span class="sr-only" translate="application.app.common.labels.PREVIOUS">Previous</span>
+    </a>
+    <a class="right carousel-control" href="" role="button"
+       ng-click="showNextBets()">
+        <img src='bower_components/wdts-common-ui/assets/img/carousel-nav-right.svg'/>
+        <span class="sr-only" translate="application.app.common.labels.NEXT">Next</span>
+    </a>
+</script>
+<div class='modal fade modal-game-details' id='game-detail-modal'>
+    <div class='modal-dialog modal-lg'>
+        <div class="modal-content has-sticky-header has-sticky-footer sm-paddings" style="overflow:hidden">
+            <header class="modal-sticky-header navbar-fixed-top">
+                <div class='row'>
+                    <div class="col-xs-3">
+                        <h3 class='tab-content-header-title'>
+                            <span translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.GAME_ID">
+                                Game ID
+                            </span>
+                            {{gameId}},
+                            <span translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.SHOE_ID">
+                                Shoe ID
+                            </span>
+                            {{shoeIdForDisplay}}
+                        </h3>
+                    </div>
+                    <div class='col-xs-6'>
+                        <div class='shoe-cards-wrapper'>
+                            <div class='row'>
+                                <div class='col-xs-6'>
+                                    <div class='cards-on-left'>
+                                        <span class='side-title'
+                                              translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.B">B</span>
+                                        <div class='shoe-cards-container'>
+                                            <div class='shoe-card-cover'>
+                                                <div class='shoe-card counter-landscape'
+                                                     ng-show="bankerCards.length > 2">
+                                                    <div class='card-value'>{{bankerCards[2].value}}</div>
+                                                    <div class="icon-suit-hearts at-mid"
+                                                         ng-if="bankerCards[2].class=='h'"></div>
+                                                    <div class="icon-suit-spades at-mid"
+                                                         ng-if="bankerCards[2].class=='s'"></div>
+                                                    <div class="icon-suit-clubs at-mid"
+                                                         ng-if="bankerCards[2].class=='c'"></div>
+                                                    <div class="icon-suit-diamonds at-mid"
+                                                         ng-if="bankerCards[2].class=='d'"></div>
+                                                </div>
+                                            </div>
+                                            <div class='shoe-card-cover'>
+                                                <div class='shoe-card'>
+                                                    <div class='card-value'>{{bankerCards[1].value}}</div>
+                                                    <div class="icon-suit-hearts at-mid"
+                                                         ng-if="bankerCards[1].class=='h'"></div>
+                                                    <div class="icon-suit-spades at-mid"
+                                                         ng-if="bankerCards[1].class=='s'"></div>
+                                                    <div class="icon-suit-clubs at-mid"
+                                                         ng-if="bankerCards[1].class=='c'"></div>
+                                                    <div class="icon-suit-diamonds at-mid"
+                                                         ng-if="bankerCards[1].class=='d'"></div>
+                                                </div>
+                                            </div>
+                                            <div class='shoe-card-cover'>
+                                                <div class='shoe-card'>
+                                                    <div class='card-value'>{{bankerCards[0].value}}</div>
+                                                    <div class="icon-suit-hearts at-mid"
+                                                         ng-if="bankerCards[0].class=='h'"></div>
+                                                    <div class="icon-suit-spades at-mid"
+                                                         ng-if="bankerCards[0].class=='s'"></div>
+                                                    <div class="icon-suit-clubs at-mid"
+                                                         ng-if="bankerCards[0].class=='c'"></div>
+                                                    <div class="icon-suit-diamonds at-mid"
+                                                         ng-if="bankerCards[0].class=='d'"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='col-xs-6'>
+                                    <div class='cards-on-right'>
+                                        <span class='side-title'
+                                              translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.P">P</span>
+                                        <div class='shoe-cards-container'>
+                                            <div class='shoe-card-cover'>
+                                                <div class='shoe-card'>
+                                                    <div class='card-value'>{{playerCards[0].value}}</div>
+                                                    <div class="icon-suit-hearts at-mid"
+                                                         ng-if="playerCards[0].class=='h'"></div>
+                                                    <div class="icon-suit-spades at-mid"
+                                                         ng-if="playerCards[0].class=='s'"></div>
+                                                    <div class="icon-suit-clubs at-mid"
+                                                         ng-if="playerCards[0].class=='c'"></div>
+                                                    <div class="icon-suit-diamonds at-mid"
+                                                         ng-if="playerCards[0].class=='d'"></div>
+                                                </div>
+                                            </div>
+                                            <div class='shoe-card-cover'>
+                                                <div class='shoe-card'>
+                                                    <div class='card-value'>{{playerCards[1].value}}</div>
+                                                    <div class="icon-suit-hearts at-mid"
+                                                         ng-if="playerCards[1].class=='h'"></div>
+                                                    <div class="icon-suit-spades at-mid"
+                                                         ng-if="playerCards[1].class=='s'"></div>
+                                                    <div class="icon-suit-clubs at-mid"
+                                                         ng-if="playerCards[1].class=='c'"></div>
+                                                    <div class="icon-suit-diamonds at-mid"
+                                                         ng-if="playerCards[1].class=='d'"></div>
+                                                </div>
+                                            </div>
+                                            <div class='shoe-card-cover'>
+                                                <div class='shoe-card counter-landscape'
+                                                     ng-show="playerCards.length > 2">
+                                                    <div class='card-value'>{{playerCards[2].value}}</div>
+                                                    <div class="icon-suit-hearts at-mid"
+                                                         ng-if="playerCards[2].class=='h'"></div>
+                                                    <div class="icon-suit-spades at-mid"
+                                                         ng-if="playerCards[2].class=='s'"></div>
+                                                    <div class="icon-suit-clubs at-mid"
+                                                         ng-if="playerCards[2].class=='c'"></div>
+                                                    <div class="icon-suit-diamonds at-mid"
+                                                         ng-if="playerCards[2].class=='d'"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-xs-3'>
+                        <div class='text-center'>
+                            <p class='instruction-text' translate="application.app.common.labels.RESULT">RESULT</p>
+                            <h2 class='highlight'>{{gameResultString}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class='modal-body'>
+                <div class='row'>
+                    <div class='col-xs-12'>
+                        <div class='game-player-cards flip-game-player-cards clearfix'>
+                            <div ng-repeat="bet in bets track by $index">
+                                <div class='game-player-card has-multiple-players' ng-if="bet.numBets > 0"
+                                     ng-class="{'five-position':vm.tablePositions == 5, 'seven-position':vm.tablePositions == 7}">
+                                    <header class="game-player-card-number" ng-if="$index <= 2">{{$index+1}}</header>
+                                    <header class="game-player-card-number" ng-if="$index >= 3">{{$index+2}}</header>
+
+                                    <div class='game-player-card-wrapper'>
+                                        <div class='game-player-card-container'>
+                                            <div class='game-player-card-content'>
+                                                <div class='game-player-known game-player-overlap-container' ng-click="vm.swapItemSelection(bet.player[0], $index)">
+                                                    <div class='game-player-wrapper clearfix'>
+                                                        <header class='game-player-card-title'>
+                                                            <div class='pull-left'>
+                                                                <img ng-if="bet.player[0].isKnownPlayer == false"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     ng-click="openPlayerDashboard($event, bet.player[0])"
+                                                                     class="game-player-image"
+                                                                     src="../bower_components/wdts-common-ui/assets/img/game-player-default.svg"
+                                                                     alt="Anonymous"/>
+                                                                <img ng-if="bet.player[0].isKnownPlayer == true"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     ng-click="openPlayerDashboard($event, bet.player[0])"
+                                                                     class="game-player-image"
+                                                                     ng-src="{{bet.player[0].player.casinoPlayer.imageUrl}}"
+                                                                     alt="{{bet.player[0].playerName}}"/></div>
+
+                                                            <div ng-if="bet.player[0].isKnownPlayer == false">
+                                                                <h3>
+                                                                    <span class='icon-status active-anonymous-player'
+                                                                          title='Active Anonymous Player'></span>
+                                                                    <span translate="application.app.common.labels.ANONYMOUS">Anonymous</span>
+                                                                </h3>
+                                                                <p ng-if="isCBPTEnabled">(ID {{bet.player[0].player.playerId}})</p>
+                                                            </div>
+
+                                                            <div ng-if="bet.player[0].isKnownPlayer == true">
+                                                                <h3>
+                                                                    <span ng-if="bet.player[0].clockInEventDtm == null"
+                                                                          class='icon-status active-known-player'
+                                                                          title='Active known Player'
+                                                                          wdts-confirm
+                                                                          include-back-bets="includeBackBets"
+                                                                          on-confirm="vm.ratePlayer(bet.player[0])"
+                                                                          confirm-wrapper="'#confirmWrapper'"
+                                                                          message="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.WANT_RATE' | translate"
+                                                                          text-on-success="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.RATE_UPDATED' | translate"></span>
+                                                                    <span ng-if="bet.player[0].clockInEventDtm != null"
+                                                                          class='icon-status active-rated-player'
+                                                                          title='Active rated Player'></span>
+                                                                    {{bet.player[0].playerName}}
+                                                                </h3>
+                                                                <p>(ID {{bet.player[0].casinoPlayerId}})</p>
+                                                            </div>
+                                                        </header>
+                                                    </div>
+                                                    <div class='game-player-data'>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.SESSION_WL">Session W/L</span>:
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[0].netCasinoWin < 0"
+                                                                 style="color:red">({{bet.player[0].netCasinoWin * -1
+                                                                |number:0}})
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[0].netCasinoWin >= 0">
+                                                                {{bet.player[0].netCasinoWin |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.HANDLE">Handle</span>:
+                                                            </div>
+                                                            <div class="item-data-value">
+                                                                {{bet.player[0].adjustedTurnover|number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix" ng-if="isluckyChipEnable">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.CAM_CASHIER_LABELS.BONUS_AWARD.BONUS_AWARD">Bonus Award</span>:
+                                                            </div>
+                                                            <div class="item-data-value">
+                                                                {{bet.player[0].bonus|number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.Avg_bet">Avg. bet</span>:
+                                                            </div>
+                                                            <div class="item-data-value">{{bet.player[0].avgBet
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.START_TIME">Start time</span>:
+                                                            </div>
+                                                            <div class="item-data-value">{{bet.player[0].sessionStartDtm
+                                                                | date:'HH:mm'}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix"
+                                                             ng-if="bet.player[0].clockInEventDtm != null">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.SESSION_BUY_IN">Session Buy In</span>:
+                                                            </div>
+                                                            <div class="item-data-value">{{bet.player[0].sessionBuyIn |
+                                                                number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.GAME_WIN_LOSS">Game W/L</span>:
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(bet.player[0].player.playerId + '_' + bet.player[0].sessionId + '_' + bet.positionIdx) >= 0">
+                                                                {{playerWLMap.get(bet.player[0].player.playerId + '_' + bet.player[0].sessionId + '_' + bet.positionIdx) |
+                                                                number:0}}
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(bet.player[0].player.playerId + '_' + bet.player[0].sessionId + '_' + bet.positionIdx) < 0"
+                                                                 style="color:red;">
+                                                                ({{(playerWLMap.get(bet.player[0].player.playerId + '_' + bet.player[0].sessionId + '_' + bet.positionIdx)) * -1
+                                                                | number:0}})
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[0].betType.indexOf('PLAYER') == -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.P">
+                                                                P
+                                                            </div>
+
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[0].betType.indexOf('PLAYER') != -1">
+                                                                <div ng-repeat="wager in bet.player[0].betsOnPosition.betsOnPositionP track by $index">
+                                                                    <span ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status == 'LOSE'}">{{wager.wager | number:0}}</span>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[0].betType.indexOf('BANKER')== -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.B">
+                                                                B
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[0].betType.indexOf('BANKER') != -1">
+                                                                <span ng-repeat="wager in bet.player[0].betsOnPosition.betsOnPositionB track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status == 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[0].betType.indexOf('PLAYER_PAIR')== -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.PP">
+                                                                PP
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[0].betType.indexOf('PLAYER_PAIR') != -1">
+                                                                <span ng-repeat="wager in bet.player[0].betsOnPosition.betsOnPositionPP track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status == 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[0].betType.indexOf('BANKER_PAIR')== -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.BP">
+                                                                BP
+                                                            </div>
+
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[0].betType.indexOf('BANKER_PAIR') != -1">
+                                                                <span ng-repeat="wager in bet.player[0].betsOnPosition.betsOnPositionBP track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status == 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[0].betType.indexOf('TIE')== -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.T">
+                                                                T
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[0].betType.indexOf('TIE')!= -1">
+                                                                <span ng-repeat="wager in bet.player[0].betsOnPosition.betsOnPositionT track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status == 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-if="isLucky6"
+                                                             ng-class="{'empty':bet.player[0].betType.indexOf('LUCKY_SIX')== -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.L6">
+                                                                L6
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[0].betType.indexOf('LUCKY_SIX')!= -1">
+                                                                <span ng-repeat="wager in bet.player[0].betsOnPosition.betsOnPositionL6 track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status === 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[0].betType.indexOf('T4_BAKULAN')== -1 || bet.player[0].betType.indexOf('T5_BAKULAN')== -1}" ng-if="isGEnabledInsurance">
+
+                                                            <div class="item-data-label"
+                                                                 translate="I">
+                                                                I
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[0].betType.indexOf('T4_BAKULAN')!= -1 || bet.player[0].betType.indexOf('T5_BAKULAN')!= -1">
+                                                                <span ng-repeat="wager in bet.player[0].betsOnPosition.betsOnPositionI track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status === 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div ng-if="bet.player[0]._selected" class="game-player-overlap">
+                                                        <button type="button" class="close" ng-if="bet.player[0]._selected" ng-click="closeUpdateOption($event,$index);">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <div style="margin-top: 80px;">
+                                                            <div ng-if="!bet.player[0].isKnownPlayer" class="icon-stamp icon-update text-center"
+                                                                 ng-click="vm.updatePPId(bet.player[0])"
+                                                                 ng-if="bet.player[0].clockInEventDtm == null" ng-hide="!hasUpdateOpenAnonPerm">
+                                                                <img src="/bower_components/wdts-common-ui/assets/icons/icon-update-new.png" width="49px" height="42px" />
+                                                                <p translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.UPDATE">Update</p>
+                                                            </div>
+                                                            <div ng-if="bet.player[0].isKnownPlayer && (hasUpdateOpenKnownPerm || hasRateOpenKnownPerm)">
+                                                                <div ng-hide="hideRate_update || !hasUpdateOpenKnownPerm" class="icon-stamp icon-update text-center"
+                                                                     ng-click="vm.updatePPId(bet.player[0])"
+                                                                     ng-if="bet.player[0].clockInEventDtm == null">
+                                                                    <img src="/bower_components/wdts-common-ui/assets/icons/icon-update-new.png" width="49px" height="42px" />
+                                                                    <p translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.UPDATE">Update</p>
+                                                                </div>
+                                                                <div ng-hide="hideRate_update || !hasRateOpenKnownPerm" class="icon-stamp text-center"
+                                                                     ng-click="vm.onRateClick($event)"
+                                                                     wdts-confirm
+                                                                     include-back-bets="includeBackBets"
+                                                                     on-confirm="vm.ratePlayer(bet.player[0])"
+                                                                     confirm-wrapper="'#confirmWrapper'"
+                                                                     message="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.WANT_RATE' | translate"
+                                                                     text-on-success="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.RATE_UPDATED' | translate"
+                                                                     selectedplayer="updatePlayerData">
+                                                                    <div class="icon-rate"></div>
+                                                                    <p translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.RATE">Rate</p>
+                                                                </div>
+                                                                <div id="confirmWrapper" class="confirm-wrapper"></div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class='game-player-backbetter game-player-overlap-container'
+                                                     ng-if="bet.player.length > 1 && $index >0"
+                                                     ng-repeat="player in bet.player track by $index"
+                                                     ng-click="vm.swapItemSelection(bet.player[$index], bet.positionIdx, bet.numBets > 1)">
+                                                    <div class='game-player-wrapper clearfix'>
+                                                        <header class='game-player-card-title'>
+                                                            <div class="pull-left">
+                                                                <img ng-if="bet.player[$index].isKnownPlayer == false"
+                                                                     class="game-player-image"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     ng-click="openPlayerDashboard($event, bet.player[$index])"
+                                                                     src="../bower_components/wdts-common-ui/assets/img/game-player-default.svg"
+                                                                     alt="Anonymous"/>
+                                                                <img ng-if="bet.player[$index].isKnownPlayer == true"
+                                                                     class="game-player-image"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     ng-click="openPlayerDashboard($event, bet.player[$index])"
+                                                                     ng-src="{{bet.player[$index].player.casinoPlayer.imageUrl}}"
+                                                                     alt="{{bet.player[$index].playerName}}"/>
+                                                            </div>
+                                                            <div ng-if="bet.player[$index].isKnownPlayer == false">
+                                                                <h3>
+                                                                    <span wdts-confirm
+                                                                          include-back-bets="includeBackBets"
+                                                                          confirm-wrapper="'#confirmWrapper'"
+                                                                          on-confirm="vm.updateSession()"
+                                                                          on-cancel="vm.cancelUpdateSession()"
+                                                                          message=vm.playerDataOnConfirm
+                                                                          selectedplayer="updatePlayerData"
+                                                                          text-on-success="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.RATE_UPDATED' | translate"
+                                                                          class='icon-status active-anonymous-player'
+                                                                          title='Active Anonymous Player'></span>
+                                                                    <span translate="application.app.common.labels.ANONYMOUS">Anonymous</span>
+                                                                </h3>
+                                                                <p ng-if="isCBPTEnabled">(ID {{bet.player[$index].player.playerId}})</p>
+                                                            </div>
+                                                            <div ng-if="bet.player[$index].isKnownPlayer == true">
+                                                                <h3><span
+                                                                        ng-if="bet.player[$index].clockInEventDtm == null"
+                                                                        class='icon-status active-known-player'
+                                                                        title='Active known Player'></span>
+                                                                    <span
+                                                                            wdts-confirm
+                                                                            include-back-bets="includeBackBets"
+                                                                            on-confirm="vm.ratePlayer(bet.player[$index])"
+                                                                            confirm-wrapper="'#confirmWrapper'"
+                                                                            message="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.WANT_RATE' | translate"
+                                                                            text-on-success="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.RATE_UPDATED' | translate"
+                                                                            ng-if="bet.player[$index].clockInEventDtm != null"
+                                                                            class='icon-status active-rated-player'
+                                                                            title='Active rated Player'></span>{{bet.player[$index].playerName}}
+                                                                </h3>
+                                                                <p>(ID {{bet.player[$index].casinoPlayerId}})</p>
+                                                            </div>
+                                                        </header>
+                                                    </div>
+                                                    <div class='game-player-data'>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.SESSION_WL">Session W/L</span>:
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[$index].netCasinoWin < 0"
+                                                                 style="color:red">({{bet.player[$index].netCasinoWin *
+                                                                -1 |number:0}})
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[$index].netCasinoWin >= 0">
+                                                                {{bet.player[$index].netCasinoWin |number:0}}
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.HANDLE">Handle</span>:
+                                                            </div>
+                                                            <div class="item-data-value">
+                                                                {{bet.player[$index].adjustedTurnover |number:0}}
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row clearfix" ng-if="isluckyChipEnable">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.CAM_CASHIER_LABELS.BONUS_AWARD.BONUS_AWARD">Bonus Award</span>:
+                                                            </div>
+                                                            <div class="item-data-value">
+                                                                {{bet.player[$index].bonus |number:0}}
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.Avg_bet">Avg. bet</span>:
+                                                            </div>
+                                                            <div class="item-data-value">{{bet.player[$index].avgBet
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.START_TIME">
+                                                                Start time:
+                                                            </div>
+                                                            <div class="item-data-value">
+                                                                {{bet.player[$index].sessionStartDtm | date:'HH:mm'}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix"
+                                                             ng-if="bet.player[$index].clockInEventDtm != null">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.SESSION_BUY_IN">Session Buy In</span>:
+                                                            </div>
+                                                            <div class="item-data-value">
+                                                                {{bet.player[$index].sessionBuyIn | number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.GAME_WIN_LOSS">Game W/L</span>:
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(bet.player[$index].player.playerId + '_' + bet.player[$index].sessionId + '_' + bet.positionIdx) >= 0">
+                                                                {{playerWLMap.get(bet.player[$index].player.playerId + '_' + bet.player[$index].sessionId + '_' + bet.positionIdx) |
+                                                                number:0}}
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(bet.player[$index].player.playerId + '_' + bet.player[$index].sessionId + '_' + bet.positionIdx) < 0"
+                                                                 style="color:red;">
+                                                                ({{(playerWLMap.get(bet.player[$index].player.playerId + '_' + bet.player[$index].sessionId + '_' + bet.positionIdx))
+                                                                * -1 | number:0}})
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[$index].betType.indexOf('PLAYER') == -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.P">
+                                                                P
+                                                            </div>
+
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[$index].betType.indexOf('PLAYER') != -1">
+                                                                <span ng-repeat="wager in bet.player[$index].betsOnPosition.betsOnPositionP track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status == 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[$index].betType.indexOf('BANKER')== -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.B">
+                                                                B
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[$index].betType.indexOf('BANKER') != -1">
+                                                                <span ng-repeat="wager in bet.player[$index].betsOnPosition.betsOnPositionB track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status == 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[$index].betType.indexOf('PLAYER_PAIR')== -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.PP">
+                                                                PP
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[$index].betType.indexOf('PLAYER_PAIR') != -1">
+                                                                <span ng-repeat="wager in bet.player[$index].betsOnPosition.betsOnPositionPP track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status == 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[$index].betType.indexOf('BANKER_PAIR')== -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.BP">
+                                                                BP
+                                                            </div>
+
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[$index].betType.indexOf('BANKER_PAIR') != -1">
+                                                                <span ng-repeat="wager in bet.player[$index].betsOnPosition.betsOnPositionBP track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status == 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[$index].betType.indexOf('TIE')== -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.T">
+                                                                T
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[$index].betType.indexOf('TIE')!= -1">
+                                                                <span ng-repeat="wager in bet.player[$index].betsOnPosition.betsOnPositionT track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status == 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix" ng-if="isLucky6"
+                                                             ng-class="{'empty':bet.player[$index].betType.indexOf('LUCKY_SIX')== -1}">
+
+                                                            <div class="item-data-label"
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.L6">
+                                                                L6
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[$index].betType.indexOf('LUCKY_SIX')!= -1">
+                                                                <span ng-repeat="wager in bet.player[$index].betsOnPosition.betsOnPositionL6 track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status === 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="game-player-card-data-row game-player-bet-data-row clearfix"
+                                                             ng-class="{'empty':bet.player[$index].betType.indexOf('T4_BAKULAN')== -1 || bet.player[$index].betType.indexOf('T5_BAKULAN')== -1}" ng-if="isGEnabledInsurance">
+
+                                                            <div class="item-data-label"
+                                                                 translate="I">
+                                                                I
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="bet.player[$index].betType.indexOf('T4_BAKULAN')!= -1 || bet.player[$index].betType.indexOf('T5_BAKULAN')!= -1">
+                                                                <span ng-repeat="wager in bet.player[$index].betsOnPosition.betsOnPositionI track by $index"><span
+                                                                        ng-if="$index > 0">/</span><span
+                                                                        ng-class="{'wagerStatus': wager.status === 'LOSE'}">{{wager.wager | number:0}}</span></span>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div ng-if="bet.player[$index]._selected" class="game-player-overlap">
+                                                        <button type="button" class="close" ng-click="closeBackbetUpdateOption($event, bet.positionIdx, $index);">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <div style="margin-top: 80px;">
+                                                            <div ng-if="!bet.player[$index].isKnownPlayer"
+                                                                 class="icon-stamp icon-update text-center"
+                                                                 ng-click="vm.updatePPId(bet.player[$index])"
+                                                                 ng-if="bet.player[$index].clockInEventDtm == null">
+                                                                <img src="/bower_components/wdts-common-ui/assets/icons/icon-update-new.png" width="49px" height="42px" />
+                                                                <p translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.UPDATE">Update</p>
+                                                            </div>
+                                                            <div ng-if="bet.player[$index].isKnownPlayer">
+                                                                <div ng-hide="hideRate_update" class="icon-stamp icon-update text-center"
+                                                                     ng-click="vm.updatePPId(bet.player[$index])"
+                                                                     ng-if="bet.player[$index].clockInEventDtm == null">
+                                                                    <img src="/bower_components/wdts-common-ui/assets/icons/icon-update-new.png" width="49px" height="42px" />
+                                                                    <p translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.UPDATE">Update</p>
+                                                                </div>
+                                                                <div ng-hide="hideRate_update" class="icon-stamp text-center"
+                                                                     ng-click="vm.onRateClick($event)" wdts-confirm
+                                                                     include-back-bets="includeBackBets"
+                                                                     on-confirm="vm.ratePlayer(bet.player[0])"
+                                                                     confirm-wrapper="'.confirmWrapper'"
+                                                                     message="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.WANT_RATE' | translate"
+                                                                     text-on-success="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.RATE_UPDATED' | translate"
+                                                                     selectedplayer="updatePlayerData"
+                                                                >
+                                                                    <div class="icon-rate"></div>
+                                                                    <p translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.RATE">Rate</p>
+                                                                </div>
+                                                                <div class="confirmWrapper" class="confirm-wrapper"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div ng-if="bet.numBets == 0" class='game-player-card empty'
+                                     ng-class="{'five-position':vm.tablePositions == 5, 'seven-position':vm.tablePositions == 7}">
+                                    <header class="game-player-card-number" ng-if="$index <= 2">{{$index+1}}</header>
+                                    <header class="game-player-card-number" ng-if="$index >= 3">{{$index+2}}</header>
+                                    <div class='game-player-known'>
+                                        <div class='game-player-card-wrapper'>
+                                            <div class='game-player-card-container'>
+                                                <div class='game-player-card-content'>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-sticky-footer navbar-fixed-bottom">
+                <!-- <hr> -->
+                <div class='row' ng-if="!isNPPT">
+                    <div class="col-xs-3">
+                        <h3 class='tab-content-header-title'
+                            translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.INDEPENDENT_BETS">
+                            Independent Bets</h3>
+                    </div>
+                    <div class='col-xs-9'>
+
+                        <div class='col-xs-{{isLucky6 ? 3 : 4}}' ng-click="vm.showBets(vm.independentBetsPopupIDs[0])">
+                            <div class='supervisor-footer-content'>
+                                <div class='row'>
+                                    <div class='col-xs-4'>
+                                        <div class='item-data-label'
+                                             translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.BP">
+                                            BP
+                                        </div>
+                                    </div>
+                                    <div class='col-xs-8'>
+                                        <div class='item-data-value'>{{independentBets_BP_Total |number:0}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='col-xs-{{isLucky6 ? 3 : 4}}' ng-click="vm.showBets(vm.independentBetsPopupIDs[1])">
+                            <div class='supervisor-footer-content'>
+                                <div class='row'>
+                                    <div class='col-xs-4'>
+                                        <div class='item-data-label'
+                                             translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.PP">
+                                            PP
+                                        </div>
+                                    </div>
+                                    <div class='col-xs-8'>
+                                        <div class='item-data-value'>{{independentBets_PP_Total |number:0}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='col-xs-{{isLucky6 ? 3 : 4}}' ng-click="vm.showBets(vm.independentBetsPopupIDs[2])">
+                            <div class='supervisor-footer-content'>
+                                <div class='row'>
+                                    <div class='col-xs-4'>
+                                        <div class='item-data-label'
+                                             translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.T">T
+                                        </div>
+                                    </div>
+                                    <div class='col-xs-8'>
+                                        <div class='item-data-value'>{{independentBets_Tie_Total |number:0}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='col-xs-3' ng-if="isLucky6" ng-click="vm.showBets(vm.independentBetsPopupIDs[3])">
+                            <div class='supervisor-footer-content'>
+                                <div class='row'>
+                                    <div class='col-xs-4'>
+                                        <div class='item-data-label'
+                                             translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.L6">L6
+                                        </div>
+                                    </div>
+                                    <div class='col-xs-8'>
+                                        <div class='item-data-value'>{{independentBets_L6_Total |number:0}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="pull-left">
+                        <p class="instruction-text"></p>
+                    </div>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            translate="application.app.common.labels.CLOSE">Close
+                    </button>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<div id='{{vm.independentBetsPopupIDs[0]}}' class='modal modal-independent-players-details'>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <header class='modal-header'>
+                <div class='modal-independent-bets-title'
+                     translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.BP">BP
+                </div>
+                <span class='close' data-dismiss='modal'>
+                        <img src='bower_components/wdts-common-ui/assets/icons/icon-close-sm-gold.svg'/>
+                    </span>
+            </header>
+            <section class='modal-body'>
+
+                <div class='independent-players-carousel-wrapper carousel slide' data-ride='carousel'
+                     id='independent-bp-players-carousel'>
+
+                    <ol class='carousel-indicators' ng-include="'carousel-indicators.html'">
+                    </ol>
+
+                    <div class='carousel-inner' role='list-box'>
+
+                        <div class='item active'>
+
+                            <div class='game-player-cards'>
+
+                                <div class='game-player-card'
+                                     ng-repeat="player in independentBP| myLimitTo:showLimit:start">
+                                    <div class='game-player-card-wrapper'>
+                                        <div class='game-player-card-container'
+                                             ng-click="vm.swapItemSelection(player)">
+                                            <div class='game-player-card-content '>
+                                                <div class='game-player-known'>
+                                                    <div class='game-player-wrapper clearfix'>
+                                                        <header class='game-player-card-title'>
+                                                            <div class="pull-left">
+                                                                <img ng-if="player.isKnownPlayer == false"
+                                                                     class="game-player-image"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     src="../bower_components/wdts-common-ui/assets/img/game-player-default.svg"
+                                                                     alt="Anonymous" ng-click="openPlayerDashboard($event,player)"/>
+                                                                <img ng-if="player.isKnownPlayer == true"
+                                                                     class="game-player-image"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     ng-src="{{player.player.casinoPlayer.imageUrl}}"
+                                                                     alt="{{player.playerName}}" ng-click="openPlayerDashboard($event,player)"/>
+                                                            </div>
+                                                            <div ng-if="player.isKnownPlayer == false">
+                                                                <h3><span class='icon-status active-anonymous-player'
+                                                                          title='Active Anonymous Player'></span><span
+                                                                        translate="application.app.common.labels.ANONYMOUS">Anonymous</span>
+                                                                </h3>
+                                                                <p ng-if="isCBPTEnabled">(ID {{player.player.playerId}})</p>
+                                                            </div>
+                                                            <div ng-if="player.isKnownPlayer == true">
+                                                                <h3><span ng-if="player.clockInEventDtm == null"
+                                                                          class='icon-status active-known-player'
+                                                                          title='Active Anonymous Player'></span>
+                                                                    <span ng-if="player.clockInEventDtm != null"
+                                                                          class='icon-status active-rated-player'
+                                                                          title='Active Anonymous Player'></span>{{player.playerName}}
+                                                                </h3>
+                                                                <p>(ID {{player.casinoPlayerId}})</p>
+                                                            </div>
+                                                        </header>
+                                                    </div>
+                                                    <div class='game-player-data'>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.SESSION_WL">Session W/L</span>
+                                                            </div>
+                                                            <div class="item-data-value" ng-if="player.netCasinoWin < 0"
+                                                                 style="color:red">({{player.netCasinoWin * -1
+                                                                |number:0}})
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="player.netCasinoWin >= 0">{{player.netCasinoWin
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.HANDLE">
+                                                                Handle
+                                                            </div>
+                                                            <div class="item-data-value">{{player.adjustedTurnover
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix' ng-if="isluckyChipEnable">
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.CAM_CASHIER_LABELS.BONUS_AWARD.BONUS_AWARD">
+                                                                Bonus Award
+                                                            </div>
+                                                            <div class="item-data-value">{{player.bonus
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.Avg_bet">
+                                                                Avg. bet
+                                                            </div>
+                                                            <div class='item-data-value'>{{player.avgBet |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.START_TIME">
+                                                                Start time
+                                                            </div>
+                                                            <div class='item-data-value'>{{player.sessionStartDtm |
+                                                                date:'HH:mm'}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix"
+                                                             ng-if="player.clockInEventDtm != null">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.SESSION_BUY_IN">Session Buy In</span>:
+                                                            </div>
+                                                            <div class="item-data-value">{{player.sessionBuyIn |
+                                                                number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.GAME_WIN_LOSS">Game W/L</span>:
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) >= 0">
+                                                                {{playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) | number:0}}
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) < 0"
+                                                                 style="color:red;">
+                                                                ({{(playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel)) * -1 |
+                                                                number:0}})
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.P">
+                                                                P
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row empty clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.B">
+                                                                B
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.PP">
+                                                                PP
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.BP">
+                                                                BP
+                                                            </div>
+                                                            <div class='item-data-value'><span
+                                                                    ng-class="{'wagerStatus': player.status == 'LOSE'}">{{player.wager | number:0}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row empty clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.T">
+                                                                T
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row empty clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.L6">
+                                                                L6
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class='item'>
+                            <div class='game-player-cards'>
+                            </div>
+                        </div>
+
+                        <div class='item'>
+                            <div class='game-player-cards'>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <ng-include ng-show="independentBP.length > 5" src="'carousel-control.html'"></ng-include>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class='modal-custom-backdrop'></div>
+</div>
+
+<div id='{{vm.independentBetsPopupIDs[1]}}' class='modal modal-independent-players-details'>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <header class='modal-header'>
+                <div class='modal-independent-bets-title'
+                     translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.PP">PP
+                </div>
+                <span class='close' data-dismiss='modal'>
+                        <img src='bower_components/wdts-common-ui/assets/icons/icon-close-sm-gold.svg'/>
+                    </span>
+            </header>
+            <section class='modal-body'>
+
+                <div class='independent-players-carousel-wrapper carousel slide' data-ride='carousel'
+                     id='independent-pp-players-carousel'>
+
+                    <ol class='carousel-indicators' ng-include="'carousel-indicators.html'">
+                    </ol>
+
+                    <div class='carousel-inner' role='list-box'>
+
+                        <div class='item active'>
+
+                            <div class='game-player-cards'>
+
+                                <div class='game-player-card'
+                                     ng-repeat="player in independentPP | myLimitTo:showLimit:start">
+                                    <div class='game-player-card-wrapper'>
+                                        <div class='game-player-card-container'
+                                             ng-click="vm.swapItemSelection(player)">
+                                            <div class='game-player-card-content '>
+                                                <div class='game-player-known'>
+                                                    <div class='game-player-wrapper clearfix'>
+                                                        <header class='game-player-card-title'>
+                                                            <div class="pull-left">
+                                                                <img ng-if="player.isKnownPlayer == false"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     class="game-player-image"
+                                                                     src="../bower_components/wdts-common-ui/assets/img/game-player-default.svg"
+                                                                     alt="Anonymous" ng-click="openPlayerDashboard($event,player)"/>
+                                                                <img ng-if="player.isKnownPlayer == true"
+                                                                     class="game-player-image"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     ng-src="{{player.player.casinoPlayer.imageUrl}}"
+                                                                     alt="{{player.playerName}}" ng-click="openPlayerDashboard($event,player)"/>
+                                                            </div>
+                                                            <div ng-if="player.isKnownPlayer == false">
+                                                                <h3><span class='icon-status active-anonymous-player'
+                                                                          title='Active Anonymous Player'></span><span
+                                                                        translate="application.app.common.labels.ANONYMOUS">Anonymous</span>
+                                                                </h3>
+                                                                <p ng-if="isCBPTEnabled">(<span translate="application.app.common.labels.ID">ID</span>
+                                                                    {{player.player.playerId}})</p>
+                                                            </div>
+                                                            <div ng-if="player.isKnownPlayer == true">
+                                                                <h3><span ng-if="player.clockInEventDtm == null"
+                                                                          class='icon-status active-known-player'
+                                                                          title='Active Anonymous Player'></span>
+                                                                    <span ng-if="player.clockInEventDtm != null"
+                                                                          class='icon-status active-rated-player'
+                                                                          title='Active Anonymous Player'></span>{{player.playerName}}
+                                                                </h3>
+                                                                <p>(<span translate="application.app.common.labels.ID">ID</span>
+                                                                    {{player.casinoPlayerId}})</p>
+                                                            </div>
+                                                        </header>
+                                                    </div>
+                                                    <div class='game-player-data'>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.SESSION_WL">
+                                                                Session W/L
+                                                            </div>
+                                                            <div class="item-data-value" ng-if="player.netCasinoWin < 0"
+                                                                 style="color:red">({{player.netCasinoWin * -1
+                                                                |number:0}})
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="player.netCasinoWin >= 0">{{player.netCasinoWin
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.HANDLE">
+                                                                Handle
+                                                            </div>
+                                                            <div class="item-data-value">{{player.adjustedTurnover
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix' ng-if="isluckyChipEnable">
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.CAM_CASHIER_LABELS.BONUS_AWARD.BONUS_AWARD">
+                                                                Bonus Award
+                                                            </div>
+                                                            <div class="item-data-value">{{player.bonus
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.Avg_bet">
+                                                                Avg. bet
+                                                            </div>
+                                                            <div class='item-data-value'>{{player.avgBet |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.START_TIME">
+                                                                Start time
+                                                            </div>
+                                                            <div class='item-data-value'>{{player.sessionStartDtm |
+                                                                date:'HH:mm'}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix"
+                                                             ng-if="player.clockInEventDtm != null">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.SESSION_BUY_IN">Session Buy In</span>:
+                                                            </div>
+                                                            <div class="item-data-value">{{player.sessionBuyIn |
+                                                                number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.GAME_WIN_LOSS">Game W/L</span>:
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) >= 0">
+                                                                {{playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) | number:0}}
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) < 0"
+                                                                 style="color:red;">
+                                                                ({{(playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel)) * -1 |
+                                                                number:0}})
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.P">
+                                                                P
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row empty clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.B">
+                                                                B
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.PP">
+                                                                PP
+                                                            </div>
+                                                            <div class='item-data-value'><span
+                                                                    ng-class="{'wagerStatus': player.status == 'LOSE'}">{{player.wager | number:0}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.BP">
+                                                                BP
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.T">
+                                                                T
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row empty clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.L6">
+                                                                L6
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <ng-include ng-show="independentPP.length > 5" src="'carousel-control.html'"></ng-include>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class='modal-custom-backdrop'></div>
+</div>
+
+<div id='{{vm.independentBetsPopupIDs[2]}}' class='modal modal-independent-players-details'>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <header class='modal-header'>
+                <div class='modal-independent-bets-title'
+                     translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.TIE">TIE
+                </div>
+                <span class='close' data-dismiss='modal'>
+                        <img src='bower_components/wdts-common-ui/assets/icons/icon-close-sm-gold.svg'/>
+                    </span>
+            </header>
+            <section class='modal-body'>
+
+                <div class='independent-players-carousel-wrapper carousel slide' data-ride='carousel'
+                     id='independent-tie-players-carousel'>
+
+                    <ol class='carousel-indicators' ng-include="'carousel-indicators.html'">
+                    </ol>
+
+                    <div class='carousel-inner' role='list-box'>
+
+                        <div class='item active'>
+
+                            <div class='game-player-cards'>
+
+                                <div class='game-player-card'
+                                     ng-repeat="player in independentTie | myLimitTo:showLimit:start">
+                                    <div class='game-player-card-wrapper'>
+                                        <div class='game-player-card-container'
+                                             ng-click="vm.swapItemSelection(player)">
+                                            <div class='game-player-card-content '>
+                                                <div class='game-player-known'>
+                                                    <div class='game-player-wrapper clearfix'>
+                                                        <header class='game-player-card-title'>
+                                                            <div class="pull-left">
+                                                                <img ng-if="player.isKnownPlayer == false"
+                                                                     class="game-player-image"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     src="../bower_components/wdts-common-ui/assets/img/game-player-default.svg"
+                                                                     alt="Anonymous" ng-click="openPlayerDashboard($event,player)"/>
+                                                                <img ng-if="player.isKnownPlayer == true"
+                                                                     class="game-player-image"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     ng-src="{{player.player.casinoPlayer.imageUrl}}"
+                                                                     alt="{{player.playerName}}" ng-click="openPlayerDashboard($event,player)"/>
+                                                            </div>
+                                                            <div ng-if="player.isKnownPlayer == false">
+                                                                <h3><span class='icon-status active-anonymous-player'
+                                                                          title='Active Anonymous Player'></span><span
+                                                                        translate="application.app.common.labels.ANONYMOUS">Anonymous</span>
+                                                                </h3>
+                                                                <p ng-if="isCBPTEnabled">(<span translate="application.app.common.labels.ID">ID</span>
+                                                                    {{player.player.playerId}})</p>
+                                                            </div>
+                                                            <div ng-if="player.isKnownPlayer == true">
+                                                                <h3><span ng-if="player.clockInEventDtm == null"
+                                                                          class='icon-status active-known-player'
+                                                                          title='Active Anonymous Player'></span>
+                                                                    <span ng-if="player.clockInEventDtm != null"
+                                                                          class='icon-status active-rated-player'
+                                                                          title='Active Anonymous Player'></span>{{player.playerName}}
+                                                                </h3>
+                                                                <p>(<span translate="application.app.common.labels.ID">ID</span>
+                                                                    {{player.casinoPlayerId}})</p>
+                                                            </div>
+                                                        </header>
+                                                    </div>
+                                                    <div class='game-player-data'>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.SESSION_WL">
+                                                                Session W/L
+                                                            </div>
+                                                            <div class="item-data-value" ng-if="player.netCasinoWin < 0"
+                                                                 style="color:red">({{player.netCasinoWin * -1
+                                                                |number:0}})
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="player.netCasinoWin >= 0">{{player.netCasinoWin
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.HANDLE">
+                                                                Handle
+                                                            </div>
+                                                            <div class="item-data-value">{{player.adjustedTurnover
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix' ng-if="isluckyChipEnable">
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.CAM_CASHIER_LABELS.BONUS_AWARD.BONUS_AWARD">
+                                                                Bonus Award
+                                                            </div>
+                                                            <div class="item-data-value">{{player.bonus
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.Avg_bet">
+                                                                Avg. bet
+                                                            </div>
+                                                            <div class='item-data-value'>{{player.avgBet |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.START_TIME">
+                                                                Start time
+                                                            </div>
+                                                            <div class='item-data-value'>{{player.sessionStartDtm |
+                                                                date:'HH:mm'}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix"
+                                                             ng-if="player.clockInEventDtm != null">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.SESSION_BUY_IN">Session Buy In</span>:
+                                                            </div>
+                                                            <div class="item-data-value">{{player.sessionBuyIn |
+                                                                number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.GAME_WIN_LOSS">Game W/L</span>:
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) >= 0">
+                                                                {{playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) | number:0}}
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) < 0"
+                                                                 style="color:red;">
+                                                                ({{(playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel)) * -1 |
+                                                                number:0}})
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.P">
+                                                                P
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row empty clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.B">
+                                                                B
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.PP">
+                                                                PP
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.BP">
+                                                                BP
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.T">
+                                                                T
+                                                            </div>
+                                                            <div class='item-data-value'><span
+                                                                    ng-class="{'wagerStatus': player.status == 'LOSE'}">{{player.wager | number:0}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row empty clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.L6">
+                                                                L6
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <ng-include ng-show="independentTie.length > 5" src="'carousel-control.html'"></ng-include>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class='modal-custom-backdrop'></div>
+</div>
+
+<div id='{{vm.independentBetsPopupIDs[3]}}' class='modal modal-independent-players-details'>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <header class='modal-header'>
+                <div class='modal-independent-bets-title'
+                     translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.L6">L6
+                </div>
+                <span class='close' data-dismiss='modal'>
+                        <img src='bower_components/wdts-common-ui/assets/icons/icon-close-sm-gold.svg'/>
+                    </span>
+            </header>
+            <section class='modal-body'>
+
+                <div class='independent-players-carousel-wrapper carousel slide' data-ride='carousel'
+                     id='independent-l6-players-carousel'>
+
+                    <ol class='carousel-indicators' ng-include="'carousel-indicators.html'">
+                    </ol>
+
+                    <div class='carousel-inner' role='list-box'>
+
+                        <div class='item active'>
+
+                            <div class='game-player-cards'>
+
+                                <div class='game-player-card'
+                                     ng-repeat="player in independentL6 | myLimitTo:showLimit:start">
+                                    <div class='game-player-card-wrapper'>
+                                        <div class='game-player-card-container'
+                                             ng-click="vm.swapItemSelection(player)">
+                                            <div class='game-player-card-content '>
+                                                <div class='game-player-known'>
+                                                    <div class='game-player-wrapper clearfix'>
+                                                        <header class='game-player-card-title'>
+                                                            <div class="pull-left">
+                                                                <img ng-if="player.isKnownPlayer == false"
+                                                                     class="game-player-image"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     src="../bower_components/wdts-common-ui/assets/img/game-player-default.svg"
+                                                                     alt="Anonymous" ng-click="openPlayerDashboard($event,player)"/>
+                                                                <img ng-if="player.isKnownPlayer == true"
+                                                                     class="game-player-image"
+                                                                     ng-class="{'default-cursor':  !isCBTEnabled}"
+                                                                     ng-src="{{player.player.casinoPlayer.imageUrl}}"
+                                                                     alt="{{player.playerName}}" ng-click="openPlayerDashboard($event,player)"/>
+                                                            </div>
+                                                            <div ng-if="player.isKnownPlayer == false">
+                                                                <h3><span class='icon-status active-anonymous-player'
+                                                                          title='Active Anonymous Player'></span><span
+                                                                        translate="application.app.common.labels.ANONYMOUS">Anonymous</span>
+                                                                </h3>
+                                                                <p ng-if="isCBPTEnabled">(<span translate="application.app.common.labels.ID">ID</span>
+                                                                    {{player.player.playerId}})</p>
+                                                            </div>
+                                                            <div ng-if="player.isKnownPlayer == true">
+                                                                <h3><span ng-if="player.clockInEventDtm == null"
+                                                                          class='icon-status active-known-player'
+                                                                          title='Active Anonymous Player'></span>
+                                                                    <span ng-if="player.clockInEventDtm != null"
+                                                                          class='icon-status active-rated-player'
+                                                                          title='Active Anonymous Player'></span>{{player.playerName}}
+                                                                </h3>
+                                                                <p>(<span translate="application.app.common.labels.ID">ID</span>
+                                                                    {{player.casinoPlayerId}})</p>
+                                                            </div>
+                                                        </header>
+                                                    </div>
+                                                    <div class='game-player-data'>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.SESSION_WL">
+                                                                Session W/L
+                                                            </div>
+                                                            <div class="item-data-value" ng-if="player.netCasinoWin < 0"
+                                                                 style="color:red">({{player.netCasinoWin * -1
+                                                                |number:0}})
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="player.netCasinoWin >= 0">{{player.netCasinoWin
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.HANDLE">
+                                                                Handle
+                                                            </div>
+                                                            <div class="item-data-value">{{player.adjustedTurnover
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix' ng-if="isluckyChipEnable">
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.CAM_CASHIER_LABELS.BONUS_AWARD.BONUS_AWARD">
+                                                                Bonus Award
+                                                            </div>
+                                                            <div class="item-data-value">{{player.bonus
+                                                                |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.Avg_bet">
+                                                                Avg. bet
+                                                            </div>
+                                                            <div class='item-data-value'>{{player.avgBet |number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.START_TIME">
+                                                                Start time
+                                                            </div>
+                                                            <div class='item-data-value'>{{player.sessionStartDtm |
+                                                                date:'HH:mm'}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix"
+                                                             ng-if="player.clockInEventDtm != null">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.SESSION_BUY_IN">Session Buy In</span>:
+                                                            </div>
+                                                            <div class="item-data-value">{{player.sessionBuyIn |
+                                                                number:0}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="game-player-card-data-row clearfix">
+                                                            <div class="item-data-label"><span
+                                                                    translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.GAME_WIN_LOSS">Game W/L</span>:
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) >= 0">
+                                                                {{playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) | number:0}}
+                                                            </div>
+                                                            <div class="item-data-value"
+                                                                 ng-if="playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel) < 0"
+                                                                 style="color:red;">
+                                                                ({{(playerWLMap.get(player.player.playerId + '_' + player.sessionId + '_' + player.positionLabel)) * -1 |
+                                                                number:0}})
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.P">
+                                                                P
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row empty clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.B">
+                                                                B
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.PP">
+                                                                PP
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix empty'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.BP">
+                                                                BP
+                                                            </div>
+                                                            <div class='item-data-value'></div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row empty clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.T">
+                                                                T
+                                                            </div>
+                                                        </div>
+                                                        <div class='game-player-card-data-row game-player-bet-data-row clearfix'>
+                                                            <div class='item-data-label'
+                                                                 translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.L6">
+                                                                L6
+                                                            </div>
+                                                            <div class='item-data-value'><span
+                                                                    ng-class="{'wagerStatus': player.status == 'LOSE'}">{{player.wager | number:0}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <ng-include ng-show="independentL6.length > 5" src="'carousel-control.html'"></ng-include>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class='modal-custom-backdrop'></div>
+</div>
+
+<div id="update-user-modal" class="modal modal-update-player">
+    <div class='modal-dialog modal-lg' style="width: 98%;">
+        <div class="modal-content">
+            <section class="modal-body" style="min-height: 400px">
+                <header>
+                    <span ng-if="sessionIdForDisplay"><span translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.UPDATE">Update</span>
+                        <span translate="com.wdts.SESSION.label">Session</span>#{{sessionIdForDisplay}}</span>
+                </header>
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-3 manual-rating-modal">
+                        <select-user-search list="playerList"></select-user-search>
+                    </div>
+                </div>
+                <table class="table-default">
+                    <thead>
+                    <tr>
+
+
+                        <th translate="application.app.common.labels.PLAYER_ID">Player ID</th>
+                        <th translate="application.app.common.labels.PLAYER_NAME">Player Name</th>
+                        <th translate="application.app.common.labels.PREFERRED_NAME">Preferred Name</th>
+                        <th translate="application.app.common.labels.DATE_OF_BIRTH">Date of Birth</th>
+                        <th translate="application.app.common.labels.CITY">City</th>
+                        <th translate="application.app.common.labels.STATE">State</th>
+                        <th translate="application.app.common.labels.COUNTRY">Country</th>
+                        <th translate="application.app.common.labels.STOPE_CODES">Stop Codes</th>
+                    </tr>
+                    </thead>
+                    <tbody ng-init="playerlistPopulated()">
+                    <tr ng-repeat="player in playerList" ng-click="selectedPlayer(player)" wdts-confirm
+                        include-back-bets="includeBackBets"
+                        confirm-wrapper="'#confirmWrapperOpenSession'"
+                        on-confirm="vm.updateSession()"
+                        on-cancel="vm.cancelUpdateSession()"
+                        message=vm.playerDataOnConfirm
+                        selectedplayer="updatePlayerData"
+                        text-on-success="'application.app.TABLE_DASH_LABELS.GAME_HISTORY.GAME_DETAIL.SUCCESS_UPDATE' | translate">
+                        <td>{{player.casinoPlayerId}}</td>
+                        <td ng-if="player.playerName">{{player.playerName}}</td>
+                        <td ng-if="!player.playerName" translate="application.app.common.labels.ANONYMOUS">Anonymous</td>
+                        <td>{{player.preferredName}}</td>
+                        <td>{{player.dateOfBirth}}</td>
+                        <td>{{player.city}}</td>
+                        <td>{{player.state}}</td>
+                        <td>{{player.country}}</td>
+                        <td ng-if="player.stopCodes">
+                            <div ng-repeat="propertyStopCodes in player.stopCodes.propertyStopCodes">
+                                <div ng-repeat="code in propertyStopCodes.code">
+                                    <span>{{code.stopCodeID}} :</span>
+                                    <span>{{code.stopCodeDescription}}</span>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+            <footer>
+                <div class="modal-footer">
+                    <div class="col-xs-10 col-xs-offset-2 text-left">
+                        <div ng-show="showupdatebtn" id="confirmWrapperOpenSession" class="confirm-wrapper"></div>
+                    </div>
+                    <include-back-bets close-update-session-modal="vm.cancelUpdateSession" include-back-bets="includeBackBets" is-cbpt-enabled="isCBPTEnabled"></include-back-bets>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>

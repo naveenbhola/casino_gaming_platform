@@ -1,0 +1,51 @@
+.buttons {
+  color: $white !important;
+  background-color: $gold !important;
+  background-image: none;
+  text-shadow: none;
+}
+
+.buttons1 {
+  color: #aa814f;
+  box-shadow: none;
+  background: rgba(187, 145, 86, 0.3) none;
+  text-shadow: none;
+}
+
+.btnsearch {
+  background-image: url("../bower_components/wdts-common-ui/assets/img/icon-search-btn.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 23px 35px;
+  background-color: $gold !important;
+  min-width: 52px;
+  float: left;
+
+  &:hover
+  &:focus,
+  &.focus,
+  &:active:hover,
+  &.active:focus,
+  &:active.focus,
+  &.active.focus {
+    background-image: url("../bower_components/wdts-common-ui/assets/img/icon-search-btn.svg");
+    background-color: $gold !important;
+  }
+
+  &:active {
+    background-image: url("../bower_components/wdts-common-ui/assets/img/icon-search-btn.svg");
+    background-color: $gold !important;
+  }
+}
+
+.btn-margins {
+  margin: 0 8px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

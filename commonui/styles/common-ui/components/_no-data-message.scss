@@ -1,0 +1,16 @@
+.no-data-message-wrapper {
+  height: 100%;
+
+  .no-data-message {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    span {
+      font-size: 30px;
+      color: $darker-gray;
+    }
+  }
+}

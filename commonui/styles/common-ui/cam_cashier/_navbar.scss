@@ -1,0 +1,222 @@
+
+.navbar {
+  height: 50px;
+  min-height: 50px;
+  background-color: $black;
+  border: 0;
+
+  .nav {
+    > li {
+      &.dropdown-center > .dropdown-menu:after {
+        left: 50%;
+        right: auto;
+      }
+
+      > a {
+        text-shadow: none;
+        padding-top: 15px;
+      }
+
+      > .dropdown-menu:after {
+        right: 15px;
+        left: auto;
+      }
+    }
+
+    li.dropdown {
+      > .dropdown-toggle .caret {
+        border-top-color: #bb9156;
+        border-bottom-color: #777777;
+      }
+
+      &.open, &.active, &.open.active {
+        > .dropdown-toggle {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  > .container .navbar-brand,
+  > .container-fluid .navbar-brand {
+    margin-left: 0;
+  }
+
+  &:not(.sub-navbar) a:hover .caret {
+    border-top-color: #fff !important;
+  }
+}
+
+.navbar-casino-alerts-indicator {
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: 4px;
+  border: 1px solid $white;
+  border-radius: 50%;
+
+  &.has-alerts {
+    background-color: #f64f29;
+  }
+}
+
+.navbar-center {
+  position: absolute;
+  left: 50% !important;
+  float: none;
+  transform: translate(-50%);
+}
+
+.navbar-right {
+  margin-right: 10px;
+}
+
+.navbar-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.navbar-nav {
+  > li {
+    > a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: $white !important;
+
+      &:hover, &:focus {
+        background-color: transparent;
+      }
+
+      &.action-menu-toggle {
+        padding-top: 15px;
+        padding-bottom: 13px;
+      }
+
+      &.alerts-menu-toggle {
+        padding-top: 13px;
+        padding-bottom: 14px;
+      }
+
+      &.icon-top-bar {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        width: 56px;
+        height: 40px;
+      }
+    }
+
+    > span {
+      color: white;
+      position: relative;
+      top: 10px;
+      cursor: default;
+    }
+
+    &.navbar-refresh > a {
+      padding-top: 5px;
+      padding-bottom: 1px;
+      cursor: pointer;
+
+      span.glyphicon-refresh:hover {
+        color: #9d1c22;
+      }
+    }
+  }
+}
+
+.nav {
+  > li {
+    display: table-cell;
+    text-align: center;
+
+  }
+
+  .open > a {
+    &, &:hover, &:focus {
+
+    }
+  }
+
+  &.navbar-nav.navbar-right {
+    position: relative;
+    top: 0;
+  }
+
+  &:not(.dropdown-select-nav) .open > a:focus {
+    background-color: transparent !important;
+    border: 0;
+  }
+}
+
+.sub-navbar {
+  z-index: 1020;
+  height: 63px;
+  color: $white;
+  background-color: $red;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+
+  .navbar-brand {
+    height: 61px;
+    min-width: 235px;
+    padding: 0 15px;
+    color: $white;
+    font-weight: 800;
+    font-size: 24px;
+
+    .navbar-brand-logo {
+      position: relative;
+      top: 50%;
+      max-height: 90%;
+      transform: translateY(-50%);
+    }
+
+    .header-back-link {
+      display: block;
+      font-size: 20px;
+      line-height: 65px;
+      color: #fff;
+      text-align: center;
+    }
+  }
+}
+
+.navbar-fixed-top {
+  position: absolute;
+
+  &.sidebar {
+    position: static;
+    z-index: 0;
+    margin-top: 50px;
+  }
+}
+
+.has-header .navbar-fixed-top.sub-navbar {
+  top: 50px;
+}
+
+.sub-navbar-data-group {
+  padding: 7px 20px 0 30px;
+
+  .dropdown-toggle {
+    display: block;
+    padding-bottom: 9px;
+  }
+}
+
+.navbar-refresh {
+  text-align: center;
+
+  small {
+    color: #aaa;
+    position: relative;
+    top: -2px;
+  }
+}
+
+.nav > li > a {
+  &:hover, &:focus {
+    color: #fff;
+  }
+  color: #bb9156;
+}
+

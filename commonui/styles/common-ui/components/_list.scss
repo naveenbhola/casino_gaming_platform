@@ -1,0 +1,27 @@
+.list-header {
+  padding: 10px 11px 9px;
+  border-bottom: 1px dashed $gold;
+  font-weight: 600;
+}
+
+.before-list-header + .list-header {
+  margin-top: -33px;
+}
+
+.list-players {
+  margin-bottom: 40px;
+}
+
+.list-item {
+  position: relative;
+  padding: 10px 11px 9px;
+  border-radius: 5px;
+
+  &:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.list-limits .list-item:nth-child(odd) {
+  background-color: rgba(222, 205, 181, 0.15);
+}

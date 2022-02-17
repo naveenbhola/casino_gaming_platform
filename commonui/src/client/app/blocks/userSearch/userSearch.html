@@ -1,0 +1,233 @@
+<div class="modal fade modal-fullscreen" id="modalUserSearch" tabindex="-1" role="dialog" aria-labelledby="modalUserSearch" aria-hidden="true" style="height: 80%">
+    <div class="modal-dialog" role="document" >
+        <div class="modal-content has-sticky-header has-sticky-footer sm-paddings">
+
+            <header class="modal-sticky-header navbar-fixed-top" style="background-color:#eee7dd;">
+
+                <div class="row">
+                    <div class="col-xs-12" style="text-align: center;">
+                        <div class="dropdown dropdown-select full-width add-access-group">
+                            <span translate="application.app.common.labels.TOPSUBNAV.SELECT_USER">Select User:</span>
+                            <a id="dropdown-1"
+                               class="btn btn-secondary dropdown-toggle"
+                               data-toggle="dropdown"
+                               role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false"
+                               style="width:140px;margin-left: 3px;">
+                                <span translate="application.app.common.labels.{{userType}}"></span>
+                                <span class="caret right-aligned"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-1" style="width: 140px;margin-left: 3px;">
+                                <div class="dropdown-body">
+                                    <div class="dropdown-content">
+                                        <ul class="nav dropdown-nav">
+                                            <li class="dropdown-nav-item">
+                                                <a href="javascript:void(0)"
+                                                   class="dropdown-nav-link"
+                                                   style="padding-left: 15px;"
+                                                   ng-click="changeUserType('DEALER')"
+                                                   ng-hide="userType=='DEALER'"
+                                                   translate="application.app.common.labels.DEALER">
+                                                    DEALER
+                                                </a>
+                                            </li>
+
+                                            <li class="dropdown-nav-item">
+                                                <a href="javascript:void(0)"
+                                                   class="dropdown-nav-link"
+                                                   style="padding-left: 15px;"
+                                                   ng-click="changeUserType('SUPERVISOR')"
+                                                   ng-hide="userType=='SUPERVISOR'"
+                                                   translate="application.app.common.labels.SUPERVISOR">
+                                                    SUPERVISOR
+                                                </a>
+                                            </li>
+
+                                            <li class="dropdown-nav-item">
+                                                <a href="javascript:void(0)"
+                                                   class="dropdown-nav-link"
+                                                   style="padding-left: 15px;"
+                                                   ng-click="changeUserType('CASHIER')"
+                                                   ng-hide="userType=='CASHIER'"
+                                                   translate="application.app.common.labels.apps.CASHIER">
+                                                    CASHIER
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-xs-12">
+                        <div class="dealer-search-player-options text-center">
+                            <!--<span translate="application.app.common.labels.{{userType}}" class="uppercase"></span>-->
+                            <span translate="application.app.common.labels.USERSEARCHBY"></span>
+
+                            <button type="button"
+                                    class="btn btn-margins"
+                                    ng-class="{'btn-primary':userDefault == true,'btn-secondary':userDefault == false}"
+                                    ng-click="vm.showUserView()">
+                                <span class="glyphicon icon-search-btn"></span>
+
+                                <span translate="application.app.common.labels.NAME">
+                                    Name
+                                </span>
+                            </button>
+
+                            <button type="button"
+                                    class="btn btn-margins"
+                                    ng-class="{'btn-primary':userByUsername == true,'btn-secondary':userByUsername == false}"
+                                    ng-click="vm.showUserView2()">
+                                <span class="glyphicon icon-search-btn"></span>
+                                <span translate="application.app.common.labels.TOPSUBNAV.USERNAME">
+                                    Username
+                                </span>
+                            </button>
+
+                            <button type="button"
+                                    class="btn btn-margins"
+                                    ng-class="{'btn-primary':userByUserID == true,'btn-secondary':userByUserID == false}"
+                                    ng-click="vm.showUserView3()">
+                                <span class="glyphicon icon-search-btn"></span>
+
+                                <span translate="application.app.common.labels.TOPSUBNAV.EMPLOYEE_ID">
+                                    User ID
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- user search form view by name -->
+                        <div ng-show="userDefault" class="search-wrapper usersearch">
+                            <div>
+                                <div class="dealer-search-player-input-row">
+                                    <div class="dealer-search-player-input input-search-wrapper">
+                                        <input class="form-control input-search" type="text" name="first-name" placeholder="{{'application.app.common.labels.ENTER_FIRST_NAME' | translate }}" ng-model="user.userFirstName" />
+                                        <a class="input-search-clear" ng-click="user.userFirstName = ''">
+                                            <span class="glyphicon icon-close-sm"></span>
+                                        </a>
+                                    </div>
+                                    <div class="dealer-search-player-input input-search-wrapper">
+                                        <input class="form-control input-search" type="text" name="last-name" placeholder="{{'application.app.common.labels.ENTER_LAST_NAME' | translate }}" ng-model="user.userLastName"/>
+                                        <a class="input-search-clear" ng-click="user.userLastName = ''">
+                                            <span class="glyphicon icon-close-sm"></span>
+                                        </a>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-sm" ng-disabled="!user.userFirstName && !user.userLastName" ng-click="vm.searchUserByUserFLName()">
+                                        <span class="glyphicon icon-search-btn"></span>
+                                    </button>
+                                    <span ng-style="usearchgfl ? { 'visibility':'visible' } : { 'visibility':'hidden' }"><img src="bower_components/wdts-common-ui/assets/img/busy.gif" style="width: 35px; margin-top: 3px"></span>
+                                </div>
+                                <div class="error-text text-center" ng-show="userError">
+                                    <p>
+                                        <span class="glyphicon icon-error">!</span>
+                                        <span translate="application.app.common.labels.TOPSUBNAV.MPRE_THAN_TEN">More than 10 players identified, please refine search.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- user search form view by username -->
+                        <div ng-show="userByUsername" class="search-wrapper usersearch">
+                            <div>
+                                <div class="dealer-search-player-input-row single-search-box ">
+                                    <div class="dealer-search-player-input input-search-wrapper">
+                                        <input class="form-control input-search" type="text" name="fusername" placeholder="{{'application.app.common.labels.ENTER_USERNAME' | translate }}" ng-model="user.username" />
+                                        <a class="input-search-clear" ng-click="user.username = ''">
+                                            <span class="glyphicon icon-close-sm"></span>
+                                        </a>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-sm" ng-disabled="!user.username" class="btn btn-primary btn-sm" ng-click="vm.searchUserByUserName()">
+                                        <span class="glyphicon icon-search-btn"></span>
+                                    </button>
+                                    <span ng-style="usearchname ? { 'visibility':'visible' } : { 'visibility':'hidden' }"><img src="bower_components/wdts-common-ui/assets/img/busy.gif" style="width: 35px; margin-top: 3px"></span>
+                                </div>
+                                <div class="error-text text-center" ng-show="userError">
+                                    <p>
+                                        <span class="glyphicon icon-error">!</span>
+                                        <span translate="application.app.common.labels.TOPSUBNAV.MPRE_THAN_TEN">More than 10 players identified, please refine search.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- user search form view by id -->
+                        <div ng-show="userByUserID" class="search-wrapper usersearch">
+                            <div>
+                                <div class="dealer-search-player-input-row single-search-box ">
+                                    <div class="dealer-search-player-input input-search-wrapper">
+                                        <input class="form-control input-search" type="text" name="player-id" placeholder="{{ 'application.app.common.labels.ENTER_EMP_NO' | translate }}" ng-model="user.employeeId" />
+
+                                        <a class="input-search-clear" ng-click="user.employeeId = ''">
+                                            <span class="glyphicon icon-close-sm"></span>
+                                        </a>
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary btn-sm" ng-disabled="!user.employeeId"  ng-click="vm.searchUserByUserID()">
+                                        <span class="glyphicon icon-search-btn"></span>
+                                    </button>
+                                    <span ng-style="usearchid ? { 'visibility':'visible' } : { 'visibility':'hidden' }"><img src="bower_components/wdts-common-ui/assets/img/busy.gif" style="width: 35px; margin-top: 3px"></span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+
+            <div class="modal-body">
+
+                <div class="search-wrapper">
+                    <div class="player-search-results">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="table-responsive">
+
+
+                                    <table class="table-default table-tables sticky-table-header">
+                                        <thead>
+                                        <tr>
+                                            <th translate="application.app.common.labels.USER">User</th>
+                                            <th class="text-center" translate="application.app.common.labels.TOPSUBNAV.USERNAME">Username</th>
+                                            <th class="text-center" translate="application.app.common.labels.TOPSUBNAV.LOGIN_LOCATION">Login Location</th>
+                                            <th class="text-center" translate="application.app.common.labels.TOPSUBNAV.LOGIN_TIME">Login Time</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="player-search-results-row"  ng-repeat="user in userSearchResults">
+                                            <td>{{user.lastName}}, {{user.firstName}} ({{user.employeeId}})</td>
+                                            <td class="text-center">{{user.userName}}</td>
+                                            <td class="text-center">{{user.location}}</td>
+                                            <td class="text-center">{{user.creationDate | date : 'dd-MM-yyyy HH:mm'}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer clearfix">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="application.app.common.labels.CLOSE">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

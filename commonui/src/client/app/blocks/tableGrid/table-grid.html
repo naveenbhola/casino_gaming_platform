@@ -1,0 +1,180 @@
+<lazy-render ng-if="tableCardData.data.length">
+    <div class="game-table-cards clearfix">
+        <div class="game-table-card lazy"
+             ng-click="openDashboard(tableCardData.topologyIds[$index], $event)"
+             ng-repeat="area in tableCardData.data track by $index"
+             ng-class="{'table-closed': tableStatus.get(tableCardData.topologyIds[$index])=='CLOSED'}">
+
+            <header class="game-table-card-header">
+                <div class="row">
+                    <div class="col-xs-5 header-wrapper">
+                        <h3>{{topologyMap.get(tableCardData.topologyIds[$index])}}</h3>
+                    </div>
+
+                    <table-alert-count topology-id="tableCardData.topologyIds[$index]"
+                                       tables-alert-data="tableAlertData"
+                                       ng-if="tableAlertData.length>0"></table-alert-count>
+                </div>
+            </header>
+
+            <div class="game-table-visualizer"
+                 ng-class="{'has-five-pos': totalPositions($index) == 5}">
+                <div class="game-table"></div>
+
+                <div ng-if="area.openTableCount > 0"
+                     class="game-table game-table-card-open"></div>
+                <div ng-if="area.openTableCount == 0"
+                     class="game-table game-table-card-closed"></div>
+
+                <div ng-repeat="i in getNumPositions(totalPositions($index)) track by $index"
+                     class="game-table-player-group game-table-player-group-{{$index+1}}"
+                     ng-if="!checkPosition(area.lastGameStats.playerCounts, $index+1)">
+                    <div class="game-table-player large back-better-2"
+                         ng-repeat="i in [1, 2, 3]">
+
+                    </div>
+                </div>
+
+
+                <div ng-repeat="i in getNumPositions(totalPositions($index)) track by $index"
+                     class="game-table-player-group game-table-player-group-{{$index+1}}"
+                     ng-init="position = checkPosition(area.lastGameStats.playerCounts, $index+1);
+                                                      playerData = area.lastGameStats.playerCounts;
+                                                      swipedPlayers = playerData ? playerData[playerIndex].swiped : [];
+                                                      knownPlayers = playerData ? playerData[playerIndex].known : [];
+                                                      anonPlayers = playerData ? playerData[playerIndex].anon : [];
+                                                      totalLength = getTotalLength(swipedPlayers, knownPlayers, anonPlayers);
+                                                      totalplrcount= totalplyrcount;"
+                     ng-if="checkPosition(area.lastGameStats.playerCounts, $index+1)">
+                    <div class="game-table-player large back-better-2 green"
+                         ng-click="showPlayersPopup($event, area.lastGameStats.playerCounts[position])"
+                         ng-if="swipedPlayers.length">
+
+                    </div>
+
+                    <div class="game-table-all-players back-better-2 seated"
+                         ng-if="knownPlayers.length==1"
+                         ng-click="showPlayersPopup($event, area.lastGameStats.playerCounts[position])">
+                        <div class="game-table-players-count"></div>
+                    </div>
+                    <div class="game-table-all-players back-better-2 seated"
+                         ng-if="knownPlayers.length>1 && totalplrcount <= 3 && anonPlayers.length<=1"
+                         ng-repeat="anplr in knownPlayers"
+                         ng-click="showPlayersPopup($event, area.lastGameStats.playerCounts[position])">
+                        <div class="game-table-players-count"></div>
+                    </div>
+                    <div class="game-table-all-players back-better-2 seated"
+                         ng-if="knownPlayers.length>1 && totalplrcount >3"
+                         ng-click="showPlayersPopup($event, area.lastGameStats.playerCounts[position])">
+                        <div class="game-table-players-count">{{knownPlayers.length}}</div>
+                    </div>
+
+
+                    <div class="game-table-all-players back-better-2 red"
+                         ng-if="anonPlayers.length==1"
+                         ng-click="showPlayersPopup($event, area.lastGameStats.playerCounts[position])">
+                        <div class="game-table-players-count"></div>
+                    </div>
+                    <div class="game-table-all-players back-better-2 red"
+                         ng-if="anonPlayers.length>1 && totalplrcount <= 3 && knownPlayers.length<=1"
+                         ng-repeat="knplr in anonPlayers"
+                         ng-click="showPlayersPopup($event, area.lastGameStats.playerCounts[position])">
+                        <div class="game-table-players-count"></div>
+                    </div>
+
+                    <div class="game-table-all-players back-better-2 red"
+                         ng-if="anonPlayers.length>1 && totalplrcount >3"
+                         ng-click="showPlayersPopup($event, area.lastGameStats.playerCounts[position])">
+                        <div class="game-table-players-count">{{anonPlayers.length}}</div>
+                    </div>
+
+
+                    <div class="game-table-player large back-better-2" ng-repeat="i in [1, 2]"
+                         ng-if="totalplrcount == 1">
+                    </div>
+
+                    <div class="game-table-player large back-better-2"
+                         ng-if="totalplrcount == 2">
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="game-table-card-data-row">
+                <div class="item-data-label" translate="CasinoManager_View1_CASINO_WIN">Casino
+                    W/L
+                </div>
+
+                <div class="item-data-value"
+                     ng-if="tableViewStats[tableCardData.topologyIds[$index]].CASINO_WIN<0"
+                     ng-class="{'highlight-red':tableViewStats[tableCardData.topologyIds[$index]].CASINO_WIN<0}">
+                    ({{tableViewStats[tableCardData.topologyIds[$index]].CASINO_WIN|thousandsDelimiter:true}})
+                </div>
+                <div class="item-data-value"
+                     ng-if="tableViewStats[tableCardData.topologyIds[$index]].CASINO_WIN>=0">
+                    {{tableViewStats[tableCardData.topologyIds[$index]].CASINO_WIN|thousandsDelimiter:true}}
+                </div>
+
+            </div>
+
+
+            <div class="game-table-card-data-row">
+                <div class="item-data-label" translate="SHOE_WIN">Shoe W/L</div>
+                <div class="item-data-value" ng-if="area.stats[5]<0"
+                     ng-class="{'highlight-red':area.stats[5]<0 && !isNaN(area.stats[5])}">
+                    ({{area.stats[5]|thousandsDelimiter:true}})
+                </div>
+                <div class="item-data-value" ng-if="area.stats[5]>=0">
+                    {{area.stats[5]|thousandsDelimiter:true}}
+                </div>
+            </div>
+
+
+            <div class="game-table-card-data-row">
+                <div class="item-data-label" translate="SHOE_GAME_NUMBER">Shoe Game Number</div>
+                <div class="item-data-value" ng-if="area.stats[6]<0"
+                     ng-class="{'highlight-red':area.stats[6]<0 && !isNaN(area.stats[6])}">
+                    ({{area.stats[6]|thousandsDelimiter:true}})
+                </div>
+                <div class="item-data-value" ng-if="area.stats[6]>=0">
+                    {{area.stats[6]|thousandsDelimiter:true}}
+                </div>
+            </div>
+
+
+            <div class="game-table-card-data-row">
+                <div class="item-data-label" translate="CasinoManager_View1_TABLE_LIMITS">
+                    Limits
+                </div>
+                <div class="item-data-value">
+                    {{tableViewStats[tableCardData.topologyIds[$index]].TABLE_LIMITS}}
+                </div>
+            </div>
+
+
+            <div class="game-table-card-data-row">
+                <div class="item-data-label" translate="CHIP_TRAY_VARIANCE">Chip Tray Variance
+                </div>
+                <div class="item-data-value" ng-if="area.stats[7]<0"
+                     ng-class="{'highlight-red':area.stats[7]<0 && !isNaN(area.stats[7])}">
+                    ({{area.stats[7]|thousandsDelimiter:true}})
+                </div>
+                <div class="item-data-value" ng-if="area.stats[7]>=0">
+                    {{area.stats[7]|thousandsDelimiter:true}}
+                </div>
+            </div>
+
+
+            <div class="game-table-card-data-row">
+                <div class="item-data-label" translate="GAMING_DAY">Gaming Day</div>
+                <div class="item-data-value">{{area.stats[8] | date:'dd-MMM'}}</div>
+            </div>
+
+        </div>
+        <pagination class='affix placed-at-bottom' total-records="totalTableCardCount"
+                    view-name="'cardviewDynamicdata'" ng-if="totalTableCardCount>10"
+                    ng-class="{'col-xs-9': slider()==false}"></pagination>
+    </div>
+</lazy-render>

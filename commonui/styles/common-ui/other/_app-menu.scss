@@ -1,0 +1,62 @@
+.applications-menu {
+  .application-menu-item.disable {
+    .application-menu-item-link,
+    .application-menu-item-icon,
+    .fa {
+      opacity: 0.5;
+      cursor: not-allowed;
+      color: gray;
+    }
+
+    .application-menu-item-link {
+      &, &:hover, &:active, &:focus {
+        color: gray !important;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.application-menu-item-link {
+  display: block;
+  margin: 15px 0;
+  font-size: 16px;
+  color: #808080;
+  text-align: center;
+  position: relative;
+  .fa {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.application-menu-item-icon {
+  min-height: 80px;
+}
+
+.application-menu-separator-top:before,
+.application-menu-separator-bottom:before {
+  position: absolute;
+  right: 15px;
+  left: 15px;
+  border-top: 1px dashed rgba(128, 128, 128, 0.2);
+  content: '';
+}
+
+.application-menu-separator-top:before {
+  top: -0.5px;
+}
+
+.application-menu-separator-bottom:before {
+  bottom: -0.5px;
+}
+
+.application-menu-separator-right:after {
+  position: absolute;
+  top: 15px;
+  right: -0.5px;
+  bottom: 15px;
+  border-right: 1px dashed rgba(128, 128, 128, 0.2);
+  content: '';
+}

@@ -1,0 +1,120 @@
+<div class="container-fluid">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#game" aria-controls="game" ui-sref="tabledashboard.fills({tableId: tableId})"
+               translate="application.app.TABLE_DASH_LABELS.FILLS.FILLS_LABEL">FILLS</a>
+        </li>
+    </ul>
+
+    <div ng-class="{'in active':fillMain}">
+        <div class="row">
+            <div class="col-xs-12">
+                <header class="content-header tab-content-header clearfix">
+                    <div class="pull-right">
+                        <a class="tab-content-action-link collapsed" role="button" data-toggle="collapse"
+                           ng-click="vm.showFillsFilter();" ng-class="{collapsed:!fillsfilterdiv}" aria-expanded="false"
+                           aria-controls="filters-table-players">
+                            <span class="caret"></span> <span
+                                translate="application.app.common.labels.FILTERS">FILTERS</span>
+                        </a>
+                    </div>
+                </header>
+
+                <div class="table-filters" id="filters-fills" ng-class="{collapse:!fillsfilterdiv}">
+                    <div class="row">
+                        <srv-filter-drop-down view-name="fillsTabData"
+                                              type="ddwithcheckbox"
+                                              filter-title="application.app.common.labels.SUPERVISOR"
+                                              column-name="supervisorIds"
+                                              class="col-xs-2"
+                                              filter-options="fillFilterObj.supervisorsList"
+                                              ng-if="fillFilterObj.supervisorsList">
+                        </srv-filter-drop-down>
+                        <srv-filter-drop-down view-name="fillsTabData"
+                                              type="ddwithcheckbox"
+                                              filter-title="application.app.common.labels.DEALER"
+                                              column-name="dealerIds"
+                                              class="col-xs-2"
+                                              filter-options="fillFilterObj.dealersList"
+                                              ng-if="fillFilterObj.dealersList">
+                        </srv-filter-drop-down>
+
+                        <div class="col-xs-4">
+                            <button type="button" class="btn btn-primary" ng-click="applyFillsFilter()"
+                                    ng-style="{'margin-top':'20px'}"
+                                    ng-disabled="fillsFilterArray.length<1 && !fillsUpdated"
+                                    translate="application.app.common.labels.APPLY_FILTER">Apply Filter
+                            </button>
+                            <button type="button" class="btn btn-primary" ng-click="clearFillsFilter()"
+                                    ng-style="{'margin':'20px 0 0 20px'}"
+                                    ng-disabled="fillsFilterArray.length<1 && !fillsUpdated"
+                                    translate="application.app.common.labels.CLEAR_FILTER">Clear Filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="table-fills-list" class="has-1-line-filters-above has-fixed-header" ng-class="totalCount > 10?'has-fixed-footer has-pagination':'has-fixed-footer'">
+                    <div class="table-wrapper" no-data-available total-count="totalCount" fetching-data="fetchingData">
+                        <div class="container1">
+                            <div class="table-responsive">
+                                <table class="table-default">
+                                    <thead>
+                                    <tr>
+                                        <th sortable-column view-name="fills" sort-field="TIME">
+                                            <div translate="application.app.common.labels.TIME">Time</div>
+                                            <div class="sortorder left-40" ng-show="sortObject.sortField==='TIME'" ng-class="{reverse: sortObject.sortField=='TIME' && sortObject.sortOrder=='DESC'}"></div>
+
+                                        </th>
+                                        <th sortable-column view-name="fills" sort-field="TXNID">
+                                            <div translate="application.app.TABLE_DASH_LABELS.FILLS.COLHEADERS.FILL_ID">Fill ID</div>
+                                            <div class="sortorder left-30" ng-show="sortObject.sortField==='TXNID'" ng-class="{reverse: sortObject.sortField=='TXNID' && sortObject.sortOrder=='DESC'}"></div>
+                                        </th>
+                                        <th sortable-column view-name="fills" sort-field="SUPERVISOR">
+                                            <div translate="application.app.common.labels.SUPERVISOR">Supervisor</div>
+                                            <div class="sortorder left-70" ng-show="sortObject.sortField==='SUPERVISOR'" ng-class="{reverse: sortObject.sortField=='SUPERVISOR' && sortObject.sortOrder=='DESC'}"></div>
+                                        </th>
+                                        <th sortable-column view-name="fills" sort-field="DEALER">
+                                            <div translate="application.app.common.labels.DEALER">Dealer</div>
+                                            <div class="sortorder left-50" ng-show="sortObject.sortField==='DEALER'" ng-class="{reverse: sortObject.sortField=='DEALER' && sortObject.sortOrder=='DESC'}"></div>
+                                        </th>
+                                        <th sortable-column view-name="fills" sort-field="VALUE">
+                                            <div translate="application.app.common.labels.VALUE">Value</div>
+                                            <div class="sortorder left-40" ng-show="sortObject.sortField==='VALUE'" ng-class="{reverse: sortObject.sortField=='VALUE' && sortObject.sortOrder=='DESC'}"></div>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr data-toggle="modal" data-target="#fills-detail-modal"
+                                        ng-click="vm.fillDrillIn(obj.uuid, obj.id)" ng-repeat="obj in fillObj">
+                                        <td class="highlight">{{obj.endDtm | date: "HH:mm"}}</td>
+                                        <td> {{obj.id}}</td>
+                                        <td> {{obj.supervisorNameNid}}</td>
+                                        <td> {{obj.dealerNameNid}}</td>
+                                        <td> {{obj.txnValue|number:0}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <pagination class='affix above-fixed-footer'
+                            total-records="totalCount"
+                            view-name="'fills'"
+                            ng-if="totalCount>10">
+
+                </pagination>
+
+            </div>
+        </div>
+    </div>
+    <!-- Fills-chips detail -->
+    <div class="slide-animate-container">
+        <div class="slide-animate">
+            <drill-in-popup data="drillInData"></drill-in-popup>
+        </div>
+    </div>
+    <!--  /.Fills-chips detail -->
+</div>

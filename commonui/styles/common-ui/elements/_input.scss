@@ -1,0 +1,316 @@
+.form-control {
+  padding: 10px 18px;
+  font-size: inherit;
+  background-color: #fff;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: none;
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder,
+  &::-ms-input-placeholder,
+  &::placeholder {
+    color: $light-gold;
+  }
+
+  &.empty {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    background-color: #dbccb9;
+    opacity: 0.5;
+
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder,
+    &::-ms-input-placeholder,
+    &::placeholder {
+      color: $white;
+    }
+  }
+
+  &[readonly] {
+    background-color: $white;
+    opacity: 0.8;
+  }
+
+  &.navbar-input-search,
+  &.navbar-input-search:empty {
+    opacity: 1;
+
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder,
+    &::-ms-input-placeholder,
+    &::placeholder {
+      color: $gray;
+    }
+  }
+}
+
+.modal .form-control {
+  background-color: rgba(187, 145, 86, 0.15);
+}
+
+.form-control-indicator {
+  position: absolute;
+  right: -25px;
+  bottom: 10px;
+  display: none;
+  width: 20px;
+  height: 20px;
+  color: $white;
+  text-align: center;
+  background-color: $white;
+  border-radius: 4px;
+}
+
+.textarea + .form-control-indicator {
+  bottom: 0;
+}
+
+.has-error {
+  position: relative;
+
+  .form-control {
+    padding: 8px 16px;
+    color: $error-red;
+    border: 2px solid $error-red;
+  }
+
+  .form-control-indicator {
+    display: block;
+    background-color: $error-red;
+    border-radius: 50%;
+  }
+}
+
+.is-correct {
+  position: relative;
+}
+
+.is-correct .form-control-indicator {
+  display: block;
+  background-color: $green;
+}
+
+label {
+  font-weight: normal;
+}
+
+.input-text {
+  height: 40px;
+
+  &.navbar-input-search {
+    height: 25px;
+    padding-left: 25px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
+
+.input-search-wrapper {
+  position: relative;
+
+  .input-search-clear {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: #ccc;
+    border-radius: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    &:hover {
+      background-color: #666;
+    }
+
+    &:active {
+      background-color: $dark-gray;
+    }
+  }
+
+  .input-search.empty + .input-search-clear {
+    display: none;
+  }
+}
+
+.input-group-addon {
+  min-width: 40px;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  background: $white;
+  border: 1px solid $gold;
+}
+
+.input-group:hover .input-group-addon {
+  border-color: $dark-red;
+}
+
+.input-toggle {
+  position: absolute;
+  opacity: 0;
+}
+
+.input-toggle {
+  + .toggle-btn {
+    position: relative;
+    display: block;
+    width: 108px;
+    height: 42px;
+    padding: 3px;
+    cursor: pointer;
+    border: 1px solid $gold;
+    background-color: $white;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+
+    &:before {
+      position: absolute;
+      right: 0;
+      left: 37px;
+      display: block;
+      line-height: 34px;
+      color: #decdb5;
+      text-align: center;
+      content: attr(data-no);
+      transition: all 0.2s ease;
+    }
+
+    &:after {
+      position: relative;
+      left: 0;
+      display: block;
+      width: 34px;
+      height: 34px;
+      background-color: #decdb5;
+      border-radius: 4px;
+      content: '';
+      transition: all 150ms ease;
+    }
+  }
+
+  &.keyboard-focus:focus + .toggle-btn {
+    background-color: #23a6ad;
+  }
+
+  &:checked + .toggle-btn {
+    background: $gold;
+
+    &:before {
+      right: 37px;
+      left: 0;
+      color: #fff;
+      content: attr(data-yes);
+    }
+
+    &:after {
+      left: 68px;
+    }
+  }
+}
+
+.modal .input-toggle:not(:checked) + .toggle-btn {
+  background-color: rgba(187, 145, 86, 0.15);
+}
+
+/*
+Akgupta: Styles for custom radio buttons
+added at Properties page for manual/auto scanning
+chip tray
+*/
+.custom-radio-btns {
+  .form-group {
+    vertical-align: top;
+    margin-bottom: 0;
+  }
+
+  .radio {
+    padding-left: 0;
+
+    label {
+      line-height:30px;
+      color: $gold;
+      font-size: 15px;
+      margin-right: 0 !important;
+      margin-left: 0;
+      padding-left: 35px;
+      min-width: 150px;
+      vertical-align: top;
+
+      &:before {
+        content: '';
+        left: 0;
+        margin-left: 0;
+        background-color: #fff;
+        border: 3px solid $gold;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+      }
+
+      &:before,
+      &:after {
+        position: absolute;
+        cursor: pointer;
+        display: inline-block;
+      }
+    }
+
+    //resize of radio clicked state
+    .input-radio {
+      opacity: 0;
+
+      &:checked + label:after {
+        top: 7px;
+        left: 7px;
+        width: 16px;
+        height: 16px;
+        margin-left: 0;
+        background-color: $red;
+        border-radius: 50%;
+        content: ' ';
+      }
+
+      &:checked + label {
+        color: $red;
+
+        &:before {
+          border-color: $red;
+        }
+      }
+    }
+
+    //resize and aligning radio hotspot
+    input[type='radio']{
+      top: 0;
+      left: 13px;
+      width: 30px;
+      height: 30px;
+      margin: 0;
+      margin-left: -15px;
+    }
+  }
+}
+//End
+
+/*
+* Akgupta: Added radio buttons for CN1-48
+*/
+.update-closed-sessions-radio-btns {
+  align-items: center;
+  display:flex;
+  height: 40px;
+  text-align: left;
+
+  .radio {
+    margin-right: 10px;
+  }
+}

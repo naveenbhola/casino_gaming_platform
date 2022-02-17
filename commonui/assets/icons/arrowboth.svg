@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="17px" viewBox="0 0 11 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Desktop</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.42">
+        <g id="Desktop" fill="#BB9156">
+            <path d="M4.06631655,3.30109943 C4.44669346,2.90188228 5.059127,2.89739104 5.4437832,3.30109943 L8.29445268,6.29296383 C8.67482959,6.69218098 8.52854008,7.01581042 7.97993332,7.01581042 L1.53016644,7.01581042 C0.976085278,7.01581042 0.830990871,6.69667223 1.21564707,6.29296383 L4.06631655,3.30109943 Z" id="Triangle"></path>
+            <path d="M4.06631655,9.30109943 C4.44669346,8.90188228 5.059127,8.89739104 5.4437832,9.30109943 L8.29445268,12.2929638 C8.67482959,12.692181 8.52854008,13.0158104 7.97993332,13.0158104 L1.53016644,13.0158104 C0.976085278,13.0158104 0.830990871,12.6966722 1.21564707,12.2929638 L4.06631655,9.30109943 Z" id="Triangle-Copy" transform="translate(4.753380, 11.007905) scale(1, -1) translate(-4.753380, -11.007905) "></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,8 @@
+[
+  "bower_components/font-awesome/css/font-awesome.min.css",
+  "bower_components/bootstrap/dist/css/bootstrap.css",
+  "bower_components/toastr/toastr.css",
+  "bower_components/bootstrap-table/src/bootstrap-table.css",
+  "bower_components/angular-ui-tree/dist/angular-ui-tree.min.css",
+  "bower_components/offline/themes/offline-theme-default.css"
+]

@@ -1,0 +1,28 @@
+<div class="filter-title">
+    <span translate="{{filterTitle}}"></span>
+</div>
+
+<div class="dropdown dropdown-block dropdown-right">
+    <a class="dropdown-toggle"
+       id="{{filterDateSelector}}"
+       role="button"
+       data-toggle="dropdown"
+       data-target="#">
+        <div class="input-group">
+            <input type="text"
+                   class="form-control input-text"
+                   ng-model="filterDate"
+                   ng-change="vm.filterDateChange(filterDate)"
+                   readonly>
+            <span class="input-group-addon">
+                <i class="glyphicon icon-calendar"></i>
+            </span>
+        </div>
+    </a>
+    <div class="dropdown-menu" role="menu" aria-labelledby="dLabel" ng-style="{'width':'340px'}">
+        <datetimepicker ng-model="filterDate"
+                        data-before-render="beforeRender($view, $dates, $leftDate, $upDate, $rightDate)"
+                        data-datetimepicker-config="{ dropdownSelector: '#'+filterDateSelector }"
+                        data-on-set-time="vm.filterDateChange(filterDate)"/>
+    </div>
+</div>

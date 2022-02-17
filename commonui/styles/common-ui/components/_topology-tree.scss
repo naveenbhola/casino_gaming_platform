@@ -1,0 +1,41 @@
+.iui-treeview-responsive {
+  height: calc((100vh - 310px) / 2);
+}
+
+.iui-treeview-areas {
+  float: left;
+  height: calc((100vh - 310px) / 3);
+  width: 230px;
+  margin-right: 30px;
+  margin-left: 20px;
+}
+
+.iui-treeview-unassigned {
+  float: left;
+  height: 200px;
+  width: 207px;
+  margin-right: 30px;
+  margin-left: 20px;
+}
+
+.iui-treeview-item-content {
+  text-transform: normal;
+}
+
+.iui-contextmenu {
+  z-index: 1000;
+}
+
+.iui-treeview-item-disabled {
+  color: $light-gold;
+}
+
+.iui-treeview-item-non-pp {
+  color: $gray;
+}
+
+@media screen and (max-width:1024px){
+  .iui-treeview-areas {
+    width: 180px;
+  }
+}

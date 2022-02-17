@@ -1,0 +1,35 @@
+.comments-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+.comment-show-btn {
+  margin-bottom: 15px;
+}
+
+.comments-box {
+  border-top: 1px dashed $gold;
+  padding-top: 15px;
+
+  td.narrow {
+    width: 2%;
+  }
+
+  .game-player-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .shift-right, .comments-box .form-group {
+    padding-left: 50px;
+  }
+
+  .form-group {
+    margin-bottom: 50px;
+  }
+
+  .list-item .textarea {
+    margin-bottom: 15px;
+  }
+}

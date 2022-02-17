@@ -1,0 +1,40 @@
+.confirm-frame {
+  display: inline-block;
+  border: 2px solid grey;
+  padding: 10px 5px;
+  border-radius: 5px;
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .btn{
+    width:120px;
+    margin-top: 10px;
+  }
+  .text{
+    font-size: 16px;
+    padding:2px 0;
+
+  }
+}
+
+.confirm-frame {
+  border: 1px solid #bb9156;
+  background-color: #fff;
+
+  .glyphicon-info-sign {
+    color: red;
+    font-size: 30px;
+  }
+}
+
+.cbpt-seat-no {
+  max-width: 4ch;
+}

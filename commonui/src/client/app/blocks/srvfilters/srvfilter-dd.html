@@ -1,0 +1,49 @@
+<div class="filter-title">
+    <span translate="{{filterTitle}}"></span>
+</div>
+
+<div class="dropdown dropdown-block">
+    <button class="btn btn-secondary btn-block dropdown-toggle"
+            type="button"
+            id="filters-area-filter"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="true"
+            title="{{filterTitle | translate}}">
+        <span ng-if="filterTopologySelectedOPtion">{{filterTopologySelectedOPtion}}</span>
+        <span ng-if="!filterTopologySelectedOPtion && filterSelectedOPtion!=='-- SELECT --'" translate="{{filterSelectedOPtion}}">{{filterSelectedOPtion}}</span>
+        <span translate="application.app.common.labels.SELECT" ng-if="!filterTopologySelectedOPtion && filterSelectedOPtion === '-- SELECT --'"></span>
+
+        <span class="caret"></span>
+    </button>
+
+    <div class="dropdown-menu content-scrollable default" aria-labelledby="filters-area-filter">
+        <div class="dropdown-body">
+            <div class="dropdown-content">
+                <ul class="nav dropdown-nav">
+                    <li class="dropdown-nav-item"
+                        ng-repeat="option in filterTopologyOptions"
+                        ng-if="filterTopologyOptions.length>0">
+                        <a href=""
+                           class="dropdown-nav-link"
+                           ng-click="vm.selectFilterOption(option)"
+                           style="{{option.topologyName==filterTopologySelectedOPtion ? 'color:#9c1c23;' : ''}}">
+                            {{vm.displayFilterTopologyName(option)}}
+                        </a>
+                    </li>
+
+                    <li class="dropdown-nav-item"
+                        ng-repeat="option in filterOptions"
+                        ng-if="filterTopologyOptions.length<1">
+                        <a href=""
+                           class="dropdown-nav-link"
+                           ng-click="vm.selectFilterOption(option)"
+                           style="{{option==filterSelectedOPtion ? 'color:#9c1c23;' : ''}}" translate="{{vm.displayFilterName(option)}}">
+                            {{vm.displayFilterName(option)}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

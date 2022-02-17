@@ -1,0 +1,255 @@
+.table-default {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+
+  thead {
+    background-color: $lighter-gold;
+
+    > tr {
+      border-bottom: 1px dashed rgba(187, 145, 86, 0.2);
+    }
+
+    th {
+      .sortable {
+        cursor: pointer;
+        background-position: left;
+        background-position-x: 15px;
+        background-image: url("../bower_components/wdts-common-ui/assets/icons/arrowboth.svg");
+        background-repeat: no-repeat;
+        &.default{
+          background: none;
+        }
+      }
+    }
+  }
+
+  th, td {
+    padding-right: 9px;
+    padding-left: 10px;
+  }
+
+  th {
+    padding-top: 8px;
+    padding-bottom: 7px;
+    color: $gold;
+    vertical-align: top;
+  }
+
+  td {
+    padding-top: 7px;
+    padding-bottom: 8px;
+    border-top: 0;
+
+    &:first-child {
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &.word-break {
+      word-break: break-all;
+    }
+  }
+
+  tr:nth-child(odd) td {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .narrow {
+    width: 1%;
+    padding-right: 0;
+  }
+
+  .total-band {
+    background-color: $gold;
+    color: $red !important;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &.mBottom-0 {
+    margin-bottom: 0;
+  }
+
+  &.small {
+    font-size: 11px;
+
+    thead > tr > th {
+      font-size: 14px;
+      transition: font-size 0.5s;
+    }
+
+    tbody > tr > td {
+      font-size: 14px;
+    }
+
+    .caret {
+      margin-left: 6px;
+      transition: margin-left 0.5s;
+    }
+  }
+
+  &.has-fixed-layout {
+    table-layout: fixed;
+  }
+
+  &.table-row-bg-blank > tbody > tr.item-view-row {
+    background: none;
+    background-color: transparent;
+
+    &:hover {
+      background: $white none repeat scroll 0 0;
+    }
+  }
+}
+
+.table-clickable tr:hover td {
+  background-color: $white;
+}
+
+.table-clickable td {
+  cursor: pointer;
+}
+
+//.table-chip-tray td {
+//  padding-top: 17px;
+//  padding-bottom: 18px;
+//  font-size: 18px;
+//}
+
+.table-chip-tray td {
+  padding-top: 10px;
+  padding-bottom: 11px;
+  position:relative;
+
+  &.narrow {
+    padding-left: 40px;
+
+    .glyphicon {
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.table-inventory {
+  th {
+    background-color: $white;
+  }
+
+  td {
+    padding: 0 0 8px;
+    font-size: 18px;
+
+    .table-inventory-box {
+      padding: 9px 13px 10px;
+      background-color: $lighter-gold;
+    }
+
+    &:first-child .table-inventory-box {
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+
+    &:last-child .table-inventory-box {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  .tableFloatingHeaderOriginal {
+    margin-left: -10px;
+  }
+}
+
+.table-filters-content {
+  padding-bottom: 20px;
+}
+
+.table-sorting-option,
+.table-action-option {
+  margin-left: 17px;
+
+  &.not-visible {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
+
+tr[data-href]:hover {
+  background-color: $white;
+}
+
+.table-content-wrapper {
+  overflow-y: auto;
+  position: relative;
+  height: calc(100vh - 300px);
+  border-bottom: 1px solid rgba(187, 145, 86, 0.2);
+
+  &.has-filters-above {
+    height: calc(100vh - 338px);
+    border-bottom: 1px solid rgba(187, 145, 86, 0.2);
+    &.has-filters-above-open {
+      height: calc(100vh - 398px);
+    }
+  }
+
+  &.full {
+    height: calc(100vh - 248px);
+  }
+}
+
+.table-content-wrapper-full {
+  overflow-y: auto;
+  height: 350px;
+  margin-left: 0;
+  transition: margin-left 0.5s;
+}
+
+.table-content-wrapper-one {
+  overflow-y: auto;
+  position: absolute;
+  height: 300px;
+}
+
+.table-content-wrapper-two {
+  overflow-y: auto;
+  position: absolute;
+  height: 300px;
+}
+
+#tables-sort-menu {
+  width: 158px;
+}
+
+.has-fixed-layout tbody > tr > td {
+  word-wrap: break-word;
+}
+
+th[ng-click] {
+  cursor: pointer;
+}
+.sortableColumn{
+  cursor: pointer;
+}
+
+
+//Style to adjust font-size in Manual-rating table
+.left-sidebar-closed .table-col--set-width thead {
+  th:not(.tbl-col--type-icon) {
+    min-width: 3.5rem;
+  }
+}
+
+.left-sidebar-opened .table-col--set-width thead {
+  th:not(.tbl-col--type-icon) {
+    min-width: 2.5rem;
+  }
+}

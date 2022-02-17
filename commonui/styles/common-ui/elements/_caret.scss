@@ -1,0 +1,73 @@
+.caret,
+.btn .caret {
+  margin: 0 0 4px 10px;
+  color: $gold;
+  border-top: 5px dashed;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+.caret.caret-right,
+.btn .caret.caret-right {
+  border-top: 5px solid transparent;
+  border-right: 0;
+  border-bottom: 5px solid transparent;
+  border-left: 5px dashed;
+}
+
+.caret.caret-up,
+.btn .caret.caret-up {
+  border-top: 0;
+  border-right: 5px solid transparent;
+  border-bottom: 5px dashed;
+  border-left: 5px solid transparent;
+}
+
+.caret.caret-left,
+.btn .caret.caret-left {
+  border-top: 5px solid transparent;
+  border-right: 5px dashed;
+  border-bottom: 5px solid transparent;
+  border-left: 0;
+}
+
+.collapsed .caret {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px dashed;
+}
+
+.btn-block .caret,
+.dropdown-toggle-wide .caret,
+.expandable-list .caret {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-left: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.number-selector-btn .caret {
+  margin: -5px 0 0;
+}
+
+.pagination a {
+  .caret {
+    margin: 0 0 3px;
+  }
+
+  &:hover {
+    .caret-left {
+      border-right-color: $red;
+    }
+
+    .caret-right {
+      border-left-color: $red;
+    }
+  }
+}
+
+.navbar:not(.sub-navbar) a:hover .caret {
+  border-top-color: $white;
+}

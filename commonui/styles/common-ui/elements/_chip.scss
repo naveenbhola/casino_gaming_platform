@@ -1,0 +1,196 @@
+.chips {
+  width: 32px;
+  height: 32px;
+  display: block;
+  float: left;
+}
+
+@for $i from 1 through 7 {
+  .chips.chip-#{$i} {
+    background: url("../bower_components/wdts-common-ui/assets/img/chip-denom-#{$i}.svg") transparent center center no-repeat;
+  }
+}
+
+.chip-value {
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+.icon-chip {
+  @include icon(33px, 33px, "chip");
+  margin: -10px 0;
+  background-size: 100%;
+  &.chip-tray {
+    margin: 5px 2px 2px;
+  }
+}
+
+.dealer .icon-chip {
+  margin: -4px 5px -10px 0;
+}
+
+.icon-chip-color {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin: 2px 0 0 2px;
+
+  path, line {
+    fill: none;
+    stroke: none;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+  }
+
+  path {
+    fill: $gold;
+  }
+
+  line {
+    stroke: $gold;
+  }
+
+  &.chip-1-million {
+    $color: #F7EF41;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+  &.chip-500-thousand {
+    $color: #D95D68;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+  &.chip-100-thousand {
+    $color: #E79501;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+  &.chip-50-thousand {
+    $color: #74CC52;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+  &.chip-10-thousand {
+    $color: #993C51;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+  &.chip-5-thousand {
+    $color: #D95D68;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+  &.chip-1-thousand {
+    $color: #F7EF41;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+  &.chip-500 {
+    $color: #9F7ABD;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+  &.chip-100 {
+    $color: #979797;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+  &.chip-25 {
+    $color: #1573BB;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+  &.chip-5 {
+    $color: #D95D68;
+
+    path {
+      fill: $color;
+    }
+
+    line {
+      stroke: $color;
+    }
+  }
+
+}
+
+@for $i from 1 through 4 {
+  .chip#{$i} {
+    background-image: url("../bower_components/wdts-common-ui/assets/img/chip-denom-#{$i}.svg");
+  }
+}
+
+.table-chip-tray {
+  padding-bottom: 135px;
+}

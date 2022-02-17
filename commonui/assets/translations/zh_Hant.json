@@ -1,0 +1,2976 @@
+{
+  "RATING_STATUS": "客人評分狀態",
+  "PROVISIONAL_PENDING": "待定",
+  "PROVISIONAL_SUCCESS":"成功",
+  "GAME_DATA_NOT_AVAIL_MANUAL_RATING": "牌局資料不適用於手動評分。",
+  "PROVISIONAL_REJECT": "拒絕",
+  "SUCCESS" : "成功",
+  "ACTIVE": "活躍",
+  "CANCELLED": "已取消",
+  "COMPLETED":"完成",
+  "CREATED":"已建立",
+  "SCHEDULED":"已排期",
+  "TERMINATED":"已終止",
+  "EXPIRED":"已過期",
+  "ISSUED":"已發放",
+  "PAID":"已支付",
+  "REDEEMED":"已兌換",
+  "TAKEN":"已收取",
+  "VOIDED":"已作廢",
+  "INACTIVE": "不活躍",
+  "CASHABLE": "可兌現",
+  "NON_CASHABLE": "不可兌現",
+  "PROMOTIONAL_ONLY":"僅推廣用",
+  "NOT_DEFINED": "未定義",
+  "ANY":"任何",
+  "FILES": "個檔案",
+  "FILE_NOT_SELECTED": "未選擇檔案",
+  "CHOOSE_FILES": "選擇檔案",
+  "NO_FILE_CHOSEN": "沒有檔案可選",
+  "UPDATE_NEW_CHIP_CACHE": "上傳新的籌碼貯藏資料庫",
+  "SELECT_TWO_FILES": "請選擇 2 個檔案",
+  "Active": "活躍",
+  "Inactive": "不活躍",
+  "Any":"任何",
+  "All": "全部",
+  "ALL": "全部",
+  "Yes": "是",
+  "No": "否",
+  "YES": "是",
+  "NO": "否",
+  "Known": "已知",
+  "Unknown": "未知",
+  "UNKNOWN": "未知",
+  "CANCELED": "已取消",
+  "CLOSED": "已關閉",
+  "OPEN": "開啟",
+  "PENDING": "待定",
+  "IN_PROGRESS": "進行中",
+  "Anonymous": "匿名",
+  "ANONYMOUS": "匿名",
+  "KNOWN":"已知",
+  "RATED": "評分",
+  "REQ_OVER_THRESH_TXN_CASHIER": "請求進行超出閾值的交易",
+  "Document_ID":"檔案號碼",
+  "ENROLLED": "登記的籌碼",
+  "CASINO-OWNED": "賭場擁有的籌碼",
+  "PLAYER-OWNED": "玩家擁有的籌碼",
+  "REMOVE_ITEM":"移除項目",
+  "(Blanks)":"（空白）",
+  "INACTIVITY_PERIOD": "靜止投注的時間",
+  "FREE_HANDS": "沒有投注的牌局",
+  "MINUTES": "分鐘",
+  "com.wdts.system.game.types.label": "遊戲類型",
+  "com.wdts.casino.no.hierarchy":"位置不存在於這個營運區域",
+  "com.wdts.system.enable.decremented.payout.label": "啟用遞減派彩",
+  "com.wdts.system.resolve.pair.bets.on.fifth.card.draw.label": "抽第五張牌時結算對子投注",
+  "com.walkerdigital.system.elite.shoe.card.count.threshold.label": "牌靴切牌限紅",
+  "com.wdts.system.take.pair.bets.at.T4.label": "於遊戲中收取對子輸家投注",
+  "com.walkerdigital.system.disable.override.button.on.chip.errors.label": "籌碼出錯時提供覆寫按鈕：",
+  "com.wdts.system.enable.auto.rebooking.first.three.cards.label": "啟用抽牌時自動改變投注",
+  "com.wdts.enable.nocomission.label": "免佣遊戲",
+  "com.wdts.require.subtract.payout.commission.label": "從派彩中扣除佣金",
+  "com.wdts.enable.elite.bet.label": "已啟用精英投注",
+  "com.wdts.table.no.turn.mode.label": "不可旋轉模式",
+  "com.wdts.player.position.count.label": "玩家位置的數目",
+  "com.wdts.enable.auto.clock.out.label": "啟用玩家牌局自動打卡離開",
+  "com.wdts.max.inactive.minutes.label": "最大不活動分鐘數",
+  "com.wdts.max.inactive.games.label": "最大不活動局數",
+  "com.wdts.OVERALL.label": "全部",
+  "com.wdts.LIMITS.label": "限紅",
+  "com.wdts.CHIP_SETS.label": "籌碼類型",
+  "com.wdts.SESSION.label": "牌局",
+  "com.wdts.SHOE.label": "牌靴",
+  "com.wdts.COMMISSION.label": "佣金",
+  "com.wdts.BETS.label": "投注",
+  "com.wdts.ELITE.label": "精英",
+  "com.wdts.displayText.invalid.card.override": "牌覆寫無效",
+  "application.app.ALERTS": "警報應用",
+  "application.app.CAM": "CAM 應用",
+  "application.app.CASHIER": "收銀台應用",
+  "application.app.CASINO_MGR": "賭場管理程式",
+  "application.app.CONFIGURATION": "配置應用",
+  "application.app.PLAYER_DASH": "玩家面板",
+  "application.app.REPORTS": "報告應用",
+  "application.app.TABLE_DASH": "賭檯面板",
+  "application.app.TABLE_MI": "賭檯 MI 舊版應用",
+  "application.app.TREASURY_MGR": "財資管理程式",
+  "application.app.DEALER_DISPLAY": "發牌員顯示器應用",
+  "application.app.PERFECT_PAY_APPLICATIONS": "Perfect Pay 應用",
+  "com.walkerdigital.disable.override.button.on.chip.errors.label": "出錯時仍覆寫：",
+  "com.wdts.require.banker.bet.pay.net.label": "需要減去佣金後的莊家派彩額：",
+  "com.wdts.clockout.rated.players.label": "自動關掉客人評分:",
+  "com.wdts.table.autoadjuststack.enabled.label": "在賠彩/殺碼期間調整賭注:",
+  "com.wdts.table.chiptray.enabled.label": "已啟用籌碼托盤：",
+  "com.walkerdigital.elite.num.decks.in.shoe.label": "牌靴內有幾副牌：",
+  "com.wdts.table.single.press.auto.settle.via.shoe.label": "透過牌靴按鈕自動結算遊戲：",
+  "com.walkerdigital.elite.shoe.card.count.threshold.label": "切牌限紅：",
+  "com.wdts.shoe.angeleye.heartbeat.enabled": "心跳已啟用： ",
+  "com.wdts.session.expire.inactivity.secs.label": "用戶不活動（秒）自動退出",
+  "com.wdts.gamingday.casino.roll.time.label": "賭檯遊戲日滾動時間 (hh:mm)",
+  "com.wdts.gamingday.treasury.roll.time.label": "賬房遊戲日滾動時間 (hh:mm)",
+  "com.wdts.session.avg.bet.includes.free.hands.label": "計算平均注額時包括閒手",
+  "com.wdts.session.adj.handle.incl.pushed.bets.label": "計算總注額和平均注額時包括和局",
+  "com.wdts.session.adj.handle.contra.adjustment.label": "總注額中淨閒家/莊家比",
+  "com.wdts.bet.use.wager.as.exposure.label": "計算差異時使用莊家投注值",
+  "com.wdts.perform.chip.tray.auto.scans.when.table.idle.label": "賭檯空閒時自動掃描籌碼托盤",
+  "com.wdts.secs.interval.to.rescan.tray.while.table.idle.label": "自動掃描間隔（秒）",
+  "com.wdts.chip.tray.adjustment.reason.required.label": "要求調整籌碼托盤的理由",
+  "com.wdts.millisecs.to.delay.auto.upper.tray.scan.after.tray.closing.label": "上托盤自動掃描延時",
+  "com.wdts.millisecs.to.delay.auto.upper.tray.re.scan.after.variance.detected.label": "偵測到差異後上托盤自動重新掃描延時",
+  "com.wdts.table.inventory.display.available.denoms.only.label": "僅顯示庫存檢視畫面上的面額",
+  "com.wdts.auto.chip.enroll.enabled.label":"自動註冊",
+  "com.wdts.millisecs.to.delay.chip.tray.scan.after.game.ends.label": "遊戲結束後籌碼托盤掃描延遲（毫秒）",
+  "com.wdts.auto.close.sessions.on.table.close.label": "賭檯關閉時自動關閉開放牌局",
+  "com.wdts.threshold.limit.approval.workflow.label":"批准超出閾值的交易",
+  "com.wdts.out.of.balance.error.threshold.value.label": "金額不符錯誤之閾值",
+  "com.wdts.limit.color.label": "限紅顏色",
+  "com.walkerdigital.table.max.payout.label": "差異",
+  "com.walkerdigital.table.minimum.standard.bet.label": "最小閒家/莊家投注",
+  "com.walkerdigital.table.maximum.standard.bet.label": "最大閒家/莊家投注",
+  "com.walkerdigital.table.maximum.standard.use.bet.label": "使用最大閒家/莊家投注",
+  "com.walkerdigital.table.minimum.pair.bet.label": "最小對子投注",
+  "com.walkerdigital.table.maximum.combine.aggregate.pair.bets.label": "使用最大累積對子投注",
+  "com.walkerdigital.table.maximum.aggregate.pair.bet.label": "最大累積對子投注",
+  "com.walkerdigital.table.minimum.tie.bet.label": "最小和局投注",
+  "com.walkerdigital.table.maximum.aggregate.tie.bet.label": "最大累積和局投注",
+  "com.walkerdigital.table.minimum.l6.bet":"最低幸運六投注",
+  "com.walkerdigital.table.maximum.l6.bet":"最高幸運六投注",
+  "com.walkerdigital.system.bet.increment.BankerBet.label": "莊家投注增額",
+  "com.walkerdigital.table.no.commission.baccarat.mode.label": "免佣賭檯",
+  "com.walkerdigital.table.no.commission.baccarat.mode.onDashboard.label": "免佣",
+  "com.wdts.cashierApp.buyIn.approval.limit.label": "買入批准閾值",
+  "com.wdts.cashierApp.cashOut.approval.limit.label": "兌現批准閾值",
+  "com.wdts.cashierApp.change.approval.limit.label": "兌換批准閾值",
+  "com.wdts.cmApp.show.topology.label": "預設顯示區域樹",
+  "com.wdts.treasuryApp.show.topology.label": "預設顯示區域樹",
+  "com.wdts.configuration.target.SYSTEM.site.security.label": "用戶安全",
+  "com.wdts.configuration.target.SYSTEM.site.dateTime.label": "日期和時間",
+  "com.wdts.configuration.target.SYSTEM.site.business.label": "業務規則",
+  "com.wdts.configuration.target.SYSTEM.site.chipTray.label": "籌碼托盤",
+  "com.wdts.configuration.target.SYSTEM.application.cashier.label": "收銀台應用",
+  "com.wdts.configuration.target.SYSTEM.application.cm.label": "賭場管理程式",
+  "com.wdts.configuration.target.SYSTEM.application.treasury.label": "財資管理程式",
+  "com.wdts.configuration.target.SYSTEM.application.trend.label":"趨勢顯示",
+  "com.wdts.trend.component.layout.label":"佈局",
+  "com.wdts.trend.luckychip.animation.timeout.label": "幸運籌碼動畫逾時",
+  "com.walkerdigital.baccarat.angeleye.message.start.byte.label": "天使之眼訊息開始字節：",
+  "com.wdts.shoe.angeleye.heartbeat.enabled.label": "心跳已啟用：",
+  "com.wdts.table.auto.settle.delay.ms.label": "透過牌靴按鈕自動結算遊戲延時：",
+  "com.wdts.table.double.press.auto.settle.via.shoe.label": "透過牌靴按鈕自動結算遊戲：",
+  "com.wdts.table.no.turn.mode.bypass.error.at.payout.label": "繼續派彩/繞過錯誤：",
+  "com.wdts.table.take.pair.bets.at.T4.label": "於遊戲中收取對子投注：",
+  "com.wdts.enable.auto.rebooking.first.three.cards.label": "抽牌時重新登記投注：",
+  "com.wdts.table.num.player.positions.label": "玩家位置的數目：",
+  "com.wdts.table.rfid.enabled.label": "RFID 已啟用：",
+  "com.wdts.table.luckySix.enabled.label": "Lucky Six Enabled:",
+  "com.wdts.mgm.non.rfid.table.type.label":"賭檯類型",
+  "com.wdts.displayText.exception.reason.ignore_close_when_ratings_open":"在關閉賭檯前結束未完成的牌局",
+  "com.wdts.displayText.cannot.turn.card.in.no.turn.mode":"在不翻牌模式中無法將牌移除",
+  "com.wdts.displayText.invalid.card.override.due.to.chips":"由於籌碼錯誤或不明確籌碼，導致更改牌隻無效",
+  "com.wdts.displayText.ignore.close.when.ratings.open":"在關閉賭檯前結束未完成的牌局",
+  "default.shoe.label": "牌靴類型：",
+  "com.wdts.login.auth.invalid.credential":"憑證或許可無效",
+  "supervisor.login.on.tableMI.required":"要求主管登入 Table MI",
+  "com.wdts.table.inventory.update.table.roll.label":"轉換日期時更新庫存:",
+  "com.wdts.table.inventory.update.time.manualscan":"手動掃描",
+  "com.wdts.table.inventory.update.time.autoscan":"日期轉換時自動更新",
+  "com.wdts.anonymous.session.alert.enabled.label": "啟動公關系統提示",
+  "com.wdts.anonymous.session.table.alert.enabled.label": "啟動公關系統提示",
+  "permission.group.CASINO_MGR.permission.name.ANONYMOUS_PLAY_CRITERIA": "設置聯絡公關條件",
+  "com.wdts.table.lucky6.enabled.label": "L6 已啟用",
+  "com.wdts.table.lucky6.antenna.label": "幸運六感應",
+  "com.wdts.table.shared.antenna.sequence.label": "共用感應位置",
+  "lucky6.Banker.Antenna": "莊家感應",
+  "lucky6.Dedicated.Antenna": "專屬感應",
+  "PP_TIE_L6_BP": "閒對 &nbsp;&nbsp; 和 &nbsp;&nbsp; 幸運六 &nbsp;&nbsp; 莊對",
+  "PP_L6_TIE_BP": "閒對 &nbsp;&nbsp; 幸運六 &nbsp;&nbsp; 和 &nbsp;&nbsp; 莊對",
+  "I":"保險",
+  "fcreq":"加彩/繳碼申請",
+  "application.app.dealerDisplay":{
+    "NO_PLAYER_CLICK_TO_ASSIGN":"無玩家 - 按一下以指定玩家",
+    "SELECT_SEAT_OR_SWIPE_PLAYER_CARD":"選擇一個座位或刷玩家身份卡",
+    "ASSIGN":"指定",
+    "UNASSIGN":"取消指定",
+    "CANCEL":"取消",
+    "SEARCH":"搜尋",
+    "PAID_ON":"支付數額",
+    "COMMISSION":"佣金",
+    "AMOUNT":"數額",
+    "CHIPS_PAID":"支付的籌碼",
+    "CHIPS_OFF_SEAT":"從座位拿走的籌碼",
+    "CHIPS_ON_SEAT":"座位上的籌碼",
+    "CHIPS_OFF":"籌碼用盡",
+    "WAGER":"賭注",
+    "PAY":"支付",
+    "LUCKY_CHIP_BONUS_HEADER":"幸運籌碼獎勵座位",
+    "OK":"確定",
+    "SELECT_A_REASON":"請選擇原因",
+    "TIE_BETS":"和 注碼",
+    "PAIR_BETS":"對子 注碼",
+    "BP":"庄對",
+    "PP":"閒對",
+    "T":"和",
+    "ADD_WAGER":"加注",
+    "REMOVE_WAGER":"減注"
+  },
+  "permission.group.ALERTS": {
+    "value": "警報應用",
+    "permission.name.ACCESS_ALERTS_APP": "存取警報應用"
+  },
+  "permission.group.CAM": {
+    "value": "CAM 應用",
+    "permission.name.ACCESS_CAM_APP": "存取 CAM 應用",
+    "permission.name.VIEW_APPROVALS_CAM": "檢視批准視窗",
+    "permission.name.ACCESS_ENROLL_OPT": "存取登記選項",
+    "permission.name.ACCESS_UPDATE_OWNERSHIP_OPT": "存取更新所有權選項",
+    "permission.name.ACCESS_TOTAL_CASINO_CHIPS_OPT": "存取總賭場籌碼選項"
+  },
+  "permission.group.CASHIER": {
+    "value": "收銀台應用",
+    "permission.name.ACCESS_CASHIER_APP": "存取收銀台應用",
+    "permission.name.VIEW_APPROVALS_CASHIER": "檢視批准視窗",
+    "permission.name.REQ_OVER_THRESH_TXN_CASHIER": "請求進行超出閾值的交易",
+    "permission.name.APPROVE_OVER_THRESH_TXN_CASHIER": "批准超出閾值的交易",
+    "permission.name.PAY_LUCKY_CHIP_BONUS": "支付幸運籌碼獎勵",
+    "permission.name.VIEW_CHIP_ID": "檢視籌碼編號",
+    "permission.name.REQ_OVER_THRESH_TXN_CASHIER_required":"需要批准超過閾值的交易權限才能完成此操作",
+    "noaccesstosite":"你沒有權限進入此位置"
+  },
+  "permission.group.CASINO_MGR": {
+    "value": "賭場管理程式應用",
+    "permission.name.ACCESS_CASINO_MGR_APP": "存取賭場管理程式應用",
+    "permission.name.VIEW_TOP_WINNERS_LOSERS": "檢視最大贏家和輸家",
+    "permission.name.VIEW_ADVANCED_CASINO_KPIS": "檢視進階賭場關鍵業績指標",
+    "permission.name.ACCESS_MANUAL_RATING_OPTS": "存取手動評級選項",
+    "permission.name.VIEW_APPROVALS_CMR": "檢視批准視窗",
+    "permission.name.APPROVE_MANUAL_RATING_CMR": "批准手動評級",
+    "permission.name.REQ_ROLL_TIME_UPDATE_CMR": "請求更新滾動時間",
+    "permission.name.APPROVE_ROLL_TIME_UPDATE_CMR": "批准更新滾動時間",
+    "permission.name.APPROVE_OVER_THRESH_CHANGE_TXN_CMR": "批准超出閾值的兌換交易",
+    "permission.name.APPROVE_OVER_THRESH_BUYIN_TXN_CMR": "批准超出閾值的買入交易",
+    "permission.name.APPROVE_VARIANCE_ADJ_CMR": "批准差異調整",
+    "permission.name.ROLL_TIME_UPDATE_CMR": "滾動時間更新",
+    "permission.name.ISSUE_PRINT_BONUS_VOUCHER": "發放/列印獎券",
+    "permission.name.VIEW_BONUS": "檢視獎勵",
+    "permission.name.PRINT_OPENER_CLOSER": "列印期初金額/期末金額"
+  },
+  "permission.group.CONFIGURATION": {
+    "value": "配置應用",
+    "permission.name.ACCESS_CONFIG_APP": "存取配置應用",
+    "permission.name.VIEW_CONFIG_APP_OPTS": "檢視配置應用選項",
+    "permission.name.EDIT_AREAS": "編輯區域",
+    "permission.name.EDIT_LIMITS": "編輯限紅",
+    "permission.name.EDIT_ROLES": "編輯角色",
+    "permission.name.EDIT_USERS": "編輯用戶",
+    "permission.name.EDIT_CHIP_SETS": "編輯籌碼組",
+    "permission.name.EDIT_SYSTEM_OPTS": "編輯系統選項－地點選項",
+    "permission.name.EDIT_CASHIER_APP_OPTS": "編輯收銀台應用選項",
+    "permission.name.EDIT_ALERTS_APP_OPTS": "編輯警報應用選項",
+    "permission.name.EDIT_CAM_APP_OPTS": "編輯 CAM 應用選項",
+    "permission.name.EDIT_CMR_OPTS": "編輯賭場應用選項",
+    "permission.name.EDIT_TREAS_APP_OPTS": "編輯財資管理程式選項",
+    "permission.name.EDIT_CONFIG_APP_OPTS": "編輯配置管理程式選項",
+    "permission.name.EDIT_DEALER_APP_OPTS": "編輯發牌員顯示器應用選項",
+    "permission.name.EDIT_PLAYER_DASH_OPTS": "編輯玩家面板應用選項",
+    "permission.name.EDIT_TABLE_DASH_OPTS": "編輯賭檯面板應用選項",
+    "permission.name.EDIT_TABLE_LIMITS_TEMPLATES": "編輯賭檯限紅範本",
+    "permission.name.VIEW_MANAGE_TABLE_LIMITS": "檢視「管理賭檯限紅」標籤",
+    "permission.name.VIEW_TABLE_LIMITS_TEMPLATES": "檢視「賭檯限紅」範本",
+    "permission.name.EDIT_TABLE_PROPS": "編輯賭檯屬性",
+    "permission.name.EDIT_TABLES_CONFIG": "編輯賭檯配置",
+    "permission.name.TABLES_CONFIG_VIEW_ADVANCED_FIELDS": "編輯賭檯配置和檢視進階欄位",
+    "permission.name.TABLES_CONFIG_EDIT_ADVANCED_FIELDS": "編輯包括進階欄位在內的賭檯配置",
+    "permission.name.VIEW_TABLE_ATTRIBUTES": "檢視賭檯屬性",
+    "permission.name.VIEW_TABLES_CONFIG": "檢視賭檯配置",
+    "permission.name.CHANGE_USER_PIN": "變更用戶密碼",
+    "permission.name.CREATE_USER": "建立用戶",
+    "permission.name.DELETE_REINSTATE_USER": "刪除/恢復用戶",
+    "permission.name.EDIT_USER": "編輯用戶",
+    "permission.name.UNLOCK_USER": "用戶解鎖",
+    "permission.name.VIEW_USERS": "檢視用戶",
+    "permission.name.EDIT_SITE_USERS_ROLES": "編輯地點和用戶選項",
+    "permission.name.EDIT_TREND_DISPLAY_OPTS": "配置趨勢顯示選項",
+    "permission.name.MANAGE_LUCKY_CHIP_BONUS": "管理幸運籌碼獎勵",
+    "permission.name.SCHEDULE_LUCKY_CHIP_BONUS": "為幸運籌碼獎勵排期"
+  },
+  "permission.group.PLAYER_DASH": {
+    "value": "玩家面板應用",
+    "permission.name.ACCESS_PLAYER_DASH": "存取玩家面板應用",
+    "permission.name.UPDATE_CLOSED_SESSION_PLAYER": "更新已完成的回合",
+    "permission.name.RATE_CLOSED_KNOWN_SESSION": "評分給已關掉知名客人的遊戲回合",
+    "permission.name.UPDATE_CLOSED_ANONYMOUS_SESSION": "更新已關掉匿名客人的遊戲回合",
+    "permission.name.UPDATE_CLOSED_KNOWN_SESSION": "更新已關掉知名客人的遊戲回合"
+  },
+  "permission.group.TABLE_DASH": {
+    "value": "賭檯面板應用",
+    "permission.name.ACCESS_TABLE_DASH": "存取賭檯面板應用",
+    "permission.name.APPROVE_OVER_THRESH_CHANGE_TXN_TD": "批准超出閾值的兌換交易",
+    "permission.name.APPROVE_OVER_THRESH_BUYIN_TXN_TD": "批准超出閾值的買入交易",
+    "permission.name.APPROVE_CONVERT_SESSION_TD": "批准轉換牌局的請求",
+    "permission.name.REQ_CONVERT_SESSION_TD": "請求轉換牌局",
+    "permission.name.VIEW_APPROVALS_TABLE_DASH": "檢視批准視窗",
+    "permission.name.CREATE_MANUAL_RATING": "請求手動評級",
+    "permission.name.APPROVE_MANUAL_RATING_TD": "批准手動評級",
+    "permission.name.CANCEL_MANUAL_RATING_TD": "批准取消評級",
+    "permission.name.APPROVE_GAME_OVERRIDE_TD": "批准覆寫投注",
+    "permission.name.REQ_GAME_OVERRIDE_TD": "請求覆寫遊戲",
+    "permission.name.APPROVE_GAME_OVERRIDE_TD": "批准覆寫遊戲",
+    "permission.name.REQ_VARIANCE_ADJ_TD": "請求差異調整",
+    "permission.name.APPROVE_VARIANCE_ADJ_TD": "批准差異調整",
+    "permission.name.MANAGE_PLAYERS": "管理玩家",
+    "permission.name.MANAGE_TABLE_STATUS": "管理賭檯狀態",
+    "permission.name.SUBMIT_MANUAL_RATING": "提交手動評級",
+    "permission.name.ROLL_TIME_UPDATE_TBL": "更新滾動時間",
+    "permission.name.APPLY_TABLE_LIMITS": "套用賭檯限紅",
+    "permission.name.CREATE_MANUAL_RATING": "提交手動評級",
+    "permission.name.UPDATE_OPEN_SESSION": "更新未完成的回合",
+    "permission.name.UPDATE_CLOSED_SESSION_TABLE": "更新已完成的回合",
+    "permission.name.MANAGE_TABLE_STATUS": "管理賭檯狀態",
+    "permission.name.MANAGE_GAME": "管理遊戲",
+    "permission.name.OVERRIDE_CARDS": "覆寫牌",
+    "permission.name.OVERRIDE_GAMES": "覆寫遊戲",
+    "permission.name.RATE_OPEN_KNOWN_SESSION": "評分給知名客人的遊戲回合",
+    "permission.name.RATE_CLOSED_KNOWN_SESSION_TABLE": "評分給已關掉知名客人的遊戲回合",
+    "permission.name.UPDATE_OPEN_ANONYMOUS_SESSION": "更新匿名客人的遊戲回合",
+    "permission.name.UPDATE_CLOSED_ANONYMOUS_SESSION_TABLE": "更新已關掉匿名客人的遊戲回合",
+    "permission.name.UPDATE_OPEN_KNOWN_SESSION": "更新知名客人的遊戲回合",
+    "permission.name.UPDATE_CLOSED_KNOWN_SESSION_TABLE": "更新已關掉知名客人的遊戲回合",
+    "permission.name.UPDATE_IRC_NUMBER": "更新 MID"
+  },
+  "permission.group.TABLE_MI": {
+    "value": "賭檯 MI 舊版應用",
+    "permission.name.LOGIN_AS_DEALER": "以發牌員身份登入",
+    "permission.name.MANAGE_GAME": "管理遊戲",
+    "permission.name.MANAGE_PLAYERS": "管理玩家",
+    "permission.name.MANAGE_TABLE_STATUS": "管理賭檯狀態",
+    "permission.name.APPROVE_GAME_OVERRIDE_TMI": "覆寫批准",
+    "permission.name.CLOCK_IN_PLAYER": "玩家打卡進入",
+    "permission.name.REQ_GAME_OVERRIDE_TMI": "覆寫請求",
+    "permission.name.ACCESS_TABLE_MI": "檢視賭檯 MI 標籤",
+    "permission.name.REVEAL_CARDS_TMI": "覆寫以從 MI 展示牌（檢查賭檯 MI）",
+    "permission.name.OPERATE_DD_TMI": "操作發牌員顯示器（檢查賭檯 MI）",
+    "permission.name.REBOOT_DD_TMI": "重啟發牌員顯示器",
+    "permission.name.RESET_DD_TMI": "重設發牌員顯示器（保留）",
+    "permission.name.OVERRIDE_APPROVAL": "覆寫批准",
+    "permission.name.OVERRIDE_BETS": "覆寫投注",
+    "permission.name.OVERRIDE_CARDS": "覆寫牌",
+    "permission.name.OVERRIDE_GAMES": "覆寫遊戲",
+    "permission.name.CHIP_TRAY_ADJUST_VARIANCE_REQUEST": "調整籌碼托盤差異"
+  },
+  "permission.group.TREASURY_MGR": {
+    "permission.name.RE-AUTHENTICATION_FOR_CHIP_CACHE": "重新驗證籌碼貯藏資料庫",
+    "permission.name.UPDATE_CHIP_CACHE": "更新籌碼貯藏資料庫",
+    "REQUEST_PERMISSION": "請求執行此操作的許可權 ",
+    "ENROLL_IN_PROCESS" : "正在註冊",
+    "BULK_ENROLL" : "批量註冊和新籌碼貯藏資料庫",
+    "CHIP_CACHE" : "籌碼貯藏資料庫",
+    "LATEST_CHIP_CACHE_DETAILS": "最新籌碼貯藏資料庫細節",
+    "CHIP_CACHE_VERSION": "籌碼貯藏資料庫版本",
+    "CHIP_CACHE_UPLOAD_IN_PROGRESS": "Chip Cache File Upload is in progress..",
+    "CHIP_CACHE_UPLOAD_SUCCESS": "Chip Cache File Upload Successful",
+    "CHIP_CACHE_UPLOAD_FAILED": "Chip Cache File Upload Failed",
+    "TOTAL_CHIP" : "籌碼總額",
+    "CREATION_DATE": "創建日期",
+    "CREATED_BY": "創建者",
+    "APPROVED_BY": "批准人",
+    "value": "財資管理程式應用",
+    "permission.name.ACCESS_TREASURY_MGR_APP": "存取財資管理程式應用",
+    "permission.name.VIEW_APPROVALS_TREAS": "檢視批准視窗",
+    "permission.name.APPROVE_OVER_THRESH_TXN_TREAS": "批准超出閾值的交易",
+    "permission.name.REQ_ROLL_TIME_UPDATE_TREAS": "請求更新滾動時間",
+    "permission.name.ROLL_TIME_UPDATE_TREAS": "請求更新滾動時間",
+    "permission.name.APPROVE_ROLL_TIME_UPDATE_TREAS": "批准更新滾動時間"
+  },
+  "permission.group.DEALER_DISP": {
+    "value": "發牌員顯示器應用",
+    "permission.name.ACCESS_DEALER_APP": "存取發牌員顯示器應用",
+    "permission.name.MANAGE_PLAYER_SESSIONS": "管理玩家牌局",
+    "permission.name.REQ_OVER_THRESH_CHANGE_TXN_DEALER": "請求進行超出閾值的兌換交易",
+    "permission.name.REQ_OVER_THRESH_BUYIN_TXN_DEALER": "請求進行超出閾值的買入交易",
+    "permission.name.LOGIN_AS_DEALER": "以發牌員身份登入"
+  },
+  "permission.group.REPORTS": {
+    "value": "WDTS BI 應用",
+    "permission.name.ACCESS_DEALER_APP": "存取發牌員顯示器應用",
+    "permission.name.MANAGE_PLAYER_SESSIONS": "管理玩家牌局",
+    "permission.name.REQ_OVER_THRESH_CHANGE_TXN_DEALER": "請求進行超出閾值的兌換交易",
+    "permission.name.REQ_OVER_THRESH_BUYIN_TXN_DEALER": "請求進行超出閾值的買入交易",
+    "permission.name.ACCESS_BI_APP": "存取 BI 應用"
+  },
+  "Title": "國際化",
+  "Language": "語言",
+  "Severity": "嚴重程度",
+  "Time": "時間",
+  "Source": "來源",
+  "Category": "類別",
+  "Alert Type": "警報類型",
+  "Description": "說明",
+  "Status": "狀態",
+  "Notes": "備註",
+  "Knowledge Base": "知識庫",
+  "HOST_CALL_FAILURE": {
+    "Alert_Type_Title": "聯絡公關失敗",
+    "Alert_Type_Description": "聯絡公關失敗",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SESSION_UPDATE_CONFIRMED": {
+    "Alert_Type_Title": "玩家牌局已更新",
+    "Alert_Type_Description": "玩家牌局已更新",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SESSION_UPDATE_CANCELLED": {
+    "Alert_Type_Title": "玩家牌局更新已取消",
+    "Alert_Type_Description": "用戶已取消玩家牌局更新",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TREND_OVERRIDE": {
+    "Alert_Type_Title": "路牌結果已變更",
+    "Alert_Type_Description": "賭檯面板上的路牌結果已變更",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "OPEN_TABLE": {
+    "Alert_Type_Title": "開放賭檯",
+    "Alert_Type_Description": "賭檯已置於開放狀態",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CLOSE_TABLE": {
+    "Alert_Type_Title": "關閉賭檯",
+    "Alert_Type_Description": "賭檯置於關閉狀態",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_FILL": {
+    "Alert_Type_Title": "新牌靴",
+    "Alert_Type_Description": "已選擇新牌靴選項",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_OUT_OF_SYNC": {
+    "Alert_Type_Title": "牌靴不同步",
+    "Alert_Type_Description": "出現第 9 隻相同花式與面值的牌隻",
+    "Alert_Product_Knowledge_Base": "此事件需要配置包含 8 副牌的牌靴"
+  },
+  "CANCEL_PLAYER_SESSION": {
+    "Alert_Type_Title": "玩家牌局已取消",
+    "Alert_Type_Description": "玩家牌局已取消",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MANUAL_RATING_SUBMIT": {
+    "Alert_Type_Title": "已提交手動評級",
+    "Alert_Type_Description": "用戶已提交待批准的手動評級",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "UNKNOWN_CHIP_SET_UPDATE_TO_KNOWN_CHIP_SET": {
+    "Alert_Type_Title": "未知籌碼組別已被更新為已知籌碼組別",
+    "Alert_Type_Description": "未知籌碼組別已被更新為已知籌碼組別",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DATABASE_REACHABLE": {
+    "Alert_Type_Title": "可存取資料庫",
+    "Alert_Type_Description": "現在可存取資料庫",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DATABASE_UNREACHABLE": {
+    "Alert_Type_Title": "無法存取資料庫",
+    "Alert_Type_Description": "無法存取該資料庫",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "HARDWARE_COMPONENT_OUTSIDE_PARAMETER": {
+    "Alert_Type_Title": "外部參數",
+    "Alert_Type_Description": "硬件元件外部效能參數",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MICROSERVICE_REACHABLE": {
+    "Alert_Type_Title": "可連接微服務",
+    "Alert_Type_Description": "現在可連接微服務",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MICROSERVICE_UNREACHABLE": {
+    "Alert_Type_Title": "無法連接微服務",
+    "Alert_Type_Description": "無法連接某項微服務",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "NOTE_ADDED": {
+    "Alert_Type_Title": "已新增備註",
+    "Alert_Type_Description": "備註已新增至事件或警報中",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "RESPONSE_TIME_OUTSIDE_PARAMETER": {
+    "Alert_Type_Title": "外部參數",
+    "Alert_Type_Description": "回應時間外部效能參數",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "ADD_ROLE": {
+    "Alert_Type_Title": "已新增用戶角色",
+    "Alert_Type_Description": "已新增用戶角色",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "ROLE_DISABLED": {
+    "Alert_Type_Title": "用戶角色已停用",
+    "Alert_Type_Description": "用戶角色已停用",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "EDIT_ROLE": {
+    "Alert_Type_Title": "已編輯用戶角色",
+    "Alert_Type_Description": "已編輯用戶角色",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "ROLE_ENABLED": {
+    "Alert_Type_Title": "已啟用用戶角色",
+    "Alert_Type_Description": "已啟用用戶角色",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SERVER_MEMORY_LOW": {
+    "Alert_Type_Title": "記憶體不足",
+    "Alert_Type_Description": "伺服器記憶體不足",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TABLE_MEMORY_LOW": {
+    "Alert_Type_Title": "記憶體不足",
+    "Alert_Type_Description": "賭檯記憶體不足",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TABLE_REACHABLE": {
+    "Alert_Type_Title": "賭檯可連接",
+    "Alert_Type_Description": "現在可連接某個賭檯",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TABLE_UNREACHABLE": {
+    "Alert_Type_Title": "無法連接賭檯",
+    "Alert_Type_Description": "無法連接某個賭檯",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "USER_LOCKED": {
+    "Alert_Type_Title": "賬戶被鎖",
+    "Alert_Type_Description": "因為錯誤輸入次數超限，用戶賬戶被鎖",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "USER_LOGIN": {
+    "Alert_Type_Title": "登入",
+    "Alert_Type_Description": "用戶已經登入應用",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "USER_LOGIN_FAILED": {
+    "Alert_Type_Title": "登入失敗",
+    "Alert_Type_Description": "用戶在登入時輸入了錯誤的用戶或密碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "USER_LOGOUT": {
+    "Alert_Type_Title": "登出",
+    "Alert_Type_Description": "用戶登出了應用",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "PIN_CHANGED": {
+    "Alert_Type_Title": "已變更密碼",
+    "Alert_Type_Description": "密碼已被用戶變更",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "ADD_USER": {
+    "Alert_Type_Title": "已新增用戶",
+    "Alert_Type_Description": "已增加新用戶",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DELETE_USER": {
+    "Alert_Type_Title": "用戶已停用",
+    "Alert_Type_Description": "用戶已停用",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "EDIT_USER": {
+    "Alert_Type_Title": "已編輯用戶",
+    "Alert_Type_Description": "已編輯用戶",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHANGE_PASSWORD": {
+    "Alert_Type_Title": "已變更用戶密碼",
+    "Alert_Type_Description": "已變更用戶密碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "REINSTATE_USER": {
+    "Alert_Type_Title": "用戶已恢復",
+    "Alert_Type_Description": "被停用用戶已恢復為有效用戶",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "STANDARD_BET_CHANGE_BOOKED": {
+    "Alert_Type_Title": "強制更改自動投注",
+    "Alert_Type_Description": "在抽出第一張牌後和抽出第四張牌前按抽牌回合改變投注",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BET_OVER_LIMIT_BOOKED": {
+    "Alert_Type_Title": "投注超出最大值",
+    "Alert_Type_Description": "投注額超出目前最大限紅",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "FORCE_REBOOK_BETS": {
+    "Alert_Type_Title": "強制更改投注",
+    "Alert_Type_Description": "獲授權用戶變更或增加投注額",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BET_UNDER_LIMIT_BOOKED": {
+    "Alert_Type_Title": "投注低於最小值",
+    "Alert_Type_Description": "投注額低於目前最小限紅",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CANCEL_BETS": {
+    "Alert_Type_Title": "已取消投注",
+    "Alert_Type_Description": "已取消某個玩家位置的投注",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SETTLE_POSITION": {
+    "Alert_Type_Title": "結算",
+    "Alert_Type_Description": "強制更改某個位置上的投注並計為已正確支付/收取",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIPTRAY_AUTO_SCAN": {
+    "Alert_Type_Title": "自動掃描籌碼托盤",
+    "Alert_Type_Description": "自動掃描籌碼托盤",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DAILY_CHIP_TRAY_BALANCE_MATCH": {
+    "Alert_Type_Title": "籌碼托盤金額相符",
+    "Alert_Type_Description": "籌碼托盤的實際金額與預期金額吻合",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_TRAY_LOCKED": {
+    "Alert_Type_Title": "籌碼托盤被鎖",
+    "Alert_Type_Description": "用戶已鎖上籌碼托盤",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_TRAY_OUT_OF_BALANCE": {
+    "Alert_Type_Title": "籌碼托盤金額不符",
+    "Alert_Type_Description": "籌碼托盤的實際金額與預期金額不吻合",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "INVENTORY_SNAPSHOT_TAKEN:": {
+    "Alert_Type_Title": "掃描籌碼托盤",
+    "Alert_Type_Description": "已掃描和更新籌碼托盤庫存",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_TRAY_UNLOCKED": {
+    "Alert_Type_Title": "籌碼托盤已解鎖",
+    "Alert_Type_Description": "用戶已解鎖籌碼托盤",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIPTRAY_GAME_OVERAGE_ADJUSTED": {
+    "Alert_Type_Title": "已自動調整遊戲差異",
+    "Alert_Type_Description": "遊戲結束時因無法確認輸掉籌碼而引起的差異已得到自動調整",
+    "Alert_Product_Knowledge_Base": "自動調整由可配置選項觸發，該選項會自動調整遊戲結束時出現的籌碼托盤差異（該差異係因托盤有一個或多個無法與輸掉的賭注關聯起來的籌碼而引起）"
+  },
+  "TABLE_CLOSER_CREATED": {
+    "Alert_Type_Title": "已建立賭檯期末金額",
+    "Alert_Type_Description": "建立賭檯期末金額時觸發",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TABLE_OPENER_CREATED": {
+    "Alert_Type_Title": "建立賭檯期初金額",
+    "Alert_Type_Description": "建立賭檯期初金額時觸發",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIPTRAY_VARIANCE_ADJUSTED": {
+    "Alert_Type_Title": "已調整差異",
+    "Alert_Type_Description": "用戶已將籌碼托盤差異調整為零",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_BUYIN_CANCEL": {
+    "Alert_Type_Title": "已取消買碼",
+    "Alert_Type_Description": "已取消莊荷感應區上的買碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_BUYIN": {
+    "Alert_Type_Title": "已完成買碼",
+    "Alert_Type_Description": "已確認莊荷感應區上的買碼交易",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_CHANGE_CANCEL": {
+    "Alert_Type_Title": "已取消兌換",
+    "Alert_Type_Description": "已取消發牌員天線上的兌換交易",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_CHANGE": {
+    "Alert_Type_Title": "已完成換碼",
+    "Alert_Type_Description": "已完成換碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_CREDIT_CANCEL": {
+    "Alert_Type_Title": "已取消籌碼入庫",
+    "Alert_Type_Description": "已取消發牌員天線上的籌碼入庫交易",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_CREDIT": {
+    "Alert_Type_Title": "已完成繳碼",
+    "Alert_Type_Description": "已確認莊荷感應區上的繳碼交易",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_FILL_CANCEL": {
+    "Alert_Type_Title": "已取消加彩",
+    "Alert_Type_Description": "已取消莊荷感應區上的加彩交易",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_FILL": {
+    "Alert_Type_Title": "已完成加彩",
+    "Alert_Type_Description": "已確認莊荷感應區上的加彩交易",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "AGGREGATE_BANKER_PAIR_OVER_LIMIT_BOOKED": {
+    "Alert_Type_Title": "累積莊對投注超過最大值",
+    "Alert_Type_Description": "莊對投注總額超過最大限紅",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "COMBINED_AGGREGATE_PAIR_OVER_LIMIT_BOOKED": {
+    "Alert_Type_Title": "累積對子投注超過最大值",
+    "Alert_Type_Description": "莊對和閒對投注總額超過最大限紅",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "AGGREGATE_PLAYER_PAIR_OVER_LIMIT_BOOKED": {
+    "Alert_Type_Title": "累積閒對投注超過最大值",
+    "Alert_Type_Description": "閒對投注總額超過最大限紅",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "AGGREGATE_TIE_OVER_LIMIT_BOOKED": {
+    "Alert_Type_Title": "累積和局投注超過最大值",
+    "Alert_Type_Description": "和局投注總額超過最大限紅",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_PINCH": {
+    "Alert_Type_Title": "籌碼被收取",
+    "Alert_Type_Description": "偵測到意外的或未授權的籌碼移動",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BULK_ENROLL": {
+    "Alert_Type_Title": "批量註冊完成",
+    "Alert_Type_Description": "批量註冊操作已完成" ,
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "INVALID_CHIP_EXPIRED": {
+    "Alert_Type_Title": "已移除無效籌碼",
+    "Alert_Type_Description": "已從賭檯上移除未經授權參與遊戲的籌碼類型",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "INVALID_CHIP_ACQUIRED": {
+    "Alert_Type_Title": "發現無效籌碼",
+    "Alert_Type_Description": "在賭檯上發現未經授權參與遊戲的籌碼類型",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "OVER_PAY": {
+    "Alert_Type_Title": "偵測到超額賠彩",
+    "Alert_Type_Description": "偵測到某個玩家位置出現超額賠彩",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TABLE_OVER_EXPOSURE_BOOKED": {
+    "Alert_Type_Title": "賭檯超紅",
+    "Alert_Type_Description": "賭檯超紅",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "VOID_HAND": {
+    "Alert_Type_Title": "",
+    "Alert_Type_Description": "",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHANGE_GAMING_LOCATION_ROLL_TIME": {
+    "Alert_Type_Title": "變更位置的轉換遊戲日時間",
+    "Alert_Type_Description": "用戶已更新一個或多個位置的自動轉換遊戲日時間",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TABLE_AUTO_ROLLED": {
+    "Alert_Type_Title": "賭檯已自動轉換遊戲日",
+    "Alert_Type_Description": "賭檯已自動轉換遊戲日",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MANUAL_RATING_APPROVE": {
+    "Alert_Type_Title": "已批准手動評級",
+    "Alert_Type_Description": "用戶已批准手動評級",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MANUAL_RATING_CANCEL": {
+    "Alert_Type_Title": "已取消手動評級",
+    "Alert_Type_Description": "用戶已取消手動評級",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MANUAL_RATING_CREATE": {
+    "Alert_Type_Title": "已建立手動評級",
+    "Alert_Type_Description": "用戶已建立手動評級",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "AUTO_CLOSE_SESSION": {
+    "Alert_Type_Title": "自動關閉牌局",
+    "Alert_Type_Description": "沒有活動後自動關閉牌局",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHANGE_PLAYER": {
+    "Alert_Type_Title": "位置上的玩家已變更",
+    "Alert_Type_Description": "位置上的玩家已變更",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "REGISTER_PLAYER": {
+    "Alert_Type_Title": "玩家打卡進入",
+    "Alert_Type_Description": "玩家已打卡進入某個位置",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CLOSE_PLAYER_SESSION": {
+    "Alert_Type_Title": "玩家打卡離開",
+    "Alert_Type_Description": "玩家已打卡離開某個位置",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MOVE_PLAYER": {
+    "Alert_Type_Title": "玩家已移到不同位置",
+    "Alert_Type_Description": "玩家已移到不同位置",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CANCEL_PLAYER_SESSION": {
+    "Alert_Type_Title": "玩家牌局已取消",
+    "Alert_Type_Description": "玩家牌局已取消",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SESSIONS_AUTO_CLOSED_ON_MANUAL_ROLL": {
+    "Alert_Type_Title": "牌局在手動轉換遊戲日時已自動轉換遊戲日",
+    "Alert_Type_Description": "當賭檯手動轉換遊戲日時自動關閉玩家牌局",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SESSIONS_AUTO_CLOSED_ON_CLOSE_TABLE": {
+    "Alert_Type_Title": "賭檯關閉時已自動轉換遊戲日牌局",
+    "Alert_Type_Description": "當賭檯關閉時自動關閉玩家牌局",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SWAP_PLAYERS": {
+    "Alert_Type_Title": "玩家已調換座位",
+    "Alert_Type_Description": "玩家已調換座位",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MANUAL_BURN_CARD": {
+    "Alert_Type_Title": "已手動銷牌",
+    "Alert_Type_Description": "牌被手動銷牌",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CARD_OVERRIDE": {
+    "Alert_Type_Title": "牌點已變更",
+    "Alert_Type_Description": "已手動輸入牌的花色或點數或者已改變原本的花色或點數",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "AUTO_CARD_BURN": {
+    "Alert_Type_Title": "已自動銷牌",
+    "Alert_Type_Description": "已透過牌靴請求銷牌",
+    "Alert_Product_Knowledge_Base": "已從整合的牌靴收到廢掉牌的訊息"
+  },
+  "BURN_BUFFERED": {
+    "Alert_Type_Title": "已從緩衝區銷牌",
+    "Alert_Type_Description": "已從緩衝區將牌銷牌",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BURN_CARD": {
+    "Alert_Type_Title": "已從系統銷牌",
+    "Alert_Type_Description": "透過選擇「開始銷牌」選項而銷牌",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CARD_DEAL_FROM_BUFFER": {
+    "Alert_Type_Title": "從緩衝區發出的牌",
+    "Alert_Type_Description": "從牌的緩衝區發回至遊戲的牌",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_FILL_REQUIRED": {
+    "Alert_Type_Title": "需要新牌靴",
+    "Alert_Type_Description": "已達到觸發新牌靴警報的牌數量閾值",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "START_BURN": {
+    "Alert_Type_Title": "開始銷牌",
+    "Alert_Type_Description": "用戶開始從牌靴手動銷牌",
+    "Alert_Product_Knowledge_Base": "當廢牌模式開始時，從牌靴抽出的牌會被視為被廢掉的牌，直至廢牌模式停止"
+  },
+  "STOP_BURN": {
+    "Alert_Type_Title": "停止銷牌",
+    "Alert_Type_Description": "用戶停止從牌靴手動銷牌",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "ENTER_DARK_MODE": {
+    "Alert_Type_Title": "進入睡眠模式",
+    "Alert_Type_Description": "賭檯已置於睡眠模式",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "ENTER_FURNITURE_MODE:": {
+    "Alert_Type_Title": "進入標準模式",
+    "Alert_Type_Description": "賭檯已置於標準狀態",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "EXIT_DARK_MODE": {
+    "Alert_Type_Title": "退出睡眠模式",
+    "Alert_Type_Description": "賭檯已退出睡眠模式",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "EXIT_FURNITURE_MODE": {
+    "Alert_Type_Title": "退出標準模式",
+    "Alert_Type_Description": "賭檯已退出標準模式",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "RESERVE_BACKBETTING_POSITION": {
+    "Alert_Type_Title": "位置已停用",
+    "Alert_Type_Description": "位置天線已停用",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "UNRESERVE_BACKBETTING_POSITION": {
+    "Alert_Type_Title": "位置已啟用",
+    "Alert_Type_Description": "位置天線已啟用",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHUTDOWN_TABLE": {
+    "Alert_Type_Title": "關閉賭檯",
+    "Alert_Type_Description": "賭檯已關閉",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "STARTUP_TABLE_CLOSED": {
+    "Alert_Type_Title": "以關閉狀態啟動賭檯",
+    "Alert_Type_Description": "已經以關閉狀態啟動賭檯",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "STARTUP_TABLE_OPEN": {
+    "Alert_Type_Title": "以開放狀態啟動賭檯",
+    "Alert_Type_Description": "已經以開放狀態啟動賭檯",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "STARTUP_TABLE_FURNITURE": {
+    "Alert_Type_Title": "以標準模式啟動賭檯",
+    "Alert_Type_Description": "已經以標準模式啟動賭檯",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "APPLY_CONFIG_TEMPLATE_AT_TABLE": {
+    "Alert_Type_Title": "已變更賭檯限紅範本",
+    "Alert_Type_Description": "已變更賭檯限紅範本",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "RESET_TABLE": {
+    "Alert_Type_Title": "重設賭檯",
+    "Alert_Type_Description": "重設賭檯",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BUY_IN_CANCEL": {
+    "Alert_Type_Title": "已取消買碼",
+    "Alert_Type_Description": "已取消買碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BUY_IN_COMPLETE": {
+    "Alert_Type_Title": "已完成買碼",
+    "Alert_Type_Description": "已完成買碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CASH_OUT_CANCEL": {
+    "Alert_Type_Title": "已取消兌現",
+    "Alert_Type_Description": "已取消兌現",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CASH_OUT_COMPLETE": {
+    "Alert_Type_Title": "已完成兌現",
+    "Alert_Type_Description": "已完成兌現",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHANGE_CANCEL": {
+    "Alert_Type_Title": "已取消換碼",
+    "Alert_Type_Description": "已取消換碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHANGE_COMPLETE:": {
+    "Alert_Type_Title": "已完成換碼",
+    "Alert_Type_Description": "已完成換碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_ENROLLMENT_CANCEL": {
+    "Alert_Type_Title": "已取消籌碼登記",
+    "Alert_Type_Description": "已取消籌碼登記",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_ENROLLMENT_COMPLETE": {
+    "Alert_Type_Title": "已完成籌碼登記",
+    "Alert_Type_Description": "已完成籌碼登記",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TRANSFER_CANCELLED": {
+    "Alert_Type_Title": "已取消轉移",
+    "Alert_Type_Description": "已取消轉移",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TRANSFER_COMPLETED": {
+    "Alert_Type_Title": "已完成轉移",
+    "Alert_Type_Description": "已完成轉移",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CAM_DEVICE_AUTO_ROLLED": {
+    "Alert_Type_Title": "已自動滾動 CAM 裝置的日期",
+    "Alert_Type_Description": "已自動滾動 CAM 裝置的日期",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHANGE_TREASURY_LOCATION_ROLL_TIME": {
+    "Alert_Type_Title": "變更帳房位置的轉換遊戲日時間",
+    "Alert_Type_Description": "用戶已更新一個或多個位置的自動轉換遊戲日時間",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHANGE_COMPLETE": {
+    "Alert_Type_Title": "已完成兌換",
+    "Alert_Type_Description": "已完成兌換",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "HW_OUTSIDE_PARAMETERS": {
+    "Alert_Type_Title": "外部參數",
+    "Alert_Type_Description": "硬件元件外部效能參數",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SERVICE_REACHABLE": {
+    "Alert_Type_Title": "連接微服務",
+    "Alert_Type_Description": "現在連接微服務",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SERVICE_UNREACHABLE": {
+    "Alert_Type_Title": "無法連接微服務",
+    "Alert_Type_Description": "無法連接某項微服務",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "RESPONSE_TIME_OUTSIDE_PARAMETERS": {
+    "Alert_Type_Title": "外部參數",
+    "Alert_Type_Description": "回應時間外部效能參數",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SERVICE_MEMORY_LOW": {
+    "Alert_Type_Title": "記憶體不足",
+    "Alert_Type_Description": "伺服器記憶體不足",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BET_CANCELLED": {
+    "Alert_Type_Title": "已取消投注",
+    "Alert_Type_Description": "已取消某個玩家位置的投注",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "NO_TURN_MODE_BYPASS_ERROR_AT_PAYOUT": {
+    "Alert_Type_Title": "在派彩時略過錯誤",
+    "Alert_Type_Description": "按牌靴的按鈕來略過賠彩時出現的錯誤",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "POSITION_SETTLED": {
+    "Alert_Type_Title": "結算",
+    "Alert_Type_Description": "覆寫某個位置上的投注並計為已正確支付/收取",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_TRAY_AUTO_SCAN": {
+    "Alert_Type_Title": "自動掃描籌碼托盤",
+    "Alert_Type_Description": "自動掃描籌碼托盤",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_TRAY_IN_BALANCE": {
+    "Alert_Type_Title": "籌碼托盤金額相符",
+    "Alert_Type_Description": "籌碼托盤的實際金額與預期金額吻合",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_TRAY_SCAN": {
+    "Alert_Type_Title": "掃描籌碼托盤",
+    "Alert_Type_Description": "已掃描和更新籌碼托盤庫存",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SCAN_INTERRUPTED": {
+    "Alert_Type_Title": "掃描中斷",
+    "Alert_Type_Description": "籌碼托盤掃描中斷－托盤已打開",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_TRAY_VARIANCE_ADJUSTED": {
+    "Alert_Type_Title": "已調整差異",
+    "Alert_Type_Description": "用戶已將籌碼托盤差異調整為零",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_TRAY_VARIANCE_AUTO_ADJUSTED": {
+    "Alert_Type_Title": "已自動調整差異",
+    "Alert_Type_Description": "遊戲結束時因無法確認的輸掉籌碼而引起的差異已得到自動調整",
+    "Alert_Product_Knowledge_Base": "自動調整由可配置選項觸發，該選項會自動調整遊戲結束時出現的籌碼托盤差異（該差異係因托盤有一個或多個無法與輸掉的賭注關聯起來的籌碼而引起）"
+  },
+  "DEALER_BUYIN_CANCELLED": {
+    "Alert_Type_Title": "已取消買碼",
+    "Alert_Type_Description": "已取消莊荷感應區上的買碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_CHANGE_CANCELLED": {
+    "Alert_Type_Title": "已取消兌換",
+    "Alert_Type_Description": "已取消莊荷感應區上的換碼交易",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_CREDIT_CANCELLED": {
+    "Alert_Type_Title": "已取消繳碼",
+    "Alert_Type_Description": "已取消莊荷感應區上的繳碼交易",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "DEALER_FILL_CANCELLED": {
+    "Alert_Type_Title": "已取消加彩",
+    "Alert_Type_Description": "已取消莊荷感應區上的加彩交易",
+    "Alert_Product_Knowledge_Base": "目前沒有產品知識庫"
+  },
+  "BET_OVERPAID": {
+    "Alert_Type_Title": "超額賠彩",
+    "Alert_Type_Description": "超額賠彩",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BET_UNDERPAID": {
+    "Alert_Type_Title": "賠彩不足",
+    "Alert_Type_Description": "投注賠彩不足",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "HAND_VOIDED": {
+    "Alert_Type_Title": "遊戲作廢",
+    "Alert_Type_Description": "用戶已刪除遊戲的所有活動",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "ROLL_TIME_UPDATED": {
+    "Alert_Type_Title": "更新轉換遊戲日時間",
+    "Alert_Type_Description": "用戶已更新一個或多個位置的自動轉換遊戲日時間",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MANUAL_RATING_APPROVED": {
+    "Alert_Type_Title": "已批准手動評級",
+    "Alert_Type_Description": "用戶已批准手動評級",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MANUAL_RATING_CANCELLED": {
+    "Alert_Type_Title": "已取消手動評級",
+    "Alert_Type_Description": "用戶已取消手動評級",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MANUAL_RATING_CREATED": {
+    "Alert_Type_Title": "已建立手動評級",
+    "Alert_Type_Description": "用戶已建立手動評級",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "MANUAL_RATING_SUBMITTED": {
+    "Alert_Type_Title": "已提交手動評級",
+    "Alert_Type_Description": "用戶已提交待批准的手動評級",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CLOCK_IN": {
+    "Alert_Type_Title": "玩家已打卡進入",
+    "Alert_Type_Description": "玩家已打卡進入",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CLOCK_OUT_PROCESSED": {
+    "Alert_Type_Title": "玩家打卡離開",
+    "Alert_Type_Description": "玩家已打卡離開某個位置",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "PLAYER_CHANGED": {
+    "Alert_Type_Title": "更換牌局的玩家",
+    "Alert_Type_Description": "已更新牌局玩家編號",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "PLAYER_MOVED": {
+    "Alert_Type_Title": "移動玩家",
+    "Alert_Type_Description": "玩家已移動",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "PLAYER_REGISTERED": {
+    "Alert_Type_Title": "玩家打卡進入",
+    "Alert_Type_Description": "玩家已打卡進入某個位置",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "PLAYER_SESSION_CLOSED": {
+    "Alert_Type_Title": "玩家牌局已關閉",
+    "Alert_Type_Description": "玩家牌局已關閉",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "PLAYERS_SWAPPED": {
+    "Alert_Type_Title": "調換玩家",
+    "Alert_Type_Description": "玩家彼此調換位置",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SESSION_AUTO_CLOSED": {
+    "Alert_Type_Title": "牌局自動關閉",
+    "Alert_Type_Description": "沒有活動後自動關閉牌局",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SESSION_AUTO_CLOSED_ON_CLOSE_TABLE": {
+    "Alert_Type_Title": "賭檯關閉時自動關閉牌局",
+    "Alert_Type_Description": "當賭檯關閉時自動關閉玩家牌局",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SESSION_AUTO_CLOSED_ON_MANUAL_ROLL": {
+    "Alert_Type_Title": "手動轉換遊戲日時自動關閉牌局",
+    "Alert_Type_Description": "當賭檯手動轉換遊戲日時自動關閉玩家牌局",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CARD_DEALT_FROM_BUFFER": {
+    "Alert_Type_Title": "從緩衝區發出的牌",
+    "Alert_Type_Description": "從牌的緩衝區發回至遊戲的牌",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "POSITION_DISABLED": {
+    "Alert_Type_Title": "位置已停用",
+    "Alert_Type_Description": "位置天線已停用",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "POSITION_ENABLED": {
+    "Alert_Type_Title": "位置已啟用",
+    "Alert_Type_Description": "位置天線已啟用",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "STARTUP_TABLE": {
+    "Alert_Type_Title": "啟動賭檯",
+    "Alert_Type_Description": "已啟動賭檯",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TABLE_LIMITS_CHANGED": {
+    "Alert_Type_Title": "已變更賭檯限紅範本",
+    "Alert_Type_Description": "已變更賭檯限紅範本",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "REVEAL_CARDS_FROM_MI": {
+    "Alert_Type_Title": "從賭檯終端展示牌",
+    "Alert_Type_Description": "從賭檯終端展示牌",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_ENROLLMENT_CANCELLED": {
+    "Alert_Type_Title": "已取消籌碼登記",
+    "Alert_Type_Description": "已取消籌碼登記",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHIP_ENROLLMENT_COMPLETED": {
+    "Alert_Type_Title": "已完成籌碼登記",
+    "Alert_Type_Description": "已完成籌碼登記",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BUY_IN_CANCELLED": {
+    "Alert_Type_Title": "已取消買碼",
+    "Alert_Type_Description": "已取消買碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BUY_IN_COMPLETED": {
+    "Alert_Type_Title": "已完成買碼",
+    "Alert_Type_Description": "已完成買碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CASH_OUT_COMPLETED": {
+    "Alert_Type_Title": "已完成兌現",
+    "Alert_Type_Description": "已完成兌現",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHANGE_CANCELLED": {
+    "Alert_Type_Title": "已取消換碼",
+    "Alert_Type_Description": "已取消換碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CHANGE_COMPLETED": {
+    "Alert_Type_Title": "已完成換碼",
+    "Alert_Type_Description": "已完成換碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CAM_AUTO_ROLLED": {
+    "Alert_Type_Title": "已自動轉換遊戲日 CAM 裝置的遊戲日",
+    "Alert_Type_Description": "已自動轉換遊戲日某個 CAM 裝置的遊戲日",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "TREASURY_LOC_ROLL_TIME_CHANGED": {
+    "Alert_Type_Title": "變更帳房位置的轉換遊戲日時間",
+    "Alert_Type_Description": "用戶已更新一個或多個位置的自動轉換遊戲日時間",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CASH_OUT_CANCELLED": {
+    "Alert_Type_Title": "已取消兌現",
+    "Alert_Type_Description": "已取消兌現",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "ALL_TABLES_ROLLED": {
+    "Alert_Type_Title": "所有賭檯日期已轉換遊戲日",
+    "Alert_Type_Description": "所有賭檯日期已轉換遊戲日",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "ENTER_FURNITURE_MODE": {
+    "Alert_Type_Title": "進入標準模式",
+    "Alert_Type_Description": "賭檯已置於標準狀態",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "NEW_SERVICE": {
+    "Alert_Type_Title": "新服務",
+    "Alert_Type_Description": "偵測到系統度量工具集中先前不存在的服務或裝置。",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "LOST_SERVICE": {
+    "Alert_Type_Title": "服務遺失",
+    "Alert_Type_Description": "系統度量工具集中先前包含的某項服務或某個裝置遺失。",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SERVICE_STATUS_CHANGE": {
+    "Alert_Type_Title": "服務狀態變更",
+    "Alert_Type_Description": "度量工具集中某項服務先前的狀態已變更。",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "HEALTH_STATUS_CHANGE": {
+    "Alert_Type_Title": "健康狀態變更",
+    "Alert_Type_Description": "度量工具集中某項服務先前的健康狀態已變更。",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "EVENT_SUPPRESSION_OFF": {
+    "Alert_Type_Title": "事件抑制關",
+    "Alert_Type_Description": "事件抑制模式關閉",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "EVENT_SUPPRESSION_ON": {
+    "Alert_Type_Title": "事件抑制開",
+    "Alert_Type_Description": "事件抑制模式開啟",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "EVENT_SUPPRESSION_STATUS": {
+    "Alert_Type_Title": "事件抑制狀態",
+    "Alert_Type_Description": "事件抑制進行中",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "INVALID_CHIP_EXPIRED_CAM": {
+    "Alert_Type_Title": "已從 CAM 中移除無效籌碼",
+    "Alert_Type_Description": "已從 CAM 中移除未獲得使用授權的籌碼類型",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "INVALID_CHIP_ACQUIRED_CAM": {
+    "Alert_Type_Title": "在 CAM 中發現無效籌碼",
+    "Alert_Type_Description": "在 CAM 中發現未獲得使用授權的籌碼類型",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "REMOTE_USER_AUTH_FAILED": {
+    "Alert_Type_Title": "使用者身份驗證失敗",
+    "Alert_Type_Description": "遠端系統無法驗證某位使用者的身份",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "REMOTE_RATING_SUBMISSION_FAILED": {
+    "Alert_Type_Title": "評級提交失敗",
+    "Alert_Type_Description": "提交牌局時，玩家評級 CMS 未返回評級編號",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "REMOTE_INVENTORY_UPDATE_SUBMISSION_FAILED": {
+    "Alert_Type_Title": "庫存更新失敗",
+    "Alert_Type_Description": "庫存更新失敗",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "REMOTE_CANCEL_RATING_FAILED": {
+    "Alert_Type_Title": "取消評級更新失敗",
+    "Alert_Type_Description": "取消評級更新失敗",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "REMOTE_PLAYER_SEARCH_FAILED": {
+    "Alert_Type_Title": "玩家搜尋請求失敗",
+    "Alert_Type_Description": "玩家 CMS 資料庫未回應玩家搜尋請求",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "INVALID_CHIPS_IN_TRAY_SCAN": {
+    "Alert_Type_Title": "籌碼托盤中有無效籌碼",
+    "Alert_Type_Description": "在掃描籌碼托盤時發現無效籌碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "VARIANCE_ON_DEAD_GAME": {
+    "Alert_Type_Title": "閒置賭檯存在差異",
+    "Alert_Type_Description": "連續兩次掃描閒置賭檯時發現差異",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "LUCKY_CHIP_BONUS_CREATED": {
+    "Alert_Type_Title": "幸運籌碼獎勵已建立",
+    "Alert_Type_Description": "已建立幸運籌碼獎勵",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "LUCKY_CHIP_BONUS_TERMINATED": {
+    "Alert_Type_Title": "現用幸運籌碼獎勵已終止",
+    "Alert_Type_Description": "用戶終止了使用中的幸運籌碼獎勵。",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "BUYIN": {
+    "Request_Type": "請求進行超出閾值的交易",
+    "Request_Description": "已請求進行超出閾值的買入交易"
+  },
+  "CASHOUT": {
+    "Request_Type": "請求進行超出閾值的交易",
+    "Request_Description": "已請求進行超出閾值的兌現交易"
+  },
+  "CHANGE": {
+    "Request_Type": "請求進行超出閾值的交易",
+    "Request_Description": "已請求進行超出閾值的兌換交易"
+  },
+  "DEALER_ERROR": {
+    "Description": "發牌員錯誤"
+  },
+  "PLAYER_CONSIDERATION": {
+    "Description": "玩家服務考量"
+  },
+  "DEAD_CHIPS": {
+    "Description": "死碼"
+  },
+  "VOUCHERS": {
+    "Description": "優惠券"
+  },
+  "BUY_IN": {
+    "Description": "買入"
+  },
+  "OTHERS": {
+    "Description": "其他"
+  },
+  "NO_ADJUSTMENT_CODE": {
+    "Description": "無"
+  },
+  "SHOE_STANDBY":{
+    "Alert_Type_Title": "牌靴準備就緒",
+    "Alert_Type_Description": "牌靴準備就緒",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_COVER_CLOSED":{
+    "Alert_Type_Title": "牌靴蓋子已關閉",
+    "Alert_Type_Description": "牌靴蓋子已關閉",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_COVER_OPENED":{
+    "Alert_Type_Title": "牌靴蓋子已打開",
+    "Alert_Type_Description": "牌靴蓋子已打開",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_POWER_ON":{
+    "Alert_Type_Title": "牌靴啟動",
+    "Alert_Type_Description": "牌靴啟動",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_CARD_OVERDRAW":{
+    "Alert_Type_Title": "發牌超過遊戲所需",
+    "Alert_Type_Description": "發牌超過遊戲所需",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_LOCKED":{
+    "Alert_Type_Title": "牌靴被鎖定",
+    "Alert_Type_Description": "牌靴被鎖定",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_UNLOCKED":{
+    "Alert_Type_Title": "牌靴已解鎖",
+    "Alert_Type_Description": "牌靴已解鎖",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_HEARTBEAT_SENT":{
+    "Alert_Type_Title": "心跳已啟用",
+    "Alert_Type_Description": "心跳已啟用",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_CHANGE":{
+    "Alert_Type_Title": "牌靴更換",
+    "Alert_Type_Description": "牌靴更換",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_CARD_REVERSE_RUN_FROM_EXIT":{
+    "Alert_Type_Title": "牌從靴口逆行",
+    "Alert_Type_Description": "牌從靴口逆行",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_REVERSE_RUN_ON_THE_WAY":{
+    "Alert_Type_Title": "牌於發牌途中逆行",
+    "Alert_Type_Description": "牌於發牌途中逆行",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_CARD_REVERSE_COMPLETELY":{
+    "Alert_Type_Title": "牌完全逆行",
+    "Alert_Type_Description": "牌完全逆行",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_CARD_CODE_ERROR":{
+    "Alert_Type_Title": "牌的代碼錯誤",
+    "Alert_Type_Description": "牌的代碼錯誤",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_CARD_DRAWN_TOO_SLOWLY":{
+    "Alert_Type_Title": "發牌過慢",
+    "Alert_Type_Description": "發牌過慢",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_CARD_CORD_NOT_SETUP":{
+    "Alert_Type_Title": "牌沒有牌代碼",
+    "Alert_Type_Description": "牌沒有牌代碼",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_MISHANDLING_OF_BUTTON":{
+    "Alert_Type_Title": "錯誤處理按鈕",
+    "Alert_Type_Description": "錯誤處理按鈕",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_ACTIVATION_FAILED":{
+    "Alert_Type_Title": "牌靴啟動失敗",
+    "Alert_Type_Description": "牌靴啟動失敗",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_CANNOT_READ_CARD":{
+    "Alert_Type_Title": "無法讀牌",
+    "Alert_Type_Description": "無法讀牌",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_ERROR_10":{
+    "Alert_Type_Title": "牌序為順序",
+    "Alert_Type_Description": "牌序為順序",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_ERROR_12":{
+    "Alert_Type_Title": "牌序與前52隻牌序相同",
+    "Alert_Type_Description": "牌序與前52隻牌序相同",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_ERROR_13":{
+    "Alert_Type_Title": "牌序與前一牌靴相同",
+    "Alert_Type_Description": "牌序與前一牌靴相同",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_ERROR_14":{
+    "Alert_Type_Title": "於燒牌步驟仍在進行時誤按結果按鈕",
+    "Alert_Type_Description": "於燒牌步驟仍在進行時誤按結果按鈕",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "SHOE_ERROR_16":{
+    "Alert_Type_Title": "當需更換牌靴時仍然嘗試發牌",
+    "Alert_Type_Description": "當需更換牌靴時仍然嘗試發牌",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "REMOTE_INVENTORY_UPDATE_SUBMISSION_FAILED":{
+    "Alert_Type_Title": "庫存介面更新失敗",
+    "Alert_Type_Description": "庫存介面更新失敗",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "QUICK_CHANGE_INCORRECT":{
+    "Alert_Type_Title": "Incorrect Quick Change",
+    "Alert_Type_Description": "Incorrect Quick Change",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "QUICK_CHANGE_COMPLETED":{
+    "Alert_Type_Title": "Correct Quick Change",
+    "Alert_Type_Description": "Correct Quick Change",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "CLOSE_ANONYMOUS":{
+    "Alert_Type_Title": "已手動關閉玩家時段",
+    "Alert_Type_Description": "已手動關閉玩家時段",
+    "Alert_Product_Knowledge_Base": ""
+  },
+  "application.app.CONFIGURATION_LABELS": {
+    "cannot_move_open_table": "無法移動處於開放狀態的賭檯",
+    "TABTEXT": {
+      "AREAS": "區域",
+      "LIMITS": "限紅",
+      "CHIP_SETS": "籌碼類型",
+      "USERS": "用戶",
+      "ROLES": "角色",
+      "SYSTEM": "系統",
+      "BONUSES": "獎勵",
+      "GAME_PLAY": "遊戲玩法"
+    },
+    "AREAS": {
+      "ACCESS_GROUP": "存取群組",
+      "LONG_NAME": "長名",
+      "SHORT_NAME": "短名",
+      "TYPE": "類型",
+      "PATH": "路徑",
+      "HOST_IP_ADD": "主機/IP 位址",
+      "NAME_ALREADY_EXIST": "名稱已存在",
+      "SHORT_NAME_ALREADY_EXIST": "短名稱已存在",
+      "THIS_IS_MANDATE": "此欄位為必填",
+      "GAME_AREA_FIVE": "如，遊戲區域 5",
+      "EDIT_TOP_NAME": "編輯拓撲名稱",
+      "SITE_NAME": "網站名稱",
+      "ACCESS_GROUP_NAME": "存取群組名稱",
+      "CONFIRM_MSG": "確認訊息",
+      "ARE_U_SURE_WANNA_DELETE": "確定要刪除此存取群組嗎？",
+      "THIS_AG_ASSN_ACTIVE_USERS": "此存取群組已指定給一些活動用戶，如果您仍繼續，那些群組將被自動刪除。",
+      "THIS_LAST_LOCATION": "這是此活動存取群組的最後位置。",
+      "ARE_U_SURE_WANNA_DELETE_location": "確定要刪除此位置嗎？",
+      "PROPERTIES": "屬性",
+      "TABLE_SELECTED": "已選擇賭檯",
+      "DETAILS": "詳細資訊",
+      "HOST_NAME": "主機名稱",
+      "TABLE_PROP": "賭檯屬性",
+      "GAME_PLAY": "遊戲玩法",
+      "ASSIGNED_LIMITS": "指定的限紅",
+      "NO_LIMIT_ASSIGNED_THIS_TABLE": "未為此賭檯指定限紅範本。",
+      "CLICK_TO_ASSIGN_LIMIT_TMPL": "按一下以指定此限紅範本。",
+      "DISABLED_CHIPSETS": "已停用的籌碼組",
+      "NO_CHIPSETS_DIS_THIS_TABLE": "未為此賭檯停用籌碼組。",
+      "SEARCH_DOT_DOT": "搜尋...",
+      "MAX_TEN_CHARS": "最多 10 個字元",
+      "NAME_REQUIRED": "需要名稱。",
+      "TYPE_REQUIRED": "需要類型。",
+      "STATE": "狀態",
+      "STATE_REQIRED": "需要狀態。",
+      "MAC_ADDRESS": "MAC 位址",
+      "MAC_ADD_REQ": "需要 MAC 位址。",
+      "IP_ADD": "IP 位址",
+      "IP_ADD_REQ": "需要 IP 位址。",
+      "SELECT_TYPE": "選擇類型",
+      "SELECT_SITE_NAME": "選擇網站名稱",
+      "SUCCESS_ADDED": "已成功新增",
+      "TABLE_LIMITS": "賭檯限紅",
+      "CONFIRM_TABLE_REPLACEMENT": "要用{t2}取代{t1}嗎？這將從現場配置中刪除目前的賭檯。",
+      "DATA_CANNOT_BE_EMPTY": "資料不得為空",
+      "MESSAGE": {
+        "UPDATED_SUCCESSFULLY": "已成功更新"
+      }
+    },
+    "LIMITS": {
+      "ADD_LIMIT": "新增限紅",
+      "ADD_NEW_LIMIT": "增加新限紅",
+      "EDIT_LIMIT": "編輯限紅",
+      "DIFFERENTIAL": "差異",
+      "PAIR_MIN": "最小對子投注",
+      "PAIR_AGGREGATE": "累積對子投注",
+      "TIE_WIN": "和局盈利",
+      "TIE_MIN": "和局盈利",
+      "TIE_AGGREGATE": "累積和局",
+      "ENTER_TEMPL_NAME": "輸入範本名稱",
+      "ENTER_VALUE": "輸入值",
+      "MAX_BET_ERROR_MSG": "最大玩家投注應大於最小玩家投注",
+      "MAX_L6_BET_ERROR_MSG": "最大幸運六賭注應該大於最小幸運六賭注",
+      "PAIR_AGGREGATE_MAX_ERROR_MSG": "最大累積對子投注應該是一個數字",
+      "CHANGE_LIMIT_STATUS": "限紅狀態已變更",
+      "MAX_PAIR_BET": "最大對子投注",
+      "CHOOSE_COLOR": "選擇顏色",
+      "MIN_L6_BET":"最低幸運六投注",
+      "MAX_L6_BET":"最高幸運六投注"
+    },
+    "CHIPSETS": {
+      "EDIT_CURRENCY": "編輯貨幣",
+      "EDIT_CHIPSETS": "編輯籌碼組",
+      "EDIT_COMPANY": "編輯公司",
+      "LABEL": "標籤",
+      "COMPANY_NAME": "公司名稱",
+      "COMPANY_ID": "公司編號",
+      "CASINO_ID": "賭場編號",
+      "CHIPSET_ID": "籌碼組編號",
+      "SITE_ID": "地點編號",
+      "VIEW_DENOMS": "檢視面額",
+      "EDIT_CHIP_SET_LABEL": "編輯籌碼組標籤",
+      "CHIP_SET_LABELS": "籌碼組標籤",
+      "SELECT_ENTER_CHIPSET_LABEL": "選擇/輸入新的籌碼組標籤",
+      "CURRENCY_LIST": "貨幣清單",
+      "COMPANY_LIST": "公司名單",
+      "CURRENCY": "貨幣",
+      "CURRENCY_LABEL": "貨幣標籤",
+      "CURRENCY_CODE": "貨幣代碼",
+      "NEGOTIABILITY": "流通性",
+      "MESSAGE": {
+        "LABEL_UPDATED": "標籤已更新",
+        "CHANGES_PUSHED_FOR_APP_APPLIED_SHORTLY": "已為應用推送變更。很快將套用",
+        "SUCCESSFULLY_DROPPED": "已成功丟棄",
+        "LOCATION_ADDED": "位置已新增",
+        "LOCATION_REMOVED": "位置已移除",
+        "AG_REMOVED": "存取群組已移除",
+        "AG_ADDED": "存取群組已新增",
+        "AS_CHILD": "作為 {1} 的子節點",
+        "CANNOT_ADD": "無法新增",
+        "LEAF_LOCATION": "葉位置",
+        "SHORT_NAME_CANNOT_EXCEED": "短名稱不得超過 10 個字元",
+        "CHIPSET_LABEL_CANNOT_EXCEED": "芯片組標籤不能超過 25 個字符",
+        "DEVICE_ALREADY_EXIST": "具有相同名稱或短名稱的裝置已存在",
+        "PLEASE_FILL_NAME_SRTNAME_TYPEFIELDS": "請填寫名稱、短名稱和類型欄位",
+        "CANNOT_ADD_ROOT_LOCATION": "無法新增根位置",
+        "LOCATION_ALREADY_EXISTS": "位置已存在",
+        "GROUP_WITH_SAME_NAME_EXIST": "同名群組已存在",
+        "PLEASE_SELECT_SITENAME": "請選擇網站名稱",
+        "PLEASE_ENTER_AGNAME": "請輸入存取群組名稱",
+        "CANNOT_ADD_TERMN": "無法新增終端",
+        "COMPANY_DOESNT_EXIST": "公司不存在。",
+        "COMPANY_ALREADY_EXISTS": "公司已存在。",
+        "CURRENCY_ALREADY_EXISTS": "貨幣標籤已存在。",
+        "CHANGE_CHIPSET_STATUS": "籌碼組狀態已變更。",
+        "CHANGE_CHIPSET_LABEL": "籌碼組標籤已變更。",
+        "CHANGE_COMPANY_STATUS": "公司狀態已變更。",
+        "CHANGE_COMPANY_NAME": "公司名稱已變更。",
+        "CHANGE_CURRENCY_NAME": "貨幣標籤已變更。",
+        "AVOID_COMMAS": "籌碼組標籤不支援逗號。"
+      }
+    },
+    "USERS": {
+      "FIRST_NAME": "名",
+      "LAST_NAME": "姓",
+      "TITLE": "頭銜",
+      "USERNAME": "用戶名",
+      "LANGUAGE": "語言",
+      "EMPLOYEE_NUMBER": "員工編號",
+      "CREATE_NEW_USER": "新建用戶",
+      "PROFILE": "個人簡檔",
+      "ACCESS_GROUPS": "存取群組",
+      "ASSIGNED_ROLES": "指定角色",
+      "USERS_LIST": "用戶名單",
+      "EDIT_USER": "編輯用戶",
+      "VIEW_USER": "檢視用戶",
+      "ROLES": "角色",
+      "IS_NOT_VALID_TRY_AGAIN": "無效。再試一次。",
+      "PASSWORD": "密碼",
+      "EMPLOYEE_NAME_NUMBER":"請輸入員工名稱或號碼",
+      "SEARCH_USER":"搜尋用戶",
+      "MESSAGE": {
+        "CREATED_SUCCESSFULLY": "已成功建立。",
+        "INACTIVE_SUCCESSFULLY": "已成功停用。",
+        "ACTIVE_SUCCESSFULLY": "已成功啟動。",
+        "MODIFIED_SUCCESSFULLY": "已成功修改",
+        "PLEASE_FILL_REQUIRED_FIELD": "請填寫必填欄位",
+        "DUPLICATE_ACCESS_GROUP": "重複的存取群組",
+        "PLEASE_SELECT_ATLEAST_ONE_AG": "每個應用請至少選擇一個存取群組",
+        "USER_DOESNT_EXIST": "用戶不存在",
+        "USER_ALREADY_EXIST": "已存在",
+        "ALREADY_EXIST": "已存在",
+        "EMP_ALREADY_EXIST": "員工編號已存在",
+        "ROLE_ALREADY_EXISTS":"角色已存在",
+        "ROLE_NOT_FOUND":"找不到角色",
+        "ROLE_NAME_IS_NULL_OR_BLANK":"角色名稱為空",
+        "ROLE_IS_ASSIGNED_TO_USERS":"角色已指定給用戶",
+        "ERROR_IN_ROLE_RE_ACTIVATION":"重新啟用角色時出錯",
+        "ERROR_IN_ROLE_SUSPENSION":"停用角色時出錯"
+      }
+    },
+    "ROLES": {
+      "ROLE": "角色",
+      "LAST_EDITED": "上次編輯",
+      "NEW_ROLE": "新角色",
+      "ROLE_NAME": "角色名稱",
+      "EDIT_ROLE": "編輯角色",
+      "VIEW_ROLE": "檢視角色"
+    },
+    "SYSTEM": {
+      "CATEGORY": "類別",
+      "SUB_CATEGORY": "子類別",
+      "ALERT_LABEL": "警報標籤",
+      "KNOWLEDGEBASE": "知識庫",
+      "MESSAGE": {
+        "SEVERITY_CHANGE_ALERTSEVERITY": "嚴重程度變更為",
+        "SAVED_SUCCESSFULLY": "已成功儲存",
+        "ERROR_OCCURRED": "發生錯誤"
+      },
+      "TREND_DISPLAY":{
+        "BeadRoad":"先顯示珠盤路",
+        "BigRoad":"先顯示大路"
+      }
+    },
+    "LUCKY_CHIP":{
+      "LUCKY_CHIP": "幸運籌碼",
+      "CREATE": "建立",
+      "CREATE_PROMOTION": "建立推廣活動",
+      "EDIT_PROMOTION": "編輯推廣活動",
+      "COPY_PROMOTION": "複製推廣活動",
+      "ID": "ID：",
+      "SUMMARY": "摘要",
+      "DAILY_BUDGET":"單日預算",
+      "VOUCHER_EXP":"獎券過期（小時）",
+      "EXP_HOURS":"過期（小時）",
+      "EXPECTED_PAYOUT":"預計派彩",
+      "TIMES":"時間",
+      "MULTIPLIERS":"倍數",
+      "WEIGHT_PERCENT":"權重 (%)",
+      "EXPECTED_MULTIPLIER":"預計倍數",
+      "CREATION_DATE":"建立日期",
+      "COPY":"複製",
+      "TERMINATE":"終止"
+    },
+    "PROMOTION": {
+      "PROMOTION_ID": "推廣活動號碼",
+      "PROMOTION_NAME": "推廣活動名稱",
+      "TIME": "時間",
+      "PRIZE_NAME": "獎品名稱",
+      "PRIZE_VALUE": "獎品價值",
+      "PIT_NAME": "賭區",
+      "TABLE_NAME": "賭檯名稱",
+      "SEAT": "座位",
+      "PLAYER": "玩家擁有",
+      "SESSION_ID": "客人評分編號",
+      "PROMOTION_WINNER_LIST": "推廣活動-中獎者名單",
+      "PROMOTIONS_WINNER": "推廣活動 中獎者"
+    }
+  },
+  "application.app.CAM_CASHIER_LABELS": {
+    "TOTALCHIPS": {
+      "LABEL": "籌碼總數",
+      "ENROLLED_CHIPS": "登記的籌碼",
+      "CASINOOWNED_CHIPS": "賭場擁有的籌碼",
+      "PLAYEROWNED_CHIPS": "玩家擁有的籌碼",
+      "FETCHDATA": "正在嘗試取得資料！！"
+    },
+    "CHIPDETAIL": {
+      "LABEL": "籌碼詳情",
+      "CHIP_ID": "籌碼編號",
+      "LAST_TRANSACTION": "最後交易",
+      "LAST_TRANSACTION_LOCATION": "最後交易位置",
+      "ANONYMOUS": "匿名"
+    },
+    "TRANSFER": {
+      "LABEL": "轉移",
+      "CONFIRMBOX_HEADER": "確認轉移至賭場",
+      "CONFIRMBOX_BODYTEXT1": "確認將價值為",
+      "CONFIRMBOX_BODYTEXT2": "的籌碼轉移給賭場？",
+      "SUCCESSMSGBOX_BODY": "轉移成功！！"
+    },
+    "BONUS_AWARD": {
+      "LABEL": "獎勵",
+      "BONUS_AWARD": "獎勵",
+      "SEARCH_AWARD_BY": "獎勵搜尋條件： ",
+      "CONFIRMBOX_HEADER": "確認派發獎勵",
+      "CONFIRMBOX_BODYTEXT1": "確認派發獎勵，金額為 ",
+      "ENTER_PLAYER_ID": "輸入玩家 ID",
+      "ENTER_AWARD_ID": "輸入獎勵 ID",
+      "SEARCH_BY_PLAYER_ID": "玩家 ID",
+      "SEARCH_BY_PLAYER_NAME": "玩家姓名",
+      "SEARCH_BY_AWARD_ID": "獎勵 ID",
+      "STATUS": "狀態",
+      "AWARD_ID": "獎勵 ID",
+      "AWARD_AMOUNT": "獎勵數額",
+      "BONUS_ID": "獎勵 ID",
+      "BONUS_NAME": "獎勵名稱",
+      "PLAYER": "玩家",
+      "PLAYER_ID": "玩家 ID",
+      "CCAS_ID": "Perfect Pay ID",
+      "TABLE": "賭檯",
+      "DATE": "日期",
+      "TIME": "時間",
+      "AMOUNT": "數額",
+      "EXPIRATION": "過期",
+      "ISSUED_BY": "發放者",
+      "PAY": "支付",
+      "PAID": "已支付",
+      "ISSUED": "已發放",
+      "REDEEMED": "已兌換",
+      "ACTIVE": "現用",
+      "TAKEN": "已收取",
+      "VOIDED": "已作廢",
+      "BONUS_AWARD_ACCEPTED": "獎勵已接受"
+
+    },
+    "ENROLL": {
+      "LABEL": "登記",
+      "CONFIRMBOX_HEADER": "確認登記",
+      "CONFIRMBOX_BODYTEXT1": "確認登記",
+      "SUCCESSMSGBOX_BODY": "登記成功",
+      "BULK_ENROLL":"批量註冊",
+      "BULK_ENROLL_ERROR":"批量註冊錯誤",
+      "BULK_ENROLL_UPLOAD_FILE":"上傳文件",
+      "BULK_ENROLL_MAXIMUM_ROWS":"僅上傳最多30000行的.csv文件",
+      "BULK_ENROLL_INCORRECT_DATA_IN_FILE":"所選文件中的資料不正確。請更正並重試",
+      "BULK_ENROLL_CONFIRMATION":"您確定要繼續批量註冊嗎？",
+      "BULK_ENROLL_CONFIRMATION_HEADER":"批量註冊確認",
+      "BULK_ENROLL_FILE_SELECTION_TEXT":"請選擇要上傳的文件:",
+      "BULK_ENROLL_INCORRECT_HEADER_IN_FILE":"以下行中的資料不正確。請更正錯誤，然後重試",
+      "BULK_ENROLL_NO_OF_ROWS_EXCEEDS":"文件中的行數超出限制",
+      "BULK_ENROLL_IN_PROGRESS":"批量註冊進行中",
+      "BULK_ENROLL_ERROR_OCCURED":"上傳文件時出錯",
+      "BULK_ENROLL_EXCEEDS_COLUMN":"文件中有超過10行",
+      "INVALID_DATA_FOUND":"文件中的資料無效",
+      "FILE_UPLOADED_SUCCESSFULLY":"文件上傳成功"
+
+    },
+    "BUYIN": {
+      "LABEL": "買入",
+      "CONFIRMBOX_HEADER": "確認買入",
+      "CONFIRMBOX_BODYTEXT1": "確認買入",
+      "SUCCESSMSGBOX_BODY": "成功買入",
+      "SUCCESSMSGBOX_BODY_PART1": "買入",
+      "BUYINREQUEST": "買入請求正在等待批准",
+      "SUCCESS_LABEL": "成功",
+      "QUEUED_LABEL": "排隊"
+    },
+    "CASHOUT": {
+      "LABEL": "兌現",
+      "CONFIRMBOX_HEADER": "確認兌現",
+      "CONFIRMBOX_BODYTEXT1": "確認兌現",
+      "SUCCESSMSGBOX_BODY": "兌現成功！！",
+      "CASHOUTREQUEST": "兌現請求正在等待批准"
+    },
+    "CHANGE": {
+      "LABEL": "兌換",
+      "CHIPSOUTLABEL": "繼續兌出籌碼",
+      "CHIPSIN": "兌入籌碼",
+      "CHIPSOUT": "兌出籌碼",
+      "CONFIRMBOX_HEADER": "確認兌換",
+      "CONFIRMBOX_BODYTEXT1": "確認兌換",
+      "SUCCESSMSGBOX_BODY": "兌換成功！！",
+      "CHANGE_REQUEST_APPROVED": "已批准超出閾值的兌換請求！！",
+      "CHANGEREQUEST": "兌換請求正在等待批准",
+      "LOGGERMESSAGES": {
+        "CONFIRM_SAMECHIPS": "兌入籌碼和兌出籌碼相同",
+        "CONFIRM_SAMEAMOUNT": "兌入籌碼數額不等於兌出籌碼數額",
+        "OVERTHRESOLD_SUCCESS": "已批准超出閾值的交易"
+      }
+    },
+    "COMMON_LOGGERMESSAGES": {
+      "BANNEDPLAYER": "此玩家被封禁",
+      "OVERTHRESOLD": "已拒絕超出閾值的交易",
+      "EMPTYPLAYER": "玩家編號不得為空！",
+      "SEARCHPLAYER": "在名或姓中鍵入至少 3 個字元",
+      "SEARCHPLAYEREMPTY": "名和姓不得為空！",
+      "STATUSCHANGE1": "狀態已變更為 ",
+      "STATUSCHANGE2": " 成功。",
+      "CAMNOTREACHABLE": "無法存取籌碼分配管理程式",
+      "DID_NOT_COMPLETE": "交易未完成",
+      "POSTAPPRVL_NOT_COMPLETE": "批准後請求未完成"
+    }
+  },
+  "application.app.ALERTS_LABELS": {
+    "TITLE": "警報",
+    "ALERTS": "警報",
+    "TIME": "時間",
+    "SOURCE": "來源",
+    "DESCRIPTION": "描述",
+    "NOTES": "備註",
+    "system": "系統",
+    "table": "賭檯",
+    "treasury": "財資",
+    "System": "系統",
+    "Table": "賭檯",
+    "Treasury": "財資",
+    "Notes": "備註",
+    "Server":"伺服器",
+    "Integration":"整合",
+    "Hardware":"硬件",
+    "Database":"資料庫",
+    "Microservice":"微服務",
+    "Response_Time":"回應時間",
+    "Bet_Management":"投注管理",
+    "Chip_Tray":"籌碼托盤",
+    "Chip_Security":"籌碼安全性",
+    "Chip_Operations": "籌碼操作",
+    "Dealer_Antenna":"發牌員天線",
+    "Game_Error":"遊戲錯誤",
+    "Gaming_Day":"遊戲日",
+    "Trend":"趨勢",
+    "Users":"用戶",
+    "Manual_Ratings":"手動評級",
+    "Player":"玩家",
+    "Shoe":"牌靴",
+    "Shoe_Hardware":"牌靴硬件",
+    "Table_Management":"賭檯管理",
+    "CAM_or_Cashier_Transaction":"CAM 或收銀員交易",
+    "CAM_Transaction":"CAM 交易",
+    "Cashier_Transaction":"收銀員交易",
+    "5": "5",
+    "10": "10",
+    "20": "20",
+    "OPERATION_SUCCESSFUL": "運作成功",
+    "SEVERITY": {
+      "TITLE": "嚴重程度",
+      "HIGH": "高",
+      "LOW": "低",
+      "CRITICAL": "臨界",
+      "ALL": "全部"
+    },
+    "STATUS": {
+      "ACKNOWLEDGE": "已確認",
+      "ACKNOWLEDGED": "已確認",
+      "OPEN": "開啟",
+      "OPEN_ACKNOWLEDGE": "開啟及確認",
+      "OPEN AND ACKNOWLEDGED": "開啟及確認",
+      "CLOSE": "關閉",
+      "CLOSED": "已關閉",
+      "SELECT_STATUS": "選擇狀態"
+    },
+    "SELECT_SOURCE": "選擇來源",
+    "FROM_DATE": "開始日期",
+    "TO_DATE": "截止日期",
+    "PAGINATION": {
+      "PER_PAGE": "條/每頁",
+      "FIRST": "第一頁",
+      "LAST": "最後一頁",
+      "NEXT": "下一頁",
+      "PAGE": "頁碼",
+      "OF": "/",
+      "PREVIOUS": "上一頁",
+      "5": "5",
+      "10": "10",
+      "20": "20",
+      "30": "30"
+    },
+    "PRODUCT_KNOWLEDGE_BASE": "產品知識庫",
+    "CUSTOMER_KNOWLEDGE_BASE": "客戶知識庫",
+    "RECORD_NOT_FOUND": "沒有找到警報",
+    "TREASURY_APP": "財資批准",
+    "MESSAGE": {
+      "PAGE_NO_EXCEEDED": "頁碼不得大於總頁數。",
+      "PAGE_NUMBER_ERR": "請輸入大於零的數字",
+      "CHANGE_ALERT_STATUS": "狀態已變更。",
+      "NOTE_ADDED": "已成功新增備註。",
+      "NOTE_UPDATED": "已成功更新備註。",
+      "SAVE_CUSTOMER_KNOWLEDGE_BASE": "客戶知識庫儲存成功"
+    }
+  },
+  "application.app.PLAYER_DASH_LABELS": {
+    "TITLE": "玩家面板",
+    "SESSIONS": "牌局",
+    "BANKROLL": "資金",
+    "BANKROLL_HISTORY": "資金",
+    "GAMES": "遊戲",
+    "SESSION_ID": "客人評分編號",
+    "CCAS_ID": "PP編號",
+    "RATED": "評分",
+    "RATED_FLAG": "已評級標示",
+    "SESSION_TYPE": "客人評分類型",
+    "SESSION_DURATION": "牌局持續時間",
+    "TABLE_NAME": "賭檯名稱",
+    "SHOE_ID": "牌靴編號",
+    "RATING_ID": "客人評分編號",
+    "START_TIME": "開始時間",
+    "END_TIME": "編輯時間",
+    "STOP_TIME": "停止時間",
+    "TOTAL_TIME": "總時間",
+    "TIME_PLAYED": "已玩時間",
+    "CASINO_WL": "賭場盈/虧",
+    "THEO_WIN": "理論盈利",
+    "CHIP_SET_PLAYED": "使用籌碼類型",
+    "NOTES": "備註",
+    "NOTES_FOR": "備註用於",
+    "LAST_LOCATION": "最後位置",
+    "LAST_ACTIVE": "最後活躍",
+    "LAST_TIME": "上次",
+    "MANUAL_RATINGS": "手動評分",
+    "BANLROLL_HISTORY": "資金歷史",
+    "BANLROLL_VALUE": "資金價值",
+    "GAME_ID": "牌局編號",
+    "RESULTS": "結果",
+    "AVG_BET": "平均注額",
+    "INDEPENDENT_BETS": "企位對子和投注",
+    "SEAT": "座位",
+    "CASH_BUY_IN": "現金買入",
+    "AVERAGE_BET": "平均注額",
+    "CREATED_BY": "建立者",
+    "APPROVED_BY": "批准者",
+    "DATE_TIME": "日期/時間",
+    "LOCATION": "位置",
+    "TRANSACTION_TYPE": "交易類型",
+    "TRANSACTION_VALUE": "交易價值",
+    "TRANSACTION_ID": "交易編號",
+    "BUY_IN_ID": "買入編號"
+  },
+  "application.app.REPORTS_LABELS": {
+    "DASHBOARDS": "面板",
+    "REPORTS": "報告",
+    "FAVORITE_REPORTS": "最喜愛報告",
+    "SEARCH_REPORTS": "搜尋報告",
+    "ZOOM": "縮放",
+    "EXPORT": "匯出",
+    "PAGE": "頁碼"
+  },
+  "application.app.TREASURY_LABELS": {
+    "AREAS": {
+      "APPROVAL_PENDING": "待定",
+      "APPROVAL_CLOSED": "已關閉",
+      "APPROVAL_CANCELLED": "已取消",
+      "APPROVAL_SEE_ALL": "檢視全部",
+      "NO_DATA": "無可用資料"
+    },
+    "TOTAL_CHIPS": {
+      "TOTAL_CHIPS_LABEL": "籌碼總數",
+      "TOTAL_CASINO_CHIPS": "賭場籌碼總數",
+      "OWNERSHIP": "所有權",
+      "ENROLLED": "已登記",
+      "CASINO": "賭場擁有",
+      "PLAYER": "玩家擁有",
+      "ALL": "全部"
+    },
+    "CAGES": {
+      "CAGES_LABEL": "賬房",
+      "OVERVIEW": "概述",
+      "LOCATION": "位置",
+      "TRANSACTION_TYPE": "交易類型",
+      "COLHEADERS": {
+        "TRANSACTION_ID": "交易編號"
+      },
+      "PLAYERTYPES":{
+        "ANONYMOUS":"匿名",
+        "KNOWN":"已知",
+        "RATED":"評分"
+      }
+    },
+    "TABLES": {
+      "TABLES_LABEL": "賭檯",
+      "OPENER": "期初金額",
+      "VARIANCE": "差異",
+      "FILL_TOTAL": "籌碼補充總數",
+      "CREDIT_TOTAL": "籌碼入庫總數",
+      "BUY_IN_TOTAL": "總買入",
+      "TOTAL_ADJUSTMENT": "總調整"
+    },
+    "TABLES.CHIPTRAY": {
+      "SCAN_TIME": "掃描時間",
+      "SCAN_TYPE": "掃描類型",
+      "EXPECTED_VALUE": "預期價值",
+      "VARIANCE": "差異"
+    },
+    "TABLES.FILLS": {
+    },
+    "TABLES.CREDITS": {
+    },
+    "TABLES.BUYINS": {
+      "PLAYER_TYPE": "玩家類型"
+    },
+    "TRANSACTION_TYPES": {
+      "ADJUSTMENT": "調整",
+      "AUTO_SCAN": "自動掃描",
+      "BUY_IN": "買進",
+      "BUYIN": "買進",
+      "BUY IN": "買進",
+      "CASHOUT": "兌現",
+      "CHANGE": "更改",
+      "CLOSER": "期末金額",
+      "CREDIT": "繳碼",
+      "FILL": "加彩",
+      "GAME": "遊戲",
+      "ENROLL": "註冊",
+      "IDLE": "閒置",
+      "MANUAL": "手動",
+      "OPENER": "期初金額",
+      "POWER_SCAN": "強力掃描",
+      "SCHEDULED": "定時",
+      "STARTING_FILL": "開始進行籌碼補充",
+      "STARTING_CREDIT": "開始進行籌碼入庫",
+      "TRANSFER": "轉讓",
+      "WAGER":"賭注",
+      "BONUS_AWARD": "獎勵",
+      "UNKNOWN_CHIPS_IN_TRAY": "所有權掃描",
+      "SESSION_UPDATE_TRANSFER": "牌局更新轉移",
+      "CREDIT_CANCEL":"已取消籌碼入庫",
+      "FILL_CANCEL":"已取消籌碼補充",
+      "UPDATE_OWNER": "轉移",
+      "QUICK_CHANGE": "Quick Change",
+      "TABLE_OPEN" : "開檯掃描",
+      "FIRST_CARD_AUTO_SCAN" : "首次拉牌掃描",
+      "IN_GAME_MANUAL_SCAN" : "遊戲中手動掃描",
+      "IN_GAME_AUTO_SCAN" : "遊戲中自動掃描",
+      "RESCAN_ON_LAST_PAY" : "重新掃描最後一次賠彩"
+    },
+    "TRANSACTION_UPDATE_TYPES": {
+      "WAGERED": "本金",
+      "PAID": "已支付",
+      "TAKEN": "已收取",
+      "PUSHED": "和局",
+      "CHIPS_IN": "換入籌碼",
+      "CHIPS_OUT": "換出籌碼",
+      "TRANSFER": "轉讓",
+      "PLAYER": "玩家",
+      "CASINO": "casino",
+      "UNEXPECTED_CHIPS_IN_TRAY": " 轉移至賭場"
+    },
+    "BUY_IN_TYPES":{
+      "CASH": "Cash",
+      "CREDIT_CARD": "Credit Card",
+      "TICKET": "Ticket",
+      "FRONT_MONEY": "Front Money",
+      "MARKER": "Marker",
+      "PROMOTION": "Promotion"
+    },
+    "MESSAGE": {
+      "STATUS_CHANGED_SUCCESSFULLY": "狀態已成功變更為 [alertStatus]。",
+      "NOTE_ADDED_SUCCESSFULLY": "已成功新增備註。",
+      "NOTE_UPDATED_SUCCESSFULLY": "已成功更新備註。",
+      "CUSTOMER_KNWLDGE_BASE_SAVE_SUCCESSFULLY": "客戶知識庫儲存成功",
+      "PAGE_CANNOT_MORETHAN_TOTPAGE": "頁碼不得大於總頁數。",
+      "ROLL_TIME_UPDATED": "滾動時間已更新",
+      "STATUS_CHANGE_TO_APPROVAL_STATUS": "狀態已成功變更為 [approvalStatus]。",
+      "RATING_STATUS_CREATED": "已建立評級",
+      "RATING_STATUS_UPDATED": "已更新評級",
+      "STATUS_CHANGED_TO_SUCCESSFULLY": "狀態已成功變更為 {{status}}。",
+      "STATUS_CHANGED_TO_APPROVED_SUCCESSFULLY": "狀態已成功變更為已批准。",
+      "STATUS_CHANGED_TO_DECLINED_SUCCESSFULLY": "狀態已成功變更為已拒絕。"
+    },
+    "APPROVALS": {
+      "REQUESTED": "已請求",
+      "APPROVED": "已批准",
+      "CANCELLED": "已取消",
+      "DECLINED":"已拒絕"
+    }
+  },
+  "application.app.TABLE_DASH_LABELS": {
+    "GAME_HISTORY": {
+      "GAME_HISTORY_LABEL": "遊戲歷史",
+      "FOOTER_LEFT_LABEL": "上次遊戲盈/虧",
+      "COLHEADERS": {
+        "GAME_ID": "牌局編號",
+        "GAMING_DAY": "遊戲日",
+        "SHOE_ID": "牌靴編號",
+        "START_TIME": "開始時間",
+        "END_TIME": "結束時間",
+        "SUPERVISOR": "監場督導",
+        "DEALER": "莊荷",
+        "LIMITS": "限紅",
+        "HANDLE": "總注額",
+        "CASINO_WL": "賭場盈/虧",
+        "RESULTS": "結果",
+        "SESSION_BUY_IN": "牌局買入",
+        "GAME_WIN_LOSS": "玩家盈/虧",
+        "FOR_SUBMIT": "*（供提交）"
+      },
+      "GAME_DETAIL": {
+        "B": "莊",
+        "P": "閒",
+        "PP": "閒對",
+        "BP": "莊對",
+        "T": "和局",
+        "TIE": "和局",
+        "VOID": "作廢",
+        "PP-BP": "閒對, 莊對",
+        "L6": "L6",
+        "SESSION_WL": "牌局盈/虧",
+        "Avg_bet": "平均注額",
+        "INDEPENDENT_BETS": "企位對子和投注",
+        "UPDATE": "更新",
+        "RATE": "評級",
+        "WANT_RATE": "注意: 此操作無法撤消",
+        "RATE_UPDATED": "此玩家的評級已更新。",
+        "WANT_UPDATE": "要更新所選項目嗎？此操作無法撤消",
+        "SUCCESS_UPDATE": "所選項目已更新。",
+        "RATE_SESSION":"對牌局評級？",
+        "SS_WITH":"已選擇的評級",
+        "SS":"個選定牌局",
+        "TIE_BETS":"和 注碼",
+        "PAIR_BETS":"對子 注碼"
+      }
+    },
+    "SESSIONS": {
+      "SESSIONS_LABEL": "牌局",
+      "FOOTER_LEFT_LABEL": "計數",
+      "IN_PROGRESS": "進行中",
+      "UPDATE_CLOSED_SESSIONS":"更新已完成的回合",
+      "PLAYER_UPDATED":"已更新玩家的回合記錄",
+      "NO_ELIGIBLE_SESSION":"未找到符合條件的可更新牌局",
+      "UPDATE_SESSION": "更新時段",
+      "UPDATE_SEAT": "更新座位",
+      "COLHEADERS": {
+        "SESSION_ID": "客人評分編號",
+        "GAMING_DAY": "遊戲日",
+        "STATUS": "狀態",
+        "PLAYER_NAME": "客人姓名",
+        "PLAYER_ID": "會員卡號",
+        "CCAS_ID": "PP編號",
+        "RATED": "評分",
+        "SESSION_TYPE": "客人評分類型",
+        "SHOE_ID": "牌靴編號",
+        "RATING_ID": "客人評分編號",
+        "START_TIME": "開始時間",
+        "END_TIME": "結束時間",
+        "TIME_PLAYED": "已玩時間",
+        "CASINO_WL": "賭場盈/虧",
+        "THEO_WIN": "理論盈利",
+        "AVERAGE_BET": "平均注額",
+        "HANDLE": "總注額",
+        "CHIPSET_PLAYED": "使用籌碼類型",
+        "NOTES": "備註",
+        "IRC": "MID"
+      },
+      "SESSIONS_GAMES_BREADCRUMBS": "會話 #{{sessionId}} 遊戲",
+      "MESSAGE":{
+        "IRC_LABEL_CANNOT_EXCEED": "MID 號碼不能超過30位數字",
+        "IRC_LABEL_NOT_ZERO": "MID 號碼不能少於或等於0",
+        "IRC_VALUE_NUMBER_ONLY":"請輸入大於零的數字",
+        "IRC_MESSAGE_UPDATE_SUCCESS":"MID 已成功更新",
+        "IRC_MESSAGE_UPDATE_FAILED":"MID 未能更新"
+      }
+    },
+    "MANUAL_RATINGS": {
+      "NOTES_FOR": "備註用於",
+      "The_request_is_not_approved_yet": "請求尚未批准。",
+      "Need_to_approve_this_at": "需由授權人員在",
+      "PIT": "賭區",
+      "level_through": "層級，透過",
+      "MANUAL_RATINGS": "手動評分",
+      "tab_view_by_the_authorised_person": "標籤檢視畫面批准此請求。",
+      "MANUAL_RATING_FORM": "手動評級表格",
+      "PLAYER_SEARCH_RESULT": "玩家資訊",
+      "CLOSED": "已關閉",
+      "CANCELED": "已取消",
+      "START_TIME_CAP": "開始時間",
+      "STOP_TIME_CAP": "停止時間",
+      "TOTAL_TIME_CAP": "總時間上限",
+      "Player_Id_is_not_correct": "玩家編號不正確。再試一次。",
+      "IRC_NO_CANNOT_BE_NEGATIVE": "MID 編號不得為負",
+      "CASH_BUY_IN_CANNOT_BE_NEGATIVE": "現金買入不得為負",
+      "AVG_BET_CANNOT_BE_NEGATIVE": "平均注額不得為負",
+      "CANT_RATE_BAN_PLR":"被禁止的客人不能創建評分",
+      "COLHEADERS": {
+        "START_TIME": "開始時間",
+        "STOP_TIME": "停止時間",
+        "TOTAL_TIME": "總時間",
+        "SEAT": "座位",
+        "SEAT_NUMBER": "座位編號",
+        "CASH_BUY_IN": "現金買入",
+        "AVERAGE_BET": "平均注額",
+        "CASINO_WL": "賭場盈/虧",
+        "IRC_NO": "MID 編號",
+        "CREATED_BY": "建立者",
+        "APPROVED_BY": "批准者",
+        "RATING_ID": "客人評分編號"
+      }
+    },
+    "SHOE": {
+      "SHOE_LABEL": "牌靴",
+      "FOOTER_LEFT_LABEL": "牌靴盈/虧",
+      "FOOTER_RIGHT_LABEL": "遊戲",
+      "GAME_DETAILS": "遊戲詳情",
+      "COLHEADERS": {
+        "SHOE_ID": "牌靴編號",
+        "CASINO_WL": "賭場盈/虧",
+        "HANDLE": "總注額",
+        "START_TIME": "開始時間",
+        "END_TIME": "結束時間",
+        "TOTAL_TIME": "總時間",
+        "NUMBER_OF_GAMES": "局數",
+        "NUMBER_OF_BETS": "投注數目"
+      },
+      "SHOE_GAMES_BREADCRUMBS": "牌靴 #{{shoeId}} 遊戲",
+      "SHOE_SESSIONS_BREADCRUMBS": "牌靴 #{{shoeId}} 會話",
+      "SESSIONS_GAMES_BREADCRUMBS": "會話 #{{sessionId}} 遊戲"
+    },
+    "CHIPTRAY": {
+      "CHIPTRAY_LABEL": "籌碼托盤",
+      "FOOTER_LEFT_LABEL": "總計",
+      "FOOTER_RIGHT_LABEL": "差異",
+      "COLHEADERS": {
+        "SCAN_TYPE": "掃描類型",
+        "ACTUAL_VALUE": "實際值",
+        "EXPECTED_VALUE": "預期價值",
+        "NEW_VARIANCE": "新差異",
+        "PRIOR_UNADJUSTED_VARIANCE": "先前未調整的差異",
+        "CARRYOVER_VARIANCE": "結轉差異",
+        "ADJUSTMENTS": "調整",
+        "Total_Transaction_Value": "總交易價值"
+      },
+      "CHIPTRAY_DETAIL": {
+        "TRANSACTION_ID": "交易編號"
+      }
+    },
+    "FILLS": {
+      "FILLS_LABEL": "加彩",
+      "FOOTER_LEFT_LABEL": "計數",
+      "FOOTER_RIGHT_LABEL": "總價值",
+      "COLHEADERS": {
+        "FILL_ID": "籌碼補充編號"
+      },
+      "FILLS_DETAIL": {
+        "FILLS_ID": "籌碼補充編號"
+      }
+    },
+    "CREDITS": {
+      "CREDITS_LABEL": "繳碼",
+      "FOOTER_LEFT_LABEL": "計數",
+      "FOOTER_RIGHT_LABEL": "總價值",
+      "COLHEADERS": {
+        "CREDIT_ID": "籌碼入庫編號"
+      },
+      "CREDITS_DETAIL": {
+        "CREDIT_ID": "籌碼入庫編號"
+      }
+    },
+    "BUYINS": {
+      "BUYINS_LABEL": "買入",
+      "FOOTER_LEFT_LABEL": "計數",
+      "FOOTER_RIGHT_LABEL": "總計",
+      "COLHEADERS": {
+        "BUYIN_ID": "買入編號",
+        "PLAYER_TYPE": "玩家類型"
+      }
+    },
+    "fTTabTType": {
+      "a_id": "百家樂賭檯",
+      "a_value": "百家樂賭檯",
+      "b_id": "其他",
+      "b_value": "其他"
+    },
+    "fTTabStatus": {
+      "a_id": "開啟",
+      "a_value": "開啟",
+      "b_id": "已關閉",
+      "b_value": "已關閉"
+    },
+    "fTbDbrdSessionsRFlag": {
+      "a_id": "是",
+      "a_value": "是",
+      "b_id": "否",
+      "b_value": "否"
+    },
+    "MESSAGE": {
+      "STATUS_CHANGED_SUCCESSFULLY": "狀態已成功變更為 [alertStatus]。",
+      "NOTE_ADDED_SUCCESSFULLY": "已成功新增備註。",
+      "NOTE_UPDATED_SUCCESSFULLY": "已成功更新備註。",
+      "CUSTOMER_KNWLDGE_BASE_SAVE_SUCCESSFULLY": "客戶知識庫儲存成功",
+      "PAGE_CANNOT_MORETHAN_TOTPAGE": "頁碼不得大於總頁數。",
+      "ROLL_TIME_UPDATED": "滾動時間已更新",
+      "STATUS_CHANGE_TO_APPROVAL_STATUS": "狀態已成功變更為 [approvalStatus]。",
+      "REC_UPDATE": "記錄更新失敗",
+      "REC_CREATE": "記錄建立失敗",
+      "CANNOT_CREATE_RATING": "無法建立手動評級備註",
+      "REQUEST_TO_CHANGE_LIMIT": "請求已發出，從而將牌桌限額成功修改為 {{name}}",
+      "FAILED_TO_CLOSED": "目前賭檯正在標準模式下操作，無法變更賭檯狀態。",
+      "FAILED_TO_OPEN": "目前賭檯正在標準模式下操作，無法變更賭檯狀態。"
+    },
+    "TABLE_OVERRIDES":{
+      "CARD_BUFFER_LABEL": "牌緩衝",
+      "BURN_LABEL": "廢棄",
+      "BURNING_CARDS_LABEL": "廢棄的牌",
+      "CARDS_TO_BURN_LABEL": "要廢掉的牌",
+      "TABLE_BURNING_CARDS_LABEL": "牌桌正在廢牌。",
+      "OK_TO_STOP_BURNING_LABEL": "當您準備好停止廢牌時，請按OK。",
+      "RETURN_TO_GAME_LABEL": "返回遊戲",
+      "BURN_CARDS_LABEL": "廢牌",
+      "RESET_CARDS_LABEL": "重置牌",
+      "VOID_HAND_LABEL": "取消牌局",
+      "BET_MANAGEMENT_LABEL": "投注管理",
+      "SELECT_ALL_LABEL": "選擇所有",
+      "SEAT_1_LABEL": "選擇1",
+      "SEAT_2_LABEL": "選擇2",
+      "SEAT_3_LABEL": "選擇3",
+      "SEAT_5_LABEL": "選擇5",
+      "SEAT_6_LABEL": "選擇6",
+      "SEAT_7_LABEL": "選擇7",
+      "SEAT_8_LABEL": "選擇8",
+      "INDEPENDENT_PAIR_LABEL": "獨立閒對和莊對",
+      "BOOK_BETS_LABEL": "下注",
+      "CANCEL_BETS_LABEL": "取消下注",
+      "OVERRIDES_NOT_AVAILABLE": "此時無法覆寫。",
+      "PROVIDE_LOGIN_INFO": "請提供您的登錄資訊",
+      "MANAGE_GAME":"完成此項操作需要管理遊戲許可權",
+      "OVERRIDE_GAME":"完成此項操作需要覆寫遊戲許可權",
+      "OVERRIDE_CARDS":"完成此項操作需要覆寫牌許可權",
+      "MANAGE_TABLE_STATUS":"完成此項操作需要管理牌桌狀態許可權",
+      "CARD_TO_OVERRIDE":"要覆寫的牌",
+      "START_BURN":"開始廢牌",
+      "STOP_BURN":"停止廢牌"
+    },
+    "TREND_BOARD":{
+      "NATURAL_LABEL": "例牌",
+      "DRAGON_7_LABEL": "龍7",
+      "EDIT_TREND_LABEL": "編輯趨勢結果",
+      "NEW_TREND_LABEL": "新趨勢結果",
+      "TREND_BOARD_LABEL": "路牌",
+      "LIVE_LABEL": "現場",
+      "URESOLVED": "無法解決遊戲 - 請檢查牌組合",
+      "TREND_UPDATE_SUCCESS": "上次遊戲的趨勢更新成功"
+    }
+  },
+  "application.app.CASINO_MGR_LABELS": {
+    "OVERVIEW": "概述",
+    "OPEN_TABLES": "開放賭檯",
+    "UTILIZATION": "使用率",
+    "HOLD": "淨贏比例",
+    "TOTAL_BUY_IN": "總買入",
+    "AVERAGE_BET": "平均注額",
+    "RATED_PLAY": "評級遊戲",
+    "CASINO_WINNING_TOP": "賭場前 10 大贏家",
+    "CASINO_LOSING_TOP": "賭場前 10 大輸家",
+    "CASINO_WL_CAP": "賭場盈/虧",
+    "ADJUSTMENTS": "調整",
+    "ACTIVE_FLAG": "活躍標示",
+    "CURRENT_ACTIVE_LOCATION": "目前活躍位置",
+    "LAST_ACTIVE_LOCATION": "最後活躍位置",
+    "TABLE_BUY_IN": "賭檯買入",
+    "CURRENT_BANKROLL_VALUE": "目前資金價值",
+    "TOTAL_CASINO_CAGE_BUY_IN": "賭場/賬房總買入",
+    "TABLE_TYPE": "賭檯類型",
+    "TOTAL_TABLES": "賭檯總數",
+    "BACCARAT-7": "百家樂-7",
+    "BACCARAT-5": "百家樂-5",
+    "SEAT_NUMBER": "座位編號",
+    "PLAYERS_TAB": {
+    },
+    "MESSAGE": {
+      "NAME_REQUIRED": "需要名稱。",
+      "VIRTUAL_GROUP_CREATED": "虛擬群組已建立",
+      "VIRTUAL_GROUP_REMOVED": "虛擬群組已移除",
+      "CANNOT_ADD_COMP": "無法新增公司",
+      "LOCATION_ALREADY_EXISTS": "位置已存在",
+      "CANNOT_ADD_DISSIMILAR_TYPES": "無法新增不同的類型",
+      "LOCATION_ADDED": "位置已新增",
+      "LOCATION_REMOVED": "位置已移除",
+      "CANNOT_ADD_TREASURY": "無法將財資位置新增至虛擬群組",
+      "NO_LOCATION_FOUND": "找不到位置"
+    },
+    "BONUSES": {
+      "BONUS_AWARD": "獎勵",
+      "STATUS": "狀態",
+      "ID": "ID",
+      "NAME": "名稱",
+      "START_DATE": "開始日期",
+      "END_DATE": "結束日期",
+      "BONUS_GROUP": "獎勵群組",
+      "BONUS_GROUP_ADDED": "獎勵群組已新增",
+      "BONUS_GROUP_REMOVED": "獎勵群組已移除",
+      "RATED": "已評級",
+      "TOTAL_BUDGET": "總預算",
+      "AWARDED": "已授予",
+      "ISSUED": "已發放",
+      "PAID": "已支付",
+      "REDEEMED": "已兌換",
+      "TAKEN": "已收取",
+      "SCHEDULED": "已排期",
+      "CANCELLED": "已取消",
+      "ACTIVE": "現用",
+      "CREATED": "已建立",
+      "VOIDED": "已作廢",
+      "COMPLETED": "完成",
+      "BONUS_DETAILS": "獎勵詳情",
+      "AWARD_STATUS": "獎勵狀態",
+      "AWARD_ID": "獎勵 ID",
+      "AWARD_TIME": "獎勵時間",
+      "PIT": "賭區",
+      "TABLE": "賭檯",
+      "EXPIRATION": "過期",
+      "PLAYER_ID": "玩家 ID",
+      "PLAYER_NAME": "玩家姓名",
+      "PPID": "Perfect Pay ID",
+      "PLAYER_WL": "玩家盈/虧"
+    }
+  },
+  "application.app.common.labels": {
+    "OPTION": "选项",
+    "RESET": "重設",
+    "PLAYER_RANKINGS": "玩家排名",
+    "ISSUE":"問題",
+    "WIN":"贏",
+    "OPENER": "期初金額",
+    "CLOSER": "期末金額",
+    "NAME": "名稱",
+    "DESCRIPTION": "描述",
+    "FILTERS": "篩選條件",
+    "TOTAL": "總計",
+    "DENOMINATIONS": "面額",
+    "ALL": "全部",
+    "ANY": "任何",
+    "COUNT": "計數",
+    "DENOMS": "面額",
+    "MIN": "最小",
+    "MAX": "最大",
+    "STATUS": "狀態",
+    "KEY": "關鍵值",
+    "VALUE": "價值",
+    "CLOSE": "關閉",
+    "SAVE": "儲存",
+    "CANCEL": "取消",
+    "CANCEL_RATING": "取消評級",
+    "CANCEL_REQUEST": "取消請求",
+    "SUBMIT": "提交",
+    "BACK": "返回",
+    "NEXT": "下一步",
+    "ADD": "新增",
+    "REMOVE": "移除",
+    "TRUE": "正確",
+    "FALSE": "錯誤",
+    "EDIT": "編輯",
+    "IS_VALID": "有效",
+    "CREATE": "建立",
+    "SESSIONS": "牌局",
+    "APPLICATIONS": "應用",
+    "REQUIRED_FIELD": "必填欄位",
+    "TITLE": "頭銜",
+    "ACTIVE": "活躍",
+    "INACTIVE": "不活躍",
+    "INACTIVE_IN_PROGRESS":"正在使之不活躍",
+    "SITE": "地點",
+    "APPLICATION": "應用",
+    "SUPERVISOR": "監場督導",
+    "DEALER": "莊荷",
+    "CASHIER": "收銀台",
+    "NONE": "無",
+    "TABLE": "賭檯",
+    "YES": "是",
+    "NO": "否",
+    "CHIP_SET": "籌碼類型",
+    "GRAND_TOTAL": "總計",
+    "PAGE_HEADER_LABEL": "將籌碼放在天線上",
+    "OWNER": "擁有者",
+    "CONFIRM": "確認",
+    "OK": "確定",
+    "INVALIDCHIP": "天線上的籌碼無效！",
+    "PLAYERSEARCHBY": "按以下條件搜尋玩家： ",
+    "USERSEARCHBY": " 搜尋條件： ",
+    "SEARCHBY": "搜尋條件：",
+    "SWIPEPLAYERIDCARD": "刷玩家身份卡",
+    "PLAYERID": "會員卡號",
+    "CONFIRMBOX_BODYTEXT2": "價值的籌碼？",
+    "PLAYER": "玩家",
+    "PLAYERS": "玩家",
+    "PLAYER_NAME_ID": "客人姓名（編號）",
+    "PLAYER_NAME": "客人姓名",
+    "PLAYER_STATUS": "玩家狀態",
+    "DENOMINATION": "面額",
+    "HANDLE": "總注額",
+    "CURRENT_VALUE": "目前價值",
+    "PLAYER_ID": "會員卡號",
+    "CCAS_ID": "PP編號",
+    "START_TIME": "開始時間",
+    "START_TIME_FILTER_RESULTS": "「開始時間」篩選結果",
+    "PLAYER_WL": "玩家盈/虧",
+    "NAME_UPDATED": "名稱已更新",
+    "LAST_REFRESH": "上次更新",
+    "LOGOUT": "登出",
+    "FIRST_NAME": "名",
+    "LAST_NAME": "姓",
+    "CARD_SWIPE": "牌刷",
+    "ENTERPLAYERID": "輸入玩家編號",
+    "ENTERAGENTID": "轉碼人號碼",
+    "ASSOCIATE_AGENT": "相關轉碼人",
+    "ASSOCIATE_PLAYER": "相關客人",
+    "SWIPE_AGENT_ID_CARD": "請刷轉碼人號碼卡",
+    "AGENT_NAME": "轉碼人姓名",
+    "AGENT_ID": "轉碼人號碼",
+    "AGENT": "轉碼人",
+    "ENTER_PLAYERIDRNAME": "輸入玩家編號/姓名",
+    "ENTER_IRCNUM": "輸入 MID 編號",
+    "ENTER_BUYINVAL": "輸入買入額",
+    "ENTER_ANGBETVAL": "輸入平均投注額",
+    "ENTER_CASWLVAL": "輸入賭場盈/虧額",
+    "ENTER_FIRST_NAME": "輸入名字",
+    "ENTER_LAST_NAME": "輸入姓氏",
+    "ENTER_EMP_NO": "輸入員工編號",
+    "ENTER_USERNAME": "輸入使用者名稱",
+    "ENTER_USERID": "輸入使用者編號",
+    "NO_APPROVAL_REQ_FOUND": "未找到待批准的請求",
+    "TOTAL_TIME_CANTZERO": "總時間不得為 00:00。",
+    "ENTER_FIRSTNAME": "輸入名字",
+    "ENTER_LASTNAME": "輸入姓氏",
+    "INVALID_CHIP_ON_ANTENNA": "天線上的籌碼無效！",
+    "CHIPSET": "籌碼類型",
+    "DATE_TIME": "日期/時間",
+    "ENGLISH": "英文",
+    "CHINESE": "中文",
+    "ROLES": "角色",
+    "APPLY_FILTER": "套用篩選條件",
+    "CLEAR_FILTER": "清除篩選條件",
+    "REQUESTRAISED": "請求已提出",
+    "REQUESTDECLINED": "請求已拒絕",
+    "SWIPE": "刷卡",
+    "PLAYERIDCARD": "玩家身份卡",
+    "VIEW": "檢視",
+    "VALID": "有效",
+    "INVALID": "無效",
+    "SUCCESSFULLY": "成功。",
+    "ENABLED": "已啟用",
+    "DISABLED": "已停用",
+    "NO_RECORD_FOUND": "找不到記錄",
+    "SUCCESSMSGBOX_FOOTER": "請從天線移除籌碼",
+    "PLACECHIPS": "將籌碼放在天線上",
+    "OWNERSHIP": "所有權",
+    "GAMING_DAY": "遊戲日",
+    "ROLL_TIME": "結算時間",
+    "SHOW_ROLL_TIME": "顯示滾動時間",
+    "PLAYER_SEARCH": "搜尋玩家",
+    "USER_SEARCH": "搜尋用戶",
+    "TIME": "時間",
+    "LIMITS": "限紅",
+    "RATED_FLAG": "已評級標示",
+    "SHOE_ID": "牌靴編號",
+    "SESSION_ID": "客人評分編號",
+    "TYPE": "類型",
+    "PREVIOUS": "上一頁",
+    "RESULT": "結果",
+    "ANONYMOUS": "匿名",
+    "GAMES": "遊戲",
+    "MANUAL_RATINGS": "手動評分",
+    "BANKROLL_HISTORY": "資金歷史",
+    "ADD_NOTES": "新增備註",
+    "ADD_KNOWLEDGE_BASE": "新增知識庫",
+    "NOTES_FOR": "備註用於",
+    "NOTES": "備註",
+    "THRESOLD": "閾值",
+    "NAMEEXISTS": "名稱已存在",
+    "ID": "編號",
+    "USER": "用戶",
+    "GAME": "遊戲",
+    "TABLE_NAME": "賭檯",
+    "TABLES": "賭檯",
+    "NON_PP_TABLES": "其他賭檯",
+    "PLAYERS_TAB": "玩家",
+    "PERFORMANCE": "表現",
+    "FROMPLAYER": "自玩家",
+    "TOPLAYER": "到玩家",
+    "DATE": "日期",
+    "PLAYERNOTFOUND": "找不到玩家",
+    "BANKER": "莊家",
+    "WINNER": "贏家",
+    "WDTS_Business_Insights": "WDTS Business Insights",
+    "INPUT_CONTROLS": "輸入控制",
+    "APPLY": "套用",
+    "CHIP_SETS": "籌碼類型",
+    "BET_SETTINGS": "投注設定",
+    "LIST": "清單",
+    "INPUT": "輸入",
+    "NEW_TASK": "新任務",
+    "SHOW_DISABLED_ROLES": "顯示已停用角色",
+    "TASK_TYPE": "任務類型",
+    "TARGET": "目標",
+    "BY": "執行者",
+    "CLEAR": "清除",
+    "SEARCH":"搜尋",
+    "VIRTUAL_GROUP": "虛擬群組",
+    "VIRTUAL_GROUP_NAME": "虛擬群組名稱",
+    "Select_the_location": "* 選擇位置以滾動時間。",
+    "OOPS": "糟糕！",
+    "ACCESS_DENIED": "403 存取被拒",
+    "NO_ACCESS_TO_REQUESTED_PAGE": "您無權存取所請求的頁面。",
+    "SORRY_ERR_OCCURED": "抱歉，發生了錯誤，所請求的頁面無法存取！",
+    "TAKE_ME_HOME": "返回首頁",
+    "CONTACT_SUPPORT": "聯絡支援人員",
+    "NO_OF_POS": "位置數目",
+    "RFID_ENABLED": "RFID 已啟用",
+    "POSITIONS": "位置",
+    "SELECT": "-- 選擇 --",
+    "OPENER_CLOSER":"期初金額/期末金額",
+    "OPENER_CLOSER_DETAILS":"期初金額/期末金額詳情",
+    "CARD_MANAGEMENT":"牌局更改",
+    "TREND_BOARD": "趨勢板",
+    "RATED_WIN":"已評級玩家盈虧",
+    "UNRATED_WIN":"未評級贏局",
+    "ROLLED":"已滾動",
+    "PRINT":"列印",
+    "NO_DATA_AVAILABLE": "無可用資料",
+    "0": "0",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
+    "10": "10",
+    "A": "A",
+    "J": "J",
+    "K": "K",
+    "Q": "Q",
+    "USER_NOT_FOUND": "找不到用戶",
+    "STATE": "狀態",
+    "PREFERRED_NAME":"Preferred Name",
+    "DATE_OF_BIRTH":"Date of Birth",
+    "CITY": "City",
+    "COUNTRY": "Country",
+    "STOPE_CODES":"Stop Codes",
+    "TOPNAV": {
+      "GAMING_DAY": "遊戲日",
+      "ROLL_TIME": "結算時間",
+      "LOGOUT": "登出",
+      "LAST_REFRESH": "上次更新",
+      "USER_NOT_FOUND": "找不到用戶",
+      "PLAYER_NOT_FOUND": "找不到玩家"
+    },
+    "TOPSUBNAV": {
+      "TABLE": "賭檯",
+      "STATUS": "狀態",
+      "CASINO_WINLOSS": "賭場盈/虧",
+      "UTILIZATION": "使用率 (%)",
+      "OPEN_TABLES": "開放賭檯",
+      "THEO_WIN": "理論盈利",
+      "HOLD": "淨贏比例 (%)",
+      "TOTAL_BUY_IN": "總買入",
+      "AVERAGE_BET": "平均注額",
+      "HANDLE": "總注額",
+      "RATED_PLAY": "已評級遊戲 (%)",
+      "LIMITS": "限紅",
+      "GAMING_DAY": "遊戲日",
+      "SUPERVISOR": "監場督導",
+      "DEALER": "莊荷",
+      "ROLL_TIME": "結算時間",
+      "SHOW_ROLL_TIME": "顯示滾動時間",
+      "PLAYER_SEARCH": "搜尋玩家",
+      "USER_SEARCH": "搜尋用戶",
+      "LAST_SESSION_ID": "上一局編號",
+      "SESSION_LOCATION": "牌局位置",
+      "LAST_PLAYER_LOCATION": "上一個玩家位置",
+      "LAST_ACTIVITY_TIME": "上一次活動時間",
+      "SESSION_ACTIVE": "牌局已啟動",
+      "SELECT_USER": "選擇用戶：",
+      "DEALER_SEARCH_BY": "按以下條件搜尋發牌員",
+      "USERNAME": "用戶名",
+      "USER_ID": "用戶編號",
+      "LOGIN_LOCATION": "登入位置",
+      "LOGIN_TIME": "登入時間",
+      "EXCLAMATION": "!",
+      "MPRE_THAN_TEN": "已找到超過 10 個玩家，請重新定義搜尋條件。",
+      "CHANGE_ROLL_TIME": "變更滾動時間",
+      "DISMISS": "解除",
+      "SELECT_THE_NODES": "* 選擇節點以滾動時間。",
+      "ROLL_DATE_TIME": "滾動日期時間",
+      "LOCATION": "位置",
+      "PLEASE_CHANGE_TIME": "請變更時間以繼續",
+      "NO_DATA_FOUND": "找不到資料",
+      "ROLL_TIME_UPDATED": "滾動時間已更新",
+      "STATUS_HAS_CHANGED": "狀態已變更為 ",
+      "SUCCESSFULLY": " 成功。",
+      "APPROVE": "批准",
+      "DECLINE": "拒絕",
+      "TRANSACTION_ID": "交易編號",
+      "CREATION_TIME": "建立時間",
+      "SOURCE": "來源",
+      "REQUESTOR": "請求者",
+      "REQUEST_TYPE": "請求類型",
+      "APPROVAL_TIME": "批准時間",
+      "APPROVER": "批准者",
+      "DESCRIPTION": "描述",
+      "EMPLOYEE_ID": "員工編號",
+      "HOST": "聯絡公關",
+      "PLAY_CRITERIA": "篩選條件",
+      "LOSS_WIN": "輸 / 贏",
+      "AVG_BET": "平均注額",
+      "GAMES_PLAYED": "已玩局數",
+      "ERROR_WIN_LOSS": "輸入由1至9,999,999",
+      "ERROR_AVG_BET": "輸入由5至1,000,000",
+      "ERROR_GAMES_PLAYED": "輸入由1至1000",
+      "DISCOUNT_ERROR":"Discount can be max 100",
+      "OUT_OF_RANGE":"Overlapping range",
+      "RATING_ADJUSTMENT_OPTIONS":"調整評分選項",
+      "PLAYER_TIER":"Player Tier",
+      "HANDS_PLAYED":"玩过的手",
+      "DISCOUNT":"DISCOUNT %",
+      "DISCOUNT_LABEL": "折扣％",
+      "MAX_PLAYER_TIER":"Max 10 options per Ranking"
+    },
+    "apps": {
+      "CMGR": "賭場管理程式",
+      "TRSMGR": "財資",
+      "PLRDB": "玩家面板",
+      "TBLDB": "賭檯面板",
+      "CAM": "籌碼分配管理程式",
+      "CASHIER": "收銀台",
+      "BI": "BI 應用",
+      "CON_APP": "配置管理程式",
+      "CONFIG": "配置",
+      "ALERTS": "警報"
+    },
+    "PAGINATION": {
+      "PER_PAGE": "條/每頁",
+      "FIRST": "第一頁",
+      "LAST": "最後一頁",
+      "NEXT": "下一頁",
+      "PAGE": "頁碼",
+      "OF": "/",
+      "PREVIOUS": "上一頁",
+      "5": "5",
+      "10": "10",
+      "20": "20",
+      "30": "30"
+    },
+    "FROM": "從",
+    "TO": "至",
+    "ORPHAN": "孤立對象",
+    "PROVIDEINPUT": "請提供輸入",
+    "MIN_LENGTH_VALIDITY": "請將此串文字擴充為至少 {{value}} 個字元",
+    "EMPTY_VALIDITY": "請填寫此欄位",
+    "GAMING_AREA": "遊戲區域",
+    "TABLES_ROLLED": "賭檯日期已滾動",
+    "OPEN_SESSIONS": "開放牌局",
+    "COMPANY_NAME": "公司名",
+    "GAMING_AREAS":"遊戲區",
+    "CAGE_AREAS": "籠區",
+    "OPERATING_AREA": "操作區",
+    "GA_OPERATING_AREA": "操作區",
+    "PIT": "坑",
+    "TERMINAL": "終奌站",
+    "BACCARAT": "百家樂",
+    "POSITION": "位置",
+    "CAGE": "籠",
+    "CASHIER_WINDOW": "收銀台窗口",
+    "CAM": "凸輪",
+    "MANUAL_RATING_UPDATED": "手動評級已成功更新"
+  },
+  "PLAYERS": "客人姓名",
+  "PLAYER_ID": "會員卡號",
+  "CCAS_ID_PLAYER": "PP編號",
+  "CASINO_WL_PLAYER": "玩家盈/虧",
+  "THEO_WIN_PLAYER": "理論盈利",
+  "AVERAGE_BET_PLAYER": "平均注額",
+  "TURNOVER_PLAYER": "總注額",
+  "BUY_INS_PLAYER": "賭檯買入",
+  "TOTAL_BUY_INS_PLAYER": "賭檯買入",
+  "PLAYER_TOTAL_TIME_PLAYED": "已玩時間",
+  "PLAYER_BANKROLL_VALUE": "目前資金價值",
+  "PLAYER_LAST_TIME": "上次",
+  "PLAYER_IMAGE_URL": "",
+  "START_TIME": "開始時間",
+  "END_TIME": "結束時間",
+  "ACTIVE_FLAG": "狀態",
+  "CURRENT_ACTIVE_LOCATION": "目前活躍位置",
+  "LAST_ACTIVE_LOCATION": "最後活躍位置",
+  "CasinoManager_View1_STATUS": "狀態",
+  "CasinoManager_View1_SUPERVISOR": "監場督導",
+  "CasinoManager_View1_DEALER": "莊荷",
+  "CasinoManager_View1_TABLE_LIMITS": "限紅",
+  "CasinoManager_View1_CASINO_WIN": "賭場盈/虧",
+  "CasinoManager_View1_RATED_WIN": "已評級盈/虧",
+  "CasinoManager_View1_UNRATED_WIN": "未評級盈/虧",
+  "CasinoManager_View1_THEO_WIN": "理論盈利",
+  "CasinoManager_View1_HOLD": "淨贏比例 (%)",
+  "CasinoManager_View1_TURNOVER": "總注額",
+  "CURRENT_VALUE": "目前價值",
+  "VARIANCE": "差異",
+  "ADJUSTMENTS": "調整",
+  "CasinoManager_View1_TOTAL_BUY_IN": "總買入",
+  "TOTAL_FILLS": "籌碼補充",
+  "TOTAL_CREDITS": "籌碼入庫",
+  "OPENER": "期初金額",
+  "CLOSER": "期末金額",
+  "SHOE_WIN": "牌靴盈/虧",
+  "SHOE_GAME_NUMBER": "牌靴遊戲編號",
+  "CHIP_TRAY_VARIANCE": "籌碼托盤差異",
+  "CasinoManager_View1_UTILIZATION": "使用率 (%)",
+  "CasinoManager_View1_AVERAGE_BET": "平均注額",
+  "CasinoManager_View1_RATED_PLAY": "已評級遊戲 (%)",
+  "CasinoManager_View1_TABLE_TYPE": "賭檯類型",
+  "GAMING_DAY": "遊戲日",
+  "OPEN_TABLE_TABLE_TYPE": "開放賭檯",
+  "TOTAL_TABLE_TABLE_TYPE": "賭檯總數",
+  "CasinoManager_View1_OPEN_TABLE": "開放賭檯",
+  "TOTAL_VALUE": "總價值",
+  "CasinoManager_view13": {
+    "TABLE_NAME": "牌桌名稱",
+    "PLAYER_POSITIONS": "位置",
+    "STATUS": "狀態",
+    "SUPERVISOR": "監場督導",
+    "DEALER": "莊荷",
+    "TABLE_LIMITS": "限紅",
+    "CASINO_WIN": "賭場盈/虧",
+    "THEO_WIN": "理論盈利",
+    "HOLD": "淨贏比例 (%)",
+    "TURNOVER": "總注額",
+    "CURRENT_VALUE": "目前價值",
+    "VARIANCE": "差異",
+    "ADJUSTMENTS": "調整",
+    "SUPERVISOR_NON_PP": "監場督導"
+  },
+  "application.app.common.httpmessage": {
+    "100": "正在處理您的請求。",
+    "101": "正在處理您的請求。",
+    "103": "正在處理您的請求。",
+    "200": "您的請求已成功處理。",
+    "201": "您的請求已成功處理。",
+    "202": "正在處理您的請求。",
+    "203": "您的請求已成功處理。",
+    "204": "您的請求已成功處理。",
+    "205": "您的請求已成功處理。",
+    "206": "您的請求已成功處理。",
+    "400": "請求無效。",
+    "403": "目前無法處理您的請求。",
+    "404": "請求無效。",
+    "405": "請求無效。",
+    "406": "請求無效。",
+    "407": "請求無效。",
+    "408": "請求逾時。",
+    "409": "請求無效",
+    "410": "請求無效",
+    "411": "請求無效",
+    "412": "請求無效",
+    "413": "請求無效。",
+    "414": "請求無效。",
+    "415": "請求無效。",
+    "416": "請求無效。",
+    "417": "請求無效。",
+    "500": "發生意外錯誤。 請稍後重試。",
+    "501": "發生意外錯誤。 請稍後重試。",
+    "502": "發生意外錯誤。 請稍後重試。",
+    "503": "無法存取伺服器。 請稍後重試。",
+    "504": "無法存取伺服器。 請稍後重試。",
+    "505": "請求無效。",
+    "511": "要執行此操作，需要進行網絡驗證。"
+  },
+  "OFFLINE": {
+    "RECONNECT": "重新連線",
+    "YCOMPISCONN": "您的電腦已連線至互聯網。",
+    "YDIVISCONN": "您的裝置已連線至互聯網。",
+    "YMINDIVISCONN": "您的裝置已連線。",
+    "YCOMPLOSTCONN": "您的電腦已掉線。",
+    "YDIVLOSTCONN": "您的裝置已掉線。",
+    "YMDIVLOSTCONN": "您的裝置未連線。",
+    "ATTEMPTORECONN": "正在嘗試重新連線...",
+    "CONNLOSTRECONNIN": "連線斷開。經過以下時間後重新連線： ",
+    "SECONDS": " 秒鐘...",
+    "RECONNIN": "經過以下時間後重新連線： ",
+    "CONNATTMPFAIL": "連線嘗試失敗。",
+    "S": "秒鐘...",
+    "SS": " 秒鐘...",
+    "OS": " 秒鐘...",
+    "M": "分鐘...",
+    "MM": " 分鐘...",
+    "OM": " 分鐘...",
+    "H": "小時...",
+    "HH": " 小時...",
+    "OH": "小時..."
+  }
+}

@@ -1,0 +1,66 @@
+<ul class="nav navbar-nav navbar-center">
+    <li class="dropdown dropdown-center application-menu">
+        <a href=""
+           class="dropdown-toggle application-menu-toggle"
+           type="button"
+           id="application-menu"
+           data-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="true">
+            <span class="glyphicon icon-application-menu"></span>
+
+            <span translate="{{appSwitcher.currentApp.translateLabel}}">{{appSwitcher.currentApp.name}}</span>
+        </a>
+
+        <div class="dropdown-menu applications-menu" aria-labelledby="application-menu">
+            <div class="dropdown-body-appSwitcher">
+                <div class="dropdown-content">
+
+                    <div class="clearfix" data-ng-repeat="row in appSwitcher.menuRows">
+                        <div class="col-xs-4" data-ng-repeat="menuItem in row track by $index" ng-if="appSwitcher.isCBPTOn">
+                            <div class="application-menu-item application-menu-separator-right" ng-class="{'disable': menuItem.isGreyed}">
+                                <a href=""
+                                   class="application-menu-item-link"
+                                   ng-click="appSwitcher.callNewAppWithRefreshToken(menuItem.applicationCode)">
+                                    <i class="fa pull-right"
+                                       aria-hidden="true"
+                                       ng-class="{'fa-star':appSwitcher.favoriteApp === menuItem.applicationCode,'fa-star-o':appSwitcher.favoriteApp !== menuItem.applicationCode}"
+                                       ng-click="appSwitcher.setFavoriteApp($event, menuItem.applicationCode);">
+                                    </i>
+
+                                    <div class="application-menu-item-icon">
+                                        <span class="glyphicon {{menuItem.iconClass}}"></span>
+                                    </div>
+                                    <span translate="{{menuItem.translateLabel}}">
+                                        {{menuItem.name}}
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4" data-ng-repeat="menuItem in row track by $index" ng-if="!appSwitcher.isCBPTOn && menuItem.applicationCode !== 'PLAYER_DASH'">
+                            <div class="application-menu-item application-menu-separator-right" ng-class="{'disable': menuItem.isGreyed}">
+                                <a href=""
+                                   class="application-menu-item-link"
+                                   ng-click="appSwitcher.callNewAppWithRefreshToken(menuItem.applicationCode)">
+                                    <i class="fa pull-right"
+                                       aria-hidden="true"
+                                       ng-class="{'fa-star':appSwitcher.favoriteApp === menuItem.applicationCode,'fa-star-o':appSwitcher.favoriteApp !== menuItem.applicationCode}"
+                                       ng-click="appSwitcher.setFavoriteApp($event, menuItem.applicationCode);">
+                                    </i>
+
+                                    <div class="application-menu-item-icon">
+                                        <span class="glyphicon {{menuItem.iconClass}}"></span>
+                                    </div>
+                                    <span translate="{{menuItem.translateLabel}}">
+                                        {{menuItem.name}}
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

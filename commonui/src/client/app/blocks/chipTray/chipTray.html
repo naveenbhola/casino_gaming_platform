@@ -1,0 +1,219 @@
+<div>
+    <!-- Contents for Tab-Sessions -->
+    <div ng-class="{'in active':chiptrayMain}">
+        <div class="row">
+            <div class="col-xs-12">
+                <header class="content-header tab-content-header clearfix">
+                    <div class="pull-right">
+                        <a class="tab-content-action-link collapsed" role="button" data-toggle="collapse"
+                           ng-click="showChipTrayFilter();" ng-class="{collapsed:!chiptraydiv}"
+                           aria-expanded="false" aria-controls="filters-table-games">
+                            <span class="caret"></span> <span
+                                translate="application.app.common.labels.FILTERS">FILTERS</span>
+                        </a>
+
+                    </div>
+                </header>
+
+                <!-- Server Side Filters -->
+                <div class="table-filters" id="filters-table-games" ng-class="{collapse:!chiptraydiv}">
+                    <div class="row">
+                        <srv-filter-drop-down view-name="chipTrayData" type="ddwithcheckbox"
+                                              filter-title="application.app.TABLE_DASH_LABELS.CHIPTRAY.COLHEADERS.SCAN_TYPE"
+                                              column-name="scanType" class="col-xs-2"
+                                              filter-options="chiptrayFilterObj.scanType"
+                                              ng-if="chiptrayFilterObj.scanType"
+                                              translate-path="application.app.TREASURY_LABELS.TRANSACTION_TYPES."></srv-filter-drop-down>
+                        <div class="col-xs-10">
+                            <button type="button" class="btn btn-primary" ng-click="applyChiptrayFilter()"
+                                    ng-style="{'margin-top':'20px'}" ng-disabled="isChipFilterEmpty()"
+                                    translate="application.app.common.labels.APPLY_FILTER">Apply Filter
+                            </button>
+                            <button type="button" class="btn btn-primary" ng-click="clearChiptrayFilter()"
+                                    ng-style="{'margin':'20px 0 0 20px'}" ng-disabled="isChipFilterEmpty()"
+                                    translate="application.app.common.labels.CLEAR_FILTER">Clear Filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Server Side Filters -->
+
+                <!-- Display game list -->
+                <div id="table-transactions-list" class="has-1-line-filters-above">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-wrapper has-filters-above has-fixed-header"
+                                 ng-class="totalCount > 10?'has-fixed-footer has-pagination':'has-fixed-footer'"
+                                 no-data-available total-count="totalCount" fetching-data="fetchingData">
+
+                                <div class="container1">
+                                    <div class="table-responsive">
+                                        <table class="table-default">
+                                            <thead>
+                                            <tr>
+                                                <th sortable-column sort-field="TIME" view-name="chipTray">
+                                                    <div translate="application.app.common.labels.TIME">Time</div>
+                                                    <div class="sortorder sortorder_ChipTray_Time"
+                                                         ng-show="sortObj.sortField=='TIME'"
+                                                         ng-class="{reverse:sortObj.sortField=='TIME' && sortObj.sortOrder=='DESC'}"></div>
+                                                </th>
+                                                <th sortable-column sort-field="SCANTYPE" view-name="chipTray">
+                                                    <div translate="application.app.TABLE_DASH_LABELS.CHIPTRAY.COLHEADERS.SCAN_TYPE">
+                                                        Scan Type
+                                                    </div>
+                                                    <div
+                                                            class="sortorder sortorder_ChipTray_Scan"
+                                                            ng-show="sortObj.sortField=='SCANTYPE'"
+                                                            ng-class="{reverse:sortObj.sortField=='SCANTYPE' && sortObj.sortOrder=='DESC'}"></div>
+                                                </th>
+                                                <th sortable-column sort-field="SUPERVISOR" view-name="chipTray">
+                                                    <div translate="application.app.common.labels.SUPERVISOR">
+                                                        Supervisor
+                                                    </div>
+                                                    <div
+                                                            class="sortorder sortorder_ChipTray_Supervisor"
+                                                            ng-show="sortObj.sortField=='SUPERVISOR'"
+                                                            ng-class="{reverse:sortObj.sortField=='SUPERVISOR' && sortObj.sortOrder=='DESC'}"></div>
+                                                </th>
+                                                <th sortable-column sort-field="DEALER" view-name="chipTray">
+                                                    <div translate="application.app.common.labels.DEALER">Dealer
+                                                    </div>
+                                                    <div
+                                                            class="sortorder sortorder_ChipTray_Dealer"
+                                                            ng-show="sortObj.sortField=='DEALER'"
+                                                            ng-class="{reverse:sortObj.sortField=='DEALER' && sortObj.sortOrder=='DESC'}"></div>
+                                                </th>
+                                                <th sortable-column sort-field="ACTUALVALUE" view-name="chipTray">
+                                                    <div translate="application.app.TABLE_DASH_LABELS.CHIPTRAY.COLHEADERS.ACTUAL_VALUE">
+                                                        Actual Value
+                                                    </div>
+                                                    <div
+                                                            class="sortorder sortorder_ChipTray_ActualValue"
+                                                            ng-show="sortObj.sortField=='ACTUALVALUE'"
+                                                            ng-class="{reverse:sortObj.sortField=='ACTUALVALUE' && sortObj.sortOrder=='DESC'}"></div>
+                                                </th>
+                                                <th sortable-column sort-field="EXPECTEDVALUE" view-name="chipTray">
+                                                    <div translate="application.app.TABLE_DASH_LABELS.CHIPTRAY.COLHEADERS.EXPECTED_VALUE">
+                                                        Expected Value
+                                                    </div>
+                                                    <div
+                                                            class="sortorder sortorder_ChipTray_ExptValue"
+                                                            ng-show="sortObj.sortField=='EXPECTEDVALUE'"
+                                                            ng-class="{reverse:sortObj.sortField=='EXPECTEDVALUE' && sortObj.sortOrder=='DESC'}"></div>
+                                                </th>
+                                                <th sortable-column sort-field="NEWVARIANCE" view-name="chipTray">
+                                                    <div translate="application.app.TABLE_DASH_LABELS.CHIPTRAY.COLHEADERS.NEW_VARIANCE">
+                                                        New Variance
+                                                    </div>
+                                                    <div
+                                                            class="sortorder sortorder_ChipTray_NewVariance"
+                                                            ng-show="sortObj.sortField=='NEWVARIANCE'"
+                                                            ng-class="{reverse:sortObj.sortField=='NEWVARIANCE' && sortObj.sortOrder=='DESC'}"></div>
+                                                </th>
+                                                <th sortable-column sort-field="CARRYOVERVARIANCE" view-name="chipTray">
+                                                    <div translate="application.app.TABLE_DASH_LABELS.CHIPTRAY.COLHEADERS.CARRYOVER_VARIANCE">
+                                                        Carryover Variance
+                                                    </div>
+                                                    <div
+                                                            class="sortorder sortorder_ChipTray_Carryover"
+                                                            ng-show="sortObj.sortField=='CARRYOVERVARIANCE'"
+                                                            ng-class="{reverse:sortObj.sortField=='CARRYOVERVARIANCE' && sortObj.sortOrder=='DESC'}"></div>
+                                                </th>
+                                                <th sortable-column sort-field="TOTALVALUE" view-name="chipTray">
+                                                    <div translate="application.app.TABLE_DASH_LABELS.CHIPTRAY.COLHEADERS.Total_Transaction_Value">
+                                                        Total Transaction Value
+                                                    </div>
+                                                    <div
+                                                            class="sortorder sortorder_ChipTray_TTV"
+                                                            ng-show="sortObj.sortField=='TOTALVALUE'"
+                                                            ng-class="{reverse:sortObj.sortField=='TOTALVALUE' && sortObj.sortOrder=='DESC'}"></div>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="chip in chipTrayData">
+                                                <td ng-click="getChipTrayScan(chip)">{{chip.scanDtm |
+                                                    date:'HH:mm'}}
+                                                </td>
+                                                <td ng-if="chip.scanType != 'ADJUSTMENT' && chip.scanType != 'BUYIN'">
+                                                    <span translate="application.app.TREASURY_LABELS.TRANSACTION_TYPES.{{chip.scanType}}"></span>
+                                                </td>
+                                                <td ng-if="chip.scanType == 'BUYIN'" >
+                                                    <span translate="application.app.TREASURY_LABELS.TRANSACTION_TYPES.BUYIN"></span>
+                                                </td>
+                                                <td ng-if="chip.scanType == 'ADJUSTMENT'">
+                                                    <div ng-click="showAdjustmentReasonCode=!showAdjustmentReasonCode"
+                                                         data-toggle="collapse"
+                                                         data-target=".collapse{{chip.chipTrayScanId}}"><span
+                                                            class="item-clickable" translate="application.app.TREASURY_LABELS.TRANSACTION_TYPES.{{chip.scanType}}"></span><span
+                                                            class="caret caret-left"
+                                                            ng-class="{'caret caret-left':!showAdjustmentReasonCode,'caret':showAdjustmentReasonCode}"> </span>
+                                                    </div>
+                                                    <div class="collapse collapse{{chip.chipTrayScanId}}"
+                                                         translate="{{chip.adjustmentReasonCode?chip.adjustmentReasonCode:'NO_ADJUSTMENT_CODE'}}.Description">
+                                                        {{chip.adjustmentReasonCode}}
+                                                    </div>
+
+                                                </td>
+                                                <td ng-click="getChipTrayScan(chip)">{{chip.supervisorName}}
+                                                    {{chip.supervisorEmployeeCode?'(' + chip.supervisorEmployeeCode
+                                                    + ')':''}}
+                                                </td>
+                                                <td ng-click="getChipTrayScan(chip)">{{chip.dealerName}}
+                                                    {{chip.dealerEmployeeCode?'(' + chip.dealerEmployeeCode +
+                                                    ')':''}}
+                                                </td>
+                                                <td ng-click="getChipTrayScan(chip)">
+                                                    {{chip.totalTrayValue|number:0}}
+                                                </td>
+                                                <td ng-click="getChipTrayScan(chip)">
+                                                    {{chip.expectedDailyBalance|number:0}}
+                                                </td>
+
+                                                <td ng-if="chip.varianceAmount >= 0"
+                                                    ng-click="getChipTrayScan(chip)">
+                                                    {{chip.varianceAmount|number:0}}
+                                                </td>
+                                                <td ng-if="chip.varianceAmount < 0"
+                                                    ng-class="{'highlight-red':true}"
+                                                    ng-click="getChipTrayScan(chip)">
+                                                    ({{chip.varianceAmount * -1|number:0}})
+                                                </td>
+
+                                                <td ng-if="chip.carryoverAmount >= 0"
+                                                    ng-click="getChipTrayScan(chip)">
+                                                    {{chip.carryoverAmount|number:0}}
+                                                </td>
+                                                <td ng-if="chip.carryoverAmount < 0"
+                                                    ng-class="{'highlight-red':true}"
+                                                    ng-click="getChipTrayScan(chip)">
+                                                    ({{chip.carryoverAmount * -1|number:0}})
+                                                </td>
+
+                                                <td ng-if="chip.totalTxnValue >= 0"
+                                                    ng-click="getChipTrayScan(chip)">{{chip.totalTxnValue|number:0}}
+                                                </td>
+                                                <td ng-if="chip.totalTxnValue < 0" ng-class="{'highlight-red':true}"
+                                                    ng-click="getChipTrayScan(chip)">
+                                                    ({{chip.totalTxnValue * -1|number:0}})
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                                <pagination class='affix above-fixed-footer' total-records="totalCount"
+                                            view-name="'chipTrayData'" ng-if="totalCount>10"></pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-animate-container" ng-hide="chiptrayMain"
+         ng-include="'bower_components/wdts-common-ui/src/client/app/blocks/chipTray/chiptray-detail.html'">
+        <div class="slide-animate"></div>
+    </div>
+</div>

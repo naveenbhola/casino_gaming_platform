@@ -1,0 +1,284 @@
+<div class="tab-content main-tab-content">
+    <div class="row" class="tab-pane fade">
+        <div class="col-xs-12">
+            <header class="content-header tab-content-header no-context clearfix">
+                <div class="pull-right">
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-backdrop="static"
+                            ng-click="vm.createRatingModal()" ng-disabled="!vm.createPermission" ng-if="vm.createPermission">
+                        <span translate="application.app.common.labels.CREATE"></span>
+                    </button>
+                    <a class="tab-content-action-link collapsed"
+                       role="button"
+                       data-toggle="collapse"
+                       href=""
+                       aria-expanded="false"
+                       aria-controls="filters-sessions-manual-ratings"
+                       ng-click="vm.showPlrRatingsFilter();"
+                       ng-class="{collapsed:!vm.filterPlrRatingsdiv}">
+                        <span class="caret"></span> <span
+                            translate="application.app.common.labels.FILTERS">FILTERS</span>
+                    </a>
+                </div>
+            </header>
+
+            <div class="table-filters" id="filters-sessions-manual-ratings"
+                 ng-class="{collapse:!vm.filterPlrRatingsdiv,'left-sidebar-opened':vm.slider() == false, 'left-sidebar-closed': vm.slider() == true}">
+                <div class="row">
+                    <div class="filters-with-button five-buttons">
+                        <srv-filter-drop-down view-name="manualRatingData"
+                                              type="ddwithcheckbox"
+                                              filter-title="application.app.common.labels.TABLE"
+                                              column-name="fTableIds"
+                                              class="col-xs-2"
+                                              filter-options="vm.manualRatingFilterObj.fTableIds"
+                                              ng-if="vm.manualRatingFilterObj.fTableIds && vm.isVisibleFilter('fTableIds')">
+                        </srv-filter-drop-down>
+                        <srv-filter-drop-down view-name="manualRatingData" type="ddwithcheckbox"
+                                              filter-title="application.app.common.labels.PLAYER"
+                                              column-name="playerId" class="col-xs-2"
+                                              filter-options="vm.manualRatingFilterObj.playerId"
+                                              ng-if="vm.manualRatingFilterObj.playerId && vm.isVisibleFilter('playerId')"></srv-filter-drop-down>
+                        <srv-filter-drop-down view-name="manualRatingData"
+                                              type="ddwithcheckbox"
+                                              filter-title="application.app.common.labels.STATUS"
+                                              column-name="fStatus"
+                                              class="col-xs-2"
+                                              filter-options="vm.manualRatingFilterObj.fStatus"
+                                              ng-if="vm.manualRatingFilterObj.fStatus && vm.isVisibleFilter('fStatus')">
+                        </srv-filter-drop-down>
+                        <srv-filter-drop-down view-name="manualRatingData"
+                                              type="ddwithcheckbox"
+                                              filter-title="application.app.CASINO_MGR_LABELS.SEAT_NUMBER"
+                                              column-name="seatNo"
+                                              class="col-xs-2"
+                                              filter-options="vm.manualRatingFilterObj.seatNo"
+                                              ng-if="vm.manualRatingFilterObj.seatNo && vm.isVisibleFilter('seatNo')">
+                        </srv-filter-drop-down>
+                        <srv-filter-drop-down view-name="manualRatingData"
+                                              type="ddwithcheckbox"
+                                              filter-title="application.app.PLAYER_DASH_LABELS.CREATED_BY"
+                                              column-name="createdByUser"
+                                              class="col-xs-2"
+                                              filter-options="vm.manualRatingFilterObj.createdByUser"
+                                              ng-if="vm.manualRatingFilterObj.createdByUser && vm.isVisibleFilter('createdByUser')">
+                        </srv-filter-drop-down>
+                        <srv-filter-drop-down view-name="manualRatingData"
+                                              type="ddwithcheckbox"
+                                              filter-title="application.app.PLAYER_DASH_LABELS.APPROVED_BY"
+                                              column-name="approvedByUser"
+                                              class="col-xs-2"
+                                              filter-options="vm.manualRatingFilterObj.approvedByUser"
+                                              ng-if="vm.manualRatingFilterObj.approvedByUser && vm.isVisibleFilter('approvedByUser')">
+                        </srv-filter-drop-down>
+                    </div>
+                    <div class="buttons-wrapper">
+                        <button type="button" class="btn btn-primary" ng-click="vm.applyManualRatingFilter()"
+                                ng-disabled="vm.manualRatingFilterArray.length<1"
+                                translate="application.app.common.labels.APPLY_FILTER"
+                                translate="application.app.common.labels.APPLY_FILTER">Apply Filter
+                        </button>
+                        <button type="button" class="btn btn-primary" ng-click="vm.clearManualRatingFilter()"
+                                ng-style="{'margin-left':'20px'}" ng-disabled="vm.manualRatingFilterArray.length<1"
+                                translate="application.app.common.labels.CLEAR_FILTER">Clear Filter
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="table-sessions-manual-ratings">
+                <div class="has-fixed-header has-filters-above" no-data-available total-count="vm.totalCount"
+                     fetching-data="fetchingData">
+
+                    <div id="" class="table-wrapper"
+                         ng-class="{'left-sidebar-opened' : vm.slider() == false,'left-sidebar-closed' : vm.slider() == true}"
+                         em-height-target em-height-offset-bottom="'pagination'"
+                         em-height-triggers="['$rootScope.slider', '$parent.filterdiv', '$parent.listview', '$parent.gridview']">
+                        <div class="container1">
+                    <div class="table-responsive">
+                        <table class="table-default has-more-columns table-col--set-width">
+                            <thead>
+                            <tr>
+                                <th class="tbl-col--type-icon" sortable-column sort-field="STATUS" view-name="manualRatingData">
+                                    <div translate="application.app.common.labels.STATUS">Status</div>
+                                        <div class="sortorder sortorder2ManualStatus" ng-show="vm.sortObj.sortField=='STATUS'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='STATUS' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+
+                                <th ng-if="showTable" sortable-column sort-field="TABLE_NAME" view-name="manualRatingData">
+                                    <div translate="application.app.common.labels.TABLE_NAME">Table Name</div>
+                                        <div class="sortorder sortorder2ManualTable"
+                                              ng-show="vm.sortObj.sortField=='TABLE_NAME'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='TABLE_NAME' && vm.sortObj.sortOrder=='DESC'}">
+                                            </div>
+                                </th>
+
+                                <th ng-if="showPlayer" sortable-column sort-field="PLAYER_NAME" view-name="manualRatingData">
+                                    <div translate="application.app.common.labels.PLAYER">Player</div>
+                                        <div class="sortorder sortorder2ManualPlayer"
+                                              ng-show="vm.sortObj.sortField=='PLAYER_NAME'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='PLAYER_NAME' && vm.sortObj.sortOrder=='DESC'}">
+                                            </div>
+                                </th>
+
+                                <th sortable-column sort-field="START_DTM" view-name="manualRatingData">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.START_TIME">Start Time</div>
+                                        <div class="sortorder sortorder2ManualStartTime" ng-show="vm.sortObj.sortField=='START_DTM'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='START_DTM' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+
+                                <th sortable-column sort-field="END_DTM" view-name="manualRatingData">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.STOP_TIME">Stop Time</div>
+                                        <div class="sortorder sortorder2ManualStopTime" ng-show="vm.sortObj.sortField=='END_DTM'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='END_DTM' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+
+                                <th sortable-column sort-field="TOTAL_TIME" view-name="manualRatingData">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.TOTAL_TIME">Total Time</div>
+                                        <div class="sortorder sortorder2ManualTotalTime" ng-show="vm.sortObj.sortField=='TOTAL_TIME'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='TOTAL_TIME' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+
+                                <th sortable-column sort-field="SEAT_IDX" view-name="manualRatingData">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.SEAT">Seat</div>
+                                        <div class="sortorder sortorder2ManualSeat" ng-show="vm.sortObj.sortField=='SEAT_IDX'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='SEAT_IDX' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+
+                                <th sortable-column sort-field="CASH_BUYIN" view-name="manualRatingData">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.CASH_BUY_IN">Cash Buy In</div>
+                                        <div class="sortorder sortorder2ManualCashByIn" ng-show="vm.sortObj.sortField=='CASH_BUYIN'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='CASH_BUYIN' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+
+                                <th sortable-column sort-field="AVG_BET" view-name="manualRatingData">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.AVERAGE_BET">Average Bet</div>
+                                        <div class="sortorder sortorder2ManualAveBet" ng-show="vm.sortObj.sortField=='AVG_BET'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='AVG_BET' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+
+                                <th sortable-column sort-field="CASINO_WIN" view-name="manualRatingData">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.CASINO_WL">Casino W/L</div>
+                                        <div class="sortorder sortorder2ManualCasinoWL" ng-show="vm.sortObj.sortField=='CASINO_WIN'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='CASINO_WIN' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+
+                                <th>
+                                    <div translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.IRC_NO">MID No.</div>
+                                </th>
+
+                                <th sortable-column sort-field="CREATED_USER_NAME" view-name="manualRatingData">
+                                    <div translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.CREATED_BY">Created by</div>
+                                        <div class="sortorder sortorder2ManualCreatedBy"
+                                              ng-show="vm.sortObj.sortField=='CREATED_USER_NAME'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='CREATED_USER_NAME' && vm.sortObj.sortOrder=='DESC'}">
+                                            </div>
+                                </th>
+
+                                <th sortable-column sort-field="APPROVED_USER_USERNAME" view-name="manualRatingData">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.APPROVED_BY">Approved By</div>
+                                        <div class="sortorder sortorder2ManualApprovedBy"
+                                              ng-show="vm.sortObj.sortField=='APPROVED_USER_USERNAME'"
+                                              ng-class="{'reverse':vm.sortObj.sortField=='APPROVED_USER_USERNAME' && vm.sortObj.sortOrder=='DESC'}">
+                                            </div>
+                                </th>
+
+                                <th>
+                                <div translate="application.app.PLAYER_DASH_LABELS.RATING_ID">Rating ID</div>
+                            </th>
+
+                                <th>
+                                    <div translate="RATING_STATUS">Rating Status</div>
+                                </th>
+
+
+                                <th class="tbl-col--type-icon">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.NOTES">Notes</div>
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr ng-repeat="rating in vm.manualRatingData track by $index" ng-click="vm.submitRating(rating)">
+                                <td>
+                                            <span ng-if="rating.manuallRatingStatus == 'OPEN'" class="icon-status open"
+                                                  title='Open Rating' ng-click="vm.submitRating(rating)"></span>
+                                    <span class="icon-status pending" title='Pending Rating'
+                                          ng-if="rating.manuallRatingStatus == 'PENDING'"
+                                          ng-click="vm.submitRating(rating)">
+                                                <span class='pending-sign' data-toggle="dropdown" aria-haspopup="true"
+                                                      aria-expanded="false">P</span>
+                                                        </span>
+                                    <span class="icon-status closed" title='Closed Rating'
+                                          ng-if="rating.manuallRatingStatus == 'CLOSED'"></span>
+                                    <span class="icon-status cancelled" title="Cancelled Rating"
+                                          ng-if="rating.manuallRatingStatus == 'CANCELED'"></span>
+                                </td>
+
+                                <td ng-if="showTable">{{rating.tableName}}</td>
+
+                                <td ng-if="showPlayer && rating.player.casinoPlayer.lastName && rating.player.casinoPlayer.firstName">{{rating.player.casinoPlayer.lastName}}, {{rating.player.casinoPlayer.firstName}} ({{rating.player.casinoPlayer.casinoPlayerId}})</td>
+                                <td ng-if="showPlayer && (!rating.player.casinoPlayer.lastName && rating.player.casinoPlayer.firstName)">{{rating.player.casinoPlayer.firstName}} ({{rating.player.casinoPlayer.casinoPlayerId}})</td>
+                                <td ng-if="showPlayer && (rating.player.casinoPlayer.lastName && !rating.player.casinoPlayer.firstName)">{{rating.player.casinoPlayer.lastName}} ({{rating.player.casinoPlayer.casinoPlayerId}})</td>
+                                <td ng-if="showPlayer && (rating.player.casinoPlayer.lastName == null && rating.player.casinoPlayer.firstName == null)">({{rating.player.casinoPlayer.casinoPlayerId}})</td>
+
+                                <td>{{rating.startDtm | date : 'HH:mm'}}</td>
+
+                                <td ng-if="rating.endDtm == null">-</td>
+                                <td ng-if="rating.endDtm != null">{{rating.endDtm | date : 'HH:mm'}}</td>
+
+                                <td ng-if="rating.endDtm != null">{{rating.totalTime}}</td>
+                                <td ng-if="rating.endDtm == null">-</td>
+
+                                <td>{{rating.seatIdx}}</td>
+
+                                <td ng-if="rating.cashBuyIn == null">-</td>
+                                <td ng-if="rating.cashBuyIn != null">{{rating.cashBuyIn|number:0}}</td>
+
+                                <td ng-if="rating.avgBet == null">-</td>
+                                <td ng-if="rating.avgBet != null">{{rating.avgBet|number:0}}</td>
+
+                                <td ng-if="(rating.casinoWin != null) && rating.casinoWin<0" ng-class="{'highlight-red':true}">
+                                    ({{rating.casinoWin*-1|number:0}})
+                                </td>
+                                <td ng-if="(rating.casinoWin != null) && rating.casinoWin>=0">{{rating.casinoWin|number:0}}</td>
+                                <td ng-if="rating.casinoWin == null">-</td>
+
+                                <td ng-if="rating.ircNumber == null">-</td>
+                                <td ng-if="rating.ircNumber != null">{{rating.ircNumber}}</td>
+
+                                <td ng-if="rating.createdUser == null">{{rating.createdUsername}}</td>
+                                <td ng-if="rating.createdUser != null">{{rating.createdUsername}}</td>
+
+                                <td ng-if="!rating.approvedUser && !rating.canceledUser">{{rating.approvedUsername}}</td>
+                                <td ng-if="rating.approvedUser != null">{{rating.approvedUsername}}</td>
+                                <td ng-if="rating.canceledUser != null">{{rating.canceledUsername}}</td>
+
+                                <td ng-if="rating.casinoRatingId != null">{{rating.casinoRatingId}}</td>
+                                <td ng-if="rating.casinoRatingId == null">-</td>
+
+                                <td>{{rating.provisionalStatus | translate}}</td>
+
+                                <td>
+                                    <a class="td-link-flex" ng-click="vm.showComments(rating);$event.stopPropagation();">
+                                        {{rating.notes.length}}
+                                        <i class="fa fa-comment"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div></div></div>
+            <pagination
+                    class='affix'
+                    ng-class="{'above-fixed-footer':jwtName=='jwt_plr' || jwtName=='jwt_tbldash', 'placed-at-bottom': jwtName=='jwt_cmr','left-sidebar-opened':vm.slider() == false,'left-sidebar-closed':vm.slider() == true, 'col-xs-9':vm.slider()==false}"
+                    total-records="totalManualRatingCount"
+                    view-name="'manualRatingData'" ng-if="totalManualRatingCount>10"></pagination>
+            <div ng-include src="'bower_components/wdts-common-ui/src/client/app/blocks/manualRatings/modalManualRatings.html'"></div>
+            <div ng-include src="'bower_components/wdts-common-ui/src/client/app/blocks/manualRatings/modalManualRatingsApprove.html'"></div>
+        </div>
+    </div>
+
+    <div ng-include src="'bower_components/wdts-common-ui/src/client/app/blocks/manualRatings/modalManualRatingsComments.html'"></div>
+</div>

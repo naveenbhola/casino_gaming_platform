@@ -1,0 +1,70 @@
+a {
+  outline: none !important;
+
+  &, &:focus {
+    color: $gold;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: $dark-red !important;
+    text-decoration: none;
+    outline: none;
+
+    .icon-search,
+    .icon-application-menu,
+    .icon-action-menu,
+    .icon-breadcrumbs-casino {
+      filter: brightness(10);
+    }
+
+    .icon-time {
+      background: url("../bower_components/wdts-common-ui/assets/icons/icon-clock-hover.svg") center center no-repeat;
+    }
+
+    .icon-calendar {
+      background: url("../bower_components/wdts-common-ui/assets/icons/icon-calendar-hover.svg") center center no-repeat;
+    }
+  }
+
+  &.header-back-link:hover {
+    color: $white !important;
+  }
+
+  &.keyboard-focus:focus:not(.btn):not(.btn-wrapper):not(.tab):not(.dropdown-nav-link) {
+    color: #23a6ad !important;
+    outline: none;
+  }
+
+  &:active {
+    color: $gold !important;
+
+    .icon-add-player {
+      background: url("../bower_components/wdts-common-ui/assets/icons/icon-add-player-active.svg") center center no-repeat;
+    }
+  }
+
+  &.underlined {
+    text-decoration: underline;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.anchor-disabled{
+  pointer-events: none;
+  cursor: default;
+}
+
+.breadcrumb-item-link.disable,
+.header-back-link.disable,
+.btn.btn-sm.active {
+  cursor: default;
+}

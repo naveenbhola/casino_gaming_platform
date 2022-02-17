@@ -1,0 +1,376 @@
+<div class="modal fade vertical-center manual-rating-modal" id="modal-manual-ratings" tabindex="-1"
+     role="dialog">
+    <div class="modal-dialog" role="document" ng-class="{'has-sidebar': playerDivHide == false}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title highlight" id="manual-rating-form-title1"
+                    translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.MANUAL_RATING_FORM">Manual
+                    Rating Form</h3>
+            </div>
+            <div class="modal-body clearfix">
+
+                <div class="toggle-side-bar manual-ratings-form">
+
+
+                    <form class="form-horizontal">
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label class="control-label"
+                                       translate="application.app.common.labels.TABLE">Table</label>
+                                <input type="text" class="form-control input-text"
+                                       id="rating-table-name1" placeholder="eg. MB001"
+                                       readonly="readonly" ng-model="manualRatingForm.table.name"
+                                       data-toggle="tooltip" data-placement="bottom"
+                                       title="Table name"/>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <label class="control-label"
+                                       translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.CREATED_BY">Created
+                                    By</label>
+
+                                <input type="text"
+                                       class="form-control input-text"
+                                       id="rating-created-by1"
+                                       placeholder="Username(#)"
+                                       readonly="readonly"
+                                       ng-model="manualRatingForm.createdBy"
+                                       data-toggle="tooltip"
+                                       data-placement="bottom"
+                                       title="Created by"/>
+                            </div>
+
+                        </div>
+                    </form>
+
+                    <div class="form-control-separator"></div>
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-xs-4">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <span translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.START_TIME">Start Time</span>
+                                        <span style="color:red">*</span>
+                                    </div>
+                                    <div class="col-xs-12">
+
+                                        <div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown1" role="button"
+                                               data-toggle="dropdown" data-target="#"
+                                               href="javascript:void(0)">
+                                                <div class="input-group"><input type="text"
+                                                                                class="form-control"
+                                                                                value="{{manualRatingForm.startDtm | formatTime}}"
+                                                                                readonly><span
+                                                        class="input-group-addon"><i
+                                                        class="glyphicon glyphicon-calendar"></i></span>
+                                                </div>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu"
+                                                aria-labelledby="dLabel">
+                                                <datetimepicker
+                                                        data-ng-model="manualRatingForm.startDtm"
+                                                        data-datetimepicker-config="{ startView:'minute', minView:'minute',dropdownSelector: '#dropdown1' }"
+                                                        data-on-set-time="onTimeSet(newDate, oldDate)" data-before-render="beforeRenderStartDate($view, $dates)"></datetimepicker>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <span translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.STOP_TIME">Stop Time </span>
+                                        <a href="javascript:void(0);" ng-click="vm.clearEndTime('SAVE');" ng-if="manualRatingForm.endDtm">clear</a>
+                                    </div>
+                                    <div class="col-xs-12">
+
+                                        <div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button"
+                                               data-toggle="dropdown" data-target="#"
+                                               href="javascript:void(0)">
+                                                <div class="input-group"><input type="text"
+                                                                                class="form-control"
+                                                                                value="{{manualRatingForm.endDtm | formatTime}}"
+                                                                                readonly><span
+                                                        class="input-group-addon"><i
+                                                        class="glyphicon glyphicon-calendar"></i></span>
+                                                </div>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu"
+                                                aria-labelledby="dLabel">
+                                                <datetimepicker data-ng-model="manualRatingForm.endDtm"
+                                                                data-datetimepicker-config="{ startView:'minute', minView:'minute',dropdownSelector: '#dropdown2', renderOn: 'START_TIME_CHANGED' }"
+                                                                data-before-render="vm.beforeRenderDate($view, $dates, $leftDate, $upDate, $rightDate)"
+                                                                data-on-set-time="onEndTimeSet(newDate, oldDate)"></datetimepicker>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <span translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.TOTAL_TIME">Total Time</span>
+                                        <input type="text" class="form-control input-text"
+                                               id="rating-total-time-played" readonly="readonly"
+                                               value="Show Total Time" data-toggle="tooltip"
+                                               data-placement="bottom" title="Total time played"
+                                               ng-model="manualRatingForm.totalTime"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="form-control-separator"></div>
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="rating-player-id" class="control-label"><span
+                                        translate="application.app.common.labels.PLAYER ">Player</span>
+                                    <span style="color:red">*</span></label>
+
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-secondary btn-block dropdown-toggle"
+                                                style="width: 120px;" type="button"
+                                                id="rating-id-filter" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="true">
+                                            <span translate="{{filterTypeTranslated}}"></span>
+                                            <span class="caret"></span>
+                                        </button>
+                                        <div class="dropdown-menu content-scrollable default">
+                                            <div class="dropdown-body">
+                                                <div class="dropdown-content">
+                                                    <ul class="nav dropdown-nav">
+                                                        <li class="dropdown-nav-item"
+                                                            ng-click="vm.selectFilterType('id')">
+                                                            <div class="dropdown-nav-link">
+                                                                <a href=""
+                                                                   class="dropdown-nav-link fsize"
+                                                                   translate="application.app.common.labels.PLAYERID">Player
+                                                                    ID</a>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-nav-item"
+                                                            ng-click="vm.selectFilterType('fn')">
+                                                            <div class="dropdown-nav-link">
+                                                                <a href=""
+                                                                   class="dropdown-nav-link fsize"
+                                                                   translate="application.app.common.labels.FIRST_NAME">First
+                                                                    Name</a>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-nav-item"
+                                                            ng-click="vm.selectFilterType('ln')">
+                                                            <div class="dropdown-nav-link">
+                                                                <a href=""
+                                                                   class="dropdown-nav-link fsize"
+                                                                   translate="application.app.common.labels.LAST_NAME">Last
+                                                                    Name</a>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control input-text hover"
+                                           id="rating-player-id"
+                                           placeholder="{{ 'application.app.common.labels.ENTER_PLAYERIDRNAME' | translate}}"
+                                           ng-model="manualRatingForm.player.name"
+                                           ng-change="manualRatingForm.player.id=''"/>
+                                    <a class="input-group-addon player-search-btn"
+                                       ng-click="vm.createSearchPlayer()">
+                                        <div class="glyphicon icon-search2"
+                                             ng-class="{'hide':loader == true}"></div>
+
+                                        <div class="search-loader"
+                                             ng-class="{'hide':loader == false}">
+                                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                          <path opacity="0.3" fill="#bb9156" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946 s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634 c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+                          <path fill="#bb9156" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0 C22.32,8.481,24.301,9.057,26.013,10.047z">
+                            <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="0.75s" repeatCount="indefinite"/>
+                          </path>
+                        </svg>
+                                        </div>
+
+                                    </a>
+                                </div>
+                                <div class="error-text" ng-show="error">
+                                                    <span>
+                                                        <span class="glyphicon icon-error">!</span>
+                                                        <span translate="application.app.common.labels.PLAYERNOTFOUND">Player not found</span>
+                                                    </span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="rating-irc-no" class="control-label"><span
+                                            translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.IRC_NO">MID No.</span></label>
+                                    <input type="number" class="form-control input-text hover"
+                                           id="rating-irc-no"
+                                           placeholder="{{ 'application.app.common.labels.ENTER_IRCNUM' | translate}}"
+                                           required ng-model="manualRatingForm.ircNumber" limit-to="20"
+                                           ng-keypress="filterInput($event)"
+                                           ng-paste="handlePaste($event)"/>
+
+                                    <p ng-show="manualRatingForm.ircNumber < 0" class="help-block"
+                                       translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.IRC_NO_CANNOT_BE_NEGATIVE">
+                                        IRC No. cannot be negative</p>
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <label for="rating-seat-id" class="control-label"><span
+                                            translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.SEAT_NUMBER">Seat Number</span><span
+                                            style="color:red">*</span></label>
+
+                                <div class="number-selector">
+                                    <input type="text"
+                                           class="form-control input-text input-number-selector editable"
+                                           id="rating-seat-id" placeholder="Select"
+                                           ng-model="manualRatingForm.seatIdx" readonly/>
+
+                                    <div class=number-selector-btns>
+                                        <a href=""
+                                           class="number-selector-btn number-selector-increase"
+                                           ng-click="vm.changeNumber1('inc')">
+                                            <span class="caret caret-up"></span>
+                                        </a>
+                                        <a href=""
+                                           class="number-selector-btn number-selector-decrease"
+                                           ng-click="vm.changeNumber1('dec')">
+                                            <span class="caret"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="form-control-separator"></div>
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-xs-4">
+                                <label for="rating-cash-buyin"><span
+                                        translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.CASH_BUY_IN">Cash Buy In</span>
+                                </label>
+
+                                <div>
+                                    <input type="number"
+                                           class="form-control input-text hover text-right active"
+                                           id="rating-cash-buyin"
+                                           placeholder="{{ 'application.app.common.labels.ENTER_BUYINVAL' | translate}}"
+                                           ng-model="manualRatingForm.cashBuyIn"
+                                           ng-keypress="filterInput($event)"
+                                           ng-paste="handlePaste($event)"/>
+
+                                    <p ng-show="manualRatingForm.cashBuyIn < 0" class="help-block"
+                                       translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.CASH_BUY_IN_CANNOT_BE_NEGATIVE">
+                                        Cash Buy In cannot be negative</p>
+
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <label for="rating-average-bet"><span
+                                        translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.AVERAGE_BET">Average Bet</span>
+                                    <span style="color:red">*</span></label>
+                                <input type="number"
+                                       class="form-control input-text hover text-right active"
+                                       id="rating-average-bet"
+                                       placeholder="{{ 'application.app.common.labels.ENTER_ANGBETVAL' | translate}}"
+                                       ng-model="manualRatingForm.avgBet" required
+                                       ng-keypress="filterInput($event)"
+                                       ng-paste="handlePaste($event)"/>
+
+                                <p ng-show="manualRatingForm.avgBet < 0" class="help-block"
+                                   translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.AVG_BET_CANNOT_BE_NEGATIVE">
+                                    Avg Bet cannot be negative</p>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <label for="rating-average-bet"><span
+                                        translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.CASINO_WL">Casino W/L </span>
+                                    <span style="color:red">*</span></label>
+                                <input type="number"
+                                       class="form-control input-text hover text-right active"
+                                       id="rating-casino-winloss"
+                                       placeholder="{{ 'application.app.common.labels.ENTER_CASWLVAL' | translate}}"
+                                       ng-model="manualRatingForm.casinoWin" required
+                                       ng-keypress="filterInput($event)"
+                                       ng-paste="handlePaste($event)"/>
+                            </div>
+                        </div>
+                    </form>
+
+                    <p class="required-field highlight-red">
+                        * <span translate="application.app.common.labels.REQUIRED_FIELD"></span>
+                    </p>
+                </div>
+
+
+                <div class="show-side-bar" ng-class="{'hidden': playerDivHide == true}">
+                    <h4 translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.PLAYER_SEARCH_RESULT">
+                        Player Search Result</h4>
+
+                    <div class="show-search-result">
+                        <div class="player-image">
+                            <div class="search-loader text-center" ng-if="playerImageloader">
+                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                                      <path opacity="0.3" fill="#bb9156" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946 s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634 c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+                                      <path fill="#bb9156" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0 C22.32,8.481,24.301,9.057,26.013,10.047z">
+                                        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="0.75s" repeatCount="indefinite"/>
+                                      </path>
+                                </svg>
+                            </div>
+                            <img ng-if="!playerImageloader && playerImageUrl" check-image  ng-src="{{playerImageUrl}}" width="100%" height="100%"/>
+                        </div>
+                        <ul class="list-unstyled list-players manual-ratings">
+                            <li contenteditable="false" class="list-item" ng-repeat="player in playerList"
+                                ng-class="{'selected':selectedPlayer === player.casinoPlayer.casinoPlayerId || $index ===0 && selectedIndex < 1}"
+                                ng-click="vm.selectPlayer(player);">
+                                <span class="item-data-label">{{player.casinoPlayer.lastName}}, {{player.casinoPlayer.firstName}}</span>
+                                <span class="pull-right">{{player.casinoPlayer.casinoPlayerId}}</span>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-12 pull-right">
+                        <a href="" class="btn btn-secondary btn-margins"
+                           data-dismiss="modal"
+                           translate="application.app.common.labels.CLOSE">Close</a>
+                        <!--<button class="btn btn-primary btn-margins"-->
+                                <!--ng-click="vm.createManualRating('create')"-->
+                                <!--ng-disabled="vm.formValidateCreateSave()"-->
+                                <!--translate="application.app.common.labels.SAVE">-->
+                            <!--SAVE-->
+                        <!--</button>-->
+
+                        <button class="btn btn-primary btn-margins"
+                                ng-click="vm.createManualRating('submit')"
+                                ng-disabled="vm.formValidate()"
+                                translate="application.app.common.labels.SUBMIT">
+                            SUBMIT
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,540 @@
+<div class="col-xs-12">
+
+    <header class="content-header tab-content-header clearfix">
+
+        <div class="tables-rolled pull-left ml-20">
+            <div class="title" translate="application.app.common.labels.TABLES_ROLLED">
+                Tables Rolled
+            </div>
+            <div class="count-rolled-unrolled">
+                <div class="count-rolled count">{{vm.totalNoOfRolledTables || 0}}</div>
+                <div class="count-unrolled count">{{vm.totalNoOfUnrolledTables || 0}}</div>
+            </div>
+        </div>
+
+        <!-- Filter button -->
+        <a class="tab-content-action-link pull-right" ng-class="{collapsed:!filterdiv}" role="button"
+           ng-click="vm.showFilter();"
+           style="position:relative;top:10px;">
+            <span class="caret"></span>&nbsp;<span
+                translate="application.app.common.labels.FILTERS">FILTERS</span>
+        </a>
+
+    </header>
+
+    <div class="table-filters" ng-show="filterdiv" id="filters-table-tables">
+
+
+        <div class="row table-filters-content">
+            <div class="filters-with-button five-buttons">
+                <srv-filter-drop-down
+                        class="col-xs-2"
+                        view-name="openerCloser"
+                        type="ddwithcheckbox"
+                        filter-title="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.PIT"
+                        column-name="pitName"
+                        filter-options="vm.filters.pitName"
+                        ng-if="vm.filters.pitName && pitArea">
+                </srv-filter-drop-down>
+
+                <srv-filter-drop-down
+                        class="col-xs-2"
+                        view-name="openerCloser"
+                        type="ddwithcheckbox"
+                        filter-title="application.app.common.labels.TABLE_NAME"
+                        column-name="tableName"
+                        filter-options="vm.filters.tableName"
+                        ng-if="vm.filters.tableName">
+                </srv-filter-drop-down>
+
+                <srv-filter-drop-down
+                        class="col-xs-2"
+                        view-name="openerCloser"
+                        type="ddwithcheckbox"
+                        filter-title="CasinoManager_view13.SUPERVISOR"
+                        column-name="supervisor"
+                        filter-options="vm.filters.supervisorNames"
+                        ng-if="vm.filters.supervisorNames">
+                </srv-filter-drop-down>
+
+                <srv-filter-drop-down
+                        class="col-xs-2"
+                        view-name="openerCloser"
+                        type="ddwithcheckbox"
+                        filter-title="application.app.common.labels.DEALER"
+                        column-name="dealer"
+                        filter-options="vm.filters.dealerNames"
+                        ng-if="vm.filters.dealerNames">
+                </srv-filter-drop-down>
+
+                <srv-filter-drop-down
+                        class="col-xs-2"
+                        view-name="openerCloser"
+                        type="ddwithcheckbox"
+                        filter-title="application.app.common.labels.ROLLED"
+                        column-name="rolled"
+                        filter-options="vm.filters.rolled"
+                        ng-if="vm.filters.rolled">
+                </srv-filter-drop-down>
+
+            </div>
+            <div class="buttons-wrapper">
+                <button type="button"
+                        class="btn btn-primary"
+                        ng-click="vm.applyFilter()"
+                        ng-disabled="openerCloserFilterArray.length < 1 && !isFilterChanged"
+                        translate="application.app.common.labels.APPLY_FILTER">
+                </button>
+                <button type="button"
+                        class="btn btn-primary"
+                        ng-click="vm.clearFilter()"
+                        ng-disabled="openerCloserFilterArray.length < 1 && !isFilterChanged"
+                        translate="application.app.common.labels.CLEAR_FILTER">
+                    Clear Filter
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="fade in active has-filters-above has-fixed-header">
+
+        <div class="table-wrapper" no-data-available total-count="totalRecordsCount" fetching-data="fetchingData">
+
+            <div class="container1" id="opener-closer-table">
+            <div class="table-responsive">
+
+                <table class="table-default opener-closer-table">
+                    <thead>
+
+                    <tr>
+                        <th ng-show="vm.checkPrintPermissions()"><div><input type="checkbox" ng-model="selectedAll"
+                                                                             ng-change="vm.checkAll()"
+                                                                             id="chk" ng-disabled="vm.checkAllDisable"></div></th>
+                        <th ng-if="gaminArea && pitArea" sortable-column sort-field="GAMING_AREA" view-name="openerCloserData">
+                            <div translate="application.app.common.labels.GA_OPERATING_AREA">Gaming Area</div>
+                            <div class="sortorder" ng-show="vm.sortObj.sortField==='GAMING_AREA'" ng-class="{'reverse':vm.sortObj.sortField=='GAMING_AREA' && vm.sortObj.sortOrder=='DESC'}">
+                            </div>
+                        </th>
+                        <th ng-if="pitArea" sortable-column sort-field="PIT" view-name="openerCloserData">
+                            <div translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.PIT">Pit</div>
+                            <div class="sortorder" ng-show="vm.sortObj.sortField==='PIT'" ng-class="{'reverse':vm.sortObj.sortField=='PIT' && vm.sortObj.sortOrder=='DESC'}">
+                            </div>
+                        </th>
+                        <th sortable-column sort-field="TABLE_NAME" view-name="openerCloserData">
+                            <div translate="application.app.common.labels.TABLE">Table</div>
+                            <div class="sortorder" ng-show="vm.sortObj.sortField==='TABLE_NAME'" ng-class="{'reverse':vm.sortObj.sortField=='TABLE_NAME' && vm.sortObj.sortOrder=='DESC'}">
+                            </div>
+                        </th>
+                        <th sortable-column sort-field="SUPERVISOR_NAME" view-name="openerCloserData">
+                            <div translate="CasinoManager_view13.SUPERVISOR">Supervisor</div>
+                            <div class="sortorder" ng-show="vm.sortObj.sortField==='SUPERVISOR_NAME'" ng-class="{'reverse':vm.sortObj.sortField=='SUPERVISOR_NAME' && vm.sortObj.sortOrder=='DESC'}">
+                            </div>
+
+                        </th>
+                        <th sortable-column sort-field="DEALER_NAME" view-name="openerCloserData">
+                            <div translate="application.app.common.labels.DEALER">Dealer</div>
+                            <div class="sortorder" ng-show="vm.sortObj.sortField==='DEALER_NAME'" ng-class="{'reverse':vm.sortObj.sortField=='DEALER_NAME' && vm.sortObj.sortOrder=='DESC'}">
+                            </div>
+                        </th>
+
+                        <th>
+                            <div translate="application.app.common.labels.ROLLED">Rolled</div>
+                        </th>
+                        <th sortable-column sort-field="OPENER" view-name="openerCloserData">
+                            <div translate="application.app.common.labels.OPENER">Opener</div>
+                            <div class="sortorder" ng-show="vm.sortObj.sortField==='OPENER'" ng-class="{'reverse':vm.sortObj.sortField=='OPENER' && vm.sortObj.sortOrder=='DESC'}">
+                            </div>
+                        </th>
+                        <th sortable-column sort-field="CLOSER" view-name="openerCloserData">
+                            <div translate="application.app.common.labels.CLOSER">Closer</div>
+                            <div class="sortorder" ng-show="vm.sortObj.sortField==='CLOSER'" ng-class="{'reverse':vm.sortObj.sortField=='CLOSER' && vm.sortObj.sortOrder=='DESC'}">
+                            </div>
+                        </th>
+                        <th sortable-column sort-field="CASINO_WL" view-name="openerCloserData">
+                            <div translate="CasinoManager_View1_CASINO_WIN">Casino W/L</div>
+                            <div class="sortorder" ng-show="vm.sortObj.sortField==='CASINO_WL'" ng-class="{'reverse':vm.sortObj.sortField=='CASINO_WL' && vm.sortObj.sortOrder=='DESC'}">
+                            </div>
+                        </th>
+                        <th>
+                            <div translate="CasinoManager_View1_RATED_WIN">Rated W/L</div>
+                        </th>
+                        <th>
+                            <div translate="CasinoManager_View1_UNRATED_WIN">Unrated W/L</div>
+                        </th>
+
+                        <th sortable-column sort-field="TOTAL_BUY_IN" view-name="openerCloserData">
+                            <div translate="application.app.CAM_CASHIER_LABELS.BUYIN.LABEL">Buy in</div>
+                            <div class="sortorder" ng-show="vm.sortObj.sortField=='TOTAL_BUY_IN'" ng-class="{'reverse':vm.sortObj.sortField=='TOTAL_BUY_IN' && vm.sortObj.sortOrder=='DESC'}">
+                            </div>
+                        </th>
+
+                        <th>
+                            <div translate="application.app.common.labels.STATUS">Status</div>
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+                    <tr data-toggle="modal" data-target="#openerCloserDetailModal"
+                        ng-click="vm.getOpenerCloserByTable(item.locationId)"
+                        ng-repeat="item in vm.openerCloserData"
+                        ng-init="item.SumRatedUnrated = item.unrated_win_loss + item.rated_win_loss">
+                        <td ng-show="vm.checkPrintPermissions()">
+                            <input type="checkbox" ng-model="item.Selected"
+                                   ng-click="vm.updatePrintOption(item, $event)" ng-disabled="item.rolled === 'NO'" />
+                        </td>
+                        <td ng-if="gaminArea && pitArea">{{item.gaming_area_name}}</td>
+                        <td ng-if="pitArea">{{item.pit_name}}</td>
+                        <td>{{item.location_name}}</td>
+                        <td>{{item.supervisorName}} <span
+                                ng-if="item.supervisorId">({{item.supervisorId}})</span>
+                        </td>
+                        <td>{{item.dealerName}} <span ng-if="item.dealerId">({{item.dealerId}})</span>
+                        </td>
+                        <td>{{item.rolled}}</td>
+                        <td>{{item.opener | number}}</td>
+                        <td>{{item.closer | number}}</td>
+                        <td ng-if="item.SumRatedUnrated >= 0">{{item.SumRatedUnrated | number}}</td>
+                        <td class="highlight-red" ng-if="item.SumRatedUnrated < 0">({{Math.abs(item.SumRatedUnrated) | number}})</td>
+                        <td ng-if="item.rated_win_loss >= 0">{{item.rated_win_loss | number}}</td>
+                        <td class="highlight-red" ng-if="item.rated_win_loss < 0">({{Math.abs(item.rated_win_loss) | number}})</td>
+                        <td ng-if="item.unrated_win_loss >= 0">{{item.unrated_win_loss | number}}</td>
+                        <td class="highlight-red" ng-if="item.unrated_win_loss < 0">({{Math.abs(item.unrated_win_loss) | number}})</td>
+                        <td>{{item.buy_in | number}}</td>
+                        <td>{{item.status}}</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+            <button ng-if="vm.isAvailablePrint && vm.appWithPrintButton" class="btn btn-primary btn-lg glyphicon glyphicon-print"
+                    type="button"
+                    style="float: right"
+                    ng-click="vm.print()" ng-disabled="vm.printProcess">
+                                    <span translate="application.app.common.labels.PRINT" glyphicon
+                                          glyphicon-print>Print</span>
+            </button>
+        </div>
+
+
+    </div></div>
+
+    <pagination class="affix placed-at-bottom" total-records="totalRecordsCount"
+                view-name="'openerCloserData'" ng-if="totalRecordsCount > 10"></pagination>
+
+    <div class="modal fade modal-opener-closer" id="openerCloserDetailModal" tabindex="-1" role="dialog"
+         aria-labelledby="openerCloserDetailModal">
+        <div class="modal-dialog" style="width:calc(100vw - 100px);">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <strong translate="application.app.common.labels.OPENER_CLOSER_DETAILS">Opener/Closer
+                        Details</strong>
+                </div>
+                <div class="modal-body">
+
+                    <div class="panel-group" id="openerCloserAccordion" role="tablist"
+                         aria-multiselectable="true">
+
+                        <!-- Panel: Opener -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOpener">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                       data-target="#collapseOpener"
+                                       data-parent="#openerCloserAccordion" aria-expanded="false"
+                                       aria-controls="collapseOpener">
+                                        <!-- Grand Total -->
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <div class="item-data-value item-view-data-value"
+                                                     translate="application.app.common.labels.OPENER">
+                                                    Opener
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-8">
+                                                <div class="item-data-label item-view-data-label"
+                                                     translate="TOTAL_VALUE">Total Value
+                                                </div>
+                                                <div class="item-data-value item-view-data-value">
+                                                    {{vm.openerCloserTableData.GamingDayOpener.openerValue
+                                                    |
+                                                    number}}
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-1 text-right">
+                                                <div class="caret"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOpener" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingOpener">
+                                <div class="panel-body">
+                                    <!-- Panel Opener Body content goes here -->
+                                    <!-- Show Chip set -->
+                                    <div class="row">
+                                        <div class="col-xs-4"
+                                             ng-repeat="chipset in vm.openerCloserTableData.GamingDayOpener.openerChipSummary.enrolled.byChipset">
+                                            <div class="panel panel-default">
+                                                <a role="button" data-toggle="collapse"
+                                                   data-target="#cs{{$index}}-details"
+                                                   aria-expanded="false"
+                                                   aria-controls="cs1-details">
+                                                    <div class="row">
+                                                        <div class="col-xs-4">
+                                                            <div class="item-data-label item-view-data-label"
+                                                                 translate="application.app.common.labels.CHIP_SET">
+                                                                Chip Set
+                                                            </div>
+                                                            <div class="item-data-value item-view-data-value">
+                                                                {{chipset.label}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <div class="item-data-label item-view-data-label text-center"
+                                                                 translate="application.app.common.labels.COUNT">
+                                                                Count
+                                                            </div>
+                                                            <div class="item-data-value item-view-data-value text-center">
+                                                                {{chipset.Count | number}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <div class="item-data-label item-view-data-label text-center"
+                                                                 translate="application.app.common.labels.VALUE">
+                                                                Value
+                                                            </div>
+                                                            <div class="item-data-value item-view-data-value text-center">
+                                                                {{chipset.total | number}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="collapse" id="cs{{$index}}-details">
+                                                    <div class="table-content-wrapper has-header has-footer">
+
+                                                        <table class="table-default">
+                                                            <thead>
+                                                            <tr>
+                                                                <th translate="application.app.common.labels.DENOMINATION">
+                                                                    Denomination
+                                                                </th>
+                                                                <th class="text-center"
+                                                                    translate="application.app.common.labels.COUNT">
+                                                                    Count
+                                                                </th>
+                                                                <th class="text-right"
+                                                                    translate="application.app.common.labels.VALUE">
+                                                                    Value
+                                                                </th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody ng-init="chipset.Count = 0">
+                                                            <tr ng-repeat="item in chipset.byDenom"
+                                                                ng-init="chipset.Count = chipset.Count + item.count">
+                                                                <td class="chip-column">{{item.denom | number}}
+                                                                </td>
+                                                                <td class="text-center">{{item.count | number}}
+                                                                </td>
+                                                                <td class="text-right">{{item.total | number}}
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel: Closer -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingCloser">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                       data-target="#collapseCloser"
+                                       data-parent="#openerCloserAccordion" aria-expanded="false"
+                                       aria-controls="collapseCloser">
+                                        <!--Grand Total-->
+                                        <div class="row">
+
+                                            <div class="col-xs-3">
+                                                <div class="item-data-value item-view-data-value"
+                                                     translate="application.app.common.labels.CLOSER">
+                                                    Closer
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-8">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <div class="item-data-label item-view-data-label"
+                                                             translate="TOTAL_VALUE">
+                                                            Total Value
+                                                        </div>
+                                                        <div class="item-data-value item-view-data-value">
+                                                            {{vm.openerCloserTableData.GamingDayCloser.closerValue
+                                                            | number}}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-3">
+                                                        <div class="item-data-label item-view-data-label"
+                                                             translate="application.app.common.labels.RATED_WIN">
+                                                            Rated Win
+                                                        </div>
+                                                        <div class="item-data-value item-view-data-value highlight-red" ng-if="vm.openerCloserTableData.GamingDayCloser.rated_win_loss < 0">
+                                                            ({{Math.abs(vm.openerCloserTableData.GamingDayCloser.rated_win_loss) | number}})
+                                                        </div>
+                                                        <div class="item-data-value item-view-data-value" ng-if="vm.openerCloserTableData.GamingDayCloser.rated_win_loss >= 0">
+                                                            {{vm.openerCloserTableData.GamingDayCloser.rated_win_loss | number}}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-3">
+                                                        <div class="item-data-label item-view-data-label"
+                                                             translate="application.app.common.labels.UNRATED_WIN">
+                                                            Unrated Win
+                                                        </div>
+                                                        <div class="item-data-value item-view-data-value highlight-red" ng-if="vm.openerCloserTableData.GamingDayCloser.unrated_win_loss < 0">
+                                                            ({{Math.abs(vm.openerCloserTableData.GamingDayCloser.unrated_win_loss) | number}})
+                                                        </div>
+                                                        <div class="item-data-value item-view-data-value" ng-if="vm.openerCloserTableData.GamingDayCloser.unrated_win_loss >= 0">
+                                                            {{vm.openerCloserTableData.GamingDayCloser.unrated_win_loss | number}}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-3">
+                                                        <div class="item-data-label item-view-data-label"
+                                                             translate="application.app.CAM_CASHIER_LABELS.BUYIN.LABEL">
+                                                            Buy In
+                                                        </div>
+                                                        <div class="item-data-value item-view-data-value">
+                                                            {{vm.openerCloserTableData.GamingDayCloser.buy_in
+                                                            | number}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-1 text-right">
+                                                <div class="caret"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseCloser" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingCloser">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-xs-4"
+                                             ng-repeat="chipset in vm.openerCloserTableData.GamingDayCloser.closerChipSummary.enrolled.byChipset">
+                                            <div class="panel panel-default">
+                                                <a role="button" data-toggle="collapse"
+                                                   data-target="#cs{{$index}}-details-closer"
+                                                   aria-expanded="false" aria-controls="cs1-details">
+                                                    <div class="row">
+                                                        <div class="col-xs-4">
+                                                            <div class="item-data-label item-view-data-label"
+                                                                 translate="application.app.common.labels.CHIP_SET">
+                                                                Chip Set
+                                                            </div>
+                                                            <div class="item-data-value item-view-data-value">
+                                                                {{chipset.label}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <div class="item-data-label item-view-data-label text-center"
+                                                                 translate="application.app.common.labels.COUNT">
+                                                                Count
+                                                            </div>
+                                                            <div class="item-data-value item-view-data-value text-center">
+                                                                {{chipset.Count | number}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <div class="item-data-label item-view-data-label text-center"
+                                                                 translate="application.app.common.labels.VALUE">
+                                                                Value
+                                                            </div>
+                                                            <div class="item-data-value item-view-data-value text-center">
+                                                                {{chipset.total | number}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="collapse" id="cs{{$index}}-details-closer">
+                                                    <div class="table-content-wrapper has-header has-footer">
+
+                                                        <table class="table-default">
+                                                            <thead>
+                                                            <tr>
+                                                                <th translate="application.app.common.labels.DENOMINATION">
+                                                                    Denomination
+                                                                </th>
+                                                                <th class="text-center"
+                                                                    translate="application.app.common.labels.COUNT">
+                                                                    Count
+                                                                </th>
+                                                                <th class="text-right"
+                                                                    translate="application.app.common.labels.VALUE">
+                                                                    Value
+                                                                </th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody ng-init="chipset.Count = 0">
+                                                            <tr ng-repeat="item in chipset.byDenom"
+                                                                ng-init="chipset.Count = chipset.Count + item.count">
+                                                                <td class="chip-column">{{item.denom | number}}
+                                                                </td>
+                                                                <td class="text-center">{{item.count | number}}
+                                                                </td>
+                                                                <td class="text-right">{{item.total | number}}
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="sub-total-band">
+                                                                <td translate="application.app.common.labels.TOTAL">
+                                                                    Total
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    {{chipset.Count | number}}
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    {{chipset.total | number}}
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer text-right">
+                    <button class="btn btn-secondary" data-dismiss="modal" translate="application.app.common.labels.CLOSE">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,60 @@
+<div class="filter-title">
+    <span translate="{{filterTitle}}"></span>
+</div>
+
+<div class="dropdown dropdown-block timepicker">
+
+    <button class="btn btn-secondary btn-block dropdown-toggle"
+            type="button"
+            id="filters-variance-filter"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="true">
+
+        <span translate="application.app.common.labels.SELECT" ng-if="starttime_utc_string == '-- SELECT --'"></span>
+
+        <input type="text" ng-model="starttime_utc_string" style="border: none; background: transparent;" readonly ng-if="starttime_utc_string != '-- SELECT --'">
+
+        <span class="caret"></span>
+
+    </button>
+
+    <div class="dropdown-menu" aria-labelledby="filters-variance-filter">
+
+        <div class="dropdown-body">
+
+            <div class="dropdown-content filters-slider">
+
+                <div class="filters-slider-header" >
+
+                    <div class="row" ng-click="$event.stopPropagation()">
+
+                        <div class="col-xs-4 col-xs-offset-1">
+                            <div class="row" ng-click="upTime('hour')">
+                                <span class="glyphicon glyphicon-chevron-up"></span>
+                            </div>
+                            <div>{{filterTime.hrs}}</div>
+                            <div class="row" ng-click="downTime('hour')">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <span class="separator">:</span>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="row" ng-click="upTime('minute')">
+                                <span class="glyphicon glyphicon-chevron-up"></span>
+                            </div>
+                            <div>{{filterTime.min}}</div>
+                            <div class="row" ng-click="downTime('minute')">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

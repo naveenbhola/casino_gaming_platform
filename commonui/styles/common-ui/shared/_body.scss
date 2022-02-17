@@ -1,0 +1,38 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  color: $dark-gray;
+  background-color: $lighter-gold;
+
+  &.bg-light {
+    background: url("../bower_components/wdts-common-ui/assets/img/bg-body-light.jpg") center center no-repeat;
+    background-size: cover;
+  }
+
+  &.bg-casino {
+    background: url("../bower_components/wdts-common-ui/assets/img/bg-body-casino.jpg") center center no-repeat;
+    background-size: cover;
+  }
+
+  &.bg-macau {
+    background: url("../bower_components/wdts-common-ui/assets/img/bg-body-casino-macau.jpg") center center no-repeat;
+    background-size: cover;
+  }
+
+  &.overflow-auto {
+    overflow: auto;
+  }
+
+  &.has-header.has-sub-header.has-tabs {
+    overflow: hidden;
+  }
+
+  &.has-tabs {
+    background-color: $lighter-gold;
+  }
+}

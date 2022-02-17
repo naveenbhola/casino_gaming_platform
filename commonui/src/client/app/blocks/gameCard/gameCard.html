@@ -1,0 +1,182 @@
+<div class="dropdown dropside">
+    <div class="gameCard-shoe-card-cover dropdown-toggle"  id="{{type+cardPosition}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ng-hide="vm.type == 'buffer' || vm.type == 'burn'">
+        <div class="shoe-card" ng-class="{'counter-landscape': landScapeClass()}" ng-if="playerCard.faceUp">
+            <div class="card-value">{{playerCard.rank}}</div>
+            <div class="at-mid" ng-class="{'icon-suit-diamonds':playerCard.suit=='d','icon-suit-spades':playerCard.suit=='s','icon-suit-hearts':playerCard.suit=='h','icon-suit-clubs':playerCard.suit=='c'}"></div>
+
+        </div>
+        <div class="shoe-card card-flipped" ng-class="{'counter-landscape': landScapeClass()}" ng-if="playerCard.rank != '' && !playerCard.faceUp">
+        </div>
+        <div class="shoe-card card-not-there" ng-class="{'counter-landscape': landScapeClass()}" ng-if="playerCard.rank == ''">
+        </div>
+    </div>
+
+    <div class="gameCard-shoe-card-cover dropdown-toggle"  ng-show="vm.type == 'buffer'">
+        <div class="shoe-card shoe-card-buffer" ng-if="playerCard.faceUp" ng-class="{'select-card': selected == true}" ng-click="changeSelectStatus(playerCard)">
+            <div class="card-value">{{playerCard.rank}}</div>
+            <div class="at-mid" ng-class="{'icon-suit-diamonds':playerCard.suit=='d','icon-suit-spades':playerCard.suit=='s','icon-suit-hearts':playerCard.suit=='h','icon-suit-clubs':playerCard.suit=='c'}"></div>
+        </div>
+        <div class="card-flipped-buffer"  ng-if="playerCard.rank != '' && !playerCard.faceUp" ng-class="{'select-card': selected == true}" ng-click="changeSelectStatus(playerCard)">
+        </div>
+        <div class="card-not-there-burn" ng-if="playerCard.rank == ''">
+        </div>
+        <div align="center" class="card-buffer-label" ng-if="playerCard.rank != '' && !playerCard.faceUp" ng-cloak>{{bufferLength-cardPosition}}</div>
+    </div>
+
+    <div class="gameCard-shoe-card-cover dropdown-toggle"  ng-show="vm.type == 'burn'" id="{{type+cardPosition}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <div class="shoe-card shoe-card-buffer" ng-if="playerCard.faceUp" ng-class="{'select-card': selected == true}" ng-click="changeSelectStatus(playerCard)">
+            <div class="card-value">{{playerCard.rank}}</div>
+            <div class="at-mid" ng-class="{'icon-suit-diamonds':playerCard.suit=='d','icon-suit-spades':playerCard.suit=='s','icon-suit-hearts':playerCard.suit=='h','icon-suit-clubs':playerCard.suit=='c'}"></div>
+        </div>
+        <div class="card-flipped-buffer"  ng-if="playerCard.rank != '' && !playerCard.faceUp" ng-class="{'select-card': selected == true}" ng-click="changeSelectStatus(playerCard)">
+        </div>
+        <div class="card-not-there-burn" ng-if="playerCard.rank == ''">
+        </div>
+    </div>
+
+
+
+    <div class="dropdown-menu overflow_popup" aria-labelledby="{{type+cardPosition}}" ng-click="$event.stopPropagation()">
+        <header class="dropdown-header">
+            <h4 translate="application.app.TABLE_DASH_LABELS.TABLE_OVERRIDES.CARD_TO_OVERRIDE">Card to Override</h4>
+        </header>
+        <div class="dropdown-body">
+            <div class="dropdown-content">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="gameCard-shoe-card" ng-click="selectSuit('d')" ng-class="{' gameCard-shoe-card-override':playerCard.suit=='d'}">
+                            <div class="icon-suit-diamonds at-mid"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="gameCard-shoe-card" ng-click="selectSuit('s')" ng-class="{' gameCard-shoe-card-override':playerCard.suit=='s'}">
+                            <div class="icon-suit-spades at-mid"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="gameCard-shoe-card" ng-click="selectSuit('h')" ng-class="{' gameCard-shoe-card-override':playerCard.suit=='h'}">
+                            <div class="icon-suit-hearts at-mid"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="gameCard-shoe-card" ng-click="selectSuit('c')" ng-class="{' gameCard-shoe-card-override':playerCard.suit=='c'}">
+                            <div class="icon-suit-clubs at-mid"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="gameCard-shoe-card" ng-click="selectRank('T')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='T'}">
+                            <div class="card-value">T</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="gameCard-shoe-card" ng-click="selectRank('J')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='J'}">
+                            <div class="card-value">J</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="gameCard-shoe-card" ng-click="selectRank('Q')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='Q'}">
+                            <div class="card-value">Q</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="gameCard-shoe-card" ng-click="selectRank('K')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='K'}">
+                            <div class="card-value">K</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-10">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="gameCard-shoe-card" ng-click="selectRank('7')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='7'}">
+                                    <div class="card-value">7</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="gameCard-shoe-card" ng-click="selectRank('8')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='8'}">
+                                    <div class="card-value">8</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="gameCard-shoe-card" ng-click="selectRank('9')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='9'}">
+                                    <div class="card-value">9</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-10">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="gameCard-shoe-card" ng-click="selectRank('4')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='4'}">
+                                    <div class="card-value">4</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="gameCard-shoe-card" ng-click="selectRank('5')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='5'}">
+                                    <div class="card-value">5</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="gameCard-shoe-card" ng-click="selectRank('6')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='6'}">
+                                    <div class="card-value">6</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-10">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="gameCard-shoe-card" ng-click="selectRank('A')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='A'}">
+                                    <div class="card-value">A</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="gameCard-shoe-card" ng-click="selectRank('2')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='2'}">
+                                    <div class="card-value">2</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="gameCard-shoe-card" ng-click="selectRank('3')" ng-class="{'gameCard-shoe-card-override':playerCard.rank=='3'}">
+                                    <div class="card-value">3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="dropdown-footer">
+            <div class="row">
+                <!--<div class="col-xs-6">-->
+                    <!--<button class="btn btn-secondary btn-block btn-close-dropdown">Turn</button>-->
+                <!--</div>-->
+                <div class="col-xs-12">
+                    <button translate="application.app.common.labels.REMOVE" class="btn btn-secondary btn-block btn-close-dropdown"
+                            ng-click="moveToBuffer()" ng-disabled="(type=='P' && cardPosition != 2) || (type=='B' && cardPosition != 0) || (playerCard.rank == '') || (playerCard.suit == '') || vm.type == 'buffer' || vm.type == 'burn'">Remove</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <button translate="application.app.common.labels.CANCEL" class="btn btn-secondary btn-block btn-close-dropdown" ng-click="cancel()">Cancel</button>
+                </div>
+                <div class="col-xs-6">
+                    <button translate="application.app.common.labels.CLOSE" class="btn btn-primary btn-block btn-close-dropdown" ng-click="closeDropdown()">Close</button>
+                </div>
+            </div>
+
+        </footer>
+
+    </div>
+
+</div>
+
+
+

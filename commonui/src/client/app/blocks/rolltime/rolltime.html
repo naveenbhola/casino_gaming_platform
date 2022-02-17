@@ -1,0 +1,107 @@
+<!--Roll time modal -->
+<div class="modal roll-time-modal auto-height fade" id="modalRollTime" tabindex="-1" role="dialog"
+     aria-labelledby="modalRollTime">
+    <div class="modal-dialog" role="document" style="width:83%">
+        <div class="modal-content has-sticky-header has-sticky-footer sm-paddings">
+            <header class="modal-sticky-header navbar-fixed-top">
+                <div class='row'>
+                    <div class="col-xs-12">
+                        <div class="dealer-search-player-options text-center">
+                            <span translate="application.app.common.labels.SHOW_ROLL_TIME">Show Roll Time</span>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-xs-2" style="top: 8px;" translate="application.app.common.labels.TOPSUBNAV.GAMING_DAY">
+                    </div>
+                    <div class='col-xs-3'>
+                        <div class="dropdown dropdown-block">
+
+                            <button class="btn btn-secondary btn-block dropdown-toggle" type="button"
+                                    id="filters-status-filter" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="true">
+
+                                {{buttonValue | date : 'dd-MM-yyyy'}} <span class="caret"></span>
+
+                            </button>
+
+                            <div class="dropdown-menu" aria-labelledby="filters-status-filter" ng-if="currentGamingDayAr.length > 1">
+
+                                <div class="dropdown-body">
+
+                                    <div class="dropdown-content">
+
+                                        <ul class="nav dropdown-nav">
+
+                                            <li class="dropdown-nav-item" ng-repeat="date in currentGamingDayAr">
+
+                                                <a href="" class="dropdown-nav-link"
+                                                   ng-click="vm.changeGamingDay(date)">{{date | date :'dd-MM-yyyy'}}</a>
+
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="modal-body">
+                <div class='table-responsive'>
+                    <table class="table-default table-alerts">
+                        <thead>
+                        <th></th>
+                        <th class="col-xs-4" translate="application.app.common.labels.TOPSUBNAV.LOCATION">Location</th>
+                        <th translate="application.app.common.labels.TOPSUBNAV.ROLL_DATE_TIME">Roll Date Time</th>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="nodes in rollTimeNodes | filter:{currentGamingDay: dateFilter} | orderBy : 'topologyNode.parentNodeId'" ng-show="nodes.topologyNode.type != 1000">
+                            <td class="narrow">
+                                <div class="checkbox">
+                                    <input type="checkbox" class="input-checkbox table-action-checkbox" id="nodeId{{nodes.topologyNode.nodeId}}" ng-model="nodes.selected" ng-change="change(nodes)" ng-checked="selectMap.get(nodes.topologyNode.nodeId)" ng-disabled="!updateRollTimePer || selectionDisabled || nodes.rollMode === 'Manual'">
+                                    <label for="nodeId{{nodes.topologyNode.nodeId}}"></label>
+                                </div>
+                            </td>
+                            <td class="col-xs-4">
+                                <ol class="breadcrumb">
+                                    <li ng-repeat="item in nodes.pathAr track by $index" ng-if="nodes.pathAr != null">
+                                        {{item}}
+                                    </li>
+                                    <li class="highlight">{{nodes.topologyNode.name}}</li>
+                                </ol>
+                            </td>
+                            <td style="width: 30%;">
+                                <div class="dropdown">
+                                    <a  class="dropdown-toggle" ng-init="x = '#dropdown'+nodes.topologyNode.nodeId;" id="dropdown{{nodes.topologyNode.nodeId}}" role="button" data-toggle="dropdown" data-target="" href="" ng-class="{'anchor-disabled':selectionDisabled}">{{nodes.nextRollDtm | date:'yyyy-MM-dd hh:mm a'}}</a>
+                                    <ul class="dropdown-menu" role="menu" ng-hide="!updateRollTimePer">
+                                        <datetimepicker data-ng-model="nodes.nextRollDtm" data-datetimepicker-config="{ startView:'minute', minView:'minute', dropdownSelector: x }" data-before-render="beforeRenderDate($view, $dates, $leftDate, $upDate, $rightDate,nodes.defaultNextRollDtm, nodes.topologyNode.type)"/>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="modal-sticky-footer navbar-fixed-bottom">
+                <div class="modal-footer">
+                    <div class="pull-left">
+                        <p class="text-info" translate="application.app.common.labels.Select_the_location">* Select the location(s) to roll the time.</p>
+                    </div>
+                    <button class="btn btn-primary table-action-option" type="button" ng-click="changeRollTime()" ng-disabled="!updateRollTimePer || selectionDisabled" translate="application.app.common.labels.TOPSUBNAV.CHANGE_ROLL_TIME">
+                        Change Roll Time
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="application.app.common.labels.CLOSE">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--roll time modal-->

@@ -1,0 +1,52 @@
+#wrapper {
+  padding-left: 0;
+  transition: all 0.5s ease;
+
+  &.toggled {
+    padding-left: 250px;
+
+    .slidebar-nav {
+      width: 250px;
+    }
+
+    #page-wrapper6 {
+      position: absolute;
+      margin-right: -250px;
+    }
+  }
+}
+
+#page-wrapper6 {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+  top: 50px;
+}
+
+@media (min-width: 768px) {
+  #wrapper {
+    padding-left: 250px;
+
+    &.toggled {
+      padding-left: 0;
+
+      .slidebar-nav {
+        width: 0;
+      }
+
+      #page-wrapper6 {
+        position: relative;
+        margin-right: 0;
+      }
+    }
+  }
+
+  #page-wrapper6 {
+    padding: 20px;
+    position: relative;
+  }
+
+  .slidebar-nav {
+    width: 250px;
+  }
+}

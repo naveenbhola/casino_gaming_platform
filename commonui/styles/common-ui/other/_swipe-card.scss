@@ -1,0 +1,38 @@
+.swipe-card {
+  display: block;
+  margin: 5px auto;
+  background-color: $white;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid $gold;
+  max-width: 322px;
+  min-height: 100px;
+  height: auto;
+
+  h3 {
+    margin: 10px 0;
+    padding-right: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  > * {
+    display: inline-block;
+  }
+
+  img {
+    width: 100px;
+    height: auto;
+  }
+}
+
+.search-form-by-card {
+  margin-top: 15px;
+  display: block;
+}
+
+.search-form-by-name, .search-form-by-id {
+  margin-top: 40px;
+  display: none;
+}

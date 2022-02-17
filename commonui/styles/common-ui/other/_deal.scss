@@ -1,0 +1,33 @@
+.deal {
+  text-align: center;
+  white-space: nowrap;
+
+  .playing-card-wrapper {
+    display: inline-block;
+    margin: 0 2px;
+    vertical-align: middle;
+
+    &.deal-third-card {
+      margin: 0 28px 0 0;
+    }
+
+    + .deal-third-card {
+      margin: 0 0 0 28px;
+    }
+  }
+
+  .deal-separator {
+    display: inline-block;
+    width: 1px;
+    height: 138px;
+    margin: 0 28px;
+    vertical-align: top;
+    background: rgba(187, 145, 86, 0.3);
+  }
+
+  .deal-playing-card-value {
+    margin-top: 10px;
+    font-size: 20px;
+    color: $gold;
+  }
+}

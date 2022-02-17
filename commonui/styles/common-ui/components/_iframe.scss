@@ -1,0 +1,37 @@
+iframe {
+  display: block;
+  margin: 0;
+  border: 0;
+  border-radius: 5px;
+}
+
+.iframe-dealer-screen-wrapper,
+.iframe-dealer-screen-inner-wrapper {
+  position: relative;
+}
+
+.iframe-dealer-screen {
+  transform-origin: left top;
+}
+
+.iframe-dealer-screen-sidebar {
+  display: flex;
+  flex-direction: column;
+
+  .antenna-row-box:last-child {
+    margin-bottom: 0;
+    flex-grow: 1;
+  }
+}
+
+.iframe-dealer-screen-sidebar .antenna-row-box.last {
+  margin-bottom: 0;
+}
+
+.iframe-dealer-screen-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

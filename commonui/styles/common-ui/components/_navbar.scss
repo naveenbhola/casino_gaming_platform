@@ -1,0 +1,343 @@
+.navbar {
+  background-color: #000;
+  border: 0;
+  height: 50px;
+  min-height: 50px;
+}
+
+.navbar-casino-alerts-indicator {
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: 4px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+
+  &.has-alerts {
+    background-color: $error-red;
+  }
+}
+
+.navbar-search .navbar-input-search-wrapper {
+  position: relative;
+  display: none;
+  height: 40px;
+  padding-top: 7px;
+}
+
+.sub-navbar {
+  z-index: 1020;
+  height: 63px;
+  color: $white;
+  background-color: $red;
+  border-bottom: 2px solid #651113;
+
+  .item-data-label {
+    color: $light-gold;
+  }
+
+  .navbar-brand {
+    position: relative;
+    height: 61px;
+    min-width: 180px;
+    padding: 0 20px 0 15px;
+    color: #fff;
+    background-color: $dark-red;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: -1px;
+      bottom: 0;
+      border-right: 1px dashed rgba(255, 255, 255, 0.2);
+      content: '';
+    }
+
+    .navbar-brand-logo {
+      position: relative;
+      top: 50%;
+      max-height: 90%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .header-back-link {
+      display: block;
+      max-width: 210px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 20px;
+      line-height: 63px;
+      color: $white;
+    }
+  }
+}
+
+.header-back-link {
+  .icon-lsaquo, .title {
+    display: inline-block;
+  }
+
+  .icon-lsaquo {
+    float: left;
+    top: 20px;
+    position: relative;
+    margin-right: 10px;
+  }
+
+  .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+    max-height: 63px;
+  }
+}
+
+.navbar-fixed-top .navbar-right.top-zero {
+  top: 0
+}
+
+.sub-navbar-data-group {
+  padding: 7px 0 0 15px;
+
+  .dropdown-toggle {
+    display: block;
+    padding-bottom: 7px;
+  }
+
+  &.width-12, .item-view-row .width-12 {
+    width: 12%;
+  }
+
+  &.width-14, .item-view-row .width-14 {
+    width: 14%;
+  }
+
+  &.list-item-flex {
+    padding-left: 10px;
+
+    &:last-child {
+      padding-right: 10px;
+    }
+  }
+}
+
+li.sub-navbar-data-group.width-15 {
+  width: 20%;
+  padding-left: 75px;
+}
+
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  float: none;
+  transform: translate(-50%);
+  top: 4px;
+}
+
+.navbar-right {
+  margin-right: 10px;
+}
+
+.navbar-header,
+.container-fluid > .navbar-header {
+  float: left;
+  margin-left: 0;
+}
+
+.navbar-nav {
+  float: left;
+  margin-top: 0;
+  margin-left: 0;
+
+  > li {
+    float: left;
+
+    > span {
+      color: white;
+      position: relative;
+      top: 10px;
+      cursor: default;
+    }
+
+    > a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: $white;
+
+      &:not(.btn) {
+        &:hover, &:focus {
+          background-color: transparent;
+        }
+      }
+
+      &.action-menu-toggle {
+        padding: 15px 7px 14px;
+      }
+
+      &.alerts-menu-toggle {
+        padding-top: 10px;
+        padding-bottom: 14px;
+      }
+
+      &.icon-top-bar {
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+    }
+
+    &.navbar-refresh > a {
+      padding-top: 5px;
+      padding-bottom: 1px;
+      cursor: pointer;
+
+      span.glyphicon-refresh:hover {
+        color: #9d1c22;
+      }
+    }
+  }
+
+  &.navbar-right {
+    float: right;
+  }
+}
+
+.navbar-refresh {
+  text-align: center;
+
+  small {
+    color: $gray;
+    position: relative;
+    top: -2px;
+  }
+}
+
+.navbar-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+  margin-left: 0;
+}
+
+.nav {
+  > li > a:not(.btn):hover {
+    text-decoration: none;
+    background-color: transparent;
+  }
+
+  .open > a, .nav .open > a:hover {
+    background-color: transparent;
+    border: 0;
+  }
+  .open > a:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .navbar-nav.width-80 {
+    width: 82.750000%;
+  }
+
+  &:not(.dropdown-select-nav) {
+    > li > a:not(.btn):focus {
+      text-decoration: none;
+      background-color: transparent;
+    }
+
+    .open > a:focus {
+      background-color: transparent;
+      border: 0;
+    }
+  }
+
+  &.navbar-nav.navbar-right {
+    position: relative;
+    top: 4px;
+
+    &.navbar-nav-flex {
+      top: 0;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.navbar-calendar .calender_tick {
+  @include icon(19px, 19px, "checked-green");
+
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  margin-right: 4px;
+  background-size: 13px 10px;
+}
+
+.navbar-nav-flex {
+  display: flex !important;
+
+  &.nav {
+    &.navbar-left {
+      flex: 5;
+    }
+
+    &.navbar-right {
+      flex: 1;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .sub-navbar .navbar-brand {
+    min-width: 150px;
+  }
+
+  .nav.navbar-nav.width-80 {
+    width: 79%;
+  }
+}
+
+@media (min-width: 1050px) {
+  .sub-navbar .navbar-brand {
+    min-width: 160px;
+  }
+
+  .nav.navbar-nav.width-80 {
+    width: 79.5%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .sub-navbar .navbar-brand {
+    min-width: 180px;
+  }
+
+  .nav.navbar-nav.width-80 {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1750px) {
+  .nav.navbar-nav.width-80 {
+    width: 86%;
+  }
+}
+
+@media (min-width: 2100px) {
+  .nav.navbar-nav.width-80 {
+    width: 89%;
+  }
+}
+
+@media (min-width: 2450px) {
+  .nav.navbar-nav.width-80 {
+    width: 91%;
+  }
+}
+
+@media (min-width: 2800px) {
+  .nav.navbar-nav.width-80 {
+    width: 91%;
+  }
+}

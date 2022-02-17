@@ -1,0 +1,68 @@
+pagination {
+  padding: 15px;
+  bottom: 0;
+  background-color: $lighter-gold;
+  min-height: 42px;
+  width: 100%;
+  margin-left: -12px;
+  height: 56px;
+  border-top: 1px dashed $gold;
+
+  > li {
+    display: inline;
+
+    > a, > span {
+      &, &:hover, &:focus {
+        min-width: 40px;
+        padding: 10px;
+        line-height: 18px;
+        color: $gold;
+        text-align: center;
+        background-color: $white;
+        border: 1px solid $gold;
+      }
+
+      &:hover, &:focus {
+        color: $red;
+        border: 1px solid $red;
+      }
+    }
+
+    > .active {
+      > a, > span {
+        &, &:hover, &:focus {
+          color: $white;
+          background-color: $gold;
+          border: 1px solid $gold;
+        }
+      }
+    }
+  }
+
+  .dropup .dropdown-nav-item {
+    .dropdown-nav-link,
+    &:last-of-type .dropdown-nav-link {
+      padding: 9px 15px 10px;
+      text-transform: Capitalize;
+    }
+  }
+
+  &.above-fixed-footer {
+    bottom: 128px;
+    padding-top: 7px;
+    padding-bottom: 8px;
+  }
+
+  &.placed-at-bottom {
+    height: 70px;
+  }
+}
+
+input.form-control.current-page {
+  max-width:70px;
+  margin:0 10px;
+}
+
+span.pagination-no-wrap {
+  white-space: nowrap;
+}

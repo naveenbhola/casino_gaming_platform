@@ -1,0 +1,26 @@
+<li class="dropdown dropdown-right user-menu">
+
+    <a href="" class="dropdown-toggle user-menu-toggle" type="button" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        {{topNavDropdown.jwtUserLastName}} {{topNavDropdown.jwtUserFirstName}} <span class="caret"></span>
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="user-menu" style="width: 100px;">
+
+        <div class="dropdown-body">
+            <div class="dropdown-content">
+                <ul class="nav dropdown-nav">
+                    <li class="dropdown-nav-item">
+                        <a href="" class="dropdown-nav-link" ng-click="topNavDropdown.changeLanguage('chinese')" ng-show="topNavDropdown.getLanguageStatus()" style="text-transform: none">Chinese</a>
+                        <a href="" class="dropdown-nav-link" ng-click="topNavDropdown.changeLanguage('english')" ng-hide="topNavDropdown.getLanguageStatus()" style="text-transform: none">English</a>
+                    </li>
+
+                    <li class="dropdown-nav-item" ng-click="topNavDropdown.logout()">
+                        <a href="" class="dropdown-nav-link"><span translate="application.app.common.labels.TOPNAV.LOGOUT" style="text-transform: none"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</li>

@@ -1,0 +1,47 @@
+.tooltip.in {
+  opacity: 1;
+}
+
+.tooltip {
+  &.top .tooltip-arrow {
+    border-top-color: $red;
+  }
+
+  &.right .tooltip-arrow {
+    border-right-color: $red;
+  }
+
+  &.bottom .tooltip-arrow {
+    border-bottom-color: $red;
+  }
+
+  &.left .tooltip-arrow {
+    border-left-color: $red;
+  }
+
+  .tooltip-inner {
+    background-color: $red;
+  }
+}
+
+.item-data-value {
+  .tooltip.top {
+    .tooltip-inner {
+      background-color: black;
+    }
+
+    .tooltip-arrow {
+      border-top-color: black;
+    }
+  }
+
+  &.highlight-red .tooltip {
+    .tooltip-inner {
+      background-color: red;
+    }
+
+    .tooltip-arrow {
+      border-top-color: red;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+@font-face {
+  font-family: 'Lato';
+  src: url("../bower_components/wdts-common-ui/assets/fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../bower_components/wdts-common-ui/assets/fonts/Lato-Italic.ttf") format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../bower_components/wdts-common-ui/assets/fonts/Lato-Hairline.ttf") format("truetype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("..assets/fonts/Lato-HairlineItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../bower_components/wdts-common-ui/assets/fonts/Lato-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../bower_components/wdts-common-ui/assets/fonts/Lato-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../bower_components/wdts-common-ui/assets/fonts/Lato-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../bower_components/wdts-common-ui/assets/fonts/Lato-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../bower_components/wdts-common-ui/assets/fonts/Lato-Black.ttf") format("truetype");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../bower_components/wdts-common-ui/assets/fonts/Lato-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 36px;
+  line-height: 46px;
+
+  &.item-data-label {
+    color: $gold;
+    font-size: 2em;
+    margin: 0.67em 0;
+    padding: 3em 2em;
+  }
+}
+
+h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 700;
+
+  &.content-header-title {
+    color: $red;
+  }
+}
+
+h4 {
+  font-size: 15px;
+}
+
+.heading {
+  float: left;
+  position: relative;
+  font-weight: 600;
+  color: $red;
+  font-size: 18px;
+}
+
+.big {
+  font-size: 20px;
+}
+
+.fade-text {
+  color: #808080;
+}
+
+.extra-bottom-margin {
+  margin-bottom: 20px; }
+
+.error-text {
+  color: $error-red;
+}
+
+.highlight-red {
+  @extend .error-text;
+}
+
+.highlight {
+  color: $dark-red;
+}
+
+.instruction-text {
+  color: #b3b3b3;
+}
+.help-block {
+  @extend .error-text;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+.disable-text-select {
+  user-select: none;
+}

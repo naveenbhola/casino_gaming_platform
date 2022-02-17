@@ -1,0 +1,124 @@
+.search-wrapper {
+  width: 100%;
+  margin-left: auto;
+
+  .dealer-search-player-options {
+    width: 500px;
+    margin: 0 auto 27px;
+    text-align: center;
+    font-size: 15px;
+    color: $black;
+  }
+
+  .input-search-wrapper .form-control {
+    height: 40px;
+  }
+
+  .table-default td {
+    padding-top: 7px;
+    padding-bottom: 8px;
+  }
+
+  .dealer-search-player-selector {
+    margin: 0 10px;
+
+    &.active {
+      color: #9c1c23;
+    }
+  }
+
+  .player-id {
+    display: block;
+  }
+
+  .error-text {
+    padding-top: 15px;
+  }
+
+  .dealer-search-player-input-row {
+    width: 535px;
+    margin: 0 auto;
+    display: flex;
+
+    .input-search-wrapper{
+      margin-right: 5px;
+    }
+
+    .dealer-search-player-input {
+      width: 224px;
+    }
+
+    &.single-search-box {
+      width: 340px !important;
+    }
+
+    &.single-search-box .dealer-search-player-input {
+      width: 255px !important;
+    }
+  }
+
+  .player-search-results {
+    margin-top: 0;
+  }
+
+  .player-search-results-row {
+    margin: 25px 0;
+
+    .btn {
+      margin-top: 8px;
+    }
+
+    .game-player-image {
+      display: block;
+      margin: 10px 10px 10px 0;
+      border-radius: 50%;
+    }
+
+    p {
+      padding-top: 10px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .search-wrapper .player-search-results-row p {
+    padding-top: 6px;
+  }
+}
+
+@media (min-width: 1050px) {
+  .search-wrapper .player-search-results-row p {
+    padding-top: 10px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .search-wrapper .player-search-results-row p {
+    padding-top: 29px;
+  }
+}
+
+@media (min-width: 1750px) {
+  .search-wrapper .player-search-results-row p {
+    padding-top: 18px;
+  }
+}
+
+@media (min-width: 2100px) {
+  .search-wrapper .player-search-results-row p {
+    padding-top: 22px;
+  }
+}
+
+@media (min-width: 2450px) {
+  .search-wrapper .player-search-results-row p {
+    padding-top: 25px;
+  }
+}
+
+@media (min-width: 2800px) {
+  .search-wrapper .player-search-results-row p {
+    padding-top: 28px;
+  }
+}

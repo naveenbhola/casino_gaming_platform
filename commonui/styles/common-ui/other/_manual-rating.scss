@@ -1,0 +1,216 @@
+.manual-rating-modal {
+
+  .modal-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .modal-body {
+    padding-bottom: 0;
+  }
+
+  #rating-player-search {
+    margin: 0 10px 0 -10px;
+  }
+
+  .form-control {
+    background-color: $white;
+    border: 1px solid rgba(187, 145, 86, 0.8);
+
+    &[readonly] {
+      background-color: rgba(187, 145, 86, 0.8);
+    }
+
+    &.input-text.hover:hover {
+      border-color: #892229;
+    }
+  }
+
+  .form-horizontal .control-label {
+    text-align: left;
+  }
+
+  .form-control-separator {
+    width: 100%;
+    height: 2vh;
+  }
+}
+
+.table-manual-ratings {
+  td {
+    padding-left: 8px;
+    padding-right: 8px;
+
+    &.narrow {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  th, td {
+    &.narrower {
+      width: 7%;
+    }
+  }
+
+  .btn {
+    padding-top: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    .icon-status {
+      position: relative;
+      top: -2px;
+    }
+  }
+
+
+  .dropdown-menu {
+    min-width: 0;
+  }
+
+  .dropside .dropdown-menu {
+    padding: 10px;
+    min-width: 180px;
+
+    ul.inline > li {
+      display: inline-block;
+
+      a {
+        border-left: 1px dashed rgba(128, 128, 128, 0.15);
+        border-bottom: none;
+
+        &.first {
+          border-left: none;
+        }
+
+        &.last {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
+
+
+.manual-rating-modal {
+  .modal-dialog {
+    width: 70vw;
+  }
+
+  .input-text {
+    height: 42px;
+  }
+}
+
+.manual-ratings-form,
+.show-side-bar {
+  display: inline-block;
+  margin:0;
+  padding:0;
+  vertical-align: top;
+}
+
+.manual-ratings-form {
+  width: 99.5%;
+}
+
+.show-side-bar {
+  width: 0;
+  padding-left: 20px;
+
+  h4 {
+    margin-bottom: 4px;
+  }
+}
+
+#rating-id-filter {
+  height: 42px;
+}
+
+.player-image {
+  border: 1px solid #bb9156;
+  height: 180px;
+  display:block;
+  margin:10px auto;
+  width: 0;
+}
+
+.show-search-result {
+  height: 52vh;
+  padding-top: 1px;
+  overflow: hidden;
+  width: 100%;
+
+  .list-players .list-item {
+    cursor: pointer;
+  }
+}
+
+.player-image,
+.show-search-result {
+  background-color: rgba(187,145,86,0.2);
+  border-radius: 4px;
+}
+
+.modal-content .list-players {
+  margin-bottom: 0;
+  overflow-y: auto;
+  height: calc(24vh - 15px);
+
+  .list-item {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.list-players.manual-ratings .list-item {
+  padding-left: 11px;
+  padding-right: 11px;
+
+  .item-data-label,
+  span.pull-right {
+    color: black;
+    font-weight: normal;
+  }
+
+  /*
+  * Following style will highlight
+  * the selected list-item
+  */
+  &.selected .item-data-label,
+  &.selected span.pull-right {
+    color: #bb9156;
+    font-weight: bold;
+  }
+}
+
+/*
+*  When sidebar opens;
+*  Following width styles will be applied
+*/
+
+.show-side-bar,
+.show-search-result,
+.player-image {
+  transition: width 350ms ease-in-out;
+}
+
+.has-sidebar {
+  .manual-ratings-form {
+    width: 66%;
+    transition: width 350ms ease-in-out;
+  }
+
+  .show-side-bar {
+    width: 33.5%;
+  }
+
+  .player-image {
+    width: 180px;
+
+    .search-loader{
+      padding-top: 50px;
+    }
+  }
+}

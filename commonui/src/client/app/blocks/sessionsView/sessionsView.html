@@ -1,0 +1,434 @@
+<div class="row">
+    <div class="col-xs-12">
+
+        <header class="content-header tab-content-header clearfix">
+            <h3 ng-if="vm.shoeIdForDisplay" class="tab-content-header-title"><span
+                    translate="application.app.common.labels.SHOE_ID">Shoe ID</span> #{{vm.shoeIdForDisplay}}</h3>
+
+            <div class="pull-right">
+                <!-- Filter button -->
+                <a class="tab-content-action-link collapsed" role="button" data-toggle="collapse"
+                   ng-click="vm.showSessionFilter();" ng-class="{collapsed:!sessionfilterdiv}"
+                   aria-expanded="false" aria-controls="filters-table-players">
+                    <span class="caret"></span> <span translate="application.app.common.labels.FILTERS"
+                                                      Fi>FILTERS</span>
+                </a>
+                <button
+                        ng-disabled="!updateRateClosedSessionPermission"
+                        ng-if="vm.updateClosedSessions"
+                        class="btn btn-primary"
+                        type="button"
+                        data-toggle="modal"
+                        data-backdrop="static"
+                        ng-click="vm.updateClosedSessionsModal()">
+                    <span translate="application.app.TABLE_DASH_LABELS.SESSIONS.UPDATE_CLOSED_SESSIONS"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Server Side Filters -->
+        <div class="table-filters row" id="filters-table-games" ng-class="{'collapse': !sessionfilterdiv}">
+            <div class="filters-with-button" ng-class="{'five-filters': vm.filters && vm.filters.length === 5}">
+                <srv-filter-drop-down view-name="sessionData" type="ddwithcheckbox"
+                                      filter-title="application.app.common.labels.STATUS"
+                                      column-name="status" class="col-xs-2"
+                                      filter-options="sessionFilterObj.status"
+                                      ng-if="sessionFilterObj.status && vm.filters.indexOf('status') != -1"></srv-filter-drop-down>
+                <srv-filter-drop-down view-name="sessionData" type="ddwithcheckbox"
+                                      filter-title="application.app.common.labels.RATED_FLAG"
+                                      column-name="ratingFlag" class="col-xs-2"
+                                      filter-options="sessionFilterObj.ratingFlag"
+                                      ng-if="sessionFilterObj.ratingFlag && vm.filters.indexOf('ratingFlag') != -1 && isCBPTEnabled"></srv-filter-drop-down>
+
+                <srv-filter-drop-down view-name="sessionData" type="ddwithcheckbox"
+                                      filter-title="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.SEAT_NUMBER"
+                                      column-name="seatNumber" class="col-xs-2"
+                                      filter-options="sessionFilterObj.seatNumber"
+                                      ng-if="sessionFilterObj.seatNumber && vm.filters.indexOf('seatNumber') != -1 && !isCBPTEnabled"></srv-filter-drop-down>
+
+                <srv-filter-drop-down view-name="sessionData" type="ddwithcheckbox"
+                                      filter-title="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.PLAYER_NAME"
+                                      column-name="playerName" class="col-xs-2"
+                                      filter-options="sessionFilterObj.playerName"
+                                      ng-if="sessionFilterObj.playerName && vm.filters.indexOf('playerName') != -1"></srv-filter-drop-down>
+
+                <srv-filter-drop-down view-name="sessionData" type="ddwithcheckbox"
+                                      filter-title="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.SESSION_TYPE"
+                                      column-name="sessionType" class="col-xs-2"
+                                      filter-options="sessionFilterObj.sessionType"
+                                      ng-if="sessionFilterObj.sessionType && vm.filters.indexOf('sessionType') != -1 && !isCBPTEnabled && vm.type != 'PLAYER_DASHBOARD_SESSIONS'"></srv-filter-drop-down>
+
+
+                <srv-filter-drop-down view-name="sessionData" type="ddwithcheckbox"
+                                      filter-title="application.app.PLAYER_DASH_LABELS.TABLE_NAME"
+                                      column-name="tableId" class="col-xs-2"
+                                      filter-options="sessionFilterObj.fTableIds"
+                                      ng-if="sessionFilterObj.fTableIds && vm.filters.indexOf('tableId') != -1"></srv-filter-drop-down>
+                <srv-filter-drop-down view-name="sessionData" type="ddwithcheckbox"
+                                      filter-title="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.CCAS_ID"
+                                      column-name="filterPlayerId" class="col-xs-2"
+                                      filter-options="sessionFilterObj.filterPlayerId"
+                                      ng-if="sessionFilterObj.filterPlayerId && vm.filters.indexOf('filterPlayerId') != -1 && isCBPTEnabled"></srv-filter-drop-down>
+                <srv-filter-drop-down view-name="sessionData" type="ddwithcheckbox"
+                                      filter-title="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.PLAYER_ID"
+                                      column-name="casinoPlayerId" class="col-xs-2"
+                                      filter-options="sessionFilterObj.casinoPlayerId"
+                                      ng-if="sessionFilterObj.casinoPlayerId && vm.filters.indexOf('casinoPlayerId') != -1"></srv-filter-drop-down>
+                <srv-filter-drop-down view-name="sessionData" type="time"
+                                      filter-title="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.START_TIME"
+                                      column-name="minStartTime" class="col-xs-2"
+                                      filter-options="sessionFilterObj.minStartTime"
+                                      startof-range-column-value="sessionFilterObj.minStartTime"
+                                      ng-if="sessionFilterObj && vm.filters.indexOf('minStartTime') != -1"></srv-filter-drop-down>
+                <!--<srv-filter-drop-down view-name="sessionData" type="ddwithcheckbox"-->
+                <!--filter-title="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.CHIPSET_PLAYED"-->
+                <!--column-name="chipSetPlayed" class="col-xs-2 dropdown dropdown-right"-->
+                <!--filter-options="sessionFilterObj.chipSetPlayed"-->
+                <!--ng-if="sessionFilterObj.chipSetPlayed && vm.filters.indexOf('chipSetPlayed') != -1 && vm.type != 'PLAYER_DASHBOARD_SESSIONS'"></srv-filter-drop-down>-->
+                <srv-filter-drop-down view-name="sessionData" type="time"
+                                      filter-title="application.app.common.labels.START_TIME_FILTER_RESULTS"
+                                      column-name="minStartTimeFilterResults" class="col-xs-2"
+                                      filter-options="sessionFilterObj.minStartTime"
+                                      startof-range-column-value="sessionFilterObj.minStartTimeFilterResults"
+                                      ng-if="sessionFilterObj && vm.filters.indexOf('minStartTimeFilterResults') != -1"></srv-filter-drop-down>
+            </div>
+            <div class="buttons-wrapper">
+                <button type="button" class="btn btn-primary" ng-click="applySessionFilter()"
+                        ng-disabled="sessionFilterArray.length<1 && !isSessionChange"
+                        translate="application.app.common.labels.APPLY_FILTER">Apply Filter
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="clearSessionFilter()"
+                        ng-style="{'margin-left':'20px'}" ng-disabled="sessionFilterArray.length<1 && !isSessionChange"
+                        translate="application.app.common.labels.CLEAR_FILTER">Clear Filter
+                </button>
+            </div>
+        </div>
+        <!-- Server Side Filters -->
+
+        <div class="has-fixed-header has-filters-above"
+             ng-class="totalCount > 10?'has-fixed-footer has-pagination':'has-fixed-footer'"
+             no-data-available total-count="totalCount" fetching-data="fetchingData">
+
+
+
+            <div id="" class="table-wrapper">
+                <div class="container1">
+                    <div class="table-responsive">
+                        <table class="table-default has-more-columns">
+                            <thead>
+                            <tr>
+                                <th ng-if="vm.columns.indexOf('sessionId') != -1" sortable-column sort-field="SESSIONID"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.SESSION_ID">Session ID</div>
+                                    <div class="sortorder sortorder1Session" ng-show="vm.sortObj.sortField=='SESSIONID'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='SESSIONID' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('gamingDay') != -1"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.GAMING_DAY">Gaming Day</div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('status') != -1" sortable-column sort-field="STATUS"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.STATUS">Status</div>
+                                    <div class="sortorder sortorder2Status" ng-show="vm.sortObj.sortField=='STATUS'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='STATUS' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('plrName') != -1"
+                                    style="width:7em" sortable-column sort-field="PLAYERNAME" view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.PLAYER_NAME">Player Name </div>
+                                    <div class="sortorder left-40" ng-show="vm.sortObj.sortField=='PLAYERNAME'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='PLAYERNAME' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('casinoPlayerId') != -1" sortable-column sort-field="PLAYERID"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.PLAYER_ID">Player ID</div>
+                                    <div class="sortorder left-40" ng-show="vm.sortObj.sortField=='PLAYERID'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='PLAYERID' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('player.playerId') != -1 && isCBPTEnabled" sortable-column sort-field="PPID"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.CCAS_ID">CCAS ID</div>
+                                    <div class="sortorder left-40" ng-show="vm.sortObj.sortField=='PPID'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='PPID' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('clockInEventDtm') != -1 && isCBPTEnabled" sortable-column sort-field="RATED"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.RATED">Rated</div>
+                                    <div class="sortorder sortorder2Rating" ng-show="vm.sortObj.sortField=='RATED'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='RATED' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('rated') != -1">
+                                    <div translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.RATED">Rated</div>
+                                </th>
+
+                                <th ng-if="vm.columns.indexOf('sessionType') != -1 && !isCBPTEnabled" sortable-column sort-field="SESSIONTYPE"
+                                view-name="sessionData">
+                                <div translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.SESSION_TYPE">Session Type</div>
+                                <div class="sortorder sortorder2SessionType" ng-show="vm.sortObj.sortField=='SESSIONTYPE'"
+                                ng-class="{'reverse':vm.sortObj.sortField=='SESSIONTYPE' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+
+                                <th ng-if="vm.columns.indexOf('clockInEventDtm') != -1 && !isCBPTEnabled" sortable-column sort-field="SEAT_NUMBER"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.SEAT_NUMBER">Seat Number</div>
+                                    <div class="sortorder sortorder2Rating" ng-show="vm.sortObj.sortField=='SEAT_NUMBER'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='SEAT_NUMBER' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+
+                                <th ng-if="vm.columns.indexOf('tableName') != -1 && (vm.type=='TABLE_DASHBOARD_SESSIONS' || vm.type=='TABLE_DASHBOARD_SHOE_SESSIONS')">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.TABLE_NAME">Table Name</div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('tableName') != -1 && vm.type=='PLAYER_DASHBOARD_SESSIONS'" sortable-column sort-field="TABLE"
+                                    view-name="sessionData"><div
+                                        translate="application.app.PLAYER_DASH_LABELS.TABLE_NAME">Table Name</div>
+                                    <div class="sortorder sortorder2ManualTable" ng-show="vm.sortObj.sortField=='TABLE'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='TABLE' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('shoeUuIdsForDisplay') != -1"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.SHOE_ID">Shoe ID</div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('casinoRatingId') != -1"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.RATING_ID">Rating ID</div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('ratingStatus') != -1"><div translate="RATING_STATUS">Rating Status</div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('manualRating') != -1"> <div translate="application.app.TREASURY_LABELS.TRANSACTION_TYPES.MANUAL">Manual</div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('sessionStartDtm') != -1" sortable-column sort-field="STARTDTM"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.START_TIME">Start Time</div>
+                                    <div class="sortorder sortorder2StartDate" ng-show="vm.sortObj.sortField=='STARTDTM'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='STARTDTM' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                <th ng-if="vm.columns.indexOf('sessionEndDtm') != -1" sortable-column sort-field="ENDDTM"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.END_TIME">End Time</div>
+                                    <div class="sortorder sortorder2EndTime" ng-show="vm.sortObj.sortField=='ENDDTM'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='ENDDTM' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('difference') != -1" sortable-column sort-field="DURATION"
+                                    view-name="sessionData">
+                                    <div translate="application.app.PLAYER_DASH_LABELS.SESSION_DURATION">Session Duration </div>
+                                    <div class="sortorder sortorder2SessionDuration" ng-show="vm.sortObj.sortField=='DURATION'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='DURATION' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('netCasinoWin') != -1" sortable-column sort-field="CASINOWL"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.CASINO_WL">Casino W/L</div>
+                                    <div class="sortorder sortorder2CasinoWL" ng-show="vm.sortObj.sortField=='CASINOWL'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='CASINOWL' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('theoWin') != -1" sortable-column sort-field="THEOWIN"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.THEO_WIN">Theo Win</div>
+                                    <div class="sortorder sortorder2TheoWin" ng-show="vm.sortObj.sortField=='THEOWIN'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='THEOWIN' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('avgBet') != -1" sortable-column sort-field="AVGBET"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.AVERAGE_BET">Average Bet</div>
+                                    <div class="sortorder sortorder2AverBet" ng-show="vm.sortObj.sortField=='AVGBET'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='AVGBET' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('adjustedTurnover') != -1" sortable-column sort-field="HANDLE"
+                                    view-name="sessionData"><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.HANDLE">Handle</div>
+                                    <div class="sortorder sortorder2Handle" ng-show="vm.sortObj.sortField=='HANDLE'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='HANDLE' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('bonus') != -1 && isluckyChipEnable" sortable-column sort-field="BONUS"
+                                    view-name="sessionData"><div
+                                        translate="application.app.CAM_CASHIER_LABELS.BONUS_AWARD.BONUS_AWARD">Bonus Award</div>
+                                    <div class="sortorder sortorder2Handle" ng-show="vm.sortObj.sortField=='BONUS'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='BONUS' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <th ng-if="vm.columns.indexOf('buyIn') != -1" sortable-column sort-field="BUYIN"
+                                    view-name="sessionData"><div
+                                        translate="application.app.CAM_CASHIER_LABELS.BUYIN.LABEL">Buy In</div>
+                                    <div class="sortorder sortorder2BuyIn" ng-show="vm.sortObj.sortField=='BUYIN'"
+                                         ng-class="{'reverse':vm.sortObj.sortField=='BUYIN' && vm.sortObj.sortOrder=='DESC'}"></div>
+                                </th>
+                                <!--MNF-32 start-->
+                                <th ><div
+                                        translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.IRC">MID</div>
+
+                                </th>
+                                <!--MNF-32 end-->
+                                <!--<th ng-if="vm.columns.indexOf('chipsetLabels') != -1" sortable-column sort-field="CHIPSET"-->
+                                <!--view-name="sessionData" style="width:110px;"><div-->
+                                <!--translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.CHIPSET_PLAYED">Chip Set Played</div>-->
+                                <!--<div class="sortorder sortorder2ChipSetPlayed" ng-show="vm.sortObj.sortField=='CHIPSET'"-->
+                                <!--ng-class="{'reverse':vm.sortObj.sortField=='CHIPSET' && vm.sortObj.sortOrder=='DESC'}"></div>-->
+                                <!--</th>-->
+                                <th ng-if="vm.columns.indexOf('notes') != -1" style="width:60px;">
+                                    <div translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.NOTES">Notes</div>
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr ng-click="vm.gotoSelectedSession(sessionObj)"
+                                ng-repeat="sessionObj in sessionData">
+                                <td ng-if="vm.columns.indexOf('sessionId') != -1" class="highlight">{{sessionObj.sessionId}}
+                                </td>
+                                <td ng-if="vm.columns.indexOf('gamingDay') != -1">{{sessionObj.gamingDay | date:'dd-MMM'}}</td>
+                                <td ng-if="vm.columns.indexOf('status') != -1 && sessionObj.status == 'IN_PROGRESS'">In
+                                    Progress
+                                </td>
+                                <td ng-if="vm.columns.indexOf('status') != -1 && sessionObj.status == 'PENDING'">Pending
+                                </td>
+                                <td ng-if="vm.columns.indexOf('status') != -1 && sessionObj.status == 'CLOSED'">Closed</td>
+                                <td ng-if="vm.columns.indexOf('status') != -1 && sessionObj.status == 'CANCELED'">Canceled</td>
+                                <td ng-if="vm.columns.indexOf('plrName') != -1">{{sessionObj.plrName}}</td>
+                                <td ng-if="vm.columns.indexOf('casinoPlayerId') != -1">
+                                    {{sessionObj.player.casinoPlayer.casinoPlayerId}}
+                                </td>
+                                <td ng-if="vm.columns.indexOf('player.playerId') != -1 && isCBPTEnabled">{{sessionObj.ccasId}}</td>
+                                <td ng-if="vm.columns.indexOf('clockInEventDtm') != -1 && isCBPTEnabled">{{sessionObj.ratedFlag ||
+                                    sessionObj.rFlag}}
+                                </td>
+                                <td ng-if="vm.columns.indexOf('rated') != -1">{{sessionObj.rated ? 'Yes' : 'No' | translate}}
+                                </td>
+                                <td ng-if="vm.columns.indexOf('sessionType') != -1 && !isCBPTEnabled">{{sessionObj.sessionType}}</td>
+                                <td ng-if="vm.columns.indexOf('seatNumber') != -1 && !isCBPTEnabled">{{sessionObj.positionLabel}}</td>
+                                <td ng-if="vm.columns.indexOf('tableName') != -1">{{sessionObj.tName}}</td>
+                                <td ng-if="vm.columns.indexOf('shoeUuIdsForDisplay') != -1">
+                                    {{sessionObj.shoeUuIdsForDisplay.toString()}}
+                                </td>
+                                <td ng-if="vm.columns.indexOf('casinoRatingId') != -1">{{(sessionObj.casinoRatingId && getTrimmedString(sessionObj.casinoRatingId) === '0') ? '' : sessionObj.casinoRatingId}}</td>
+                                <td ng-if="vm.columns.indexOf('ratingStatus') != -1">{{sessionObj.ratingStatus | translate}}</td>
+                                <td ng-if="vm.columns.indexOf('manualRating') != -1">{{sessionObj.isManualRated ? 'Yes' : 'No'  | translate}}</td>
+                                <td ng-if="vm.columns.indexOf('sessionStartDtm') != -1">{{sessionObj.sessionStartDtm |
+                                    date:'HH:mm'}}
+                                </td>
+                                <td ng-if="vm.columns.indexOf('sessionEndDtm') != -1">
+                                    {{sessionObj.sessionEndDtm ? sessionObj.sessionEndDtm : '-' | date:'HH:mm'}}
+                                </td>
+                                <td ng-if="vm.columns.indexOf('difference') != -1 && (sessionObj.status == 'CANCELED' || sessionObj.status == 'IN_PROGRESS')">
+                                    -
+                                </td>
+                                <td ng-if="vm.columns.indexOf('difference') != -1">{{sessionObj.timePlayed}}</td>
+                                <td ng-if="vm.columns.indexOf('netCasinoWin') != -1 && sessionObj.netCasinoWin < 0"
+                                    ng-class="{'highlight-red':true}">
+                                    ({{sessionObj.netCasinoWin * -1|number:0}})
+                                </td>
+                                <td ng-if="vm.columns.indexOf('netCasinoWin') != -1 && sessionObj.netCasinoWin >= 0">
+                                    {{sessionObj.netCasinoWin|number:0}}
+                                </td>
+                                <td ng-if="vm.columns.indexOf('theoWin') != -1">{{sessionObj.theoWin | number:0}}</td>
+                                <td ng-if="vm.columns.indexOf('avgBet') != -1">{{sessionObj.avgBet | number:0}}</td>
+                                <td ng-if="vm.columns.indexOf('adjustedTurnover') != -1">
+                                    {{sessionObj.adjustedTurnover|number:0}}
+                                </td>
+                                <td ng-if="vm.columns.indexOf('bonus') != -1 && isluckyChipEnable">{{sessionObj.bonus|number:0}}</td>
+                                <td ng-if="vm.columns.indexOf('buyIn') != -1">{{sessionObj.buyIn|number:0}}</td>
+                                <!--<td ng-if="vm.columns.indexOf('chipsetLabels') != -1" class="word-break">-->
+                                <!--{{sessionObj.chipsetLabels}}-->
+                                <!--</td>-->
+                                <!--MNF-32 ,MNF-429 start-->
+                                <td  ng-click="$event.stopPropagation()" ng-if="vm.type == 'PLAYER_DASHBOARD_SESSIONS'">
+                                    <div   ng-if="!updateIrcNumberOnPlayerDashboardSessionPermission || sessionObj.ratedFlag =='no' || sessionObj.status != 'CLOSED' ">{{updateIrcNumberOnPlayerDashboardSessionPermission ? "-" : (sessionObj.ratedFlag =='no' || sessionObj.status != 'CLOSED') ? "-" : (sessionObj.ircNumber || "-")}}</div>
+                                    <a  href="#" ng-if="updateIrcNumberOnPlayerDashboardSessionPermission && sessionObj.ratedFlag =='yes' && sessionObj.status == 'CLOSED'" editable-text="sessionObj.ircNumber" e-maxlength="20"   onbeforesave="updateIrc($data, sessionObj)" >{{((sessionObj.ircNumber && sessionObj.ircNumber != 'undefined') ? sessionObj.ircNumber : ('application.app.common.labels.EDIT' | translate))}} </a>
+                                </td>
+                                <td  ng-click="$event.stopPropagation()" ng-if="vm.type == 'TABLE_DASHBOARD_SESSIONS' || vm.type == 'TABLE_DASHBOARD_SHOE_SESSIONS'">
+
+                                    <div   ng-if="!updateIrcNumberSessionPermission || sessionObj.ratedFlag =='no' || sessionObj.status != 'CLOSED' ">{{updateIrcNumberSessionPermission ? "-" : (sessionObj.ratedFlag =='no' || sessionObj.status != 'CLOSED') ? "-" : (sessionObj.ircNumber || "-")}}</div>
+                                    <a  href="#" ng-if="updateIrcNumberSessionPermission && sessionObj.ratedFlag =='yes' && sessionObj.status == 'CLOSED'" editable-text="sessionObj.ircNumber" e-maxlength="20"   onbeforesave="updateIrc($data, sessionObj)" >{{((sessionObj.ircNumber && sessionObj.ircNumber != 'undefined') ? sessionObj.ircNumber : ('application.app.common.labels.EDIT' | translate))}} </a>
+                                </td>
+                                <!--MNF-32 ,MNF-429 end-->
+                                <td ng-if="vm.columns.indexOf('notes') != -1">
+                                    <a ng-click="vm.showSessionComments(sessionObj); $event.stopPropagation()" ng-style="{ cursor: vm.type == 'PLAYER_DASHBOARD_SESSIONS' ? 'default' : 'hand' }">
+                                        {{sessionObj.notes.length}}
+                                        <i class="fa fa-comment"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <pagination class='affix above-fixed-footer'
+                                total-records="totalCount"
+                                view-name="'sessionData'"
+                                ng-if="totalCount>10">
+
+                    </pagination>
+                </div>
+
+            </div>
+        </div></div></div>
+
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content less-side-padding" ng-style="{'background-color': '#eee7dd'}">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="text-align: center"><span
+                        translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.NOTES_FOR">Notes for</span>
+                    {{playerName}}</h4>
+
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="table-alerts-text">
+                                <div class="excerpt"></div>
+                                <div class="body">
+
+                                    <div class="comments-box">
+
+
+                                        <ul class="list-unstyled list-players">
+                                            <li class="list-item clearfix" ng-repeat="comment in selectedComments"
+                                                ng-style="{'padding-left': '10px','padding-right': '10px'}"
+                                                ng-mouseenter="showEditIcon=true" ng-mouseleave="showEditIcon=false">
+
+                                                <div>
+                                                    <p class="small">
+                                                        <span class="highlight">{{comment.createDtm | date : 'HH:mm'}} {{comment.user.lastName}},{{comment.user.firstName}}{{comment.user.employeeNumber?'('+comment.user.employeeNumber+')':''}}</span>
+                                                    </p>
+
+                                                    <p ng-bind-html="comment.note"></p>
+                                                </div>
+
+                                            </li>
+
+                                            <li class="list-item clearfix add-top-margin">
+                                                <div class="form-group"
+                                                     ng-style="{'padding-left':'0px','margin-bottom': '0px'}" ng-if="vm.type != 'PLAYER_DASHBOARD_SESSIONS'">
+                                                    <label class="sr-only"
+                                                           translate="application.app.common.labels.ADD_NOTES">Add
+                                                        Notes</label>
+                                                    <textarea class="form-control textarea"
+                                                              placeholder="{{'application.app.common.labels.ADD_NOTES' | translate}}"
+                                                              ng-model="vm.addComment"
+                                                              ng-style="{'resize':'none'}"></textarea>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="add-top-border" ng-if="vm.type != 'PLAYER_DASHBOARD_SESSIONS'">
+                                        <button class="btn btn-primary pull-right add-top-margin"
+                                                ng-click="vm.updateSessionComment()" ng-disabled="!vm.addComment"
+                                                translate="application.app.common.labels.SAVE">SAVE
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<update-sessions-modal
+        visible="showUpdateSessionsModal"
+        sessionData="sessionsForFilter" isCBPTEnabled="isCBPTEnabled"
+></update-sessions-modal>

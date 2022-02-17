@@ -1,0 +1,11 @@
+@mixin icon($width, $height, $name) {
+  width: $width;
+  height: $height;
+  background: url("../bower_components/wdts-common-ui/assets/icons/icon-#{$name}.svg") center center no-repeat;
+}
+
+//@mixin to set Table columns width equally
+@mixin set-th-width($ncols){
+  width: percentage(1/$ncols);
+}
+//

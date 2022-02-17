@@ -1,0 +1,75 @@
+.supervisor-footer {
+  height: 128px;
+  padding: 7px 25px 10px;
+  background-color: $dark-gray;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.pit-inventory.supervisor-footer {
+  min-height: 80px;
+  height: auto;
+}
+
+.supervisor-footer-header {
+  margin-left: 1px;
+  color: #999;
+
+  h3.highlight {
+    color: $white;
+  }
+}
+
+.supervisor-footer-content {
+  padding: 11px 13px;
+  margin: 0 -12px;
+  color: $dark-gray;
+  background-color: $gold;
+  border-radius: 5px;
+
+  .row {
+    .item-data-label {
+      color: $light-gold;
+    }
+
+    &.highlight .item-data-label {
+      color: $white;
+    }
+  }
+
+  .item-data-label {
+    color: $white;
+  }
+
+  &.invert {
+    color: $gold;
+    background-color: $dark-gray;
+
+    &.dropup {
+      width: 100%;
+    }
+  }
+
+  &.active {
+    background-color: $light-gold;
+  }
+}
+
+.invert {
+  .supervisor-footer-content .item-data-label {
+    color: $dark-gray;
+  }
+
+  .supervisor-footer-data-row .item-data-label {
+    color: $gray;
+  }
+}
+
+.col-divs-7 .supervisor-footer-content {
+  margin: 0;
+}
+
+.seven-divs, .nine-divs {
+  .supervisor-footer-content {
+    margin: 0 -8px;
+  }
+}

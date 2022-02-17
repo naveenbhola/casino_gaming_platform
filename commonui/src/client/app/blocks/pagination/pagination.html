@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-xs-2">
+        <div class="dropup">
+            <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                {{pageLimit}} <span translate="application.app.common.labels.PAGINATION.PER_PAGE">Per Page</span> <span class="caret caret-up"></span>
+            </button>
+            <div class="dropdown-menu">
+                <div class="dropdown-body">
+                    <div class="dropdown-content">
+                        <ul class="nav dropdown-select-nav">
+                            <li class="dropdown-nav-item">
+                                <a href="javascript:void(0)" class="dropdown-nav-link" ng-click="vm.changePageLimit(10)"> <span translate="application.app.common.labels.PAGINATION.10">10</span> <span translate="application.app.common.labels.PAGINATION.PER_PAGE">Per Page</span></a>
+                            </li>
+                            <li class="dropdown-nav-item">
+                                <a href="javascript:void(0)" class="dropdown-nav-link" ng-click="vm.changePageLimit(20)"><span translate="application.app.common.labels.PAGINATION.20">20</span> <span translate="application.app.common.labels.PAGINATION.PER_PAGE">Per Page</span></a>
+                            </li>
+                            <li class="dropdown-nav-item">
+                                <a href="javascript:void(0)" class="dropdown-nav-link" ng-click="vm.changePageLimit(30)"><span translate="application.app.common.labels.PAGINATION.30">30</span> <span translate="application.app.common.labels.PAGINATION.PER_PAGE">Per Page</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-10">
+        <div class="row">
+            <div class="col-xs-1">
+                <button type="button" class="btn btn-primary" ng-click="vm.firstPage()"
+                        ng-disabled="startLength==1" translate="application.app.common.labels.PAGINATION.FIRST">First
+                </button>
+            </div>
+            <div class="col-xs-1">
+                <button type="button" class="btn btn-primary" ng-click="vm.previousPage()"
+                        ng-disabled="startLength==1" translate="application.app.common.labels.PAGINATION.PREVIOUS">Previous
+                </button>
+            </div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-1" ng-style="{'padding-top':'5px','padding-left':'65px'}">
+                <span translate="application.app.common.labels.PAGINATION.PAGE" class="pagination-no-wrap">Page</span>
+            </div>
+            <div class="col-xs-1">
+                <input type="text" class="form-control" ng-model="currntPage"
+                       ng-keydown="vm.goToAnyPage($event, currntPage)"
+                       ng-blur="vm.goToAnyPage($event, currntPage)">
+            </div>
+            <div class="col-xs-1" ng-style="{'padding-top':'5px','padding-left':'0px'}"> <span translate="application.app.common.labels.PAGINATION.OF">of</span> {{totalPage}}</div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-1">
+                <button type="button" class="btn btn-primary" ng-click="vm.nextPage()"
+                        ng-disabled="startLength+pageLimit>vm.totalRecords" translate="application.app.common.labels.PAGINATION.NEXT">Next
+                </button>
+            </div>
+            <div class="col-xs-1">
+                <button type="button" class="btn btn-primary" ng-click="vm.lastPage()"
+                        ng-disabled="startLength+pageLimit>vm.totalRecords" translate="application.app.common.labels.PAGINATION.LAST">Last
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

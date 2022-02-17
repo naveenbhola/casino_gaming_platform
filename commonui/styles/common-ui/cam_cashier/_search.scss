@@ -1,0 +1,36 @@
+.search-wrapper {
+  width: 100%;
+  margin-left: auto;
+}
+
+.searchbar {
+  padding-top: 23px;
+
+  a {
+    &, &:hover, &:active {
+      color: $white;
+      background: $red;
+      padding: 10px;
+    }
+  }
+}
+
+.searchbarcurrentanch {
+  color: $red !important;
+  background: $gold !important;
+  padding: 10px !important;
+}
+
+.searchPlrDiv table {
+  margin: 0 auto;
+}
+
+.dealer-search-player-options {
+  text-align: left;
+}
+
+.playrsearch input {
+  background-color: rgba(187, 145, 86, 0.15);
+  border: none;
+  height: 40px;
+}

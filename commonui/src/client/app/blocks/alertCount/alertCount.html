@@ -1,0 +1,23 @@
+<ul>
+    <li >
+        <a href type="button" id="alerts-menu-critical" ng-show="alertTopplogyId>0" ng-click="openAlerts('CRITICAL')">
+            <div class="alert-indicator has-alerts">
+                <div class="alert-count">{{alertCounts.criticalCount}}</div>
+            </div>
+        </a>
+    </li>
+    <li >
+        <a href type="button" id="alerts-menu-high" ng-show="alertTopplogyId>0" ng-click="openAlerts('HIGH')">
+            <div class="alert-indicator has-alerts high">
+                <div class="alert-count">{{alertCounts.highCount}}</div>
+            </div>
+        </a>
+    </li>
+    <li >
+        <a href type="button" id="alerts-menu-low" ng-show="alertTopplogyId>0" ng-click="openAlerts('LOW')">
+            <div class="alert-indicator has-alerts low">
+                <div class="alert-count">{{alertCounts.lowCount}}</div>
+            </div>
+        </a>
+    </li>
+</ul>

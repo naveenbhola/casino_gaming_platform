@@ -1,0 +1,119 @@
+<style offline-parse-style>
+    .offline-ui .offline-ui-retry:before {
+        content: "{{'OFFLINE.RECONNECT' | translate}}";
+    }
+
+    .offline-ui.offline-ui-up .offline-ui-content:before {
+        content: "{{'OFFLINE.YCOMPISCONN' | translate}}";
+    }
+
+    @media (max-width: 1024px) {
+        .offline-ui.offline-ui-up .offline-ui-content:before {
+            content: "{{'OFFLINE.YDIVISCONN' | translate}}";
+        }
+    }
+
+    @media (max-width: 568px) {
+        .offline-ui.offline-ui-up .offline-ui-content:before {
+            content: "{{'OFFLINE.YMINDIVISCONN' | translate}}";
+        }
+    }
+
+    .offline-ui.offline-ui-down .offline-ui-content:before {
+        content: "{{'OFFLINE.YCOMPLOSTCONN' | translate}}";
+    }
+
+    @media (max-width: 1024px) {
+        .offline-ui.offline-ui-down .offline-ui-content:before {
+            content: "{{'OFFLINE.YDIVLOSTCONN' | translate}}";
+        }
+    }
+
+    @media (max-width: 568px) {
+        .offline-ui.offline-ui-down .offline-ui-content:before {
+            content: "{{'OFFLINE.YMDIVLOSTCONN' | translate}}";
+        }
+    }
+
+    .offline-ui.offline-ui-down.offline-ui-connecting .offline-ui-content:before, .offline-ui.offline-ui-down.offline-ui-connecting-2s .offline-ui-content:before {
+        content: "{{'OFFLINE.ATTEMPTORECONN' | translate}}";
+    }
+
+    .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="second"]:before {
+        content: "{{'OFFLINE.CONNLOSTRECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.SS' | translate}}";
+    }
+
+    @media (max-width: 568px) {
+        .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="second"]:before {
+            content: "{{'OFFLINE.RECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.S' | translate}}";
+        }
+    }
+
+    .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="second"][data-retry-in-value="1"]:before {
+        content: "{{'OFFLINE.CONNLOSTRECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.OS' | translate}}";
+    }
+
+    @media (max-width: 568px) {
+        .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="second"][data-retry-in-value="1"]:before {
+            content: "{{'OFFLINE.RECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.S' | translate}}";
+        }
+    }
+
+    .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="minute"]:before {
+        content: "{{'OFFLINE.CONNLOSTRECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.MM' | translate}}";
+    }
+
+    @media (max-width: 568px) {
+        .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="minute"]:before {
+            content: "{{'OFFLINE.RECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.M' | translate}}";
+        }
+    }
+
+    .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="minute"][data-retry-in-value="1"]:before {
+        content: "{{'OFFLINE.CONNLOSTRECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.OM' | translate}}";
+    }
+
+    @media (max-width: 568px) {
+        .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="minute"][data-retry-in-value="1"]:before {
+            content: "{{'OFFLINE.RECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.M' | translate}}";
+        }
+    }
+
+    .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="hour"]:before {
+        content: "{{'OFFLINE.CONNLOSTRECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.HH' | translate}}";
+    }
+
+    @media (max-width: 568px) {
+        .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="hour"]:before {
+            content: "{{'OFFLINE.RECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.H' | translate}}";
+        }
+    }
+
+    .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="hour"][data-retry-in-value="1"]:before {
+        content: "{{'OFFLINE.CONNLOSTRECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.OH' | translate}}";
+    }
+
+    @media (max-width: 568px) {
+        .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="hour"][data-retry-in-value="1"]:before {
+            content: "{{'OFFLINE.RECONNIN' | translate}}" attr(data-retry-in-value) "{{'OFFLINE.H' | translate}}";
+        }
+    }
+
+    .offline-ui.offline-ui-down.offline-ui-reconnect-failed-2s.offline-ui-waiting .offline-ui-retry {
+        display: none;
+    }
+
+    .offline-ui.offline-ui-down.offline-ui-reconnect-failed-2s .offline-ui-content:before {
+        content: "{{'OFFLINE.CONNATTMPFAIL' | translate}}";
+    }
+
+    body.is-offline:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1999;
+    }
+</style>

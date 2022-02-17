@@ -1,0 +1,25 @@
+.rzslider {
+  .rz-pointer {
+    background-color: $gold;
+    outline: none;
+  }
+
+  .rz-bar.rz-selection,
+  .rz-pointer.rz-active:after {
+    background-color: $red;
+  }
+
+  .rz-bar {
+    background-color: $lighter-gold;
+  }
+
+  .rz-bubble {
+    bottom: -36px;
+    color: $red;
+
+    &.rz-limit {
+      bottom: 16px;
+      opacity: 1 !important;
+    }
+  }
+}

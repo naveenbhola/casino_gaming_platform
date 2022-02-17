@@ -1,0 +1,106 @@
+.modal {
+  top: 33% !important;
+  overflow: hidden !important;
+}
+
+.modal-dialog {
+  overflow: auto;
+}
+
+.modal-content {
+  display: inline-block;
+  min-width: 100%;
+  padding: 0 36px;
+  color: $black;
+  background-color: $white;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.55);
+}
+
+.modal-body {
+  min-height: 150px;
+}
+
+.modal-fullscreen {
+  .modal-dialog {
+    width: auto;
+    height: calc(100% - 20px);
+    margin: 10px;
+  }
+
+  .modal-content {
+    height: 100%;
+  }
+}
+
+.modal-backdrop.in {
+  opacity: 0.75;
+}
+
+.modal-buyin {
+  padding-right: 0 !important;
+  height: 200px;
+
+  .modal-body {
+    height: 100%;
+  }
+
+  p {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: $red;
+  }
+}
+
+
+.bulkUploadBody{
+  font-size: 16px;
+  div{
+    &:nth-child(1){
+      span{
+        &:nth-child(1){
+          font-weight: 600;
+        }
+      }
+      label{
+        margin-left: 20px;
+      }
+
+    }
+    &:nth-child(2){
+      p{
+        span{
+          &:nth-child(1){
+            color: #FF0000;
+            font-size: 20px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+.bulkErrorBody{
+  p{
+    margin-top: 10%;
+    color: #FF0000;
+  }
+}
+.bulkConfirmationBody{
+  p{
+    margin-top: 10%;
+  }
+}
+.bulkEnrollFooter{
+  span{
+    &:nth-child(3){
+      button{
+        padding: 0 25px;
+      }
+    }
+  }
+}

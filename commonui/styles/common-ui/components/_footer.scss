@@ -1,0 +1,18 @@
+.footer {
+  z-index: 1010;
+  height: 116px;
+  padding: 5px 15px 15px;
+  background-color: #eee7dd;
+
+  .vertical-align {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+}
+
+.footer-fixed-bottom-content {
+  position: absolute;
+  bottom: -5px;
+  left: 15px;
+}

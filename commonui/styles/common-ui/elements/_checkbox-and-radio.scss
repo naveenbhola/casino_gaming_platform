@@ -1,0 +1,186 @@
+.checkbox, .radio {
+  padding-left: 20px;
+  margin: 0;
+  $w: 19px;
+  $h: 19px;
+
+  label {
+    position: relative;
+    display: inline-block;
+    padding-left: 8px;
+    line-height: 19px;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:before {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      width: $w;
+      height: $h;
+      margin-left: -20px;
+      cursor: pointer;
+      background-color: $white;
+      border: 1px solid $gold;
+      content: '';
+    }
+
+    &:after {
+      position: absolute;
+      display: inline-block;
+      cursor: pointer;
+    }
+  }
+
+  &.has-error label {
+    color: $error-red;
+
+    &:before {
+      border: 2px solid $error-red;
+    }
+  }
+
+  .input-checkbox,
+  .input-radio {
+    width: $w;
+    height: $h;
+    margin-top: 2px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1;
+
+    &:disabled + label {
+      color: $light-gold;
+      cursor: not-allowed;
+
+      &:before {
+        .radio .input-radio:disabled + label:before {
+          cursor: not-allowed;
+          background-color: $lighter-gold;
+          border-color: $lighter-gold;
+        }
+      }
+      &.keyboard-focus:focus + label:before {
+        border-color: $cyan;
+      }
+    }
+  }
+}
+
+.checkbox
+.radio.checkbox-inline,
+.radio.radio-inline {
+  margin-top: 0;
+}
+
+.checkbox {
+  label {
+    &:before {
+      border-radius: 3px;
+    }
+
+    &:after {
+      top: 0;
+      left: 0;
+      width: 18px;
+      height: 18px;
+      padding-top: 1px;
+      padding-left: 3px;
+      margin-left: -20px;
+      font-size: 11px;
+      color: $dark-gray;
+    }
+  }
+
+  .input-checkbox {
+    &[data-checked="partially"]:not(:checked) + label {
+      &:before {
+        background-color: #fff;
+      }
+
+      &:after {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 9px;
+        height: 9px;
+        background: $gold;
+        content: '';
+      }
+    }
+
+    &:checked + label {
+      &:before {
+        background-color: $gold;
+      }
+
+      &:after {
+        background: url("../bower_components/wdts-common-ui/assets/icons/icon-checked.svg") transparent center center no-repeat;
+        background-size: 13px 10px;
+        content: '';
+      }
+    }
+
+    &:disabled + label::before {
+      background-color: $light-gold;
+      border-color: $light-gold;
+    }
+
+    &.keyboard-focus:checked:focus + label:before,
+    &.keyboard-focus[data-checked="partially"]:focus:not(:checked) + label:after {
+      background-color: $cyan;
+    }
+  }
+
+  &.has-error .input-checkbox:checked + label:before  {
+    background-color: $error-red;
+  }
+}
+
+.checkbox-checked {
+  border-color: $error-red;
+  color: $error-red;
+}
+
+.checkbox-unchecked {
+  border-color: #000080;
+}
+
+.iui-checkbox-unchecked {
+  opacity: 0;
+}
+
+.iui-checkbox-checked {
+  opacity: 0;
+}
+
+.radio {
+  label:before {
+    border-radius: 50%;
+  }
+
+  .input-radio {
+    &:checked + label:after {
+      top: 5px;
+      left: 5px;
+      width: 9px;
+      height: 9px;
+      margin-left: -20px;
+      background-color: $gold;
+      border-radius: 50%;
+      content: ' ';
+    }
+
+    &.keyboard-focus:checked:focus + label:after {
+      background-color: $cyan;
+    }
+
+    &:disabled + label:after {
+      background-color: $white;
+    }
+
+    &.has-error .input-radio:checked + label:after {
+      background-color: #dc3522;
+    }
+  }
+}

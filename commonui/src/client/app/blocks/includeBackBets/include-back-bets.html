@@ -1,0 +1,26 @@
+<div class="col-xs-12">
+    <div class="pull-left custom-radio-btns update-closed-sessions-radio-btns" ng-if="!isCbptEnabled">
+        <div class="form-group pull-left">
+            <div class="radio">
+                <input type="radio" id="update-sessions" class="input-radio" name="radio-update"
+                       aria-checked="{{includeBackBets}}" value="false"
+                       ng-model="includeBackBets" ng-checked="includeBackBets !== 'true'"/>
+                <label for="update-sessions" translate="application.app.TABLE_DASH_LABELS.SESSIONS.UPDATE_SESSION">Update sessions</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="radio">
+                <input type="radio" id="update-seat" class="input-radio" name="radio-update"
+                       aria-checked="{{includeBackBets}}" value="true"
+                       ng-model="includeBackBets" ng-checked="includeBackBets === 'true'"/>
+                <label for="update-seat" translate="application.app.TABLE_DASH_LABELS.SESSIONS.UPDATE_SEAT">Update seat</label>
+            </div>
+        </div>
+    </div>
+    <div class="pull-right">
+        <button type="button" class="btn btn-secondary"
+                ng-click="closeUpdateSessionModal()"
+                translate="application.app.common.labels.CLOSE">Close
+        </button>
+    </div>
+</div>

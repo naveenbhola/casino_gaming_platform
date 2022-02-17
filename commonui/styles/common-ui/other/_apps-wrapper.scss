@@ -1,0 +1,116 @@
+.apps-wrapper {
+  margin: 0 auto;
+  max-height: 75vh;
+  height: auto;
+  padding: 20px;
+  padding-bottom: 0;
+  border: 1px solid rgba(187, 145, 86, 0.2);
+  background-color: white;
+
+  .thumbnail {
+    $border: 1px dashed rgba(128, 128, 128, 0.2);
+
+    border: 0;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 0;
+
+    &.icons-separator-right:after {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: -15px;
+      bottom: 0;
+      border-right: $border;
+    }
+
+    &.icons-separator-top:before {
+      position: absolute;
+      content: '';
+      top: -15px;
+      right: 0;
+      left: 0;
+      border-top: $border;
+    }
+
+    .application-menu-item-link,
+    .application-menu-item-icon {
+      min-height: 10vh;
+      max-height: 20vh;
+    }
+
+    .application-menu-item-icon {
+      min-height: 5vh;
+    }
+
+    &.disable {
+      .application-menu-item-link,
+      .application-menu-item-icon,
+      .icon-fav {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .application-menu-item-link {
+        &.mouse-focus.focus,
+        &:active,
+        &:focus:active,
+        &:hover,
+        &:focus:hover {
+          color: #808080 !important;
+        }
+      }
+    }
+  }
+
+  .icon-fav {
+    @include icon(20px, 20px, "star-empty-white");
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    overflow: hidden;
+
+    &.selected {
+      background-image: url("../bower_components/wdts-common-ui/assets/icons/icon-star-filled-gold.svg");
+    }
+
+    &:hover {
+      background: url("../bower_components/wdts-common-ui/assets/icons/icon-star-empty-hover.svg") no-repeat top right transparent;
+
+      &.selected {
+        background-image: url("../bower_components/wdts-common-ui/assets/icons/icon-star-filled-gold.svg");
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .apps-wrapper {
+    max-width: 60vw;
+  }
+}
+
+@media (min-width: 1050px) {
+  .apps-wrapper {
+    max-width: 55vw;
+  }
+}
+
+@media (min-width: 1400px) {
+  .apps-wrapper {
+    max-width: 50vw;
+  }
+}
+
+@media (min-width: 1750px) {
+  .apps-wrapper {
+    max-width: 49vw;
+  }
+}
+
+@media (min-width: 2100px) {
+  .apps-wrapper {
+    max-width: 48vw;
+  }
+}

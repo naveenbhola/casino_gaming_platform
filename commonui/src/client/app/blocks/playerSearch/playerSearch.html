@@ -1,0 +1,187 @@
+
+<div class="modal fade modal-fullscreen" id="modalPlayerSearch" tabindex="-1" role="dialog" aria-labelledby="modalPlayerSearch" aria-hidden="true">
+    <div class="modal-dialog" role="document" >
+        <div class="modal-content" style="">
+
+            <div class="modal-header navbar-fixed-top">
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="dealer-search-player-options text-center">
+                            <span translate="application.app.common.labels.PLAYERSEARCHBY">Player Search by:&nbsp;</span>
+                            <button id="btn-search-card" type="button" class="btn btn-margins" ng-class="{'btn-primary':showPlayerCardView,'btn-secondary':!showPlayerCardView}" ng-click="vm.showPlayerCardView()">
+                                <span class="glyphicon icon-search-btn"></span><span translate="application.app.common.labels.SWIPEPLAYERIDCARD">Swipe Player ID Card</span></button>
+                            <button id="btn-search-name" type="button" class="btn btn-margins" ng-class="{'btn-primary':showPlayerNameView,'btn-secondary':!showPlayerNameView}" ng-click="vm.showPlayerNameView()">
+                                <span class="glyphicon icon-search-btn"></span><span translate="application.app.common.labels.PLAYER_NAME">Player Name</span></button>
+                            <button id="btn-search-id" type="button" class="btn btn-margins" ng-class="{'btn-primary':showPlayerIdView,'btn-secondary':!showPlayerIdView}" ng-click="vm.showPlayerIdView()">
+                                <span class="glyphicon icon-search-btn"></span><span translate="application.app.common.labels.PLAYER_ID">Player ID</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Player search form view by swiping card -->
+                        <div class="search-wrapper search-form-by-card" ng-show="showPlayerCardView">
+                            <div class="swipe-card">
+                                <h3 translate="application.app.common.labels.SWIPEPLAYERIDCARD">
+                                    Swipe Player ID Card
+                                </h3>
+                                <div>
+                                    <img src="bower_components/wdts-common-ui/assets/img/swipe-player-id-card.svg" />
+                                </div>
+                            </div>
+
+                            <!--<input type="text" id="txtswipehidden" style="position: absolute; top: -1000px; left: -1000px;" autofocus ng-model="cardData" ng-keydown="vm.getSwipeCardData($event)"/>-->
+                        </div>
+
+                        <!-- Player search form view by name -->
+                        <div class="search-wrapper search-form-by-name" ng-style="{'display':'block'}" ng-show="showPlayerNameView">
+                            <div id="player-search-name">
+                                <form ng-submit="vm.plrSrchByNameClk()">
+                                    <div class="dealer-search-player-input-row">
+                                        <div class="dealer-search-player-input input-search-wrapper">
+                                            <input class="form-control input-search"
+                                                   type="text"
+                                                   name="first-name"
+                                                   placeholder="{{'application.app.common.labels.ENTER_FIRST_NAME' | translate }}"
+                                                   ng-model="inpFirstName"
+                                                   minlength="3"
+                                                   custom-validity>
+
+                                            <a class="input-search-clear" ng-click="inpFirstName = ''">
+                                                <span class="glyphicon icon-close-sm"></span>
+                                            </a>
+                                        </div>
+
+                                        <div class="dealer-search-player-input input-search-wrapper">
+                                            <input class="form-control input-search"
+                                                   type="text"
+                                                   name="last-name"
+                                                   placeholder="{{'application.app.common.labels.ENTER_LAST_NAME' | translate }}"
+                                                   ng-model="inpLastName"
+                                                   minlength="3"
+                                                   custom-validity>
+
+                                            <a class="input-search-clear" ng-click="inpLastName = ''">
+                                                <span class="glyphicon icon-close-sm"></span>
+                                            </a>
+                                        </div>
+
+                                        <button type="submit"
+                                                class="btn btn-primary btn-sm"
+                                                ng-class="{disabled: !inpFirstName && !inpLastName}">
+                                            <span class="glyphicon icon-search-btn"></span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Player search form view by id -->
+                        <div class="search-wrapper search-form-by-id" ng-style="{'display':'block'}" ng-show="showPlayerIdView">
+                            <div id="player-search-id">
+                                <div class="dealer-search-player-input-row single-search-box ">
+                                    <div class="dealer-search-player-input input-search-wrapper">
+                                        <input class="form-control input-search"
+                                               type="text"
+                                               name="player-id"
+                                               placeholder="{{'application.app.common.labels.ENTERPLAYERID' | translate }}"
+                                               ng-model="inpPlrId" />
+
+                                        <a class="input-search-clear" ng-click="inpPlrId = ''">
+                                            <span class="glyphicon icon-close-sm"></span>
+                                        </a>
+                                    </div>
+                                    <button type="button"
+                                            class="btn btn-primary btn-sm"
+                                            ng-disabled="!inpPlrId" ng-click="vm.plrSrchByIdClk()">
+                                        <span class="glyphicon icon-search-btn"></span>
+                                    </button>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-body" ng-class="{'swipe-card-margin':showPlayerCardView}">
+
+                <div class="search-wrapper content-scrollable">
+                    <div class="player-search-results" ng-show="showplayersearchresults">
+                        <div class="row">
+                            <div class="col-xs-12" style="top:30px;">
+                                <div class="table-responsive">
+
+
+                                    <table class="table-default table-tables sticky-table-header">
+                                        <thead>
+                                        <tr>
+                                            <th style="width:7em" translate="application.app.common.labels.PLAYERID">Player ID</th>
+                                            <th ng-class="{'default-width':isCBPTOn}" translate="application.app.common.labels.PLAYER_NAME">Player Name</th>
+                                            <th ng-if="isCBPTOn" class="text-center" translate="application.app.common.labels.CCAS_ID">CCAS ID</th>
+                                            <th class="text-center" translate="application.app.common.labels.TOPSUBNAV.LAST_SESSION_ID">Last Session ID</th>
+                                            <th class="text-center" translate="application.app.common.labels.TOPSUBNAV.SESSION_LOCATION">Session Location</th>
+                                            <th class="text-center" translate="application.app.common.labels.TOPSUBNAV.LAST_PLAYER_LOCATION">Last Player Location</th>
+                                            <th class="text-center" translate="application.app.common.labels.TOPSUBNAV.LAST_ACTIVITY_TIME">Last Activity Time</th>
+                                            <th class="text-center" translate="application.app.common.labels.TOPSUBNAV.STATUS">Status</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="player-search-results-row" ng-if="plr.lastSessionStatus == 'IN_PROGRESS'" ng-repeat="plr in searchedPlrobj" ng-click="showDashboard(plr.lastSessionTopologyNodeId)">
+                                            <td><span class="player-id"> {{plr.casinoPlayerId}}</span></td>
+                                            <td>
+                                                <img class="game-player-image pull-left" src="bower_components/wdts-common-ui/assets/img/game-player-default.svg" alt="Smith B.">
+                                                <p class="text-left highlight">{{plr.playerLastName}}, {{plr.playerFirstName}}
+                                                </p>
+                                            </td>
+                                            <td class="text-center" ng-if="isCBPTOn">
+                                                <span class="player-id">{{plr.playerId}}</span>
+                                            </td>
+                                            <td class="text-center">{{plr.lastSessionId}}</td>
+                                            <td class="text-center">{{plr.lastSessionTopologyNodeName}}</td>
+                                            <td class="text-center">{{plr.lastTopologyNodeName}}</td>
+                                            <td class="text-center">{{plr.lastActiveDtm  | date : 'HH:mm'}}</td>
+                                            <td class="text-center"><span translate="Active"></span></td>
+                                        </tr>
+
+                                        <tr class="player-search-results-row" ng-if="plr.lastSessionStatus != 'IN_PROGRESS'" ng-repeat="plr in searchedPlrobj" ng-click="showPDashboard(plr.playerId)">
+                                            <td><span class="player-id"> {{plr.casinoPlayerId}}</span></td>
+                                            <td>
+                                                <img class="game-player-image pull-left" src="bower_components/wdts-common-ui/assets/img/game-player-default.svg" alt="Smith B.">
+                                                <p class="text-left highlight">{{plr.playerLastName}}, {{plr.playerFirstName}}
+                                                </p>
+                                            </td>
+                                            <td class="text-center"  ng-if="isCBPTOn">
+                                                <span class="player-id">{{plr.playerId}}</span>
+                                            </td>
+                                            <td class="text-center">{{plr.lastSessionId}}</td>
+                                            <td class="text-center">{{plr.lastSessionTopologyNodeName}}</td>
+                                            <td class="text-center">{{plr.lastTopologyNodeName}}</td>
+                                            <td class="text-center">{{plr.lastActiveDtm  | date : 'HH:mm'}}</td>
+                                            <td class="text-center"><span translate="{{plr.lastSessionStatus == 'CLOSED'?'Inactive':''}}"></span></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer affix">
+
+                <div class="col-xs-12">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="application.app.common.labels.CLOSE">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

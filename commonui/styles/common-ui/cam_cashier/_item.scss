@@ -1,0 +1,41 @@
+.item-view-row {
+  padding: 7px 15px 13px;
+  margin: 0 0 6px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+
+  &:hover {
+    background: $white;
+  }
+}
+
+.item-view-row-header {
+  margin-bottom: 13px;
+  font-weight: 700;
+  color: $gold;
+  text-transform: uppercase;
+}
+
+.item-data-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: $gold;
+}
+
+.item-data-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sub-navbar .item-data-label {
+  color: #decdb5;
+}
+
+.supervisor-footer-data-row .item-data-label {
+  color: #fff;
+}
+
+.invert .supervisor-footer-data-row .item-data-label {
+  color: #b3b3b3;
+}

@@ -1,0 +1,61 @@
+.left-sidebar-opened {
+  margin-left: 250px;
+  padding-bottom: 10px;
+  transition: margin-left 0.5s;
+
+  .table-default.small {
+    thead > tr > th {
+      font-size: 12px;
+      transition: font-size 0.5s;
+    }
+
+    .caret {
+      margin-left: 2px;
+      transition: margin-left 0.5s;
+    }
+  }
+}
+
+.left-sidebar-closed {
+  margin-left: 0;
+  padding-bottom: 10px;
+  transition: margin-left 0.3s;
+}
+
+.right-winners-sidebar {
+  transition: all 0.5s;
+}
+
+.has-right-sidebar {
+  &.left-sidebar-opened {
+    margin-left: 250px;
+  }
+
+  &.left-sidebar-opened,
+  &.left-sidebar-closed {
+    transition: all 0.5s;
+    padding-right: 2px;
+  }
+
+  .nine-divs .item-data-label {
+    min-height: 50px;
+  }
+}
+
+.btn-sidebar-open, .btn-sidebar-close {
+  color: $gold;
+  padding: 1px 5px;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 0;
+  min-height: 30px;
+  margin-left: 0;
+  top: 70px;
+  left: -28px;
+  transition: margin-left 0.3s ease;
+}
+
+.btn-sidebar-open {
+  margin-left: 235px;
+  transition: margin-left 0.5s ease;
+}

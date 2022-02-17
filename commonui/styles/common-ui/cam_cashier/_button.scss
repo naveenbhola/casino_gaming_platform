@@ -1,0 +1,134 @@
+.btn {
+  min-height: 40px;
+  padding: 6px 12px;
+  font-size: 15px;
+  line-height: 28px;
+  border-width: 0;
+  background: $white;
+
+  &:hover, &:focus, &:active, &.active, &.disabled, &[disabled] {
+    color: $dark-gray;
+    background-color: $white;
+  }
+
+  &:hover, &:focus {
+    background-position: top;
+  }
+
+  &.btn-primary {
+    &, &:hover, &:focus, &:active {
+      color: $white;
+      background: $gold none;
+    }
+  }
+
+  &.btn-secondary {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-width: 1px;
+
+    &, &:hover, &:focus, &:active {
+      color: $gold;
+      background-color: $gold;
+    }
+  }
+
+  &.dropdown-toggle {
+    text-align: left;
+  }
+
+  &.btn-toggle {
+    min-width: 88px;
+  }
+
+  &.btn-toggle-sm {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0px;
+    text-align: center;
+  }
+}
+
+.btn.btn-secondary:hover,
+.nav .btn.btn-secondary:hover {
+  color: $red;
+  border-color: $red;
+}
+
+.btn-group {
+  overflow: hidden;
+
+  > li {
+    > .btn {
+      border-radius: 4px;
+    }
+
+    &:first-child:not(:last-child) > .btn {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child:not(:first-child) > .btn {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+
+  .btn-primary {
+    color: $white;
+    background-color: $gold;
+
+    &.active {
+      background-color: $red;
+      box-shadow: none;
+    }
+  }
+
+  .glyphicon {
+    top: 4px;
+  }
+}
+
+.caret {
+  margin: 0 2px;
+  color: $gold !important;
+  border-top: 5px dashed;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+.btn .caret {
+  position: absolute;
+  top: 33%;
+  right: 15px;
+  margin-left: 0;
+  transform: translateY(-50%);
+}
+
+.collapsed .caret {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px dashed;
+}
+
+.tab-content-action-link .caret {
+  vertical-align: middle;
+}
+
+.select-toggle {
+  min-width: 160px;
+}
+
+.btn-margins {
+  margin: 0 8px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+

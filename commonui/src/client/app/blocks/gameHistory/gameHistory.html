@@ -1,0 +1,178 @@
+<div class="tab-pane fade in active" role="tabpanel" id="game">
+    <div>
+        <header class="content-header tab-content-header clearfix">
+            <h3 class="tab-content-header-title">
+                <span ng-if="vm.shoeId || sessionShoeId">
+                    <span translate="application.app.common.labels.SHOE_ID">Shoe ID</span> # {{vm.shoeId?vm.shoeId:sessionShoeId}}<span ng-if="vm.sessionId">, </span>
+                </span>
+                <span ng-if="vm.sessionId">
+                    <span translate="application.app.common.labels.SESSION_ID">Session ID</span> # {{vm.sessionId}}
+                </span>
+            </h3>
+            <div class="pull-right">
+                <a class="tab-content-action-link collapsed" role="button" data-toggle="collapse" ng-click="vm.showFilter();"
+                   ng-class="{collapsed:!vm.filterDiv}" aria-expanded="false" aria-controls="filters-sessions-game">
+                    <span class="caret"></span> <span translate="application.app.common.labels.FILTERS">Filters</span>
+                </a>
+            </div>
+        </header>
+
+        <div class="table-filters" id="filters-table-games" ng-class="{collapse:!vm.filterDiv}">
+            <div class="row">
+                <srv-filter-drop-down view-name="gameData"
+                                      type="ddwithcheckbox"
+                                      filter-title="application.app.common.labels.SUPERVISOR"
+                                      column-name="supervisor"
+                                      class="col-xs-2"
+                                      filter-options="vm.gameFilterObj.supervisorNames"
+                                      ng-if="vm.gameFilterObj.supervisorNames">
+                </srv-filter-drop-down>
+                <srv-filter-drop-down view-name="gameData"
+                                      type="ddwithcheckbox"
+                                      filter-title="application.app.common.labels.DEALER"
+                                      column-name="dealer"
+                                      class="col-xs-2"
+                                      filter-options="vm.gameFilterObj.dealerNames"
+                                      ng-if="vm.gameFilterObj.dealerNames.length && !NPPT">
+                </srv-filter-drop-down>
+                <srv-filter-drop-down view-name="gameData"
+                                      type="ddwithcheckbox"
+                                      filter-title="application.app.common.labels.LIMITS"
+                                      column-name="limits"
+                                      class="col-xs-2"
+                                      filter-options="vm.gameFilterObj.limits"
+                                      ng-if="vm.gameFilterObj.limits">
+                </srv-filter-drop-down>
+                <div class="col-xs-6">
+                    <button type="button" class="btn btn-primary" ng-click="vm.applyFilter()" ng-style="{'margin-top':'20px'}"
+                            ng-disabled="vm.filterArray.length<1 && !isGameUpdated" translate="application.app.common.labels.APPLY_FILTER">Apply Filter</button>
+                    <button type="button" class="btn btn-primary" ng-click="vm.clearFilter()" ng-style="{'margin':'20px 0 0 20px'}"
+                            ng-disabled="vm.filterArray.length<1 && !isGameUpdated" translate="application.app.common.labels.CLEAR_FILTER">Clear Filter</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="table-game-history-list">
+            <div class="has-fixed-header has-filters-above"
+                 ng-class="vm.totalCount>10?'has-fixed-footer has-pagination':'has-fixed-footer'"
+                 no-data-available total-count="vm.totalCount" fetching-data="vm.fetchingData">
+
+
+
+                <div id="" class="table-wrapper">
+                    <div class="container1">
+                        <div class="table-responsive">
+                            <table class="table-default" ng-class="{'filter-open':vm.filterDiv}">
+                                <thead>
+                                <tr>
+                                    <th sortable-column sort-field="GAME_ID" view-name="gameData">
+                                        <div translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.GAME_ID">Game ID</div>
+                                        <div
+                                                class="sortorder sortorder1Gaming"
+                                                ng-show="sortObj.sortField=='GAME_ID'"
+                                                ng-class="{'reverse':sortObj.sortField=='GAME_ID' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                    <th sortable-column sort-field="SHOE_ID" view-name="gameData" ng-if="!sessionShoeId">
+                                        <div translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.SHOE_ID">Shoe ID</div>
+                                        <div
+                                                class="sortorder sortorder2ShoeID"
+                                                ng-show="sortObj.sortField=='SHOE_ID'"
+                                                ng-class="{'reverse':sortObj.sortField=='SHOE_ID' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                    <th sortable-column sort-field="GAME_START_DTM" view-name="gameData">
+                                        <div translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.START_TIME">Start Time</div>
+                                        <div
+                                                class="sortorder sortorder2GamingStartTime"
+                                                ng-show="sortObj.sortField=='GAME_START_DTM'"
+                                                ng-class="{'reverse':sortObj.sortField=='GAME_START_DTM' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                    <th sortable-column sort-field="GAME_END_DTM" view-name="gameData">
+                                        <div translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.END_TIME">End Time</div>
+                                        <div
+                                                class="sortorder sortorder1GamingEndTime"
+                                                ng-show="sortObj.sortField=='GAME_END_DTM'"
+                                                ng-class="{'reverse':sortObj.sortField=='GAME_END_DTM' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                    <th sortable-column sort-field="SUPERVISOR_ID" view-name="gameData">
+                                        <div translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.SUPERVISOR">Supervisor</div>
+                                        <div
+                                                class="sortorder sortorder2Game"
+                                                ng-show="sortObj.sortField=='SUPERVISOR_ID'"
+                                                ng-class="{'reverse':sortObj.sortField=='SUPERVISOR_ID' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                    <th ng-if="!NPPT" sortable-column sort-field="DEALER_ID" view-name="gameData">
+                                        <div translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.DEALER">Dealer</div>
+                                        <div
+                                                class="sortorder sortorder2GamingDealer"
+                                                ng-show="sortObj.sortField=='DEALER_ID'"
+                                                ng-class="{'reverse':sortObj.sortField=='DEALER_ID' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                    <th sortable-column sort-field="TABLE_LIMITS" view-name="gameData">
+                                        <div translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.LIMITS">Limits</div>
+                                        <div
+                                                class="sortorder sortorder2GamingLimits"
+                                                ng-show="sortObj.sortField=='TABLE_LIMITS'"
+                                                ng-class="{'reverse':sortObj.sortField=='TABLE_LIMITS' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                    <th ng-if="!NPPT" sortable-column sort-field="HANDLE" view-name="gameData">
+                                        <div translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.HANDLE">Handle</div>
+                                        <div
+                                                class="sortorder sortorder2GamingHandle"
+                                                ng-show="sortObj.sortField=='HANDLE'"
+                                                ng-class="{'reverse':sortObj.sortField=='HANDLE' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                    <th ng-if="!NPPT && isluckyChipEnable" sortable-column sort-field="BONUS" view-name="gameData">
+                                        <div translate="application.app.CAM_CASHIER_LABELS.BONUS_AWARD.BONUS_AWARD">Bonus Award</div>
+                                        <div
+                                                class="sortorder sortorder2GamingHandle"
+                                                ng-show="sortObj.sortField=='BONUS'"
+                                                ng-class="{'reverse':sortObj.sortField=='BONUS' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                    <th ng-if="!NPPT" sortable-column sort-field="CASINOWL" view-name="gameData">
+                                        <div translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.CASINO_WL">Casino W/L</div>
+                                        <div
+                                                class="sortorder sortorder2GamingCasinoWL"
+                                                ng-show="sortObj.sortField=='CASINOWL'"
+                                                ng-class="{'reverse':sortObj.sortField=='CASINOWL' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                    <th sortable-column sort-field="GAME_STATUS" view-name="gameData">
+                                        <div translate="application.app.TABLE_DASH_LABELS.GAME_HISTORY.COLHEADERS.RESULTS">Result(s)</div>
+                                        <div
+                                                class="sortorder sortorder2GamingResults"
+                                                ng-show="sortObj.sortField=='GAME_STATUS'"
+                                                ng-class="{'reverse':sortObj.sortField=='GAME_STATUS' && sortObj.sortOrder=='DESC'}"></div>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="game in vm.gameData" ng-click="vm.showGameDetails(game)">
+                                    <td>{{game.id}}</td>
+                                    <td ng-if="!sessionShoeId">{{game.shoeUuidForDisplay}}</td>
+                                    <td>{{game.gameStartDtm| date:'HH:mm'}}</td>
+                                    <td>{{game.payoutCompleteDtm| date:'HH:mm'}}</td>
+                                    <td>{{game.supervisorName}}</td>
+                                    <td ng-if="!NPPT">{{game.dealerName}}</td>
+                                    <td>{{game.tableLimits}}</td>
+                                    <td ng-if="!NPPT">{{game.adjustedTurnover|number:0}}</td>
+                                    <td ng-if="!NPPT && isluckyChipEnable">{{game.bonus|number:0}}</td>
+                                    <td ng-if="game.casinoWin < 0 && !NPPT" ng-class="{'highlight-red':true}">({{game.casinoWin*-1|number:0}})</td>
+                                    <td ng-if="game.casinoWin >= 0 && !NPPT">{{game.casinoWin|number:0}}</td>
+                                    <td>
+                                        <span ng-if="game.outcome == 'VOID'">VOID</span>
+                                        <span ng-if="game.outcome == 'PLAYER'">P</span>
+                                        <span ng-if="game.outcome == 'BANKER'">B</span>
+                                        <span ng-if="game.outcome == 'TIE'">T</span>
+                                        <span ng-if="game.isPlayerPair && game.outcome != 'VOID'">/PP</span>
+                                        <span ng-if="game.isBankerPair && game.outcome != 'VOID'">/BP</span>
+                                        <span ng-if="game.isLuckySix && game.outcome == 'BANKER'">/L6</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <pagination class="affix above-fixed-footer" total-records="vm.totalCount" view-name="'gameData'" ng-if="vm.totalCount>10"></pagination>
+                    </div>
+                </div>
+            </div> </div> </div>
+    <game-detail game-played="vm.gamePlayed" swiped-positions="vm.swipedPos" table-id="vm.tableId" calendar-date="vm.calendarDate" ng-if="vm.showGameDetail"></game-detail>
+</div>

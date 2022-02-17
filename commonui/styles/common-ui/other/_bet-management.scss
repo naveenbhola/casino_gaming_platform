@@ -1,0 +1,38 @@
+.bet-management-header {
+  margin: 72px 0 36px;
+  font-size: 20px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.bet-management {
+  .game-player-card-content {
+    cursor: default;
+    background-color: $white;
+  }
+
+  .game-player-card-data-row {
+    &:not(.empty) {
+      background-color: #808080;
+
+      .item-data-label {
+        margin-left: 13px;
+        color: #fff;
+      }
+    }
+
+    &.game-player-bet-data-row {
+      padding: 5px 0;
+      color: $white;
+      border-top: 1px solid $white;
+    }
+  }
+
+  .game-player-bet-data-indicators {
+    top: 50%;
+
+    .game-player-bet-data-indicator {
+      background: $white;
+    }
+  }
+}

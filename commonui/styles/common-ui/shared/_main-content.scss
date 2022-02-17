@@ -1,0 +1,187 @@
+.has-header {
+  .main-content {
+    padding-top: 65px;
+  }
+
+  &.has-sub-header .main-content {
+    padding-top: 128px;
+  }
+
+  .navbar-fixed-top.sub-navbar {
+    top: 50px;
+  }
+
+  &.has-sub-header.has-tabs .content-scrollable:not(.dropdown-menu) {
+    overflow: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 171px);
+    padding: 30px 30px 15px 30px;
+  }
+}
+
+.has-sub-header .main-content {
+  padding-top: 88px;
+}
+
+.has-footer .main-content {
+  padding-bottom: 116px;
+}
+
+.has-no-footer {
+  .table-content-wrapper {
+    &.has-filters-above {
+      height: calc(100vh - 242px);
+    }
+
+    &.has-no-content-header {
+      height: 72vh;
+    }
+  }
+
+  .table-filters {
+    &.collapse + .modal + .table-content-wrapper.has-filters-above {
+      height: calc(100vh - 228px);
+    }
+
+    + .modal + .table-content-wrapper.has-filters-above {
+      height: calc(100vh - 286px);
+    }
+
+    &.left-sidebar-closed {
+      &.collapse + .modal + .table-content-wrapper.has-filters-above {
+        height: calc(100vh - 226px);
+      }
+
+      + .modal + .table-content-wrapper.has-filters-above {
+        height: calc(100vh - 296px);
+      }
+    }
+
+    + .fade .table-content-wrapper.has-filters-above,
+    .table-data > .table-data-child > .table-content-wrapper.has-filters-above {
+      height: calc(100vh - 312px);
+    }
+
+    &.ng-hide {
+      + .fade .table-content-wrapper.has-filters-above,
+      + .table-data > .table-data-child > .table-content-wrapper.has-filters-above {
+        height: calc(100vh - 242px);
+      }
+    }
+  }
+}
+
+.has-pagination {
+  .table-content-wrapper.has-filters-above {
+    height: calc(100vh - 302px);
+  }
+
+  .table-filters {
+    + .table-data > .table-data-child > .table-content-wrapper.has-filters-above {
+      height: calc(100vh - 380px);
+    }
+
+    &.ng-hide + .table-data > .table-data-child > .table-content-wrapper.has-filters-above {
+      height: calc(100vh - 308px);
+    }
+
+    &.collapse + .modal + .table-content-wrapper.has-filters-above {
+      height: calc(100vh - 225px)
+    }
+
+    + .modal + .table-content-wrapper.has-filters-above {
+      height: calc(100vh - 285px)
+    }
+  }
+}
+
+.has-supervisor-footer .main-content {
+  padding-bottom: 128px;
+}
+
+.content-header {
+  min-height: 70px;
+  padding: 0 13px 22px;
+  line-height: 20px;
+
+  &.player-cards-content-header {
+    min-height: 87px;
+  }
+
+  .error-text {
+    display: inline-block;
+    margin: 9px 0 0 40px;
+  }
+}
+
+.main-tab-content {
+  padding: 0 13px;
+  margin-right: -13px;
+  margin-left: -13px;
+  background-color: #eee7dd;
+
+  .tab-content {
+    padding: 0 30px;
+  }
+}
+
+.tab-content-header {
+  min-height: 42px;
+  padding: 20px 0 10px;
+
+  &.has-no-content {
+    min-height: 0;
+  }
+}
+
+.tab-content-header-title {
+  float: left;
+  margin: 0;
+  line-height: 1;
+  color: $red;
+  text-transform: none;
+}
+
+.before-list-header .tab-content-header-title {
+  margin-top: 5px;
+  margin-left: 11px;
+  line-height: 30px;
+}
+
+.tab-content-action-link {
+  margin: 0 30px 0 0;
+  vertical-align: middle;
+}
+
+.main-content {
+  position: relative;
+  top: 0;
+  min-height: 100vh;
+  padding: 25px 13px 0;
+  overflow: hidden;
+
+  .content-wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.main-content-loader {
+  img {
+    display: block;
+    width: 60px;
+    margin: 50px auto;
+  }
+
+  &.topology-opened {
+    padding-left: 250px;
+  }
+}
+
+.maindiv {
+  margin-left: -215px;
+}
+
+.maindiv1 {
+  margin-left: 32px;
+}

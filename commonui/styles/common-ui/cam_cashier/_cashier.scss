@@ -1,0 +1,22 @@
+.cashier {
+  &.modal.modal-fullscreen {
+    position: relative;
+    left: 0;
+    width: auto;
+    margin: 100px 10px 0;
+    background-color: $lighter-gold;
+
+    .modal-dialog {
+      margin: 0;
+    }
+
+    .modal-content {
+      background-color: #eee7dd;
+      padding: 0;
+    }
+  }
+
+  .table-default th {
+    font-size: 18px;
+  }
+}

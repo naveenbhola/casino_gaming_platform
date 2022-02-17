@@ -1,0 +1,50 @@
+#modalPlayerSearch {
+  height: 95vh;
+
+  .modal-content {
+    padding: 15px;
+  }
+
+  .modal-body {
+    top: 110px;
+    max-height: calc(100vh - 248px);
+    min-height: auto;
+  }
+
+  .modal-footer {
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    border-top: 1px dashed #bb9156;
+    background-color: #eee7dd;
+  }
+
+  .dealer-search-player-options {
+    padding-bottom: 15px;
+  }
+
+  .search-form-by-card,
+  .search-form-by-name,
+  .search-form-by-id {
+    margin-top: 0;
+  }
+
+  .search-wrapper {
+    &.content-scrollable {
+      height: 67vh;
+    }
+
+    .search-wrapper .player-search-results-row {
+      .game-player-image {
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 50px;
+        height: 50px;
+      }
+
+      p {
+        padding-top: 15px;
+      }
+    }
+  }
+}

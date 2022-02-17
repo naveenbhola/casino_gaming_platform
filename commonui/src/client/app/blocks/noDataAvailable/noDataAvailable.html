@@ -1,0 +1,6 @@
+<div class="no-data-message-wrapper">
+    <div class="no-data-message" data-ng-show="!fetchingData && totalCount == 0">
+        <span translate="{{noDataMessageKey}}"></span>
+    </div>
+    <div data-ng-transclude data-ng-show="totalCount > 0"></div>
+</div>

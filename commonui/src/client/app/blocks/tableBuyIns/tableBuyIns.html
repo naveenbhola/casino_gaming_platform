@@ -1,0 +1,240 @@
+<div class="container-fluid">
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active" ng-show="true">
+
+            <a href="#shoe" aria-controls="tab-buyins" ui-sref="tabledashboard.buyins({tableId: tableId})"
+               translate="application.app.TABLE_DASH_LABELS.BUYINS.BUYINS_LABEL">BUY INS</a>
+
+        </li>
+    </ul>
+
+    <div class="tab-content main-tab-content">
+        <div ng-class="{'in active':buyMain}">
+
+            <div class="row">
+
+                <div class="col-xs-12">
+
+                    <header class="content-header tab-content-header clearfix">
+
+                        <div class="pull-right">
+
+                            <a class="tab-content-action-link collapsed" role="button" data-toggle="collapse"
+                               ng-click="vm.showBuyinFilter();" ng-class="{collapsed:!buyinfilterdiv}"
+                               aria-expanded="false" aria-controls="filters-table-players">
+
+                                <span class="caret"></span> <span translate="application.app.common.labels.FILTERS">FILTERS</span>
+
+                            </a>
+
+                        </div>
+
+                    </header>
+
+                    <div class="table-filters" id="filters-buyins" ng-class="{collapse:!buyinfilterdiv}">
+
+                        <div class="row">
+                            <srv-filter-drop-down view-name="buyInsData"
+                                                  type="ddwithcheckbox"
+                                                  filter-title="application.app.common.labels.SUPERVISOR"
+                                                  column-name="supervisorIds"
+                                                  class="col-xs-2"
+                                                  filter-options="buyinFilterObj.supervisorsList"
+                                                  ng-if="buyinFilterObj.supervisorsList">
+                            </srv-filter-drop-down>
+
+                            <srv-filter-drop-down view-name="buyInsData"
+                                                  type="ddwithcheckbox"
+                                                  filter-title="application.app.common.labels.DEALER"
+                                                  column-name="dealerIds"
+                                                  class="col-xs-2"
+                                                  filter-options="buyinFilterObj.dealersList"
+                                                  ng-if="buyinFilterObj.dealersList">
+                            </srv-filter-drop-down>
+
+                            <srv-filter-drop-down view-name="buyInsData"
+                                                  type="ddwithcheckbox"
+                                                  filter-title="application.app.TABLE_DASH_LABELS.BUYINS.COLHEADERS.PLAYER_TYPE"
+                                                  column-name="playerTypes"
+                                                  class="col-xs-2"
+                                                  filter-options="buyinFilterObj.playerTypes"
+                                                  ng-if="buyinFilterObj.playerTypes && isCBPTOn">
+                            </srv-filter-drop-down>
+
+                            <srv-filter-drop-down view-name="buyInsData"
+                                                  type="ddwithcheckbox"
+                                                  filter-title="application.app.common.labels.PLAYERID"
+                                                  column-name="casinoPlayerIds"
+                                                  class="col-xs-2"
+                                                  filter-options="buyinFilterObj.playerIds"
+                                                  ng-if="buyinFilterObj.playerIds">
+                            </srv-filter-drop-down>
+
+                            <srv-filter-drop-down view-name="buyInsData"
+                                                  type="ddwithcheckbox"
+                                                  filter-title="application.app.common.labels.PLAYER_NAME"
+                                                  column-name="playerNames"
+                                                  class="col-xs-2"
+                                                  filter-options="buyinFilterObj.playerNames"
+                                                  ng-if="buyinFilterObj.playerNames">
+                            </srv-filter-drop-down>
+
+                            <div class="col-xs-4">
+                                <button type="button" class="btn btn-primary" ng-click="applyBuyInsFilter()"
+                                        ng-style="{'margin-top':'20px'}"
+                                        ng-disabled="buyInsFilterArray.length<1 && !buyInsUpdated"
+                                        translate="application.app.common.labels.APPLY_FILTER">Apply Filter
+                                </button>
+                                <button type="button" class="btn btn-primary" ng-click="clearBuyInsFilter()"
+                                        ng-style="{'margin':'20px 0 0 20px'}"
+                                        ng-disabled="buyInsFilterArray.length<1 && !buyInsUpdated"
+                                        translate="application.app.common.labels.CLEAR_FILTER">Clear Filter
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="table-buyins-list" class="has-fixed-header has-filters-above filters-double-line"
+                         ng-class="totalCount > 10?'has-fixed-footer has-pagination':'has-fixed-footer'">
+                        <div class="table-wrapper" no-data-available total-count="totalCount"
+                             fetching-data="fetchingData">
+                            <div class="container1" ng-class="isCBPTOn ? '':'cbpt-off'">
+                                <div class="table-responsive">
+
+                                    <table class="table-default">
+
+                                        <thead>
+
+                                        <tr>
+
+                                            <th sortable-column view-name="buyIns" sort-field="TIME">
+                                                <div translate="application.app.common.labels.TIME">Time</div>
+                                                <div class="sortorder left-40" ng-show="sortObject.sortField==='TIME'"
+                                                     ng-class="{reverse: sortObject.sortField=='TIME' && sortObject.sortOrder=='DESC'}"></div>
+
+                                            </th>
+
+                                            <th sortable-column view-name="buyIns" sort-field="TXNID">
+                                                <div translate="application.app.TABLE_DASH_LABELS.BUYINS.COLHEADERS.BUYIN_ID"></div>
+                                                <div class="sortorder left-30" ng-show="sortObject.sortField==='TXNID'"
+                                                     ng-class="{reverse: sortObject.sortField=='TXNID' && sortObject.sortOrder=='DESC'}"></div>
+
+                                            </th>
+
+                                            <th sortable-column view-name="buyIns" sort-field="SUPERVISOR">
+                                                <div translate="application.app.common.labels.SUPERVISOR"></div>
+                                                <div class="sortorder left-70"
+                                                     ng-show="sortObject.sortField==='SUPERVISOR'"
+                                                     ng-class="{reverse: sortObject.sortField=='SUPERVISOR' && sortObject.sortOrder=='DESC'}"></div>
+                                            </th>
+
+                                            <th sortable-column view-name="buyIns" sort-field="DEALER">
+                                                <div translate="application.app.common.labels.DEALER"></div>
+                                                <div class="sortorder left-50" ng-show="sortObject.sortField==='DEALER'"
+                                                     ng-class="{reverse: sortObject.sortField=='DEALER' && sortObject.sortOrder=='DESC'}"></div>
+
+                                            </th>
+
+                                            <th sortable-column view-name="buyIns" sort-field="PLAYERTYPE"
+                                                ng-if="isCBPTOn">
+                                                <div translate="application.app.TABLE_DASH_LABELS.BUYINS.COLHEADERS.PLAYER_TYPE"></div>
+                                                <div class="sortorder left-50"
+                                                     ng-show="sortObject.sortField==='PLAYERTYPE'"
+                                                     ng-class="{reverse: sortObject.sortField=='PLAYERTYPE' && sortObject.sortOrder=='DESC'}"></div>
+
+                                            </th>
+
+                                            <th sortable-column view-name="buyIns" sort-field="PLAYERNAME">
+                                                <div translate="application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.PLAYER_NAME"></div>
+                                                <div class="sortorder left-40"
+                                                     ng-show="sortObject.sortField==='PLAYERNAME'"
+                                                     ng-class="{reverse: sortObject.sortField=='PLAYERNAME' && sortObject.sortOrder=='DESC'}"></div>
+                                            </th>
+
+                                            <th sortable-column view-name="buyIns" sort-field="PLAYERID"
+                                                ng-if="isCBPTOn">
+                                                <div translate="application.app.common.labels.CCAS_ID"></div>
+                                                <div class="sortorder left-30"
+                                                     ng-show="sortObject.sortField==='PLAYERID'"
+                                                     ng-class="{reverse: sortObject.sortField=='PLAYERID' && sortObject.sortOrder=='DESC'}"></div>
+                                            </th>
+
+                                            <th sortable-column view-name="buyIns" sort-field="CASINOPLAYERID">
+                                                <div translate="application.app.common.labels.PLAYERID"></div>
+                                                <div class="sortorder left-40"
+                                                     ng-show="sortObject.sortField==='CASINOPLAYERID'"
+                                                     ng-class="{reverse: sortObject.sortField=='CASINOPLAYERID' && sortObject.sortOrder=='DESC'}"></div>
+                                            </th>
+
+                                            <th sortable-column view-name="buyIns" sort-field="VALUE">
+                                                <div translate="application.app.common.labels.VALUE"></div>
+                                                <div class="sortorder left-40" ng-show="sortObject.sortField==='VALUE'"
+                                                     ng-class="{reverse: sortObject.sortField=='VALUE' && sortObject.sortOrder=='DESC'}"></div>
+                                            </th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        <tr data-toggle="modal"
+                                            data-target="#buyins-detail-modal"
+                                            ng-click="vm.buyDrillIn(obj.uuid, obj.id)"
+                                            ng-repeat="obj in buyObj">
+                                            <td class="highlight">{{obj.endDtm | date: "HH:mm"}}</td>
+
+                                            <td>{{obj.id}}</td>
+
+                                            <td>{{obj.supervisorNameNid}}</td>
+
+                                            <td>{{obj.dealerNameNid}}</td>
+
+                                            <td ng-if="isCBPTOn" translate="{{obj.playerType}}"></td>
+
+                                            <td class="texts-wrapped"
+                                                ng-if="(obj.playerType=='KNOWN' || obj.playerType=='RATED') && obj.playerName!='null, null'"
+                                                translate="{{obj.playerName}}">
+                                            </td>
+                                            <td class="texts-wrapped"
+                                                ng-if="(obj.playerType=='KNOWN' || obj.playerType=='RATED') && obj.playerName=='null, null'">
+                                            </td>
+
+                                            <td class="texts-wrapped"
+                                                ng-if="obj.playerType=='ANONYMOUS' || obj.playerType==null"
+                                                translate="Anonymous">
+                                            </td>
+
+                                            <td ng-if="isCBPTOn">{{obj.playerId}}</td>
+
+                                            <td>{{obj.casinoPlayerId}}</td>
+
+                                            <td>{{obj.txnValue | number}}</td>
+                                        </tr>
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <pagination class='affix above-fixed-footer' total-records="totalCount" view-name="'buyin'"
+                                ng-if="totalCount>10"></pagination>
+                </div>
+
+            </div>
+
+        </div>
+        <!--  /.tab-buyins -->
+
+        <!-- Contents for Tab-Buyins-chip detail -->
+        <div class="slide-animate-container">
+            <div class="slide-animate">
+                <drill-in-popup data="drillInData"></drill-in-popup>
+            </div>
+        </div>
+        <!-- /Contents for Tab-Buyins-chip detail -->
+    </div>
+</div>

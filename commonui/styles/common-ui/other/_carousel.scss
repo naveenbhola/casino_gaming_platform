@@ -1,0 +1,37 @@
+.carousel-gaming-day {
+  margin: 10px 0;
+  font-size: 80px;
+
+  .carousel-control {
+    width: 50px;
+    background: $white;
+    opacity: 1;
+
+    .glyphicon {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%);
+    }
+  }
+}
+
+.carousel-player-details {
+  width: 99vw;
+  margin: 10px 0;
+
+  .item {
+    margin: 0 auto;
+  }
+
+  .carousel-control {
+    width: 60px;
+    background: none;
+    opacity: 1;
+
+    .glyphicon {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -100%);
+    }
+  }
+}

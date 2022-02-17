@@ -1,0 +1,16 @@
+<div class="col-xs-7 alerts">
+    <div class="alert-indicator has-alerts"
+         ng-click="openAlerts(topologyId,'CRITICAL');$event.stopPropagation();">
+        <div class="alert-count">{{topologyAlertCount.criticalCount}}</div>
+    </div>
+
+    <div class="alert-indicator has-alerts high"
+         ng-click="openAlerts(topologyId,'HIGH');$event.stopPropagation();">
+        <div class="alert-count">{{topologyAlertCount.highCount}}</div>
+    </div>
+
+    <div class="alert-indicator has-alerts low"
+         ng-click="openAlerts(topologyId,'LOW');$event.stopPropagation();">
+        <div class="alert-count">{{topologyAlertCount.lowCount}}</div>
+    </div>
+</div>

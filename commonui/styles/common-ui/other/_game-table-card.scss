@@ -1,0 +1,563 @@
+.game-table-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3px -3px 10px;
+
+  .game-table-card-data-row {
+    margin-top: 6px;
+    border-bottom: 1px dashed rgba(187, 145, 86, 0.15);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    .item-data-value {
+      text-align: center;
+    }
+
+    &.not-currency-data .item-data-value {
+      text-align: center !important;
+    }
+
+    &.item-data-label,
+    &.item-data-value {
+      font-size: 12px;
+    }
+  }
+}
+
+.game-table-card-open {
+  background: url("../bower_components/wdts-common-ui/assets/img/bg-game-table-open.svg");
+}
+
+.game-table-card-closed:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("../bower_components/wdts-common-ui/assets/icons/icon-lock.svg") center center;
+  content: '';
+  transform: translate(-50%, -70%);
+}
+
+td.game-table-card{
+    min-width: 0;
+    background-color: transparent;
+}
+.game-table-card {
+  flex: 1 0;
+  position: relative;
+  max-width: 350px;
+  min-width: 320px;
+  padding: 8px 10px;
+  margin: 3px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $white;
+  }
+
+  .game-table-visualizer {
+    position: relative;
+    //min-height: 125px;
+    min-height: 150px;
+    margin-bottom: 12px;
+    padding-bottom: 4px;
+  }
+
+  .game-table {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 68px;
+    height: 40px;
+    background: url("../bower_components/wdts-common-ui/assets/img/bg-game-table-open.svg") center center no-repeat transparent;
+    transform: translateX(-50%);
+  }
+
+  .game-table-player-group {
+    position: absolute;
+    z-index: 0;
+    right: 50%;
+    bottom: 8px;
+    width: 155px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    transform-origin: right center;
+
+    &:hover {
+      z-index: 100;
+      //
+      //.game-table-player:not(:hover){
+      //  opacity: 0;
+      //}
+    }
+    > div {
+      position: relative;
+      &:nth-child(1){
+        z-index: 3;
+      }
+      &:nth-child(2){
+        z-index: 2;
+      }
+      &:nth-child(3){
+        z-index: 1;
+      }
+    }
+  }
+
+  .game-table-player-group-1 {
+    bottom: 8px;
+    transform: rotate(0deg);
+
+    .game-table-player {
+      transform: rotate(360deg);
+    }
+  }
+
+  .game-table-player-group-2 {
+    bottom: 4px;
+    transform: rotate(30deg);
+
+    .game-table-player, .game-table-players-count {
+      transform: rotate(330deg);
+    }
+  }
+
+  .game-table-player-group-3 {
+    bottom: 0;
+    transform: rotate(60deg);
+
+    .game-table-player, .game-table-players-count {
+      transform: rotate(300deg);
+    }
+  }
+
+  .game-table-player-group-4 {
+    bottom: -4px;
+    transform: rotate(90deg);
+
+    .game-table-player, .game-table-players-count {
+      transform: rotate(270deg);
+    }
+  }
+
+  .game-table-player-group-5 {
+    bottom: 0;
+    transform: rotate(120deg);
+
+    .game-table-player, .game-table-players-count {
+      transform: rotate(240deg);
+    }
+  }
+
+  .game-table-player-group-6 {
+    bottom: 4px;
+    transform: rotate(150deg);
+
+    .game-table-player, .game-table-players-count {
+      transform: rotate(210deg);
+    }
+  }
+
+  .game-table-player-group-7 {
+    bottom: 8px;
+    transform: rotate(180deg);
+
+    .game-table-player, .game-table-players-count {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Styles for 5-positions table
+
+  $table-pos-num: 5;
+  $degree:0;
+  $deg-gap:45;
+  $btm:8px;
+
+  @for $i from 1 through $table-pos-num {
+    .has-five-pos {
+      .game-table-player-group-#{$i} {
+
+        @if $i==1 or $i==5 {
+          bottom: 8px;
+        } @else if $i==2 or $i==4 {
+          bottom: 4px;
+        } @else if $i==3 {
+          bottom: 0;
+        }
+
+        transform: rotate(#{$degree}deg);
+
+        .game-table-player {
+          transform: rotate(#{360-$degree}deg);
+        }
+      }
+    }
+    $degree: $degree + $deg-gap;
+  }
+
+  //End
+  .game-table-all-players{
+    width: 24px;
+    height: 24px;
+    font: bold 10px/24px Lato, sans-serif;
+    text-align: center;
+    color: #fff;
+    margin-right: 5px;
+    background-color: $lighter-gold;
+    border-radius: 50%;
+    transition: opacity .3s ease-in-out;
+    opacity: 1;
+    &.seated {
+      background-color: #bb9156;
+      opacity: 1;
+    }
+    &.red {
+      background-color: #EF0E75;
+      opacity: 1;
+    }
+    &.green {
+      background-color: #2F9240;
+      opacity: 1;
+    }
+    .starred {
+      background-image: url("../bower_components/wdts-common-ui/assets/icons/icon-star.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 14px 12px;
+      height: 24px;
+    }
+  }
+  .game-table-player {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    background-color: $lighter-gold;
+    border-radius: 50%;
+    transition: opacity .3s ease-in-out;
+    opacity: 0.5;
+
+    &.large {
+      width: 24px;
+      height: 24px;
+    }
+
+    span {
+      height: auto;
+      line-height: 20px;
+      padding: 10px;
+      left: 59%;
+      margin-left: -64px;
+      font-family: 'Alegreya SC', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 14px;
+      color: $white;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border: 4px solid $gold;
+      background: $gold;
+      text-indent: 0;
+      border-radius: 5px;
+      position: absolute;
+      bottom: 30px;
+      opacity: 0;
+      visibility: visible;
+      pointer-events: none;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      transform: translate(35px) rotate(25deg) scale(1.5);
+      transition: all 0.3s ease-in-out;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        margin-left: -9px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid rgba(0, 0, 0, 0.1);
+      }
+
+      &:after {
+        bottom: -14px;
+        margin-left: -10px;
+        border-top: 10px solid $gold;
+      }
+    }
+
+    &:hover span {
+      visibility: visible;
+      opacity: 0.9;
+      transform: translate(0px) rotate(0deg) scale(1);
+    }
+
+    &.seated {
+      background-color: #bb9156;
+      opacity: 1;
+    }
+
+    &.red {
+      background-color: #EF0E75;
+      opacity: 1;
+
+      span {
+        border-color: #EF0E75;
+        background: #EF0E75;
+
+        &:after {
+          border-top: 10px solid #EF0E75;
+        }
+      }
+    }
+
+    &.green {
+      background-color: #2F9240;
+      opacity: 1;
+
+      span {
+        border-color: #2F9240;
+        background: #2F9240;
+
+        &:after {
+          border-top: 10px solid #2F9240;
+        }
+      }
+    }
+
+    &.starred {
+      background-image: url("../bower_components/wdts-common-ui/assets/icons/icon-star.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 14px 12px;
+    }
+  }
+
+  &.table-closed {
+    .alert-indicator {
+      :after {
+        background: url("../bower_components/wdts-common-ui/assets/icons/icon-alert-disabled-bell.svg");
+      }
+
+      &.has-alerts .alert-count {
+        background: $light-gray;
+        background: linear-gradient(to right, $light-gray, #d0d0d0);
+      }
+
+      .alert-count {
+        line-height: 30px;
+        text-shadow: none;
+      }
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .game-table-card-header,
+    .item-data-label,
+    .item-data-value {
+      color: $gray;
+    }
+
+    .game-table {
+      background: url("../bower_components/wdts-common-ui/assets/img/bg-game-table-closed2.svg") center center no-repeat transparent;
+    }
+
+    .game-table-player {
+      background-color: #ccc;
+    }
+
+    .game-table-card-data-row {
+      border-bottom: 1px dashed rgba(221, 221, 221, 0.15);
+    }
+  }
+
+  &.open .game-table-player.main-player:not(.seated) {
+    opacity: 0.7;
+  }
+
+  .game-table-card-data-row {
+    margin: 18px 0 10px;
+    text-align: center;
+  }
+}
+
+.game-table-card-header {
+  color: $gold;
+  margin-bottom: 10px;
+
+  .header-wrapper {
+    padding-right: 0;
+    width: 43%;
+  }
+
+  h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .alerts {
+    width: 57%;
+    padding-left: 0;
+    text-align: right;
+  }
+
+  .alert-indicator {
+    display: inline-block;
+    margin-right: 6px;
+  }
+}
+
+.has-header.has-sub-header.has-tabs .game-table-cards-wrapper.content-scrollable {
+  height: calc(100vh - 238px);
+  border-top: 1px solid rgba(187, 145, 86, 0.2);
+  padding: 4px;
+}
+
+.table-players-modal {
+    .modal-content {
+        &.has-sticky-header {
+            padding-top: 60px;
+
+            .modal-sticky-header {
+                height: 60px;
+            }
+        }
+
+        &.has-sticky-footer {
+            padding-bottom: 60px;
+
+            .modal-sticky-footer {
+                height: 88px;
+            }
+        }
+    }
+
+    &.auto-height {
+        .modal-dialog {
+            width: 50%;
+            height: calc(100% - 20px);
+            margin: 10px auto 0;
+        }
+
+        .modal-content {
+            background-color: $lighter-gold;
+            display: block;
+            height: 100%;
+            overflow: auto;
+            transition-duration: 0.3s;
+        }
+    }
+
+}
+
+@media (min-width: 700px) {
+  .game-table-card {
+    width: calc((100% / 3) - 6px);
+  }
+}
+
+@media (min-width: 1050px) {
+  .game-table-card {
+    width: calc((100% / 4) - 6px);
+  }
+}
+
+@media (min-width: 1400px) {
+  .game-table-card {
+    width: calc((100% / 5) - 6px);
+  }
+}
+
+@media (min-width: 1750px) {
+  .game-table-card {
+    width: calc((100% / 6) - 6px);
+  }
+}
+
+@media (min-width: 2100px) {
+  .game-table-card {
+    width: calc((100% / 7) - 6px);
+  }
+}
+
+@media (min-width: 2450px) {
+  .game-table-card {
+    width: calc((100% / 8) - 6px);
+  }
+}
+
+@media (min-width: 2800px) {
+  .game-table-card {
+    width: calc((100% / 9) - 6px);
+  }
+}
+
+.game-table-all-players{
+  display: inline-block;
+  vertical-align: sub;
+  width: 17px;
+  height: 17px;
+  font: bold 10px/24px Lato, sans-serif;
+  text-align: center;
+  color: #fff;
+  margin-right: 5px;
+  background-color: $lighter-gold;
+  border-radius: 50%;
+  transition: opacity .3s ease-in-out;
+  opacity: 1;
+  &.seated {
+    background-color: #bb9156;
+    opacity: 1;
+  }
+  &.red {
+    background-color: #EF0E75;
+    opacity: 1;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
+
+/* Akgupta commented against CD-97 dated 03-Jul-2018
+// Fixing design issues for the component: table-grid-view as per its new hierarchy
+// Fix1 to show table-cards side by side
+// Fix2 to show pagination for the table-grid view
+*/
+
+table-grid {
+  //comment: layout table-grid component as flex
+  display: flex;
+  flex-wrap: wrap;
+
+  .game-table-cards {
+    //comment: layout table-grid component as flex
+    margin: 0;
+    padding-bottom: 10rem;
+  }
+  .game-table-card {
+    //comment: Re-define margins for game-table-card
+    margin: 0 4px 4px 0;
+  }
+}
+
+
+.left-sidebar-opened table-grid {
+  //comment: Increasing pagination-width when topology tree gets opened
+  pagination.col-xs-9 { width: 82.25%;}
+}
+//Akgupta: End fixing

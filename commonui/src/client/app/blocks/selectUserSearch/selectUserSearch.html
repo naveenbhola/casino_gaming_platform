@@ -1,0 +1,88 @@
+<div class="input-group select-user-search">
+    <input type="text" id="change-focus-to-modal" style="position: absolute; top: -1000px; left: -1000px;" autofocus  />
+    <div class="input-group-btn">
+        <button class="btn btn-secondary btn-block dropdown-toggle" style="width: 120px;"
+                type="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="true">
+            <span translate="{{filterTypeTranslated}}"></span>
+            <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu default">
+            <div class="dropdown-body">
+                <div class="dropdown-content">
+                    <ul class="nav dropdown-nav">
+                        <li class="dropdown-nav-item"
+                            ng-click="selectFilterType('swipe')">
+                            <div class="dropdown-nav-link">
+                                <a href="" class="dropdown-nav-link fsize"
+                                   translate="application.app.common.labels.CARD_SWIPE">Card
+                                    Swipe</a>
+                            </div>
+                        </li>
+                        <li class="dropdown-nav-item"
+                            ng-click="selectFilterType('id')">
+                            <div class="dropdown-nav-link">
+                                <a href="" class="dropdown-nav-link fsize"
+                                   translate="application.app.common.labels.PLAYERID">Player
+                                    ID</a>
+                            </div>
+                        </li>
+                        <li class="dropdown-nav-item"
+                            ng-click="selectFilterType('fn')">
+                            <div class="dropdown-nav-link">
+                                <a href="" class="dropdown-nav-link fsize"
+                                   translate="application.app.common.labels.FIRST_NAME">First
+                                    Name</a>
+                            </div>
+                        </li>
+                        <li class="dropdown-nav-item"
+                            ng-click="selectFilterType('ln')">
+                            <div class="dropdown-nav-link">
+                                <a href="" class="dropdown-nav-link fsize"
+                                   translate="application.app.common.labels.LAST_NAME">Last
+                                    Name</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="text" class="form-control input-text hover"
+           placeholder="{{ 'application.app.common.labels.ENTER_PLAYERIDRNAME' | translate}}"
+           ng-model="player"
+           ng-disabled="filterType === 'Card Swipe' || !filterType"/>
+    <a class="input-group-addon player-search-btn" ng-class="{'disabled': filterType === 'Card Swipe' || !filterType}"
+       ng-click="filterType && filterType !== 'Card Swipe' && createSearchPlayer()">
+        <div class="glyphicon icon-search2" ng-class="{'not-visible':loader == true}"></div>
+
+        <div class="search-loader" ng-class="{'not-visible':loader == false}">
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <path opacity="0.3" fill="#bb9156" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946 s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634 c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+                    <path fill="#bb9156" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0 C22.32,8.481,24.301,9.057,26.013,10.047z">
+                    <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="0.75s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+        </div>
+    </a>
+</div>
+<div class="swipe-card" ng-show="filterType === 'Card Swipe'">
+    <h3 class="pull-left">
+        <span translate="application.app.common.labels.SWIPE">Swipe</span>
+        <br>
+        <span translate="application.app.common.labels.PLAYERIDCARD">Player ID Card</span>
+    </h3>
+
+    <div class="pull-right">
+        <img src="bower_components/wdts-common-ui/assets/img/swipe-player-id-card.svg"/>
+    </div>
+
+    <!--<input type="text" id="txtswipehidden" style="position: absolute; top: -1000px; left: -1000px;" autofocus-->
+           <!--ng-model="cardData"/>-->
+</div>
+<div class="error-text" ng-show="error == true">
+    <span>
+        <span class="glyphicon icon-error">!</span>
+        <span translate="application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.Player_Id_is_not_correct">Player Id is not correct. Try again.</span>
+    </span>
+</div>

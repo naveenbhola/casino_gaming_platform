@@ -1,0 +1,97 @@
+<div class="modal fade modal-fullscreen" id="{{vm.data.modalId}}" tabindex="-1" role="dialog" aria-labelledby="transaction-chips-detail">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <header class="content-header tab-content-header padTop-15 clearfix">
+                    <h3 class="tab-content-header-title">
+                        <span translate="{{vm.data.translateTitle}}"></span>
+                        #{{vm.data.fillid}}
+                    </h3>
+                </header>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="tab-content main-tab-content">
+                        <div id="tab-default">
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="table-responsive">
+                                        <table class="table-default table-tables sticky-table-header table-row-bg-blank">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th translate="application.app.common.labels.TYPE">Type</th>
+                                                    <th class="text-center"translate="application.app.common.labels.COUNT">Count</th>
+                                                    <th class="text-right"translate="application.app.common.labels.VALUE">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="total-band">
+                                                    <td class="total-value" translate="application.app.common.labels.GRAND_TOTAL">GRAND TOTAL</td>
+                                                    <td class="total-value">
+                                                        <span translate="application.app.TREASURY_LABELS.TRANSACTION_TYPES.{{vm.data.transType}}"></span>
+                                                    </td>
+                                                    <td class="total-value text-center">{{vm.data.totalCoins}}</td>
+                                                    <td class="total-value text-right">{{vm.data.totalChipValue | number:0}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-6" ng-repeat="chipGroup in vm.data.enrolledChips.byChipset" ng-if="vm.data.transType!='CHANGE'">
+                                    <div class="table-responsive">
+                                        <table class="table-default table-tables sticky-table-header table-row-bg-blank">
+                                            <thead>
+                                                <tr>
+                                                    <th translate="application.app.common.labels.CHIP_SET">Chip Set</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>{{chipGroup.label}}</strong></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table-default table-tables sticky-table-header table-row-bg-blank table-chip-tray">
+                                            <thead>
+                                                <tr>
+                                                    <th translate="application.app.common.labels.DENOMINATION">Denomination</th>
+                                                    <th class="text-center" translate="application.app.common.labels.COUNT">Count</th>
+                                                    <th class="text-right" translate="application.app.common.labels.VALUE">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="denom in chipGroup.byDenom">
+                                                    <td class="narrow">
+                                                        <chip-icon chip-icon-key="denom.denom"></chip-icon>
+                                                        {{denom.denom| number:0}}
+                                                    </td>
+                                                    <td class="text-center">{{denom.count}}</td>
+                                                    <td class="text-right">{{denom.total| number:0}}</td>
+                                                </tr>
+                                                <tr class="sub-total-band">
+                                                    <td translate="application.app.common.labels.TOTAL">TOTAL</td>
+                                                    <td class="text-center">{{chipGroup.totalChipsetCoins}}</td>
+                                                    <td class="text-right">{{chipGroup.total | number:0}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer has-fixed-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="application.app.common.labels.CLOSE">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
