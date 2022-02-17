@@ -1,0 +1,113 @@
+//Use this mixin to style a button.
+@import "mixins";
+
+@mixin style-button-label {
+  @include set-body-text;
+  line-height: 2.5;
+}
+
+@mixin style-radio-button-label {
+  @include set-body-text;
+  line-height: 2.5;
+}
+
+@mixin style-button-disabled {
+  border-color: $gray;
+  background: $light-gray;
+  color: $gray;
+  cursor: not-allowed;
+}
+
+@mixin make-common-button {
+  border-radius: $border-radius;
+  line-height: 2.5;
+  font-weight: $font-base-weight;
+  color: $w-primary;
+  background-color: $white;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &__sm {
+    padding: 4px 0;
+    line-height: 1;
+    min-width: 40px;
+  }
+
+  &__xsm {
+    padding: 0;
+    min-width: 28px;
+    margin-left: 0.25rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &--primary {
+    background-color: $w-primary;
+    color: $white;
+  }
+
+  &--secondary {
+    border: 2px solid $w-primary;
+  }
+
+  &--default {
+    background-color: transparentize($w-black, 0.85);
+  }
+}
+
+@mixin close-button {
+  line-height: 3;
+  margin-top: -1%;
+}
+
+@mixin tbl-button($w: $tbl-button-width, $h: $tbl-button-height) {
+  min-width: $w;
+  min-height: $h;
+  font-size: $base-font-size * 1.25;
+  font-weight: $base-font-weight;
+  border-radius: $border-radius;
+}
+
+@mixin tbl--btn-style {
+  background-color: $white;
+  border-radius: $border-radius;
+  height: 96px;
+  min-width: 216px;
+  padding: 0.5rem;
+  margin-bottom: 8px;
+  border: 2px solid $w-gray;
+  width: 100%;
+
+  @include respond-to(desktop) {
+    height: 64px;
+    min-width: 112px;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@mixin tbl--btn-label {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.2px;
+  text-align: left;
+
+  @include respond-to(desktop) {
+    font-size: 20px;
+    width: 100%;
+  }
+}
+
+@mixin tbl-btn-xxxl {
+  @include tbl--btn-style;
+  border-radius: 0.5rem;
+
+  &:hover {
+    @include tbl-element-shadow();
+    //box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.35)
+  }
+}

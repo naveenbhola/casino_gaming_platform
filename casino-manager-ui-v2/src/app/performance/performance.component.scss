@@ -1,0 +1,8 @@
+@import
+"~common-ui/styles/common",
+"~src/styles/common",
+"~src/styles/table-common";
+
+.performance-table {
+  @include set-table-height;
+}

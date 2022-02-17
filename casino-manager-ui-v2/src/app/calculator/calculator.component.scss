@@ -1,0 +1,29 @@
+.content {
+  width: 150px;
+  height:170px;
+  border: 1px solid black;
+  text-align:center;
+  font-size:25px;
+}
+.content-row {
+  width: 100%;
+  height: 18%;
+  background-color: grey;
+  border-bottom: 1px solid black;
+}
+.full-width {
+  width:100%;
+  float:left;
+}
+.big-width {
+  width:75%;
+  float:left;
+}
+.normal-width {
+  width:24%;
+  float:left;
+  border-right: 1px solid black;
+}
+.normal-width-color {
+  background-color: orange;
+}

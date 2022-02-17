@@ -1,0 +1,17 @@
+<div mat-dialog-content align="center">
+  <p>
+    <span *ngIf="currentStatus === 'ISSUED'"
+          translate="application.app.CASINO_MGR_LABELS.PROMOTION_WINNER.ISSUE_VOUCHER"></span>
+    <span *ngIf="currentStatus === 'VOIDED'"
+          translate="application.app.CASINO_MGR_LABELS.PROMOTION_WINNER.VOID_VOUCHER"></span>
+  <span *ngIf="currentStatus === 'PRINT'"
+        translate="application.app.CASINO_MGR_LABELS.PROMOTION_WINNER.PRINT_VOUCHER"></span></p>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-stroked-button class="common-button mr-3" color='primary' (click)="closeDialog('No')">
+    <span [translate]="'application.app.CONFIGURATION_LABELS.PROMOTION.NO'"></span>
+  </button>
+  <button mat-stroked-button class="common-button" color='primary' (click)="closeDialog('Yes')">
+    <span [translate]="'application.app.CONFIGURATION_LABELS.PROMOTION.YES'"></span>
+  </button>
+</div>

@@ -1,0 +1,29 @@
+<app-top-nav-bar [appName]="'CASINO_MGR'"
+                 [gamingDay]="appService.gamingDay"
+                 [nextRollTIme]="appService.nextRollDTM"
+                 [showGamingDay]="appService.showGamingDay"
+                 [gamingDaysArr]="appService.localGamingDays"
+                 [selectedGamingDay]="selectedGamingDay"
+                 [breadcrumbList]="breadcrumbList">
+</app-top-nav-bar>
+<app-topsubnav-data-bar [alertCounts]="appService.alertCounts"
+                        [topologyStatistics]="appService.subnavTopologyStatistics" [backButton]="appService.backButton">
+</app-topsubnav-data-bar>
+
+<div class="wrapper__top-padding">
+  <mat-drawer-container class="drawer-container">
+    <mat-drawer #drawer class="areas-sidenav" mode="side" opened="true">
+      <topology-tree></topology-tree>
+
+    </mat-drawer>
+
+    <mat-drawer-content class="areas-tab" [ngClass]="{'has-opened-sidepanel': drawer.opened}">
+      <button [ngClass]="{'drawer-button--sm': !(drawer.opened)}" mat-raised-button color="primary" (click)="drawer.toggle()">
+        <mat-icon *ngIf="!(drawer.opened)">menu</mat-icon>
+        <mat-icon *ngIf="drawer.opened">close</mat-icon>
+      </button>
+      <!--<app-toplogy-tree-dragdrop [arrTrees]="arrTrees" (addNode)="updateEventObj($event)"></app-toplogy-tree-dragdrop>-->
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

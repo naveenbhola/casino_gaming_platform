@@ -1,0 +1,136 @@
+<h6 mat-dialog-title class="pp-dialog__title bold">
+  <span *ngIf="data.data.documentId"> <span translate="application.app.common.labels.DOCUMENT_ID"></span> {{data.data.documentId}}</span>
+  <span class="space-filler"></span>
+  <button mat-button tabindex="0" class="close-btn" (click)="closeDialogBox()">
+    <mat-icon>close</mat-icon>
+  </button>
+</h6>
+
+
+<mat-card *ngIf="data.data.type === 'FILL'">
+        <span *ngIf="currentStatus === 'REQUESTED' || currentStatus === 'IN TRANSIT' || currentStatus === 'COMPLETED' ">
+          <mat-card-subtitle translate="FILL_REQ_STATUS"></mat-card-subtitle>
+          <mat-card-content>
+            <div class="steps-container">
+              <div class="step">
+                <h5 translate="REQUESTED"></h5>
+                <img class="icon__status" [src]='"./assets/icons/icon_requested.svg"'/>
+                <h6>
+                  {{data.data.supervisor}}
+                  <div *ngIf="requestedTime">{{requestedTime | date: 'HH:MM'}}</div>
+                </h6>
+
+              </div>
+
+              <span class="divider" [ngClass]="{'active': currentStatus === 'IN TRANSIT' || currentStatus === 'COMPLETED'}"></span>
+
+              <div class="step">
+                <h5 translate="IN_TRANSIT"></h5>
+                <img *ngIf="currentStatus === 'IN TRANSIT' || currentStatus === 'COMPLETED'" class="icon__status" [src]='"./assets/icons/icon_in-transit.svg"'/>
+                <img *ngIf="currentStatus === 'REQUESTED'" class="icon__status" [src]='"./assets/icons/icon_in-transit-gray.svg"'/>
+                <h6 *ngIf="intransitTime">{{intransitTime | date: 'HH:MM'}}</h6>
+              </div>
+
+              <span class="divider" [ngClass]="{'active': currentStatus === 'COMPLETED'}"></span>
+
+              <div class="step">
+                <h5 translate="COMPLETED"></h5>
+                <img *ngIf="currentStatus === 'COMPLETED'" class="icon__status" [src]='"./assets/icons/icon_completed.svg"'/>
+                <img *ngIf="currentStatus !== 'COMPLETED'" class="icon__status" [src]='"./assets/icons/icon_completed-gray.svg"'/>
+                <h6 *ngIf="completedTime">{{completedTime | date: 'HH:MM'}}</h6>
+              </div>
+          </div>
+          </mat-card-content>
+        </span>
+
+        <span *ngIf="currentStatus === 'CANCELED' || currentStatus === 'AUTO CANCELLED' ">
+          <mat-card-subtitle translate="FILL_REQ_STATUS"></mat-card-subtitle>
+          <mat-card-content>
+            <div class="steps-container">
+              <div class="step">
+                <h5 translate="REQUESTED"></h5>
+                <img class="icon__status" [src]='"./assets/icons/icon_requested.svg"'/>
+                <h6>
+                  {{data.data.supervisor}}
+                  <div *ngIf="requestedTime">{{requestedTime | date: 'HH:MM'}}</div>
+                </h6>
+
+              </div>
+
+              <span class="divider active"></span>
+
+              <div class="step">
+                <h5 *ngIf="currentStatus === 'CANCELED'" translate="CANCELLED"></h5>
+                <h5 *ngIf="currentStatus === 'AUTO CANCELLED'" translate="AUTO_CANCELED"></h5>
+                <img *ngIf="currentStatus === 'CANCELED'" class="icon__status" [src]='"./assets/icons/cancelled.png"'/>
+                <img *ngIf="currentStatus === 'AUTO CANCELLED'" class="icon__status" [src]='"./assets/icons/icon_auto-cancelled.png"'/>
+                <h6 *ngIf="completedTime">{{completedTime | date: 'HH:MM'}}</h6>
+              </div>
+          </div>
+          </mat-card-content>
+        </span>
+</mat-card>
+
+<mat-card *ngIf="data.data.type === 'CREDIT'">
+        <span>
+          <mat-card-subtitle translate="CREDIT_REQ_STATUS"></mat-card-subtitle>
+          <mat-card-content>
+            <div class="steps-container">
+              <div class="step">
+                <h5 translate="REQUESTED"></h5>
+                <img class="icon__status" [src]='"./assets/icons/icon_requested.svg"'/>
+                <h6>
+                  {{data.data.supervisor}}
+                  <div *ngIf="requestedTime">{{requestedTime | date: 'HH:MM'}}</div>
+                </h6>
+              </div>
+
+              <span class="divider" [ngClass]="{'active': currentStatus === 'COMPLETED' || currentStatus === 'CANCELED' || currentStatus === 'AUTO CANCELLED'}"></span>
+
+              <div class="step">
+                <h5 *ngIf="currentStatus === 'COMPLETED' || currentStatus === 'REQUESTED'" translate="COMPLETED"></h5>
+                <h5 *ngIf="currentStatus === 'CANCELED'" translate="CANCELLED"></h5>
+                <h5 *ngIf="currentStatus === 'AUTO CANCELLED'" translate="AUTO_CANCELED"></h5>
+                <img *ngIf="currentStatus === 'COMPLETED'" class="icon__status" [src]='"./assets/icons/icon_completed.svg"' />
+                <img *ngIf="currentStatus === 'REQUESTED'" class="icon__status" [src]='"./assets/icons/icon_completed-gray.svg"' />
+                <img *ngIf="currentStatus === 'CANCELED'" class="icon__status" [src]='"./assets/icons/cancelled.png"' />
+                <img *ngIf="currentStatus === 'AUTO CANCELLED'" class="icon__status" [src]='"./assets/icons/icon_auto-cancelled.png"' />
+                <img *ngIf="currentStatus === 'VOIDED'" class="icon__status" [src]='"./assets/icons/icon_voided.svg"' />
+                <h6 *ngIf="completedTime">{{completedTime | date: 'HH:MM'}}</h6>
+              </div>
+          </div>
+          </mat-card-content>
+        </span>
+</mat-card>
+
+<div mat-dialog-content class="pp-dialog__content">
+  <div class="grand-total">
+        <div class="grand-total__wrapper">
+          <div class="section">
+            <h4>
+              <strong>
+                <span>{{'application.app.TREASURY_LABELS.TRANSACTION_TYPES.' + data.data.type | translate}}</span>&nbsp;
+                <span translate="application.app.common.labels.TOTAL"></span></strong></h4>
+          </div>
+          <div class="section">
+            <p translate="application.app.common.labels.COUNT"></p>
+            <span><strong>{{data.data.totalCount}}</strong></span>
+          </div>
+          <div class="section">
+            <p translate="application.app.common.labels.VALUE"></p>
+            <span><strong>{{data.data.totalValue | amountFormat }}</strong></span>
+          </div>
+        </div>
+      </div>
+
+    <mat-card>
+      <app-chipset-panel [chipSetData] = "chipsetsDataByDenom"></app-chipset-panel>
+    </mat-card>
+</div>
+
+<div mat-dialog-actions class="opener-closer-dialog__footer">
+  <span class="space-filler"></span>
+  <button class="common-button" mat-stroked-button tabindex="-1" color="primary" (click)="closeDialogBox()">
+    <span [translate]="'application.app.common.labels.CLOSE'"></span>
+  </button>
+</div>

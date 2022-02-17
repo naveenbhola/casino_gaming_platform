@@ -1,0 +1,19 @@
+@import "~common-ui/styles/variables";
+
+.print-error-window-title {
+  display: flex;
+}
+
+.print-error-window-content {
+  text-align: center;
+  min-height: 22vh;
+}
+
+.msg-text {
+  font-size: 36px;
+  font-weight: 500;
+  color: $red;
+  margin: 2% 0;
+  font-family: $font-family-lato;
+  max-width: 50vw;
+}

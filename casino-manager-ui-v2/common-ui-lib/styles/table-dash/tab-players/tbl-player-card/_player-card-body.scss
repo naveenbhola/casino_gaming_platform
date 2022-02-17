@@ -1,0 +1,21 @@
+@mixin make-player-card-body($fs: $base-font-size, $fw: $base-font-weight){
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	justify-content: space-between;
+	
+	.seated-player--profile {
+		.seated-player--name,
+		.seated-player--id {
+			font-size: $fs * 1.125;
+			font-weight: $fw;
+			line-height: 1;
+		}
+		
+		.seated-player--id {
+			font-size: $fs;
+			line-height: 1;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+<div mat-dialog-title class="dialog__title notes-title">
+  <span translate>{{'application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.NOTES_FOR' | translate}} {{data.rowDetails.obj.player.casinoPlayer.lastName}}, {{data.rowDetails.obj.player.casinoPlayer.firstName}} ({{data.rowDetails.obj.player.casinoPlayer.casinoPlayerId}}) </span>
+
+  <span class="space-filler"></span>
+
+  <button mat-button tabindex="0" class="close-btn" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div class="text-area__wrapper mb-2">
+  <mat-form-field class="notes__text-field">
+      <textarea matInput placeholder="{{'application.app.common.labels.ADD_NOTES' | translate }}"
+                [(ngModel)]="newNote"></textarea>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-content class="notes-dialog-content">
+  <mat-list-item *ngFor="let note of notes;trackBy:trackByIndex" class="notes__list-item">
+    <small class="notes__list-item__header-color">
+      {{note.createDtm | date: 'HH:mm'}} {{note.user.lastName + ', ' + note.user.firstName}}({{note.user.employeeNumber}})</small>
+    <p [innerHtml]="note.note"></p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</div>
+
+<div mat-dialog-actions class="d-flex">
+  <span class="space-filler"></span>
+  <button class="common-button button--default"
+          [ngClass]="{'disabled': !newNote || buttonDisable}"
+          (click)="addNote()">
+<!--    <mat-progress-bar mode="indeterminate" class="btn-progress-bar" *ngIf="loader"></mat-progress-bar>-->
+    <span [translate]="'application.app.common.labels.SAVE'"> Save </span>
+  </button>
+</div>
+

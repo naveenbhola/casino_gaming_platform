@@ -1,0 +1,45 @@
+@import "~common-ui/styles/mixins";
+
+.page-top-tab-bar {
+  margin-left: 6%;
+  min-height: 3em;
+
+  @include respond-to(ipad){
+    margin-left: 7%;
+  }
+
+  a.mat-tab-link {
+    color: $w-black;
+    padding: 0 2%;
+
+    @include respond-to(ipad){
+      min-width: 130px;
+      padding: 0 1%;
+    }
+
+    &:hover {
+      color: $w-accent;
+      text-decoration: none;
+      opacity: 1;
+    }
+
+    &.mat-tab-label-active,
+    &.mat-tab-label-active:hover {
+      opacity: 1;
+      color: $w-primary;
+    }
+  }
+
+  ::ng-deep .mat-ink-bar:after {
+    content: "";
+    border: 8px solid $w-primary;
+    position: absolute;
+    height: 4px;
+    bottom: 0;
+    border-top: none;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    margin: 0 auto;
+    left: calc(50% - 4px);
+  }
+}

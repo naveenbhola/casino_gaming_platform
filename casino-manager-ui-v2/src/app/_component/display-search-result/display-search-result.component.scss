@@ -1,0 +1,38 @@
+@import
+"~common-ui/styles/variables",
+"~common-ui/styles/button",
+"~src/styles/mixins-local";
+
+.table-searched-players {
+  ::ng-deep .table-data__container {
+    height: 100%;
+
+    .mat-card-avatar {
+      margin-right: 2%;
+    }
+  }
+
+  &__wrapper {
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+}
+
+.player-search-dialog__footer {
+  @include dialog-footer-controls;
+
+  .common-button {
+    //@include common-button;
+    @include make-common-button;
+  }
+}
+
+//Styling mat-card-avator class to fix player-image-enlargement issue
+::ng-deep .table-searched-players__wrapper .mat-cell .mat-card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}

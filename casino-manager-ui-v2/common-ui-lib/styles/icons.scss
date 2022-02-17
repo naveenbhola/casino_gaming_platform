@@ -1,0 +1,224 @@
+@import "colors", "functions";
+
+////Include icons-map using paths.
+$img-network: 						'/assets/icons/icon-on-network.png';
+$img-no-network: 					'/assets/icons/icon-no-network.png';
+$img-alert: 							'/assets/icons/icon-alerts-tbl.png';
+$img-lock: 								'/assets/icons/icon-chiptray-lock.png';
+$img-unlock: 							'/assets/icons/icon-chiptray-unlock.png';
+$img-cross:								'/assets/icons/cancelled.png';
+$img-tick:								'/assets/icons/completed.png';
+
+
+$icons:(
+		'on-network': 	$img-network,
+		'no-network': 	$img-no-network,
+		'alert': 		    $img-alert,
+		'lock': 		    $img-lock,
+		'unlock': 		  $img-unlock,
+		'cross':		    $img-cross,
+		'tick':			    $img-tick,
+);
+
+.app-icons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .common-button {
+    max-width: 10rem;
+    margin-right: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.25rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+}
+
+
+
+
+
+.severity-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+$severity: "critical" $red-bright, "high" $orange-bright, "low" $blue-bright, "none" $gray;
+@each $status, $bgcolor in $severity {
+  .severity-color__#{$status} {
+    background-color: #{$bgcolor};
+  }
+}
+
+
+
+
+
+
+$statuscolors: "critical" $red-bright, "high" $orange-bright, "low" $blue-bright, "active" $green, "inactive" $gray;
+@each $status, $color in $statuscolors {
+  .status-color__#{$status}{
+    color: #{$color};
+  }
+}
+
+.mat-menu-item {
+  @each $status, $bgcolor in $severity {
+    .severity-color__#{$status}:not([color]) {
+      background-color: #{$bgcolor};
+    }
+  }
+
+  @each $status, $color in $statuscolors {
+    .status-color__#{$status}:not([color]) {
+      color: #{$color};
+    }
+  }
+}
+
+
+
+
+.tbl-opened {
+  border: 2px solid $dark-green;
+  background: radial-gradient(ellipse at top, #e6fbcb 0%, $green 60%, #3ba211 100%);
+}
+
+.tbl-closed {
+  background: radial-gradient(ellipse at top, #FFFFFF 0%, $red-bright 100%);
+  border: 2px solid $dark-red;
+}
+
+.icon__tbl-status {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  @include respond-to(desktop) {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.icon__alerts {
+  background: url(get-bg-image('alert')) no-repeat left center;
+  background-size: 20px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon__chiptray-unlock {
+  background: url(get-bg-image('unlock')) no-repeat center;
+  background-size: 100%;
+}
+
+.icon__chiptray-lock {
+  background: url(get-bg-image('lock')) no-repeat center;
+  background-size: 80%;
+}
+
+.icon__cross {
+  background: url(get-bg-image('cross')) no-repeat center;
+  background-size: 80%;
+}
+
+.icon__tick {
+  background: url(get-bg-image('tick')) no-repeat center;
+  background-size: 80%;
+}
+
+.calender_tick {
+  width: 16px;
+  height: 16px;
+  background: url("/assets/icons/icon-checked-green.svg") center center no-repeat;
+  position: absolute;
+  left: 1rem;
+}
+
+
+
+
+
+
+.badge {
+  @include include-font-style(75%, 700, 1);
+  display: inline-block;
+  padding: .25em .4em;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+$badges: "critical" $red-bright, "high" $yellow, "low" $blue-bright;
+@each $badge, $badgecolor in $badges {
+  .badge-#{$badge} {
+    background-color: $badgecolor;
+    color: $black;
+  }
+}
+
+
+
+
+
+@mixin icon-chip-security-status {
+  display: inline-block;
+  min-width: 24px;
+  height: 24px;
+  background-color: silver;
+  border: 2px solid darkgray;
+  border-radius: 50%;
+  margin-right: 4%;
+}
+
+.chip-security-action-status {
+  @include icon-chip-security-status;
+}
+
+$cs-action-status:
+        "valid" $green-bright $green,
+        "stolen" $red-bright $red,
+        "cage-exchange" $orange-bright darken($orange-bright, 20%),
+        "not-playable" $yellow-bright $yellow-dark,
+        "select" $gray $darker-gray;
+
+@each $status, $bgcolor, $bdrcolor in $cs-action-status {
+  .chip-security-action-status--#{$status} {
+    background-color: $bgcolor;
+    border: 2px solid $bdrcolor;
+  }
+}
+
+
+
+
+
+
+//var '$cm-promotion-status' stores 4 status.
+$cm-promotion-status: "active", "issued", "expired", "voided";
+
+@each $icon in $cm-promotion-status {
+  .cm-promotion-status-#{$icon} {
+    background: url("/assets/icons/icon-#{$icon}.svg") center center no-repeat;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+
+
+$fc-request-icons: "in-transit","requested","cancelled","completed","auto-cancelled","voided";
+
+@each $icon in $fc-request-icons {
+	.fc-request-status-#{$icon} {
+		background: url("/assets/icons/icon_#{$icon}.svg") center center no-repeat;
+    width: 20px;
+    height: 20px;
+	}
+}

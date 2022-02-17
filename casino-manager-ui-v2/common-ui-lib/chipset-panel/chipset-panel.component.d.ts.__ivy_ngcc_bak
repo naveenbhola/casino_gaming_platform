@@ -1,0 +1,11 @@
+import { OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+export declare class ChipsetPanelComponent implements OnInit {
+    private translate;
+    panelOpenState: boolean;
+    chipSetData: any[];
+    csPanelHeaderHeight: string;
+    constructor(translate: TranslateService);
+    ngOnInit(): void;
+    isFractionalChipDenom(denom: any): boolean;
+}

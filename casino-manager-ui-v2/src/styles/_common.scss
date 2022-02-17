@@ -1,0 +1,174 @@
+@import
+"~common-ui/styles/colors",
+"~common-ui/styles/variables",
+"~common-ui/styles/mixins",
+"~src/styles/mixins-local";
+
+.form-field--primary {
+  color: $w-primary;
+}
+
+.selected__node {
+  background-color: rgba(187, 145, 86, 0.15);
+}
+
+//Overriding button style to add border-radius.
+button[class *= "mat"],
+button[class *= "common-button"]{
+  @include border-radius($border-radius);
+}
+
+.close-btn {
+  margin-top: -1rem;
+}
+
+
+
+////Global styles for Pagination component
+::ng-deep app-pagination .pagination__container {
+  display: flex;
+
+  &.pagination__bottom-fixed {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: auto;
+  }
+
+  > .row {
+    flex: 1;
+  }
+
+  .mx-5 {
+    white-space: nowrap;
+    padding-right: 0;
+    padding-left: 0;
+
+    > span {
+      display: inline-block;
+      padding: 0 1px 0;
+      margin-right: 4px;
+    }
+  }
+
+  .pagination__contents > * {
+    margin-right: 1%;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .pagination__display-count {
+    text-align: center;
+    margin: 0;
+  }
+
+  .common-button.pagination__button {
+    border: 1px solid $w-primary;
+
+    &[disabled] {
+      border-color: transparent;
+    }
+  }
+}
+
+////Global styles font-size when side-panel gets opened
+::ng-deep .has-opened-sidepanel {
+  .table-header__row .table-section__title-section {
+    font-size: 1.25rem;
+
+    @include respond-to(ipad){
+      font-size: 1.25em;
+    }
+  }
+
+  .table__wrapper {
+    .mat-header-cell,
+    .expandable-detail-row .expanded-section .table-column--inner > header {
+      font-size: 12px !important;
+
+      @include respond-to(ipad){
+        font-size: .7em !important;
+      }
+    }
+
+    .mat-cell,
+    .expandable-detail-row .expanded-section .table-column--inner > header + main[class *= "ng-star"] {
+      font-size: smaller !important;
+
+      @include respond-to(ipad){
+        font-size: .75em !important;
+      }
+    }
+  }
+}
+
+////Global styles of Filter-button
+::ng-deep .filter-link-button__wrapper {
+  .common-button.link-color__primary,
+  .common-button.link-color__active {
+    background-color: transparent;
+  }
+}
+
+////Global styles to align mat-table header-cells
+::ng-deep .table__wrapper .mat-sort-header-button,
+::ng-deep .table__wrapper td.mat-cell {
+  text-align: left !important;
+}
+
+////Global styling for mat-table
+::ng-deep .table-data__container .mat-cell .mat-checkbox,
+::ng-deep .table-data__container .mat-header-cell .mat-checkbox {
+  top: 0 !important;
+  padding-right: 6px !important;
+}
+
+
+.mat-dialog-title.dialog__title {
+  display: flex;
+}
+
+
+
+
+///Global styles to reduce color emphasis
+$mat-cell-color: #4d4d4d;
+::ng-deep .manualratings-table .table-data__container .mat-table {
+  .mat-header-cell {
+    min-width: 2vw;
+  }
+
+  .mat-footer-cell,
+  .mat-cell {
+    color: $mat-cell-color;
+  }
+
+  .table-cell__custom-width {
+    word-break: inherit;
+    white-space: pre-line;
+  }
+}
+
+::ng-deep .has-opened-sidepanel {
+  .manualratings-table .table__wrapper {
+    .mat-header-cell {
+      min-width: 2.5vw;
+    }
+  }
+}
+
+
+
+
+//common style for table-wrapper
+.has-page-top-tab-bar,
+.table-player-promotions {
+  ::ng-deep .table__wrapper {
+    @include redefine-table-wrapper-height;
+  }
+}
+
+.wloader{
+  margin: 0 auto;
+  top: 1.5em;
+}

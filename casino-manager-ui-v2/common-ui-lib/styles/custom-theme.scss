@@ -1,0 +1,103 @@
+//Custom theme
+@import
+"~@angular/material/theming",
+"~ng-pick-datetime/assets/style/picker.min.css",
+"variables";
+//
+// @include mat_core();
+
+$mat-gold: (
+  50: #F9F8EA,
+  100: #F0EDCA,
+  200: #E6E1A9,
+  300: #DDD58D,
+  400: #D8CE7B,
+  500: #D2C76D,
+  600: #CCB767,
+  700: #C4A45E,
+  800: #BB9156,
+  900: #AB7348,
+  A100: #F0EDCA,
+  A200: #E6E1A9,
+  A400: #D8CE7B,
+  A700: #C4A45E,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$mat-red-brown: (
+  50: #FAEAED,
+  100: #F4CAD0,
+  200: #DE9499,
+  300: #CF6D72,
+  400: #D64D53,
+  500: #D93B3C,
+  600: #CA333A,
+  700: #B92A34,
+  800: #AC242D,
+  900: #9C1C23,
+  A100: #F4CAD0,
+  A200: #DE9499,
+  A400: #D64D53,
+  A700: #B92A34,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$wdts-app-primary: mat-palette($mat-gold, 800);
+
+$wdts-app-accent: mat-palette($mat-red-brown, 900, 600, A400);
+
+$wdts-app-warn: mat-palette($mat-red);
+
+$wdts-app-theme: mat-light-theme($wdts-app-primary, $wdts-app-accent, $wdts-app-warn);
+
+@include angular-material-theme($wdts-app-theme);
+
+
+$custom-typography: mat-typography-config($font-family: #{$font-family-lato});
+
+@include mat-core($custom-typography);
+
+
+//**Customization of mat-button-toggle group.
+
+@mixin mat-toggle-button-theme($wdts-app-theme){
+  $primary: map-get($wdts-app-theme, primary);
+  $accent: map-get($wdts-app-theme, accent);
+
+  .mat-button-toggle-checked {
+    background-color: mat-color($primary);
+    color: mat-color($primary, default-contrast);
+  }
+}
+
+@include mat-toggle-button-theme($wdts-app-theme);

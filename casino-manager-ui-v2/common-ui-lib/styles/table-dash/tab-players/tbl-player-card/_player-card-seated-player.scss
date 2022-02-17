@@ -1,0 +1,18 @@
+@mixin player-card-seated-player($fs: $base-font-size, $fw: $base-font-weight) {
+	.tbl-player-card__body {
+		
+		.seated-player--profile {
+			.seated-player--name,
+			.seated-player--id {
+				font-size: $fs * 1.125;
+				font-weight: $fw;
+				line-height: 1;
+			}
+			
+			.seated-player--id {
+				font-size: $fs;
+				line-height: 1;
+			}
+		}
+	}
+}

@@ -1,0 +1,68 @@
+<mat-card class="players-list">
+  <mat-card-title class="players-list__title" translate="application.app.common.labels.PLAYERS"></mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content class="players-list__table">
+    <div class="players-list__table__wrapper" *ngIf="winningPlayersList && winningPlayersList.length > 0">
+      <table mat-table
+             [dataSource]="winningPlayersList"
+             class="players-list__table w-100">
+
+        <!-- Casino-Winning-Top-10 Column -->
+        <ng-container matColumnDef="playername">
+          <th mat-header-cell *matHeaderCellDef translate="application.app.CASINO_MGR_LABELS.CASINO_WINNING_TOP"></th>
+          <td mat-cell *matCellDef="let element">
+            <span *ngIf="element.casinoPlayerId">{{element.playerLastName}}, {{element.playerFirstName}} ({{(element.casinoPlayerId)}})</span>
+            <span  *ngIf="!element.casinoPlayerId"><ng-container>{{'ANONYMOUS' | translate}}</ng-container>
+              <ng-container *ngIf="appService.isCBPT">, ({{(element.playerId)}})</ng-container>
+              </span>
+          </td>
+        </ng-container>
+
+        <!-- Casino W/L Column -->
+        <ng-container matColumnDef="playerwinloss">
+          <th mat-header-cell *matHeaderCellDef translate="application.app.CASINO_MGR_LABELS.CASINO_WL_CAP"></th>
+          <td mat-cell *matCellDef="let element">
+            <span *ngIf="element.playerWin * -1 >= 0">{{element.playerWin * -1 | roundUp}} </span>
+            <span class="negative-value" *ngIf="element.playerWin * -1 < 0">({{element.playerWin | roundUp}}) </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="playersListColumns; sticky: true"
+            class="players-list__table__header-row"></tr>
+        <tr mat-row *matRowDef="let row; columns: playersListColumns;"
+            class="players-list__table__row" (click)="appService.openPlayerDashboard(row.playerId, this.appService.appGlobalObj.gamingDay)"></tr>
+      </table>
+    </div>
+    <div class="players-list__table__wrapper" *ngIf="losingPlayersList && losingPlayersList.length > 0">
+      <table mat-table
+             [dataSource]="losingPlayersList"
+             class="players-list__table w-100">
+
+        <!-- Casino-Winning-Top-10 Column -->˙
+        <ng-container matColumnDef="playername">
+          <th mat-header-cell *matHeaderCellDef translate="application.app.CASINO_MGR_LABELS.CASINO_LOSING_TOP"></th>
+          <td mat-cell *matCellDef="let element">
+            <span *ngIf="element.casinoPlayerId">{{element.playerLastName}}, {{element.playerFirstName}} ({{(element.casinoPlayerId)}})</span>
+            <span  *ngIf="!element.casinoPlayerId"><ng-container>{{'ANONYMOUS' | translate}}</ng-container>
+              <ng-container *ngIf="appService.isCBPT">, ({{(element.playerId)}})</ng-container>
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- Casino W/L Column -->
+        <ng-container matColumnDef="playerwinloss">
+          <th mat-header-cell *matHeaderCellDef translate="application.app.CASINO_MGR_LABELS.CASINO_WL_CAP"></th>
+          <td mat-cell *matCellDef="let element">
+            <span *ngIf="element.playerWin * -1 >= 0">{{element.playerWin * -1 | roundUp}} </span>
+            <span class="negative-value" *ngIf="element.playerWin * -1 < 0">({{element.playerWin | roundUp}}) </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="playersListColumns; sticky: true"
+            class="players-list__table__header-row"></tr>
+        <tr mat-row *matRowDef="let row; columns: playersListColumns;"
+            class="players-list__table__row" (click)="appService.openPlayerDashboard(row.playerId, this.appService.appGlobalObj.gamingDay)"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>

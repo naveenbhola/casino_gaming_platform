@@ -1,0 +1,9 @@
+//Function to map color from wdts-theme defined in colors.
+@function get-color($color) {
+	@return map-get($wdts-colors, $color);
+}
+
+//Function to map image/icon from icon-map defined in variables.
+@function get-bg-image($image){
+	@return map-get($icons, $image);
+}

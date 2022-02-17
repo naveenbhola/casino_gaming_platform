@@ -1,0 +1,35 @@
+import { OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { PromotionService } from '../../services/promotion.service';
+import { TopologyService } from "../../services/topology.service";
+export declare class WinnerEligibleSessionsComponent implements OnInit {
+    dialogRef: MatDialogRef<WinnerEligibleSessionsComponent>;
+    data: any;
+    private promotionService;
+    topologyService: TopologyService;
+    command: any;
+    perPageOption: Array<number>;
+    totalRecord: number;
+    displayedColumns_W: string[];
+    winners: any[];
+    displayedColumns_ES: string[];
+    dataSource_ES: {
+        promotionId: number;
+        name: string;
+        creationTime: string;
+        prizeName: string;
+        totalamount: number;
+        pitName: string;
+        tableName: string;
+        seat: number;
+        player: string;
+        sessionId: number;
+    }[];
+    constructor(dialogRef: MatDialogRef<WinnerEligibleSessionsComponent>, data: any, promotionService: PromotionService, topologyService: TopologyService);
+    init(data: any): void;
+    ngOnInit(): void;
+    closeDialog(): void;
+    getWinners(): void;
+    getTopologyNameById(topologyId: any): string;
+    updatePagination(event: any): void;
+}

@@ -1,0 +1,154 @@
+<h2 mat-dialog-title class="host-call-dialog__title">
+  {{pitName}}
+  <span class="space-filler"></span>
+
+  <button mat-button tabindex="-1" class="close-btn">
+    <mat-icon (click)="closeDialogBox()">close</mat-icon>
+  </button>
+</h2>
+
+<div mat-dialog-content class="host-call-dialog__content-wrapper">
+  <!-- Content goes here. -->
+  <h3>
+    <span [translate]="'application.app.common.labels.TOPSUBNAV.PLAY_CRITERIA'"></span>
+  </h3>
+  <form [formGroup]='hostCallForm' autocomplete="off">
+    <div class="form-control__wrapper" *ngIf="hasHostCallPermission">
+      <div class="host-call-dialog__content-row">
+        <div [translate]="'application.app.common.labels.TOPSUBNAV.LOSS_WIN'"></div>
+        <mat-form-field appearance="fill">
+          <input matInput name="loss" class="negative-value"
+                 formControlName="loss"
+                 type="text"
+                 maxlength="7"
+                 isZeroValReq=false
+                 appNumberOnly="true">
+          <!--<mat-error>{{'loss.min'|translate:param}}</mat-error>-->
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <input matInput
+                 formControlName="win" name="win"
+                 appNumberOnly="true"
+                 maxlength="7"
+                 isZeroValReq=false
+                 type="text">
+        </mat-form-field>
+      </div>
+      <mat-form-field class="content-full-length" appearance="fill">
+        <mat-label [translate]="'application.app.common.labels.TOPSUBNAV.AVG_BET'"></mat-label>
+        <input matInput
+               appNumberOnly="true"
+               formControlName="avgBet"
+               maxlength="7"
+               isZeroValReq=false
+               name="angBet"
+               type="text">
+      </mat-form-field>
+      <mat-form-field class="content-full-length" appearance="fill">
+        <mat-label [translate]="'application.app.common.labels.TOPSUBNAV.HANDLE'"></mat-label>
+        <input matInput
+               appNumberOnly="true"
+               formControlName="handle"
+               maxlength="7"
+               isZeroValReq=false
+               name="handle"
+               type="text">
+      </mat-form-field>
+      <mat-form-field class="content-full-length" appearance="fill">
+        <mat-label [translate]="'application.app.common.labels.TOPSUBNAV.GAMES_PLAYED'"></mat-label>
+        <input matInput
+               appNumberOnly="true"
+               maxlength="4"
+               isZeroValReq=false
+               formControlName="gamesPlayed"
+               name="gamesPlayed"
+               type="text">
+      </mat-form-field>
+      <mat-form-field class="content-full-length" appearance="fill">
+        <mat-label [translate]="'application.app.common.labels.TOPSUBNAV.THEO_WIN'"></mat-label>
+        <input matInput
+               appNumberOnly="true"
+               maxlength="7"
+               isZeroValReq=false
+               formControlName="theoWin"
+               name="theoWin"
+               type="text">
+      </mat-form-field>
+    </div>
+
+    <div class="form-control__wrapper" *ngIf="!hasHostCallPermission">
+      <div class="host-call-dialog__content-row">
+        <div [translate]="'application.app.common.labels.TOPSUBNAV.LOSS_WIN'"></div>
+        <mat-form-field class="content-full-length" appearance="fill">
+          <input matInput name="loss" class="negative-value"
+                 formControlName="loss"
+                 type="number"
+                 appNumberOnly="true"
+                 readonly>
+        </mat-form-field>
+        <mat-form-field class="content-full-length" appearance="fill">
+          <input matInput
+                 appNumberOnly="true"
+                 formControlName="win"
+                 name="win"
+                 type="number"
+                 readonly>
+        </mat-form-field>
+      </div>
+      <mat-form-field class="content-full-length" appearance="fill">
+        <mat-label [translate]="'application.app.common.labels.TOPSUBNAV.AVG_BET'"></mat-label>
+        <input matInput
+               appNumberOnly="true"
+               formControlName="avgBet"
+               name="angBet"
+               type="number"
+               readonly>
+      </mat-form-field>
+      <mat-form-field class="content-full-length" appearance="fill">
+        <mat-label [translate]="'application.app.common.labels.TOPSUBNAV.HANDLE'"></mat-label>
+        <input matInput
+               appNumberOnly="true"
+               formControlName="handle"
+               name="handle"
+               type="number"
+               readonly>
+      </mat-form-field>
+      <mat-form-field class="content-full-length" appearance="fill">
+        <mat-label [translate]="'application.app.common.labels.TOPSUBNAV.GAMES_PLAYED'"></mat-label>
+        <input matInput
+               formControlName="gamesPlayed"
+               name="gamesPlayed"
+               type="number"
+               readonly>
+      </mat-form-field>
+      <mat-form-field class="content-full-length" appearance="fill">
+        <mat-label [translate]="'application.app.common.labels.TOPSUBNAV.THEO_WIN'"></mat-label>
+        <input matInput
+               formControlName="theoWin"
+               name="theoWin"
+               type="number"
+               readonly>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions class="host-call-dialog__footer">
+  <span class="space-filler"></span>
+  <button mat-stroked-button
+          class="common-button"
+          tabindex="-1"
+          color="primary"
+          (click)="closeDialogBox()">
+    <span [translate]="'application.app.common.labels.CANCEL'"> Cancel </span>
+  </button>
+
+  <button mat-stroked-button
+          class="common-button"
+          tabindex="-1"
+          color="primary"
+          (click)="saveAnonymousHostCallData()"
+          [disabled]="!hostCallForm.valid || !hasHostCallPermission">
+    <span [translate]="'application.app.common.labels.SAVE'"> Save </span>
+  </button>
+</div>

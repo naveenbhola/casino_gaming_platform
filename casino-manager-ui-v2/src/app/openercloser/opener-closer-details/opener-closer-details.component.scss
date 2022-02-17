@@ -1,0 +1,157 @@
+@import
+"~bootstrap/dist/css/bootstrap.min.css",
+"~common-ui/styles/variables",
+"~common-ui/styles/mixins",
+"~common-ui/styles/button",
+"~common-ui/styles/common",
+"~src/styles/common",
+"~src/styles/mixins-local";
+
+::ng-deep .mat-dialog-container .mat-dialog-content {
+  height: 100%;
+  max-height: 80vh; //overriding the content-height.
+}
+
+.opener-closer {
+  &__row {
+    margin: 1rem 0;
+  }
+
+  &__panel {
+    background-color: $white;
+    border: 2px solid $w-primary;
+    border-radius: $border-radius2;
+
+    ::ng-deep .chipsets__wrapper {
+      font-size: $font-h5-size;
+      grid-template-columns: repeat(auto-fit,minmax(32%,1fr));
+      grid-gap: 1vh;
+
+      .labels-row, .values-row {
+        padding-right: 0;
+      }
+
+      .values-row > span:first-child {
+        max-width: 18vw;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+    &.disabled .mat-expansion-panel-header[aria-disabled='true'] {
+      color: $w-black;
+    }
+  }
+
+  &__row &__panel {
+    margin-top: 2vmin;
+  }
+
+  &__row.active &__panel {
+    background-color: $white;
+
+
+    ::ng-deep div.mat-expansion-panel-body {
+      background-color: $white;
+      padding: 0 1%;
+    }
+  }
+}
+
+.opener-closer__header__contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+
+  &.closer-header--width {
+    width: 95%;
+  }
+
+  h4,
+  h5 {
+    font-weight: 600;
+    line-height: 1;
+  }
+}
+
+%chipset-panel-row-span {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2%;
+
+  > span:first-child {
+    min-width: 7vw;
+  }
+
+  > span:nth-child(2){
+    min-width: 4vw;
+    text-align: center;
+  }
+
+  > span:last-child {
+    min-width: 4vw;
+    text-align: right;
+  }
+}
+
+::ng-deep div.mat-expansion-panel-body {
+  .chipset {
+    background-color: $white;
+
+    .mat-expansion-panel .mat-expansion-panel-header {
+      padding: 1% 2%;
+
+      .panel-header--collapsed {
+        gap: 2px;
+      }
+    }
+
+    &__table {
+      background-color: $white;
+
+      &__header {
+        @extend %chipset-panel-row-span;
+        font-weight: $font-base-weight;
+        opacity: 0.65;
+        margin-bottom: 1%;
+      }
+
+      &__body {
+        gap: 0;
+      }
+
+      &__body--row {
+        @extend %chipset-panel-row-span;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        font-weight: $font-base-weight;
+
+        &:last-child{
+          border-bottom: none;
+        }
+      }
+
+      &__footer {
+        @extend %chipset-panel-row-span;
+        font-weight: $font-base-weight;
+        padding-bottom: 2%;
+        border-top: 1px solid rgba(0,0,0,0.15);
+        margin-top: 2%;
+      }
+    }
+
+    .mat-expansion-panel.mat-expanded {
+      background-color: #eee7dd;
+    }
+  }
+}
+
+::ng-deep .opener-closer__row .opener-closer__panel {
+  &.mat-expansion-panel.mat-expanded {
+    background-color: #eee7dd;
+  }
+
+  &__panel + &__panel {
+    margin-top: 2vmin;
+  }
+}

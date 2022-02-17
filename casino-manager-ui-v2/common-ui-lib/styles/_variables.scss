@@ -1,0 +1,321 @@
+@import "colors";
+//
+//Akgupta: List of variables used in the project
+$font-family-lato: 						"Lato", sans-serif !default;
+$font-family-sans-serif: 			$font-family-lato;
+$font-base-size: 							16px !default;
+$base-font-size: 							$font-base-size;
+$font-base-weight: 						600 !default;
+$base-font-weight: 						$font-base-weight;
+$font-base-bold:        			800 !default;
+
+$font-h1-size:                			$font-base-size * 2.5 !default; //40px~3.82vmin
+$font-h2-size:                			$font-base-size * 2 !default; //32px~3.056vmin
+$font-h3-size:                			$font-base-size * 1.75 !default; //28px~2.674vmin
+$font-h4-size:                			$font-base-size * 1.5 !default; //24px~2.292vmin
+$font-h5-size:                			$font-base-size * 1.25 !default; //20px~1.91vmin
+$font-h6-size:                			$font-base-size !default; //~16px in 1440x900
+
+$font-display1:               			$font-base-size * 2.625 !default; //42px~4.011vmin
+$font-display2:               			$font-base-size * 2.25 !default; //36px~3.438vmin
+$font-display3:               			$font-base-size * 3.25 !default; //52px~
+
+
+$border-radius: 				4px;
+$corner-radius: 				$border-radius;
+$rad: 									$border-radius;
+
+//
+$tbl-font-map:(
+				'family':   $font-family-lato,
+				'size':     $font-h4-size,
+				'weight':   $font-base-weight,
+				'color':    $w-black
+);
+
+//Declaring height of the Top nav bar.
+//Pagination-container's height is excluded here and implements at run-time.
+$top-nav__height: 						50px;
+$sub-nav__height: 						50px;
+
+$table-header__title-row__min-height: 	60px;
+$filters-opened__row__height: 			80px;
+$search-form__top-margin: 				24px;
+
+//Calculate the default inner-height by excluding the fixed heights
+//of: Top-nav, Sub-nav and Table's Title-row heights.
+$table-data__container__inner-height:
+		$top-nav__height +
+		$sub-nav__height +
+		$table-header__title-row__min-height;
+
+//
+//Declaring height of the row in which the filters button appears.
+//'sm' refers screen having min-width: 576px as per Bootstrap;
+//'xl' refers screen having min-width: 1200px as per Bootstrap;
+//'xxl' refers screen having min-width: 1362px; newly introduced here;
+$filters-row__height__md: 				140px;
+$filters-row__height__lg: 				140px;
+$filters-row__height__xl: 				120px;
+$filters-row__height__xxl: 				100px;
+$filters-row__height__xxxl: 			76px;
+$filters-row__height: 					$filters-row__height__xxxl;
+$filters-row--height: 					96px;
+
+//Declaring thickness of the breadcrumb-arrow.
+$breadcrumb-arrow-thickness: 			20px; //
+
+//Note: This variable value needs to be updated in Common-UI.
+$container__net-height: 				calc(100vh - 100px);
+$container__net-height__filters-opened: calc(100vh - (210px + #{$filters-row__height * 1.2})); // a factor required to include bottom padding.
+
+// Bootstrap breakpoints:
+// max-width: sm::575.98px;
+// max-width: md::767.98px;
+// max-width: lg::991.98px;
+// max-width: xl::1199.98px;
+// New Breakpoint (Max-width): Laptop & Large Desktop: <1362px;
+//
+//$breakpoint-md: 767.98px;
+//$breakpoint-lg: 991.98px;
+//$breakpoint-xl: 1199.98px;
+//$breakpoint-xxl: 1361.98px;
+//$breakpoint-xxxl: 1923.98px;
+
+////
+$breakpoint-md:           				768px;
+$breakpoint-lg:           				992px;
+$breakpoint-lg2:          				1024px;
+$breakpoint-xl:           				1200px;
+$breakpoint-sm-height:    				700px;
+
+$breakpoint-xxl-width:    				1368px;
+$breakpoint-xxl:          				$breakpoint-xxl-width;
+$breakpoint-xxl-height:   				912px;
+$breakpoint-height-sm:    				792px;
+
+$breakpoint-xxl2:         				1440px;
+$breakpoint-xxl2-width:   				1440px;
+$breakpoint-xxl2-height:  				900px;
+$breakpoint-xxxl:         				1920px;//1924px;
+
+$breakpoint-dd:          			 	800px;
+
+////Height of top-nav
+$tbl--top-nav--height: 					64px;
+
+////
+$tbl-font-map:(
+		'family': $font-family-lato,
+		'size': 24px,
+		'weight': 600,
+		'color': $w-black
+);
+
+////Chipset
+$chipset-panel--font-size:        		$font-h4-size;
+$chipset-panel--font-weight:      		$font-base-weight;
+
+//Breadcrumb
+$breadcrumb-color--bg:            		$w-black;
+$breadcrumb-color--disable:       		$w-gray-light;
+$breadcrumb-color--text:          		$w-primary-light;
+$breadcrumb-color--text-disable:  		$w-black;
+$breadcrumb-color--text-hovered:  		$w-accent;
+$breadcrumb-font--size:           		$font-base-size;
+$breadcrumb-text--invert-color:   		$black-alpha15;
+
+////Player-Card.
+$player-card:(
+		'width': 176px,
+		'height': 246px,
+		'borderWidth': 2px,
+		'borderRadius': $border-radius * 1.5,
+);
+
+$pCardW: 								map_get($player-card, 'width');
+$pCardH: 								map_get($player-card, 'height');
+$pCardBg: 							$white;
+$pCardBdrClr: 					$w-primary;
+$pCardBdrW:							map_get($player-card, 'borderWidth');
+$pCardBdrRad: 					map_get($player-card, 'borderRadius');
+
+$pCardH-surface: 												368px;
+$player-card__position-corner--radius:  $font-base-size * 4;
+$corner-radius:                         $font-base-size * 3;
+$position-num-width:                    $font-base-size * 3;
+$rd:                                    $player-card__position-corner--radius;
+$fc:                                    $w-black;
+$bg:																		$w-primary;
+
+////Dimensions for Site-thumbnails.
+$site-thumbnail__width: 			20rem;
+$site-thumbnail__height: 			15rem;
+
+
+$casinowl__bar-height: 				16px;
+$casinowl__badge-height: 			24px;
+
+////Override tab is divided into 4 sections.
+$override-sections: 					result, bet-management, card-buffer, burn-btns;
+
+////Playing card-suits.
+$playing-card-suits: 					diamonds, hearts, spades, clubs;
+
+////Size for Buttons used in Table-Dashboard.
+$tbl-button-width: 						112px;
+$tbl-button-height: 					64px;
+
+
+////Players Gallery Carousel.
+$ovl-btn-width: 							72px;
+$posWidth: 										84px;
+$ovl-btn-width:            		11vmin;
+
+$numberPlaceholderWidth:    	72px;
+$numberPlaceholderWidth-2:  	$numberPlaceholderWidth * 1.5;
+$numberPlaceholderWidth-s:  	$numberPlaceholderWidth * 1.25;
+
+//Local vars to define table's height -
+//When pagination is displayed and when pagination is not there.
+$pagination-height:                               	84px;
+$filters-oneliner-height:                         	98px;
+$filters-biliners-height:                         	196px;
+
+$netTblHeightNoPagination:                        	224px;  //224 -
+$netTblHeightNoPagination--surf:                  	14rem;
+$netTblHeightNoPagination--desk:                  	236px;
+
+$netTblHeightPagination:                          	41vmin;
+
+$netTblHeightPaginationXpandedFilters:            	412px;
+$netTblHeightPaginationXpandedFilters--desk:      	392px;
+
+$netTblHeightNoPaginationXpandedFilters:          	328px;//328-224=104
+$netTblHeightNoPaginationXpandedFilters--desk:    	388px;
+
+//Var holds the table-height in Sessions-tab.
+$ssn-tbl--ht--pagination:                         	calc(100vh - #{$netTblHeightPagination});
+$ssn-tbl--ht--pagination--surf:                   	calc(100vh - 34vmin);
+$ssn-tbl--ht--pagination--desk:                   	calc(100vh - 40vmin);
+$ssn-tbl--ht--pagination--desk-sm:                	calc(100vh - 45vmin);
+
+$ssn-tbl--ht--pagination--xpndd-fltrs:            	calc(100vh - #{$netTblHeightPaginationXpandedFilters});
+$ssn-tbl--ht--pagination--xpndd-fltrs--surf:      	calc(100vh - 25.5rem);
+$ssn-tbl--ht--pagination--xpndd-fltrs--desk:      	calc(100vh - #{$netTblHeightPaginationXpandedFilters--desk});
+
+$ssn-tbl--ht--npagination:                        	calc(100vh - 30vmin);
+$ssn-tbl--ht--npagination--surf:                  	calc(100vh - 25vmin);
+$ssn-tbl--ht--npagination--desk:                  	calc(100vh - 29vmin);
+$ssn-tbl--ht--npagination--desk-sm:               	calc(100vh - 32vmin);
+
+$ssn-tbl--ht--npagination--xpndd-fltrs:           	calc(100vh - 60vmin);
+$ssn-tbl--ht--npagination--xpndd-fltrs--surf:     	calc(100vh - 32vmin);
+$ssn-tbl--ht--npagination--xpndd-fltrs--desk:     	calc(100vh - 60vmin);
+$ssn-tbl--ht--npagination--xpndd-fltrs--desk-sm:  	calc(100vh - 63vmin);
+
+$ssn-tbl-ht-xpndd-multi-fltrs:                    	calc(100vh - 57vmin);
+$ssn-tbl-ht-xpndd-multi-fltrs--surf:              	calc(100vh - 47vmin);
+$ssn-tbl-ht-xpndd-multi-fltrs--desk:              	calc(100vh - 55vmin);
+$ssn-tbl-ht-xpndd-multi-fltrs--desk-sm:           	calc(100vh - 63vmin);
+
+$ssn-tbl-ht-pagination-xpndd-multi-fltrs:           calc(100vh - 68vmin);
+$ssn-tbl-ht-pagination-xpndd-multi-fltrs--surf:     calc(100vh - 56vmin);
+$ssn-tbl-ht-pagination-xpndd-multi-fltrs--desk:     calc(100vh - 66vmin);
+$ssn-tbl-ht-pagination-xpndd-multi-fltrs--desk-sm:  calc(100vh - 75vmin);
+
+////Fullscreen variables
+$fullscreen-height:     							100vh !default;
+$fullscreen-width:      							100vw !default;
+
+
+////Dialog: Alerts table
+$dialog-alert-tbl-container-height:                     calc(100vh - 34vmin) !default;
+$dialog-alert-tbl-pagination-container-height:          calc(100vh - 45vmin) !default;
+$dialog-alert-tbl-filters-container-height:             calc(100vh - 47vmin) !default;
+$dialog-alert-tbl-pagination-filters-container-height:  calc(100vh - 58vmin) !default;
+
+////Table > Players tab:
+$tbl-players-tab-wrapper-height:  						calc(100vh - 148px);
+
+
+////Player-gallery variables.
+$player-image-width: 164px;
+
+
+////Inventory variables declaration.
+$top-nav-ht:                    						64px;
+$top-nav-ht-desktop:            						48px;
+$footer-nav-ht:                	 						72px;
+$total-ht:                      						$top-nav-ht + $footer-nav-ht;
+
+$total-ht-laptop:               						$top-nav-ht-desktop + $footer-nav-ht;
+$total-ht-desktop:              						$top-nav-ht-desktop + $footer-nav-ht;
+
+$inventory-net-height:            						calc(100vh - 18.4vmin);
+$inventory-net-height-surface:    						calc(100vh - 15vmin);
+$inventory-net-height-desktop:    						calc(100vh - 17.4vmin);
+$inventory-net-height-desktop-sm: 						calc(100vh - 19.2vmin);
+
+////z-indexing
+$z-footer: 100;
+
+////Inventory: Chiptray dialog table
+$dlg-chptry-tbl-pagination-filters-ht:  				calc(100vh - 400px);
+$dlg-chptry-tbl-filters-ht:             				calc(100vh - 316px);
+$dlg-chptry-tbl-pagination-ht:          				calc(100vh - 320px);
+$dlg-chptry-tbl-ht:                     				calc(100vh - 236px);
+
+$border-radius1:    									$border-radius;
+$border-radius2:    									$border-radius * 2;
+$border-radius3:    									$border-radius * 3;
+$border-radius4:    									$border-radius * 4;
+$border-radius5:    									$border-radius * 5;
+
+
+////Manual Rating Form
+$heightExcluded:          								312px;
+$heightExcluded-surface:  								20rem;
+
+$font-lato:(
+	small:(
+		font-size: 14,
+		line-height: 20
+	),
+
+	base:(
+		font-size: 16,
+		line-height: 18
+	),
+
+	large:(
+		font-size: 24,
+		line-height: 31
+	),
+
+	x-large:(
+		font-size: 30,
+		line-height: 39
+	)
+);
+
+$font-line-weight:() !default;
+
+$font-weight:(
+	small:(
+		light: 400,
+		bold: 600
+	),
+	base:(
+		light: 400,
+		bold: 600
+	),
+	large:(
+		light: 400,
+		bold: 600
+	),
+	x-large:(
+		light: 400,
+		bold: 600
+	)
+);

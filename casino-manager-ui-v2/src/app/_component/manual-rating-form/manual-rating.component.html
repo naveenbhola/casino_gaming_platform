@@ -1,0 +1,287 @@
+<h2 mat-dialog-title class="manual-rating-dialog__title">
+  {{'application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.MANUAL_RATING_FORM' | translate}}
+  <span class="space-filler"></span>
+
+  <button mat-button tabindex="-1" class="close-btn">
+    <mat-icon (click)="onClose()">close</mat-icon>
+  </button>
+
+</h2>
+
+<div mat-dialog-content class="manual-rating--form__wrapper" [ngClass]="{'has-player': sessionRejectAprove}">
+  <form class="manual-rating--form" name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+    <div *ngIf="sessionCreate || playerCreate || playerExisting" class="manual-rating--form__row">
+      <mat-form-field class="manual-rate__form-field" appearance="fill">
+        <mat-label [translate]="'application.app.common.labels.TABLE'">Table</mat-label>
+        <input matInput [(ngModel)]="tableName" name="tableName" disabled>
+      </mat-form-field>
+
+      <mat-form-field class="manual-rate__form-field" appearance="fill">
+        <mat-label [translate]="'application.app.CONFIGURATION_LABELS.PROMOTION.CREATED_BY'"></mat-label>
+        <input matInput [(ngModel)]="createdBy" name="createdBy" disabled>
+      </mat-form-field>
+
+      <mat-form-field class="manual-rate__form-field manual-rate__form-field--seat-width">
+        <mat-label [translate]="'application.app.CASINO_MGR_LABELS.SEAT_NUMBER'"></mat-label>
+        <mat-select [(ngModel)]="seatNo" name="seatNo" [required]="true" placeholder="Seat No"
+                    [disabled]="playerCreate || playerExisting" [(value)]="seatNo">
+          <mat-option *ngFor="let option of seatNoArry;trackBy:trackByIndex" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="sessionRejectAprove" class="manual-rating--form__row">
+      <mat-form-field class="manual-rate__form-field" appearance="fill">
+        <mat-label [translate]="'application.app.common.labels.TABLE'"></mat-label>
+        <input matInput [(ngModel)]="tableName" name="tableName" disabled>
+      </mat-form-field>
+
+      <mat-form-field class="manual-rate__form-field" appearance="fill">
+        <mat-label [translate]="'application.app.CONFIGURATION_LABELS.PROMOTION.CREATED_BY'"></mat-label>
+        <input matInput [(ngModel)]="createdBy" name="createdBy" disabled>
+      </mat-form-field>
+
+      <mat-form-field hideRequiredMarker class="manual-rate__form-field manual-rate__form-field--seat-width" appearance="fill">
+        <mat-label [translate]="'application.app.CASINO_MGR_LABELS.SEAT_NUMBER'"></mat-label>
+        <mat-select [required]="true" [(ngModel)]="seatNo" name="seatNo" [disabled]="readonly" [(value)]="seatNo">
+          <mat-option *ngFor="let option of seatNoArry;trackBy:trackByIndex" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="manual-rating--form__row">
+
+      <div class="manual-rate__form-field manual-rate__custom-form-field">
+        <div class="manual-rate__custom-form-field__wrapper">
+          <div class="label" *ngIf="filterConfigOption.selectedOptions.length === 0">{{promotionPlaceholder}}</div>
+          <div class="value" *ngIf="filterConfigOption.selectedOptions.length === 0"></div>
+          <app-filter [configOptions]="filterConfigOption"
+                      [isDisabled]="true"
+                      class='filter__promotion'
+                      *ngIf="filterConfigOption.selectedOptions.length > 0">
+          </app-filter>
+        </div>
+      </div>
+
+      <mat-form-field hideRequiredMarker class="manual-rate__form-field" appearance="standard" *ngIf="!readonly">
+        <mat-label translate="application.app.common.labels.START_TIME"></mat-label>
+        <input matInput [(ngModel)]="startTime" [required]="true" name="startTime" [max]="currentTimeStamp"
+               (click)="updateCurrentTimeStamp()" placeholder="00:00" [owlDateTimeTrigger]="promodt1"
+               [owlDateTime]="promodt1" autocomplete="off" readonly="true" [disabled]="readonly"
+               (dateTimeInput)="validateInputs()" #domStartTime>
+        <owl-date-time (afterPickerClosed)="calculateTime()" #promodt1></owl-date-time>
+      </mat-form-field>
+
+      <div class="form-field-button__wrapper" *ngIf="!readonly">
+        <button mat-flat-button class="button--clear" *ngIf="stopTime && !readonly" (click)="clearTime()">{{'application.app.common.labels.CLEAR' | translate}}</button>
+        <mat-form-field hideRequiredMarker class="manual-rate__form-field" appearance="standard">
+          <mat-label translate="application.app.PLAYER_DASH_LABELS.STOP_TIME"></mat-label>
+          <input matInput [(ngModel)]="stopTime" name="stopTime" [required]="true" (click)="updateCurrentTimeStamp()"
+                 (change)="calculateTime()" placeholder="00:00" [min]="startTime" [max]="currentTimeStamp"
+                 [owlDateTimeTrigger]="promodt2" [owlDateTime]="promodt2" autocomplete="off" readonly="true" [disabled]="readonly"
+                 (dateTimeInput)="validateInputs()" #domStopTime>
+          <owl-date-time (afterPickerClosed)="calculateTime()" #promodt2></owl-date-time>
+        </mat-form-field>
+      </div>
+
+      <div class="manual-rate__form-field manual-rate__custom-form-field" *ngIf="readonly">
+        <div class="manual-rate__custom-form-field__wrapper">
+          <div class="label">{{'application.app.common.labels.START_TIME' | translate}}</div>
+          <div class="value">
+            {{startTime | date: 'M/d/yyyy, HH:mm'}}
+          </div>
+        </div>
+      </div>
+
+      <div class="manual-rate__form-field manual-rate__custom-form-field" *ngIf="readonly">
+        <div class="manual-rate__custom-form-field__wrapper">
+          <div class="label">{{'application.app.PLAYER_DASH_LABELS.STOP_TIME' | translate}}</div>
+          <div class="value">
+            {{stopTime | date: 'M/d/yyyy, HH:mm'}}
+          </div>
+        </div>
+      </div>
+
+      <mat-form-field class="manual-rate__form-field manual-rate__form-field--total-time" appearance="fill">
+        <mat-label>{{'application.app.common.labels.TOTAL_TIME_IN_HOUR' | translate}}</mat-label>
+        <input matInput [(ngModel)]="totalTime" name="totalTime" disabled>
+      </mat-form-field>
+
+    </div>
+
+    <div class="manual-rating--form__row" *ngIf="!readonly">
+
+      <mat-form-field class="manual-rate__form-field">
+        <mat-label>MID</mat-label>
+        <input matInput
+               type="text"
+               #MidIDRef
+               isZeroValReq=false
+               appNumberOnly
+               [lengthForField]="10"
+               (inputChange)="onChangeValue($event,10)"
+               [(ngModel)]="irc"
+               (keypress)="validateMIDField($event)"
+               name="irc"
+               [disabled]="readonly"
+               placeholder="0">
+      </mat-form-field>
+
+      <mat-form-field class="manual-rate__form-field">
+        <mat-label>{{'application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.CASH_BUY_IN' | translate}}</mat-label>
+        <input matInput type="text" appNumberOnly [lengthForField]="10" class="text-right" [(ngModel)]="cashBuyIn" name="cashBuyIn" placeholder="0" [disabled]="readonly">
+      </mat-form-field>
+
+      <mat-form-field hideRequiredMarker class="manual-rate__form-field">
+        <mat-label>{{'application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.AVERAGE_BET' | translate}}</mat-label>
+        <input matInput type="text"
+               appNumberOnly
+               isZeroValReq=false
+               [lengthForField]="10"
+               class="text-right"
+               [required]="true"
+               [(ngModel)]="avgBet"
+               name="avgBet"
+               [disabled]="readonly"
+               placeholder="1">
+      </mat-form-field>
+
+      <mat-form-field hideRequiredMarker class="manual-rate__form-field">
+        <mat-label>{{'application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.CASINO_WL' | translate}}</mat-label>
+        <input matInput type="text" class="text-right" appNumberOnly [lengthForField]="10" [negativeValReq]="true" [required]="true" [(ngModel)]="casinoWL" name="casinoWL"
+               placeholder="0" [disabled]="readonly">
+      </mat-form-field>
+    </div>
+
+    <div class="manual-rating--form__row" *ngIf="readonly">
+
+      <div class="manual-rate__form-field manual-rate__custom-form-field">
+        <div class="manual-rate__custom-form-field__wrapper">
+          <div class="label">MID</div>
+          <div class="value">
+            {{irc}}
+          </div>
+        </div>
+      </div>
+
+      <div class="manual-rate__form-field manual-rate__custom-form-field">
+        <div class="manual-rate__custom-form-field__wrapper">
+          <div class="label">{{'application.app.TABLE_DASH_LABELS.MANUAL_RATINGS.COLHEADERS.CASH_BUY_IN' | translate}}</div>
+          <div class="value">
+            {{cashBuyIn | currency : '' : '' : '1.0'}}
+          </div>
+        </div>
+      </div>
+
+      <div class="manual-rate__form-field manual-rate__custom-form-field">
+        <div class="manual-rate__custom-form-field__wrapper">
+        <div class="label">{{'application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.AVERAGE_BET' | translate}}</div>
+        <div class="value">
+          {{avgBet | currency : '' : '' : '1.0'}}
+        </div>
+        </div>
+      </div>
+
+      <div class="manual-rate__form-field manual-rate__custom-form-field">
+        <div class="manual-rate__custom-form-field__wrapper">
+        <div class="label">{{'application.app.TABLE_DASH_LABELS.SESSIONS.COLHEADERS.CASINO_WL' | translate}}</div>
+        <div class="value" [ngStyle]="{'color': casinoWL > -1 ? '' : 'red'}">
+          {{casinoWL  > -1 ? (casinoWL | currency : '' : '' : '1.0') : '(' + ((casinoWL * -1) | currency : '' : '' : '1.0') + ')'}}
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <div class="searched-players__wrapper" *ngIf="playerSearchArray.length > 0 || sessionRejectAprove">
+    <button mat-flat-button class="common-button button--zoom" (click)="zoomPlayer = !zoomPlayer">
+      <i class="material-icons">zoom_in</i>
+    </button>
+    <div class="selected-player__image">
+      <img *ngIf="imageType === 'URL'" [src]="playerImage" (error)="loadDefaultImage($event)"/>
+      <img *ngIf="imageType === 'BASE64'" [src]="'data:image/png;base64,'+playerImage" (error)="loadDefaultImage($event)"/>
+      <img *ngIf="!imageType" [src]="playerImage" (error)="loadDefaultImage($event)"/>
+    </div>
+    <div class="selected-player__name-id" *ngIf="sessionRejectAprove">
+      <div class="selected-player__name">{{playerName}}</div>
+      <div class="selected-player__id">({{playerId}})</div>
+    </div>
+    <div class="searched-players__list--wrapper" *ngIf="sessionCreate || playerCreate">
+      <div class="searched-players__list__item" [ngClass]="{'selected': playerObj.selected}"
+           (click)="selectPlayer(playerObj)" *ngFor="let playerObj of playerSearchArray;trackBy:trackByIndex">{{playerObj.lastName}}
+        , {{playerObj.firstName}}({{playerObj.playerId}})
+      </div>
+    </div>
+    <div class="searched-players__list--wrapper" *ngIf="playerExisting">
+      <div class="searched-players__list__item" [ngClass]="{'selected': playerObj.selected}"
+           (click)="selectPlayer(playerObj)" *ngFor="let playerObj of playerSearchArray;trackBy:trackByIndex">{{playerObj.lastName}}
+        , {{playerObj.firstName}}({{playerObj.casinoPlayerId}})
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dialog Footer controls -->
+<div mat-dialog-actions>
+    <div class="space-filler"></div>
+  <div class="dialog__footer__default-controls" *ngIf="appService.hasPermissionOf('CASINO_MGR','APPROVE_MANUAL_RATING_CMR') && manualObj.manuallRatingStatus !== 'CLOSED' && manualObj.manuallRatingStatus !== 'OPEN' && !isManualRatingApprovedOrReject">
+    <button mat-stroked-button
+            class="common-button"
+            (click)="onClose()"> {{'application.app.common.labels.CLOSE' | translate}} </button>
+    <button mat-stroked-button
+            class="common-button"
+            [ngClass]="{'button--default':true}"
+            [disabled]="stopTime|| f.form.get('startTime').invalid  || !selectedPlayer || buttonDisableOnClick"
+            (click)="createManalRating('save')"
+            *ngIf="playerCreate || playerExisting"> {{'application.app.common.labels.SAVE' | translate}} </button>
+    <button mat-stroked-button
+            class="common-button"
+            [ngClass]="{'mat-elevation-z4': !(f.form.invalid || !selectedPlayer)}"
+            [disabled]="f.form.invalid || !selectedPlayer || buttonDisableOnClick"
+            (click)="createManalRating('submit')"
+            *ngIf="playerCreate || sessionCreate || playerExisting"> {{'application.app.common.labels.SUBMIT' | translate}} </button>
+    <button mat-stroked-button
+            class="common-button"
+            (click)="cancelManalRating()"
+            *ngIf="sessionRejectAprove"
+            [disabled]="buttonDisableOnClick"> {{'application.app.common.labels.CANCEL_RATING' | translate}} </button>
+    <button mat-stroked-button
+            class="common-button"
+            (click)="approveManualRating()"
+            [disabled]="(avgBet < 1 || (cashBuyIn ? cashBuyIn < 1 : false)) || buttonDisableOnClick || f.form.invalid"
+            *ngIf="sessionRejectAprove"> {{'application.app.common.labels.TOPSUBNAV.APPROVE' | translate}} </button>
+  </div>
+
+  <div class="dialog__footer__default-controls"
+  *ngIf="!(appService.hasPermissionOf('CASINO_MGR','APPROVE_MANUAL_RATING_CMR') && manualObj.manuallRatingStatus !== 'CLOSED' && manualObj.manuallRatingStatus !== 'OPEN' && !isManualRatingApprovedOrReject)">
+    <button mat-stroked-button
+            class="common-button"
+            (click)="onClose()"> {{'application.app.common.labels.CLOSE' | translate}} </button>
+    <button mat-stroked-button
+            class="common-button"
+            [disabled] = "'true'"
+            *ngIf="sessionRejectAprove && manualObj.manuallRatingStatus === 'PENDING'"> {{'application.app.common.labels.CANCEL_RATING' | translate}} </button>
+    <button mat-stroked-button
+            class="common-button"
+            disabled
+            *ngIf="sessionRejectAprove && manualObj.manuallRatingStatus === 'PENDING'"> {{'application.app.common.labels.TOPSUBNAV.APPROVE' | translate}} </button>
+  </div>
+
+</div>
+
+
+<div class="player-enlarged__backdrop" *ngIf="zoomPlayer"></div>
+
+<div class="player-enlarged__container" *ngIf="zoomPlayer">
+  <button mat-button tabindex="0">
+    <mat-icon (click)="zoomPlayer = !zoomPlayer">close</mat-icon>
+  </button>
+  <div class="player-image__wrapper">
+    <img [src]="playerImage" (error)="loadDefaultImage($event)"/>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+import { OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CageService } from '../../services/cage.service';
+import { CurrentTopologyService } from '../../services/current-topology.service';
+import { TranslateService } from '@ngx-translate/core';
+import { GamingDayDDInterface, RollTimeInterface } from '../../interface/cage.interface';
+import * as ɵngcc0 from '@angular/core';
+export declare class RollTimeDialogComponent implements OnInit {
+    private dialog;
+    private dialogRef;
+    private cageService;
+    private currentTopologyService;
+    private snackBar;
+    private translate;
+    private dateTime;
+    startAt: Date;
+    minStartTime: Date;
+    maxDateTime: Date;
+    private requestObject;
+    private rollTimeData;
+    renderedRollTimeData: Array<RollTimeInterface>;
+    displayedColumns: Array<string>;
+    currentGamingDays: Array<GamingDayDDInterface>;
+    selectedGamingDay: Date;
+    private currentGamingDay;
+    disableRollTimeSelection: Boolean;
+    private rollTimeTopologyMap;
+    selectedNodeIds: Array<number>;
+    private rollTimePayloadData;
+    constructor(dialog: MatDialog, dialogRef: MatDialogRef<any>, cageService: CageService, currentTopologyService: CurrentTopologyService, snackBar: MatSnackBar, translate: TranslateService);
+    setCurrentData(): void;
+    ngOnInit(): void;
+    getRollTimeData(): void;
+    userConditions(): void;
+    setTimeOnCalender(selectedRollTime: Date): void;
+    selectedRollTime(rollTime: string): void;
+    selectLocation(location: RollTimeInterface): void;
+    locationSelection(location: RollTimeInterface): void;
+    childrenNodes(childrenNodeMap: Object): void;
+    callRecursively(childrenNodeMap: Object, currentChildrenNodes: any, allChildrenNodes: string[]): void;
+    extractNodeIdFromHref(hrefArray: string): number[];
+    processTopology(topologyObj: Array<RollTimeInterface>): void;
+    locationPath(currentTopologyName: any, path: any): Array<string>;
+    onClose(): void;
+    onGamingDaySelection(): void;
+    renderView(): void;
+    sortDataObj(obj: any): Array<RollTimeInterface>;
+    submitRollTime(): void;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<RollTimeDialogComponent, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<RollTimeDialogComponent, "app-roll-time-dialog", never, {}, {}, never, never>;
+}
+
+//# sourceMappingURL=roll-time-dialog.component.d.ts.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"access-denied.component.d.ts","sources":["access-denied.component.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;AACA;;;AACA","sourcesContent":["import { OnInit } from '@angular/core';\nexport declare class AccessDeniedComponent implements OnInit {\n    constructor();\n    ngOnInit(): void;\n}\n"]}

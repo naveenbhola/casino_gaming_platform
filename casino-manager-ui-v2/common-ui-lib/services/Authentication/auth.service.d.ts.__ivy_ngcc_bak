@@ -1,0 +1,8 @@
+import { HttpBackend } from '@angular/common/http';
+import { Observable } from 'rxjs';
+export declare class AuthService {
+    private http;
+    constructor(httpBackend: HttpBackend);
+    getRefreshToken(clientId: any): Observable<any>;
+    logout(): Observable<Object>;
+}

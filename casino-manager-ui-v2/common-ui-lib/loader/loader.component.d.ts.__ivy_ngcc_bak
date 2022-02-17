@@ -1,0 +1,4 @@
+export declare class LoaderComponent {
+    constructor();
+    generateFake(count: number): Array<number>;
+}

@@ -1,0 +1,57 @@
+//
+%grand-total__row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  font-weight: inherit;
+}
+
+@mixin make-tbl-grand-total-container {
+  background-color: $white;
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 10fr;
+  align-items: center;
+  align-self: stretch;
+  font-size: 24px;
+  font-weight: 600;
+  color: $w-accent;
+  margin-bottom: 8px;
+}
+
+@mixin grand-total-data-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  border: 1px solid $w-primary;
+}
+
+@mixin grand-total-labels-row {
+  @extend %grand-total__row;
+  background-color: $w-primary-dark;
+  color: $white;
+  font-size: 0.83333em;
+}
+
+@mixin grand-total-values-row {
+  @extend %grand-total__row;
+  background-color: $white;
+  color: $w-accent;
+  font-size: 1em;
+}
+
+@mixin tbl-grand-total {
+  @include make-tbl-grand-total-container;
+
+  &__data-wrapper {
+    @include grand-total-data-wrapper;
+  }
+
+  &__labels-row {
+    @include grand-total-labels-row;
+  }
+
+  &__values-row {
+    @include grand-total-values-row;
+  }
+}

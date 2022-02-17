@@ -1,0 +1,16 @@
+import { OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { UtilityService } from '../services/utility.service';
+export declare class AppSwitcherComponent implements OnInit {
+    private snackBar;
+    dialog: MatDialog;
+    utilService: UtilityService;
+    isLoginApp: boolean;
+    isPPMaster: boolean;
+    currentAppCode: any;
+    constructor(snackBar: MatSnackBar, dialog: MatDialog, utilService: UtilityService);
+    ngOnInit(): void;
+    openAppMenu(): void;
+    closeAppMenu(): void;
+}

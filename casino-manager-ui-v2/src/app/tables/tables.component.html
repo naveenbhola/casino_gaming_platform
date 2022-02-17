@@ -1,0 +1,36 @@
+<app-tabs></app-tabs>
+<div class="tables-tab-container has-page-top-tab-bar" [ngClass]="{'has-table-cards': selectedView === 'grid'}">
+
+  <div class="view-type-div">
+    <mat-button-toggle-group [value]="selectedView">
+      <mat-button-toggle value="table" (click)="selectViewType('table')">
+        <mat-icon>view_headline</mat-icon></mat-button-toggle>
+      <mat-button-toggle value="grid" (click)="selectViewType('grid')">
+        <mat-icon>view_module</mat-icon></mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <app-tables *ngIf="selectedView === 'table'"
+              [tableHeaders]="tableHeaders"
+              [tableRows]="tablesData"
+              [totalRecords]="totalRecords"
+              [tableTitleNotRequired]="titleNotReq"
+              [filterOptions]="filterConfig"
+              (filter)="updateFilter($event)"
+              (node)="updateEventObj($event)"
+              (sort)="sortData($event)"
+              [inputStart]="tableStart"
+              [inputCurrentPage]="tableCurrentPage"
+              [inputLimit]="tableLimit"
+              (pagination)="updatePaginationEvent($event)">
+  </app-tables>
+  <app-table-grid *ngIf="selectedView === 'grid'"
+              [lastGameData]="gridsLastGameData"
+              [tableStats]="gridsData"
+              [nodesMap]="tableNodeMap"
+              [tableData]="tablesDataForGrid"
+              [alertsData]="alertsData"
+              [pagesMap]="pagesMap"
+              [totalRecords]="totalRecords"
+              [allNodeIds]="tableTopologyIds"></app-table-grid>
+</div>

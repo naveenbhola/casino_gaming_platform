@@ -1,0 +1,13 @@
+import { CurrentTopologyService } from '../../services/current-topology.service';
+import { AlertCount } from '../../interface/alert.interface';
+import { TopologyStatistics } from '../../interface/topology-types.interface';
+export declare class SubnavDataBarComponent {
+    private currentTopology;
+    alertsCount: AlertCount;
+    topologyStatistics: TopologyStatistics;
+    private currentToplogyId;
+    private currentGamingDay;
+    constructor(currentTopology: CurrentTopologyService);
+    updateTopology(): void;
+    convertToNumber(value: any): number;
+}

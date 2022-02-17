@@ -1,0 +1,115 @@
+@import
+"~common-ui/styles/variables",
+"~common-ui/styles/mixins",
+"~common-ui/styles/button",
+"~common-ui/styles/common",
+"~src/styles/common",
+"~src/styles/mixins-local";
+
+.pp-dialog__title {
+  @include dialog-title;
+  font-size: $font-base-size;
+  padding: 0.5%;
+  margin-bottom: 0;
+
+  &.bold {
+    font-weight: $font-base-weight;
+  }
+}
+
+.pp-dialog__content {
+  @include dialog-body-content;
+  padding-top: 1%;
+
+}
+
+.pp-dialog__actions {
+  @include dialog-footer-controls;
+}
+
+
+.steps-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  .step {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 8vmax;
+    z-index: 1;
+    padding: 2% 0 4%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    h5, h6 {
+      @include include-font-style($font-base-size * 0.85, $font-base-bold);
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    h6 {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  .divider {
+    margin: 0em -12em 1.5em;
+    border-bottom: 2px solid $light-gray;
+    width: 100%;
+  }
+
+  .active {
+    border-bottom: 2px solid $darker-gray;
+  }
+
+
+  .icon__status {
+    width: 40px;
+    margin: 0.4vmin 0;
+  }
+}
+
+
+.grand-total {
+  padding: 1% 0;
+
+  &__wrapper {
+    display: flex;
+    background-color: #e6e6e6;
+    border-radius: $border-radius;
+    padding: 0 1%;
+  }
+
+  .section {
+    flex: 1;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 1rem;
+
+    &:nth-child(2){
+      align-items: center;
+    }
+
+    &:last-child {
+      align-items: flex-end;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.3;
+    }
+  }
+}

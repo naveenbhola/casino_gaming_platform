@@ -1,0 +1,150 @@
+@import "../../../styles/colors", "../../../styles/variables", "../../../styles/functions";
+
+//
+//**** Styles for Player-details view.
+//
+.player-details__card {
+	min-width: 400px;
+	max-width: 448px;
+	height: 352px;
+	
+	&-content {
+		background-color: $w-primary;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		padding: 0.5rem;
+		border-radius: $border-radius * 1.5;
+	}
+}
+
+.player-details {
+	&__image-profile,
+	&__sessions-wrapper {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		justify-items: center;
+		border-radius: $border-radius * 1.5;
+		background-color: $white;
+		padding: 0;
+	}
+	
+	&__image-profile {
+		justify-content: center;
+		align-items: center;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	
+	&__sessions-wrapper {
+		background-color: $light-gray;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+}
+
+.player-details__session-row {
+	display: flex;
+	flex-grow: 1;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 0.5rem;
+	border-bottom: 1px solid transparentize(get-color('bblack'), 0.9);
+	opacity: 0.8;
+	
+	&:first-child {
+		border-bottom: 1px solid $w-primary-light;
+	}
+	
+	&:nth-child(1),
+	&:nth-child(2) {
+		background-color: $w-black;
+		color: $w-primary-light;
+		opacity: 1;
+	}
+	
+	> span {
+		font-size: $base-font-size * 1.5;
+		font-weight: $base-font-weight;
+		line-height: 1;
+		color: inherit;
+	}
+	
+	&--sm {
+		max-height: 24px;
+		
+		> span {
+			font-size: $base-font-size * 1.25 !important;
+			font-weight: $base-font-weight;
+		}
+		
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
+.player-image {
+	display: flex;
+	justify-content: center;
+	padding: 0.5rem 0;
+	background-color: $w-primary-light;
+	width: 100%;
+	
+	> img {
+		$width: 164px;
+		width: $width;
+		height: $width;
+	}
+}
+
+.player-profile__block {
+	flex-grow: 1;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-areas: "a" "b";
+	grid-template-rows: 36px 1fr;
+	align-items: center;
+	justify-items: center;
+	min-height: 128px;
+	width: 100%;
+	padding-top: 0.5rem;
+	
+	.player-name {
+		grid-area: b;
+		font-size: $base-font-size * 1.5;
+		font-weight: $base-font-weight;
+		line-height: 1.2;
+		text-align: center;
+	}
+	
+	.player-id {
+		font-size: $base-font-size * 1.25;
+		font-weight: $base-font-weight;
+		line-height: 1;
+	}
+	
+	.player-type {
+		grid-area: a;
+		width: 32px;
+		height: 32px;
+		border: 2px solid $w-black;
+		background-color: $w-gray;;
+		border-radius: 50%;
+		
+		&.player-anonymous { @include player--type('anonymous'); }
+		
+		&.player-known { @include player--type('known'); }
+		
+		&.player-rated { @include player--type('rated'); }
+		
+		&.player-manrate { @include player--type('manrate'); }
+	}
+}
+
+.player-profile {
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+	align-items: center;
+}

@@ -1,0 +1,48 @@
+<app-tabs></app-tabs>
+<div class="players-tab-container has-page-top-tab-bar">
+  <div class="view-type-div">
+    <mat-button-toggle-group [value]="selectedView">
+      <mat-button-toggle value="table" (click)="selectViewType('table')">
+        <mat-icon>view_headline</mat-icon></mat-button-toggle>
+      <mat-button-toggle value="grid" (click)="selectViewType('grid')">
+        <mat-icon>view_module</mat-icon></mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div *ngIf="selectedView === 'table'">
+    <app-tables [tableHeaders]="playerTableHeaders"
+                [tableRows]="playersTableData"
+                [totalRecords]="totalRecords"
+                [tableTitleNotRequired]="titleNotReq"
+                [gamingDay]="gamingDay"
+                [filterOptions]="filterConfig"
+                [inputStart]="inputStart"
+                [inputCurrentPage]="inputCurrentPage"
+                [inputLimit]="inputLimit"
+                (filter)="updateFilter($event)"
+                (pagination)="updatePagination($event)"
+                (node)="updateEventObj($event)"
+                (sort)="sortData($event)">
+    </app-tables>
+  </div>
+  <div *ngIf="selectedView === 'grid'">
+    <div class="grid-view__container"
+    [ngClass]="{'has-pagination': totalRecords > gridDefaultLimit}" >
+      <app-player-grid-view
+      *ngIf="!(totalRecords < 1)"
+      [playerListArray]="playersTableData"
+      [totalRecords]="totalRecords"></app-player-grid-view>
+      <app-pagination *ngIf="totalRecords > gridDefaultLimit"
+                      [inputStart]="gridStart"
+                      [inputCurrentPage]="gridCurrentPage"
+                      [inputLimit]="gridLimit"
+                      [isTableGrid]="true"
+                      [totalRecord]="totalRecords"
+                      [perPageOption] = "perPageOptionForGrid"
+                      (EMIT_PAGINATION)="updateGridPagination($event)"></app-pagination>
+      <div class="show__no-data-txt" *ngIf="totalRecords < 1">
+        <h4 [translate]="'application.app.common.labels.NO_DATA_AVAILABLE'"></h4>
+      </div>
+    </div>
+  </div>
+
+</div>

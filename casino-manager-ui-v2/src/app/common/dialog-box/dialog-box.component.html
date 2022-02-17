@@ -1,0 +1,77 @@
+<!--<div>-->
+<div [hidden]="loading">
+  <h2 mat-dialog-title class="d-flex border-bottom">
+      <span *ngIf="data.window === 'DENOMS'"
+            [translate]="'application.app.common.labels.DENOMINATIONS'">Denominations</span>
+    <span class="space-filler"></span>
+    <button mat-button tabindex="-1" class="close-btn">
+      <mat-icon (click)="closeDialogBox()">close</mat-icon>
+    </button>
+  </h2>
+  <div mat-dialog-content>
+    <div *ngIf="data.window === 'DENOMS'">
+      <div *ngFor="let denom of data.param;trackBy:trackByIndex;" class="float-left pr-3">
+        <app-chip-icons [chipIconKey]="denom"></app-chip-icons>
+      </div>
+    </div>
+    <div *ngIf="data.window === 'CURRENCY_LIST'">
+      <div class="table-data__container">
+        <table mat-table class="w-100" [dataSource]="currencyList" role="grid">
+
+          <ng-container matColumnDef="CURRENCY_LABEL">
+            <th mat-header-cell class="table-header-cell__gray table-header-cell__compact" *matHeaderCellDef>
+              <span [translate]="'application.app.CONFIGURATION_LABELS.CHIPSETS.CURRENCY_LABEL'">Currency Label</span>
+            </th>
+            <td mat-cell class="table-cell__compact" *matCellDef="let element; let i = index">
+              <form [ngClass]="{'form__editable-text mat-elevation-z2': isCurrClicked && i === currIndex}">
+                  <span class="form__editable-text__underlined-label"
+                        (click)="nameDblClicked(i)"
+                        *ngIf="i !== currIndex">{{element.currencyLabel}}</span>
+
+                <mat-form-field *ngIf="isCurrClicked && i === currIndex" class="mr-1">
+                  <input matInput value={{element.currencyLabel}} maxlength="100"
+                         (blur)="getChangedLabel($event.target.value)">
+                </mat-form-field>
+
+                <button mat-stroked-button
+                        class="common-button common-button__sm mr-2 mat-elevation-z1"
+                        color="primary"
+                        *ngIf="isCurrClicked && i === currIndex"
+                        (click)="updateCurrencyLabel(changedCurrLabel, element)">
+                  <mat-icon>done</mat-icon>
+                </button>
+
+                <button mat-stroked-button
+                        class="common-button common-button__sm mat-elevation-z1"
+                        color="primary"
+                        *ngIf="isCurrClicked && i === currIndex"
+                        (click)="cancelUpdation()">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </form>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="CURRENCY_CODE">
+            <th mat-header-cell class="table-header-cell__gray table-header-cell__compact" *matHeaderCellDef>
+              <span [translate]="'application.app.CONFIGURATION_LABELS.CHIPSETS.CURRENCY_CODE'">Currency Code</span>
+            </th>
+
+            <td mat-cell class="table-cell__compact" *matCellDef="let element">{{element.currencyCd}}</td>
+          </ng-container>
+
+          <tr mat-header-row class="table-header-row__compact" *matHeaderRowDef="currencyColumns; sticky: true; "></tr>
+          <tr mat-row *matRowDef="let row; columns: currencyColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions class="d-flex">
+    <span class="space-filler"></span>
+  </div>
+</div>
+<mat-spinner
+  *ngIf="loading"
+  [diameter]="60"
+  class="mx-auto mt-5"></mat-spinner>
+<!--</div>-->

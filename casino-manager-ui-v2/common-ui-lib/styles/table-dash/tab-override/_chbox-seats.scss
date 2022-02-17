@@ -1,0 +1,33 @@
+.chbox-seats {
+	font-size: $font-base-size * 1.25;
+	font-weight: $font-base-weight;
+	
+	&__select-all {
+		padding: 0.5rem 1rem;
+		justify-self: center;
+		@extend .border-bottom !optional;
+	}
+	
+	&__wrapper {
+		display: flex;
+		flex-flow: wrap;
+		flex-grow: 1;
+		padding: 0.5rem 1rem;
+		justify-content: flex-start;
+		align-content: space-between;
+	}
+	
+	.mat-checkbox {
+		font-size: $font-base-size * 1.25;
+		font-weight: $font-base-weight;
+		line-height: 2.5;
+		min-width: 25%;
+		align-self: flex-start;
+		
+		.mat-checkbox-inner-container {
+			$width: 24px;
+			width: $width;
+			height: $width;
+		}
+	}
+}

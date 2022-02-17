@@ -1,0 +1,44 @@
+<app-tabs></app-tabs>
+<div class="scan-data__chip-security has-page-top-tab-bar">
+<div class="table-header__row">
+    <button mat-stroked-button
+                  (click)="backClicked()"
+                  class="common-button" color="primary">
+            <mat-icon>chevron_left</mat-icon>
+            <span>
+            {{ 'application.app.common.labels.BACK' | translate }}
+          </span>
+          </button>
+        <!-- </a> -->
+        <h3 class="table-section__title-section">
+          <span>
+            {{ 'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.COMPARISON.SCAN_DATA' | translate  }}
+          </span>&nbsp;({{tableName}})
+        </h3>
+   </div>
+   <app-tables *ngIf="loaded"
+            id="scan-data__chip-security__scan-table"
+            [tableHeaders]="tableHeaders"
+            [tableRows]="chipTrayScanData"
+            [totalRecords]="totalRecords"
+            [filterOptions]="filterConfigOption"
+            (filter)="updateFilter($event)"
+            [showFilters]="true"
+            (filterChange)="updateChangedFilters($event)"
+            (checkBoxEvent)="updateCheckedStatus($event)"
+            [inputStart]="compStart"
+            [inputCurrentPage]="compCurrentPage"
+            [inputLimit]="compLimit"
+            (pagination)="updatePagination($event)">
+
+    <button mat-raised-button
+          class="common-button mr-3"
+          (click)="compareButtonClick()"
+          [disabled]="selectedRows.length < 2"
+          color='primary'>
+      <span>
+       {{ 'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.COMPARISON.COMPARE' | translate }}
+      </span>
+    </button>
+  </app-tables>
+</div>

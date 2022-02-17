@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{title | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+  <!--<div class="confirm-msg">-->
+  <h3 translate="{{'application.app.CASINO_MGR_LABELS.MESSAGE.CHANGE_STATUS_MESSAGE' | translate}}">
+  </h3>
+</mat-dialog-content>
+
+<mat-dialog-actions  align="end" >
+  <button mat-flat-button mat-dialog-close (click)="onClose()"> {{'No' | translate}} </button>
+  <button color="primary" mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="onConfirm()"> {{'Yes' | translate}} </button>
+</mat-dialog-actions>
+
+<!--
+<div mat-dialog-content class="dialog__confirmation__content confirm-dialog">
+  <div class="confirm-msg">
+    <div>
+      <span translate="{{'application.app.CASINO_MGR_LABELS.MESSAGE.CHANGE_STATUS_MESSAGE' | translate}}"></span>
+    </div>
+  </div>
+
+  <div class="dialog__footer__default-controls">
+    <button mat-flat-button class="dialog__footer&#45;&#45;button button&#45;&#45;default" (click)="onClose()"> {{'No' | translate}} </button>
+    <button mat-raised-button class="dialog__footer&#45;&#45;button button&#45;&#45;accent" (click)="onConfirm()"> {{'Yes' | translate}} </button>
+  </div>
+</div>
+-->

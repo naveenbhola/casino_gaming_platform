@@ -1,0 +1,87 @@
+@import "../../../../styles/colors", "../../../../styles/variables", "../../../../styles/functions";
+
+@mixin tbl-position-band-no-name {
+	.tbl-player-card__header {
+		@include player-card-pos-number();
+		background-color: get-color('primary');
+		border-radius: 0;
+		display: flex;
+		flex-grow: 1;
+		width: 100%;
+		min-height: 40px;
+		height: 40px;
+		position: relative;
+		
+		&:before {
+			display: none;
+		}
+		
+		.tbl-position--number {
+			line-height: 1;
+		}
+	}
+}
+
+@mixin bet-rows-wrapper {
+	.bet-rows__wrapper {
+		display: grid;
+		grid-template-columns: 1fr;
+		justify-content: space-between;
+		align-items: center;
+		
+		&.major {
+			font-size: $base-font-size * 1.125;
+			font-weight: $base-font-weight;
+			line-height: 1;
+		}
+		
+		&.minor {
+			font-size: $base-font-size * 0.875;
+			font-weight: $base-font-weight;
+			line-height: 1;
+			max-height: 90px;
+			height: 100%;
+			border-top: 2px solid transparentize(get-color('bblack'), 0.65);
+		}
+		
+		.bet-row {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 0 4px;
+			
+			&:nth-child(odd) {
+				background-color: transparentize(get-color('bblack'), 0.95);
+			}
+		}
+		
+		&.major .bet-row {
+			&:first-child,
+			&:nth-child(2) {
+				padding-left: 16px;
+				background-color: get-color('primary-light');
+			}
+		}
+	}
+}
+
+@mixin player-card-unknown-player {
+	
+	@include tbl-position-band-no-name;
+	
+	@include bet-rows-wrapper;
+	
+	.tbl-player-card__footer {
+		max-height: 90px;
+		
+		.img__clock-in {
+			$width: 80px;
+			width: $width;
+			height: $width;
+		}
+	}
+}
+
+
+
+

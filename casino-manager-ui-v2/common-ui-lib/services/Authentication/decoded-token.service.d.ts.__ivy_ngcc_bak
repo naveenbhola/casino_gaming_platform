@@ -1,0 +1,10 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthInterface } from './auth.interface';
+export declare class DecodedTokenService {
+    private jwtHelper;
+    authValues: AuthInterface;
+    constructor(jwtHelper: JwtHelperService);
+    getDecodedJwtToken(): any;
+    setDecodedJwtToken(key: any, token: any): void;
+    getJwtToken(): string;
+}

@@ -1,0 +1,56 @@
+@import
+"~bootstrap/dist/css/bootstrap.min.css",
+"~common-ui/styles/variables",
+"~common-ui/styles/button",
+"~common-ui/styles/mixins",
+"~common-ui/styles/common",
+"~src/styles/mixins-local";
+
+.promotion-winners-dialog {
+  &__title {
+    @include dialog-title;
+
+    .close-btn {
+      @include close-button;
+    }
+  }
+
+  &__content-wrapper {
+    max-height: 78vh;
+  }
+
+  &__date-form-field {
+    color: $w-primary;
+    font-weight: $font-base-weight;
+    position: absolute;
+    right: 3%;
+
+    .calender-icon{
+      vertical-align: bottom;
+    }
+  }
+}
+
+.table-player-promotions {
+  ::ng-deep .table__wrapper {
+    padding: 0;
+    height: calc(100vh - 11em);
+  }
+
+  ::ng-deep .table-section__title-section {
+    font-size: $font-h5-size;
+    padding-left: 0;
+  }
+
+  ::ng-deep .mat-cell:first-child .common-button.common-button__sm {
+    text-align: left;
+  }
+
+  ::ng-deep .mat-row {
+    > td.cdk-column-application-app-CASINO_MGR_LABELS-PROMOTION_WINNER-PROMOTION_NAME,
+    > td.cdk-column-application-app-CASINO_MGR_LABELS-PROMOTION_WINNER-PRIZE_NAME {
+      max-width: 12vw;
+      overflow-wrap: break-word;
+    }
+  }
+}

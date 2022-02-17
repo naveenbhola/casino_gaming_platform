@@ -1,0 +1,230 @@
+@import "../../../styles/colors", "../../../styles/mixins", "../../../styles/button";
+
+@mixin tbl-dialog-tab-item-detail {
+  .limit__tab-item__detail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    font-size: 0.8333em;
+    font-weight: inherit;
+    color: $w-black;;
+    border: 2px solid #F0EDCA;
+    border-radius: $border-radius;
+    background-color: #F0EDCA;
+    margin-bottom: 8px;
+    padding: 16px;
+    position: relative;
+    width: 100%;
+    z-index: 10;
+
+    .limit__tab-item__detail--shadow{
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      border-radius: $border-radius;
+      box-shadow:
+              4px 4px 4px rgba(0,0,0,0.15),
+              4px -1px 6px rgba(0,0,0,0.10);
+    }
+  }
+
+  .limit-column__A {
+    grid-column: 1/2;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-right: 2px solid rgba(0,0,0,0.2);
+
+  }
+
+  .limit-column__B {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .limit-data__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(1, minmax(32px, 1fr));
+    align-items: center;
+    padding:8px 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .limit-data__label {
+    justify-self: start;
+  }
+
+  .limit-data__value {
+    justify-self: end;
+  }
+
+  .confirm__msg {
+    padding-left: 16px;
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    grid-gap: 8px;
+    align-items: center;
+  }
+}
+
+@mixin tbl-dialog-tab-item {
+  .limit__tab-item {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    width: 336px;
+    border: 2px solid #AB7348;
+    border-radius: $border-radius 0 0 $border-radius;
+    background-color: #AB7348;
+    margin-bottom: 8px;
+    margin-right: -8px;
+    padding: 0 24px;
+    font-size: 0.8333em;
+    font-weight: inherit;
+    color: $white;
+    cursor: pointer;
+    user-select: none;
+
+    &:first-child {
+      margin-top: 8px;
+    }
+
+    &.active {
+      font-size: 1em;
+      color: $w-black;
+      border: 2px solid #F0EDCA;
+      background-color: #F0EDCA;
+      position: relative;
+      margin-right: -8px;
+    }
+
+    .limit__tab-item__active--shadow {
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      border-radius: $border-radius 0 0 $border-radius;
+      box-shadow:
+              4px 4px 4px rgba(0, 0, 0, 0.65),
+              0 -1px 2px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+@mixin tbl-dialog-title {
+  .mat-dialog-title {
+    display: flex;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin-bottom: 8px;
+    height: 48px;
+
+    ////Styles for Close button.
+    .mat-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      position: relative;
+      top: -12px;
+      right: -12px;
+    }
+  }
+}
+
+@mixin tbl-dialog-footer {
+
+  .dialog__footer__default-controls,
+  .dialog__footer__confirm-controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+    height: 80px;
+    background-color: get-color('wwhite');
+    border-radius: $border-radius;
+    border-top: 1px solid transparentize(get-color('bblack'), 0.9);
+  }
+
+  .dialog__footer__confirm-controls {
+    background-color: get-color('primary-beige');
+    border: 1px solid gray;
+  }
+
+  .dialog__footer--button {
+    @include tbl-button;
+  }
+
+  .button {
+    &--default {
+      background-color: get-color('wwhite');
+      border: 2px solid get-color('primary');
+      margin-right: 8px;
+    }
+
+    &--primary {
+      background-color: get-color('primary');
+      margin-right: 8px;
+    }
+
+    &--accent {
+      background-color: get-color('accent');
+      color: get-color('wwhite');
+    }
+
+    &--disabled {
+      background-color: get-color('gray-light');
+      margin-right: 8px;
+    }
+  }
+
+  .dialog__footer__confirm-controls .dialog__footer--button {
+    margin-right: 8px;
+  }
+}
+
+@mixin tbl-dialog-content {
+  display: flex;
+  margin-top: 8px;
+  min-height: 50vh;
+
+  .limit__tab-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  @include tbl-dialog-tab-item;
+
+  @include tbl-dialog-tab-item-detail;
+
+}
+
+@mixin tbl-dialog {
+  background-color: $white;
+  border-radius: $border-radius;
+  padding: 16px;
+  color: $w-black;
+  font-size: $font-base-size * 1.5; //24px
+  font-weight: $font-base-weight;
+  line-height: 1;
+  
+  .mat-dialog-content {
+    @include tbl-dialog-content;
+  }
+  
+  @include tbl-dialog-title;
+  
+  @include tbl-dialog-footer;
+  
+  .common-button {
+    @include tbl-button;
+    background-color: $w-primary;
+    color: $w-black;
+  }
+}
+
+

@@ -1,0 +1,1 @@
+{"version":3,"file":"loader.component.d.ts","sources":["loader.component.d.ts"],"names":[],"mappings":";AAAA;AACA;AACA;;;AACA","sourcesContent":["export declare class LoaderComponent {\n    constructor();\n    generateFake(count: number): Array<number>;\n}\n"]}

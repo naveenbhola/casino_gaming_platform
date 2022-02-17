@@ -1,0 +1,21 @@
+<app-player-search [activePlayerApi]="true" (searchObj)="getSearchObj($event)" *ngIf="typeOfResults === 'player'"></app-player-search>
+<app-user-search (searchObj)="getSearchObj($event)" *ngIf="typeOfResults === 'user'"></app-user-search>
+
+<div class="table-searched-players__wrapper">
+  <app-tables *ngIf="loading && playerList"
+              [tableTitle]="titleForTable"
+              [totalRecords]="totalRecords"
+              [tableRows]="playerList"
+              [tableHeaders]="tableHeaders"
+              (node)="updateEventObj($event)"
+              [hideFilters]="true"
+              class="table-searched-players">
+  </app-tables>
+</div>
+
+<div mat-dialog-actions class="player-search-dialog__footer" *ngIf="totalRecords > 0">
+  <div class="player-search-dialog__footer__controls">
+    <button mat-stroked-button class="common-button" color="primary" (click)="closeDialogBox()">
+      <span [translate]="'application.app.common.labels.CLOSE'"></span> </button>
+  </div>
+</div>

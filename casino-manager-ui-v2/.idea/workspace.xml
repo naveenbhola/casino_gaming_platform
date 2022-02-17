@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c7e797ca-1c5c-43b1-b663-8f2a357982ea" name="Default Changelist" comment="GR-3158">
+      <change afterPath="$PROJECT_DIR$/src/app/calculator/calculator-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_component/topology-tree/topology-tree.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_component/topology-tree/topology-tree.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/i18n/en_US.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/i18n/en_US.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/i18n/zh_Hant.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/i18n/zh_Hant.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xl-deploy.json" beforeDir="false" afterPath="$PROJECT_DIR$/xl-deploy.json" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Release_1_7_0" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="ProjectId" id="1TbHJYHeH8ZpJYx03Ax3SzydFEK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.updates" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (casino-manager)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/src/karma.conf.js" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (casino-manager-e2e)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c7e797ca-1c5c-43b1-b663-8f2a357982ea" name="Default Changelist" comment="" />
+      <created>1573721803422</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573721803422</updated>
+      <workItem from="1573721805021" duration="46589000" />
+      <workItem from="1574403123910" duration="33258000" />
+      <workItem from="1574998449216" duration="152822000" />
+      <workItem from="1576586570730" duration="115465000" />
+      <workItem from="1578307251072" duration="5723000" />
+      <workItem from="1578390660915" duration="149249000" />
+      <workItem from="1580292224771" duration="47408000" />
+      <workItem from="1581565715165" duration="27902000" />
+      <workItem from="1582024507332" duration="40314000" />
+      <workItem from="1583903137689" duration="4867000" />
+      <workItem from="1584003468334" duration="110053000" />
+      <workItem from="1587616209753" duration="113527000" />
+      <workItem from="1589116347024" duration="188458000" />
+      <workItem from="1591975293288" duration="19969000" />
+      <workItem from="1593070749845" duration="8560000" />
+      <workItem from="1593417015279" duration="41226000" />
+      <workItem from="1595395756046" duration="11867000" />
+      <workItem from="1596699796969" duration="4572000" />
+      <workItem from="1598844983088" duration="1937000" />
+      <workItem from="1599323399881" duration="2118000" />
+      <workItem from="1599708319373" duration="385000" />
+      <workItem from="1599729565217" duration="33241000" />
+      <workItem from="1603118170225" duration="10687000" />
+      <workItem from="1603568233102" duration="599000" />
+      <workItem from="1603714068930" duration="2642000" />
+      <workItem from="1603990347801" duration="109000" />
+    </task>
+    <task id="LOCAL-00110" summary="GR-2280, GR-2127  issues solved">
+      <created>1588907615097</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1588907615097</updated>
+    </task>
+    <task id="LOCAL-00111" summary="GR-2390 issue solved">
+      <created>1588917886448</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1588917886448</updated>
+    </task>
+    <task id="LOCAL-00112" summary="GR-2407 issue solved">
+      <created>1588924809478</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1588924809478</updated>
+    </task>
+    <task id="LOCAL-00113" summary="GR-2407 issue solved">
+      <created>1588928995441</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1588928995441</updated>
+    </task>
+    <task id="LOCAL-00114" summary="GR-2359 issue solved">
+      <created>1588939098503</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1588939098503</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Issue fixed where  - No user id message is not displaying on screen after searching for valid user search result">
+      <created>1588942585956</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1588942585956</updated>
+    </task>
+    <task id="LOCAL-00116" summary="GR-2493 issue solved">
+      <created>1589370887354</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1589370887355</updated>
+    </task>
+    <task id="LOCAL-00117" summary="GR-2493 issue solved">
+      <created>1589436691484</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1589436691485</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Issue solved: While navigating from one pit to another pit, data is not visible from another pit">
+      <created>1589438975405</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1589438975406</updated>
+    </task>
+    <task id="LOCAL-00119" summary="Gr-2518 issue solved: values in filters corrected. Another issue solved where approvedBy value in table column fetched depending on manualrating status now">
+      <created>1589525215421</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1589525215422</updated>
+    </task>
+    <task id="LOCAL-00120" summary="GR-2280 issue resolved: sorting not working on player column">
+      <created>1589533024905</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1589533024905</updated>
+    </task>
+    <task id="LOCAL-00121" summary="GR-2525  Change request done: Deault sorting removed.">
+      <created>1589535162347</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1589535162347</updated>
+    </task>
+    <task id="LOCAL-00122" summary="GR-2502 issue solved: add note feature added in manual rating tab of casino manager">
+      <created>1589718360859</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1589718360859</updated>
+    </task>
+    <task id="LOCAL-00123" summary="GR-2152 issues solved for showing opner closer information in case of 0 value">
+      <created>1589790865026</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1589790865027</updated>
+    </task>
+    <task id="LOCAL-00124" summary="GR-2104 issue solved where pagination is not coming correctly while switching between views">
+      <created>1589811705242</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1589811705242</updated>
+    </task>
+    <task id="LOCAL-00125" summary="GR-2681 back link icon url added">
+      <created>1590148979976</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1590148979977</updated>
+    </task>
+    <task id="LOCAL-00126" summary="GR-2684: solved issue when tableheaders variable is empty on nginit but value received on ngonchange which leads to empty table.">
+      <created>1590214427179</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1590214427180</updated>
+    </task>
+    <task id="LOCAL-00127" summary="GR-2605 handle promotions in MR">
+      <created>1590669305622</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1590669305622</updated>
+    </task>
+    <task id="LOCAL-00128" summary="GR-2605 done">
+      <created>1590669419118</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1590669419119</updated>
+    </task>
+    <task id="LOCAL-00129" summary="GR-2605 player id added while approve/cancel MR">
+      <created>1590735671618</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1590735671618</updated>
+    </task>
+    <task id="LOCAL-00130" summary="GR-2829 consistency in apps for fields">
+      <created>1590744854114</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1590744854115</updated>
+    </task>
+    <task id="LOCAL-00131" summary="GR-2811: removed sorting on Positions, Limits, Current Value, Variance, Adjustments*">
+      <created>1590838263235</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1590838263236</updated>
+    </task>
+    <task id="LOCAL-00132" summary="Changed table ids in toplogyids values to topology id">
+      <created>1590905278904</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1590905278904</updated>
+    </task>
+    <task id="LOCAL-00133" summary="GR-2886 new api function added for tables tab in casino app">
+      <created>1591176366213</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1591176366213</updated>
+    </task>
+    <task id="LOCAL-00134" summary="GR-2893 - corrected start and stop time fields in MR form of casino app">
+      <created>1591193970540</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1591193970540</updated>
+    </task>
+    <task id="LOCAL-00135" summary="GR-2879 promotion label changed and styling corrected">
+      <created>1591283825611</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1591283825611</updated>
+    </task>
+    <task id="LOCAL-00136" summary="Actions button added in disable state to maintain consistency">
+      <created>1591288843250</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1591288843251</updated>
+    </task>
+    <task id="LOCAL-00137" summary="GR-1950 default player image added if image is broken">
+      <created>1591437937566</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1591437937569</updated>
+    </task>
+    <task id="LOCAL-00138" summary="GR-1950 default player image added if image is broken">
+      <created>1591604223462</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1591604223462</updated>
+    </task>
+    <task id="LOCAL-00139" summary="Gr-2493 no data message showin in case of no table exist in OA">
+      <created>1591699711294</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1591699711294</updated>
+    </task>
+    <task id="LOCAL-00140" summary="GR-2464 special character handling in user search">
+      <created>1591710284564</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1591710284564</updated>
+    </task>
+    <task id="LOCAL-00141" summary="GR-3025 filters will be seen when no data available">
+      <created>1591866034246</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1591866034246</updated>
+    </task>
+    <task id="LOCAL-00142" summary="GR-3025 filters to be shown when no data available in tables tab">
+      <created>1591866452134</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1591866452135</updated>
+    </task>
+    <task id="LOCAL-00143" summary="GR-3064 loader and record count removed in case of no results">
+      <created>1591868036233</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1591868036233</updated>
+    </task>
+    <task id="LOCAL-00144" summary="GR-3098 OA filter removed from Opener closer tab">
+      <created>1591955651471</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1591955651474</updated>
+    </task>
+    <task id="LOCAL-00145" summary="GR-3158 KPI bar showing incorrect data issue fixed">
+      <created>1592298620088</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1592298620088</updated>
+    </task>
+    <task id="LOCAL-00146" summary="GR-3158">
+      <created>1592298705276</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1592298705277</updated>
+    </task>
+    <task id="LOCAL-00147" summary="GR-3179 limit reset to 10 on changing view from grid to table">
+      <created>1592477160603</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1592477160604</updated>
+    </task>
+    <task id="LOCAL-00148" summary="GR-3230 console errors solved">
+      <created>1592566896529</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1592566896529</updated>
+    </task>
+    <task id="LOCAL-00149" summary="GR-3211 api parameter changed">
+      <created>1593085432886</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1593085432886</updated>
+    </task>
+    <task id="LOCAL-00150" summary="GR-3230 check added for top 10 winning/losing players">
+      <created>1593757126811</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1593757126811</updated>
+    </task>
+    <task id="LOCAL-00151" summary="GR-3482 pit id passed in table ids if there is not any table in the pit">
+      <created>1593859644250</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1593859644250</updated>
+    </task>
+    <task id="LOCAL-00152" summary="GR-3158">
+      <created>1593862352432</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1593862352432</updated>
+    </task>
+    <task id="LOCAL-00153" summary="GR-3594 double xero issue solved">
+      <created>1594278264176</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1594278264177</updated>
+    </task>
+    <task id="LOCAL-00154" summary="GR-3230 'no data available' message appearing now">
+      <created>1594284407198</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1594284407199</updated>
+    </task>
+    <task id="LOCAL-00155" summary="EGR-427 string converted to numbers">
+      <created>1594971454564</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1594971454568</updated>
+    </task>
+    <task id="LOCAL-00156" summary="EGR-550 translation issue solved">
+      <created>1595848432518</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1595848432518</updated>
+    </task>
+    <task id="LOCAL-00157" summary="EGR-206 sorting of tables in virtual group alphabetically done">
+      <created>1596041022766</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1596041022766</updated>
+    </task>
+    <task id="LOCAL-00158" summary="GR-4765 filters working now">
+      <created>1603029983801</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1603029983816</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../common-ui-v2/node_modules/karma/config.tpl.js" />
+        <option value="$PROJECT_DIR$/../dealerdisplay_web/node_modules/.staging/karma-16b2f13f/config.tpl.js" />
+        <option value="$PROJECT_DIR$/../pc-cage-ui/node_modules/.staging/karma-f884aa45/config.tpl.js" />
+        <option value="$PROJECT_DIR$/../configuration-ui-v2/node_modules/karma/config.tpl.js" />
+        <option value="$PROJECT_DIR$/../configuration-ui-v2/node_modules/karma/config.tpl.js" />
+        <option value="$PROJECT_DIR$/../configuration-ui-v2/node_modules/karma/config.tpl.js" />
+        <option value="$PROJECT_DIR$/../common-ui-v2/node_modules/karma/config.tpl.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changed table ids in toplogyids values to topology id" />
+    <MESSAGE value="GR-2886 new api function added for tables tab in casino app" />
+    <MESSAGE value="GR-2893 - corrected start and stop time fields in MR form of casino app" />
+    <MESSAGE value="GR-2879 promotion label changed and styling corrected" />
+    <MESSAGE value="Actions button added in disable state to maintain consistency" />
+    <MESSAGE value="GR-1950 default player image added if image is broken" />
+    <MESSAGE value="Gr-2493 no data message showin in case of no table exist in OA" />
+    <MESSAGE value="GR-2464 special character handling in user search" />
+    <MESSAGE value="GR-3025 filters will be seen when no data available" />
+    <MESSAGE value="GR-3025 filters to be shown when no data available in tables tab" />
+    <MESSAGE value="GR-3064 loader and record count removed in case of no results" />
+    <MESSAGE value="GR-3098 OA filter removed from Opener closer tab" />
+    <MESSAGE value="GR-3158 KPI bar showing incorrect data issue fixed" />
+    <MESSAGE value="GR-3179 limit reset to 10 on changing view from grid to table" />
+    <MESSAGE value="GR-3230 console errors solved" />
+    <MESSAGE value="GR-3211 api parameter changed" />
+    <MESSAGE value="GR-3230 check added for top 10 winning/losing players" />
+    <MESSAGE value="GR-3482 pit id passed in table ids if there is not any table in the pit" />
+    <MESSAGE value="GR-3158" />
+    <MESSAGE value="GR-3594 double xero issue solved" />
+    <MESSAGE value="GR-3230 'no data available' message appearing now" />
+    <MESSAGE value="EGR-427 string converted to numbers" />
+    <MESSAGE value="EGR-550 translation issue solved" />
+    <MESSAGE value="EGR-206 sorting of tables in virtual group alphabetically done" />
+    <MESSAGE value="GR-4765 filters working now" />
+    <option name="LAST_COMMIT_MESSAGE" value="GR-4765 filters working now" />
+  </component>
+</project>

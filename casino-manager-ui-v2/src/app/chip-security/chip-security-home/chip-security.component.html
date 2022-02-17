@@ -1,0 +1,141 @@
+<app-tabs></app-tabs>
+<div class="chip-security-tab__chip-security has-page-top-tab-bar">
+  <div class="wrapper__top-padding" *ngIf="!chipSecurityTabAccess">
+    <div class="show__no-data-txt">
+      <h4>
+        {{ 'application.app.common.labels.NO_ACCESS_TO_REQUESTED_PAGE'| translate }}
+      </h4>
+    </div>
+  </div>
+
+  <mat-spinner
+    *ngIf="(loading === 'show' || loading === 'updateChipStatusCall')"
+    [diameter]="60"
+    class="mx-auto mt-5">
+  </mat-spinner>
+
+  <div class="msg-status-changed" *ngIf="(loading === 'updateChipStatusCall')">
+    {{'application.app.CASINO_MGR_LABELS.MESSAGE.CHANGE_STATUS_REQUEST_SUBMITTED' | translate}}
+  </div>
+
+  <div class="chip-security-table__top-row-content" *ngIf="(chipSecurityTabAccess && loading === 'hide')">
+    <div class="table-section table-section__search">
+      <form [formGroup]="chipSearchFormGroup" class="table__form__search">
+        <mat-form-field class="search-input-field">
+          <input #searchbox matInput type="text"
+                 placeholder="{{ 'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.COMPARISON.SEARCH_CHIP_ID' | translate}}"
+                 formControlName="searchChip" autocomplete="off" maxlength="30">
+
+          <button mat-icon-button class="clear-button" *ngIf="searchbox.value" mat-suffix aria-label="Clear"
+                  (click)="clearSearchData();">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-stroked-button
+                class="common-button common-button--primary common-button__search"
+                color='primary' (click)="searchChip()" [disabled]="chipSearchFormGroup.invalid">
+          <mat-icon> search</mat-icon>
+        </button>
+
+      </form>
+    </div>
+
+    <div class="chip-security-table__top-row-content__buttons-wrapper">
+      <button mat-stroked-button
+              [disabled]="!statusChangeButtonEnabled"
+              class="common-button common-button-drop-down action-button"
+              [matMenuTriggerFor]="statusMenu1">
+          <span>
+            {{currentActionLabel | translate }}
+          </span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <button mat-stroked-button
+              class="common-button"
+              [disabled]="!statusChangeButtonEnabled"
+              (click)="submitStatus()">
+        <span>
+          {{ 'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.SUBMIT' | translate }}
+        </span>
+        <!-- <mat-icon>send</mat-icon> -->
+      </button>
+
+      <mat-menu #statusMenu1="matMenu" class="chip-security-table__action-status-menu">
+        <div *ngFor="let chipStatusType of chipStatusTypes;trackBy:trackByIndex;">
+          <button mat-menu-item
+                  (click)="changeStatusFromTop(chipStatusType)"
+                  *ngIf="(chipStatusType.action !== currentAction)">
+            <div class="chip-security-action-status {{chipStatusType.className}}"></div>
+            <span>
+              {{chipStatusType.name | translate}}
+            </span>
+          </button>
+          <!-- <mat-divider *ngIf="chipStatusType.action === 'select' "></mat-divider> -->
+        </div>
+      </mat-menu>
+
+
+      <button mat-stroked-button
+              class="common-button"
+              (click)="navigateTocompareScreen()">
+        <span>
+          {{'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.COMPARE_SCANS' | translate}}
+        </span>
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+
+  </div>
+
+  <div *ngIf="(chipSecurityTabAccess && loading === 'hide')">
+
+    <div *ngFor="let chipType of chipTypes;trackBy:trackByIndex;" class="chip-security-tables">
+      <app-tables *ngIf="(filterType === chipType.type && dataLoaded)"
+                  class="chip-security-table"
+                  [tableRows]="chipData"
+                  [tableHeaders]="tableHeaders"
+                  [tableExpandableRows]="expandableRowsData"
+                  [tableTitle]="chipType.name"
+                  [totalRecords]="totalRecord"
+                  [filterOptions]="filterConfigOption"
+                  (filter)="updateFilter($event)"
+                  [showFilters]="true"
+                  (sort)="sortData($event)"
+                  (node)="updateEventObj($event)"
+                  (checkBoxEvent)="updateCheckedStatus($event)"
+                  (checkBoxAllEvent)="updateAllCheckedStatus($event)"
+                  [inputStart]="startInput"
+                  [inputCurrentPage]="currentPageInput"
+                  [inputLimit]="limitInput"
+                  (pagination)="updatePagination($event)">
+
+
+        <button mat-stroked-button
+                class="common-button common-button-drop-down"
+                [matMenuTriggerFor]="statusMenu2">
+          <span>
+            {{ currentChipTypeLabel | translate }}
+          </span>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+
+        <mat-menu #statusMenu2="matMenu" class="action-status-menu">
+          <div *ngFor="let chipType of chipTypes;trackBy:trackByIndex">
+            <button mat-menu-item
+                    (click)="updateChipData(chipType.type)"
+                    *ngIf="(chipType.type !== filterType)">
+              <span>
+                {{ chipType.name | translate }}
+              </span>
+            </button>
+          </div>
+        </mat-menu>
+
+      </app-tables>
+    </div>
+
+  </div>
+
+</div>

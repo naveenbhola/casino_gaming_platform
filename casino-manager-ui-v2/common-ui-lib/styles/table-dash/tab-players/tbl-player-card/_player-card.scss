@@ -1,0 +1,243 @@
+@import "../../../../styles/colors", "../../../../styles/variables", "../../../../styles/functions", "../../../../styles/mixins";
+
+@mixin make-player-card (
+	$wdth: $pCardW,
+	$hght: $pCardH,
+	$bgClr: $pCardBg,
+	$bdrClr: $pCardBdrClr,
+	$bdrWdth: $pCardBdrW,
+	$bdrRds: $pCardBdrRad) {
+	display: grid;
+	grid-template-columns: 1fr;
+	position: relative;
+	padding: 0;
+	margin-bottom: 8px;
+	overflow: hidden;
+	background-color: $bgClr;
+	min-width: $wdth - 38px;
+	height: $hght;
+	border: $bdrWdth solid $bdrClr;
+	border-radius: $bdrRds;
+}
+
+
+.tbl-player-card {
+	@include make-player-card;
+	@include tbl-element-shadow(0 -2px 6px rgba(0,0,0,0.85));
+	//box-shadow: 0 -2px 6px 1px rgba(0, 0, 0, 0.85);
+	width: 100%;
+	
+	&__header {
+		@include make-player-card-header;
+	}
+	
+	&__body {
+		@include make-player-card-body;
+	}
+	
+	&__footer {
+		max-height: 72px;
+		width: 100%;
+	}
+}
+
+.seated-player--profile {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 4px;
+	padding: 4px;
+	justify-items: center;
+	align-items: center;
+	background-color: $white;
+	border-top: 2px solid transparentize(get-color('bblack'), 0.85);
+	cursor: default;
+	
+	.seated-player--name,
+	.seated-player--id {
+		text-align: center;
+		position: relative;
+	}
+	
+	.seated-player--name:before {
+		content: '';
+		background-color: $w-black;
+		width: 16px;
+		height: 16px;
+		border: 2px solid $w-black;
+		border-radius: 50%;
+		position: absolute;
+		top: 2px;
+		left: -24px;
+	}
+}
+
+.tbl-player-profile {
+	&__wrapper {
+		flex-direction: column;
+		margin-left: auto;
+		text-align: right;
+		padding: 1px 4px 1px 24px;
+		overflow: hidden;
+		z-index: 10;
+	}
+	
+	&__name {
+		word-break: break-all;
+		position: relative;
+	}
+	
+	&__id {
+		word-break: break-all;
+	}
+}
+
+
+
+.tbl-player-card {
+	&__row--a {
+		@include player-card-row-a;
+		height: 100%;
+	}
+	
+	&__clockin {
+		@include player-card-clock-in;
+		height: 100%;
+	}
+	
+	&__seated-player {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		
+		.tbl-player-card__footer {
+			.btn__more-details {
+				width: inherit;
+				background-color: $w-primary;
+				min-height: 72px;
+				border-radius: $border-radius;
+			}
+		}
+		@include player-card-seated-player();
+	}
+	
+	.seated-player--name:before {
+		content: '';
+		background-color: $w-black;
+		width: 16px;
+		height: 16px;
+		border: 2px solid $w-black;
+		border-radius: 50%;
+		position: absolute;
+		top: 2px;
+		left: -24px;
+	}
+}
+
+
+.tbl-player-card__flipped {
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+	@include player-card-unknown-player;
+	
+	.tbl-player-profile__name:before {
+		content: '';
+		background-color: $w-black;
+		width: 16px;
+		height: 16px;
+		border: 2px solid $w-black;
+		border-radius: 50%;
+		position: absolute;
+		top: 2px;
+		left: -24px;
+	}
+	
+	&.player--unknown {
+		height: 100%;
+		cursor: default;
+	}
+	
+	&.player--anonymous,
+	&.player--rated,
+	&.player--known {
+		height: 100%;
+		
+		.tbl-player-card__header {
+			@include make-player-card-header('row-a');
+			position: relative;
+			max-height: 40px;
+			
+			.tbl-player-profile__name {
+				line-height: 1.2;
+			}
+		}
+	}
+}
+
+
+.player--anonymous .seated-player--name:before,
+.player--anonymous .tbl-player-profile__name:before {
+	@include player--type(anonymous);
+}
+
+.player--known .seated-player--name:before,
+.player--known .tbl-player-profile__name:before {
+	@include player--type(known);
+}
+
+.player--rated .seated-player--name:before,
+.player--rated .tbl-player-profile__name:before {
+	@include player--type(rated);
+}
+
+.player--manrate .seated-player--name:before,
+.player--manrate .tbl-player-profile__name:before {
+	@include player--type(manrate);
+}
+
+
+
+
+.icon__wrapper {
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	align-content: center;
+	height: 100%;
+	width: 100%;
+	
+	.img__clock-in {
+		max-width: 96px;
+		max-height: 96px;
+		width: 100%;
+		height: 100%;
+		align-self: center;
+	}
+}
+
+.button__icon--wrapper {
+	@extend .icon__wrapper;
+	border-top: 2px solid transparentize(get-color('bblack'), 0.85);
+}
+
+.seated-player__image-wrapper {
+	background-color: $white;
+	height: 72%;
+}
+
+.seated-player--image{
+	background: url("/assets/images/player.png") top center transparent;
+	background-size: 110%;
+	max-width: 163px;
+	max-height: 163px;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.tbl-position--number {
+	padding-left: 4px;
+	padding-top: 4px;
+	z-index: 10;
+}

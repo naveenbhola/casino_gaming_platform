@@ -1,0 +1,367 @@
+////***********************************************************************
+////Styling the material theme and adding few custom values to components.
+////***********************************************************************
+@import "colors", "variables", "mixins", "button";
+//Assigning a 'Lato' font-family to body and resetting the body-margin.
+html, body {
+  font-family: $font-family-lato;
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+//Overriding property to hide v-scrollbar from main html page.
+html {
+  overflow:hidden !important;
+}
+
+////Removing the default outline from the following components.
+a, a:focus,
+button, button:focus,
+.mat-menu-item, .mat-menu-item:focus{
+  outline: 0 !important;
+}
+
+////Adding a pre-defined border-radius to all button components.
+button {
+  border-radius: $border-radius;
+}
+
+////Override fix for Alerts app: Overriding Dialog-container padding
+////to zero by adding a panelClass as 'app-switcher__wrapper' in dialog.open().
+.app-switcher__wrapper.cdk-overlay-pane {
+  position: relative;
+  top: -18vh;
+
+  .mat-dialog-container {
+    padding: 0 !important;
+    position: relative;
+    top: 0;
+  }
+}
+
+//Common style: overriding default value */
+::ng-deep .mat-tab-label,
+::ng-deep .mat-tab-link {
+  @include include-font-style(15px, $font-base-weight, inherit);
+
+  @include respond-to(ipad){
+    font-size: 1em;
+  }
+}
+
+////Application Loader common styles
+.app-spinner {
+  margin: 0 auto;
+  margin-top: 25vh;
+}
+
+////Styles for Tables **
+////Increasing font-size and show/hide default sorting icon.
+////overriding default value.
+.mat-header-cell {
+  font-size: 15px;
+
+  @include respond-to(ipad){
+    font-size: 0.8em;
+  }
+}
+
+////Hiding default sort-icon.
+::ng-deep .mat-sort-header-arrow {
+  .mat-sort-header-stem,
+  .mat-sort-header-indicator {
+    display: none;
+  }
+}
+
+////Showing sorted icons on user's click.
+::ng-deep .mat-sort-header-sorted .mat-sort-header-arrow {
+  .mat-sort-header-stem,
+  .mat-sort-header-indicator {
+    display: block;
+  }
+}
+
+.fixed-at-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+}
+
+.sub-nav__fixed-at-top {
+  @extend .fixed-at-top;
+  top: $top-nav__height;
+}
+
+.wrapper__top-padding {
+  position: relative;
+  top: calc(#{$top-nav__height} + #{$sub-nav__height});
+  z-index: 100;
+}
+
+.text-color__primary {
+  color: $gold;
+}
+
+::ng-deep .btn-progress-bar {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  min-width: 70px;
+  top: -0.25rem
+}
+
+.dialog__title {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid transparentize($black, 0.8);
+}
+
+::ng-deep .mat-dialog-title.dialog__title {
+  margin-bottom: 10px;
+}
+
+.notes__list-item__header-color {
+  color: transparentize($black, 0.5);
+}
+
+.text-area__wrapper {
+  background-color: transparentize($light-gray, 0.84);
+  border: 1px solid $light-gray;
+  padding: 0.5rem 0.5rem 0;
+  margin-bottom: 0.5rem;
+  border-radius: $border-radius;
+  width: 100%;
+  margin-top: 1rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.list-item__wrapper {
+  @extend .text-area__wrapper;
+}
+
+::ng-deep .mat-option .mat-pseudo-checkbox-checked::after {
+  top: 3.4px;
+  width: 10px;
+  height: 5px;
+}
+
+::ng-deep .cdk-overlay-pane {
+  max-width: 90vw !important;
+}
+
+////Common style: overriding default value.
+::ng-deep .mat-header-cell,
+::ng-deep .mat-tab-label,
+::ng-deep .mat-tab-link {
+  font-size: 15px;
+  font-weight: $base-font-weight;
+}
+
+::ng-deep .mat-radio-outer-circle {
+  background-color: $white;
+}
+
+.icon-tbl-properties,
+.icon__tbl-properties{
+  font-size: 18px;
+}
+
+.icon__hovered {
+  color: $light-gray;
+
+  &:hover {
+    color: $gold;
+  }
+}
+
+.no-data-div,
+.show__no-data-txt {
+  text-align: center;
+  background-color: transparentize($gold, 0.85);
+  margin: 0 auto;
+  width: 50vw;
+  border: 1px solid transparentize($gold, 0.7);
+  border-radius: $border-radius;
+  position: relative;
+  top: 0;
+  margin-top: 2vh;
+  max-height: 62px;
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding:1rem;
+    color: $red;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+// Text's size-classes
+.text-small {
+  font-size: (map_get(map_get($font-lato, small), font-size))*1px	;
+  font-weight: map_get(map_get($font-weight, small), bold);
+}
+.text-base {
+  font-size: (map_get(map_get($font-lato, base), font-size))*1px	;
+  font-weight: map_get(map_get($font-weight, base), bold);
+}
+.text-large {
+  font-size: (map_get(map_get($font-lato, large), font-size))*1px	;
+  font-weight: map_get(map_get($font-weight, large), bold);
+}
+.text-xlarge {
+  font-size: (map_get(map_get($font-lato, x-large), font-size))*1px	;
+  font-weight: map_get(map_get($font-weight, x-large), bold);
+}
+
+.common-button {
+  @include make-common-button;
+}
+
+.select-button {
+  @extend .common-button;
+  min-width: 60px;
+}
+
+.close-btn {
+  color: transparentize($dark-gray, 0.4);
+
+  &:hover {
+    color: transparentize($dark-gray, 0);
+  }
+}
+
+.footer-button__fixed {
+  background-color: $white;
+  position: fixed;
+  bottom: 0;
+  border: 1px solid $light-gray;
+  display: flex;
+  border-right: 0;
+  border-left: 0;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  z-index:10;
+}
+
+.table-properties__footer-button__margin {
+  margin-left: -1rem;
+}
+
+.manrate-button {
+  @include tbl-button;
+}
+
+.table-info {
+  &__item {
+    @include table-info-item;
+  }
+
+  &__container {
+    @include tbl-sub-footer;
+  }
+}
+
+.chptray-chpset__form__select {
+  @include tbl--btn-style;
+  @include tbl--btn-label;
+
+  @include respond-to(desktop){
+    height: 72px;
+  }
+}
+
+//Change the text-color of links
+.link-color__primary {
+  color: $gold !important;
+
+  &:hover {
+    color: $hover-color !important;
+  }
+}
+
+.refresh-btn {
+  cursor: pointer !important;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space-filler {
+  flex-grow: 1;
+}
+
+.negative-value {
+  color: $error-red !important;
+}
+
+.css--arrow-sign {
+  display: inline-block;
+  background-color: black;
+  width: 24px;
+  height: 4px;
+  border-radius: 8px;
+  position: relative;
+
+  &:before, &:after {
+    content: '';
+    background-color: black;
+    border-radius: 8px;
+    width: 14px;
+    height: 4px;
+  }
+
+  &:before {
+    top: -4px;
+    right: -4px;
+    transform: rotate(45deg);
+    position: absolute;
+  }
+
+  &:after {
+    top: 4px;
+    right: -4px;
+    transform: rotate(-225deg);
+    position: absolute;
+  }
+}
+
+//Styles for vertical divider-lines.
+.vert-line, .v-line {
+  color: $white;
+  border-color: rgba(255,255,255,0.2);
+}

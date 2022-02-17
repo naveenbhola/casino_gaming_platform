@@ -1,0 +1,258 @@
+@import
+"~src/styles/common",
+"~src/styles/mixins-local";
+
+:host {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-top: 3em;
+  max-height: 100%;
+}
+
+.table-cards {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  max-height: calc(100vh - 18em);
+}
+
+.table-card {
+  min-height: 45vh;
+  width: 20vw;
+  margin: 0.5%;
+  height: 22em;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow:hidden;
+  }
+
+  &__title {
+    display: inline-flex;
+  }
+
+  &__alerts {
+    display: inline-flex;
+
+    .mat-icon {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+    }
+
+    button.badge {
+      border-radius: 24px;
+      line-height: 2;
+      margin: 2px 1.5px;
+      padding: 0 3px;
+      min-width: 3vw;
+      box-shadow: 0.1px 0.1px 1px;
+      font-size: 12px;
+      font-weight: 600;
+      color: black;
+      text-shadow: 0.4px 0.4px 1px rgba(0,0,0,0.65);
+
+      &.faded.badge--critical {
+        background-color: hsl(11, 100%, 96%);
+        border-color: hsl(11, 100%, 58%);
+      }
+
+      &.faded.badge--high {
+        background-color: hsl(61, 100%, 96%);
+        border-color: hsl(61, 100%, 50%);
+      }
+
+      &.faded.badge--low {
+        background-color: hsl(191, 86%, 96%);
+        border-color: hsl(191, 86%, 44%);
+      }
+    }
+  }
+}
+
+.badge {
+  &--critical {
+    color: hsl(11, 100%, 58%);
+  }
+
+  &--high {
+    color: hsl(61, 100%, 50%);
+  }
+
+  &--low {
+    color: hsl(191, 86%, 44%);
+  }
+}
+
+.table-stats-div {
+  display: flex;
+  border-bottom: 1px dotted #b08850;
+}
+
+.stats-div {
+  position: relative;
+  top: 4%;
+}
+
+.table-stats-span {
+  flex: 40%;
+}
+
+.table-stats-label {
+  flex: 60%;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.game-table {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 68px;
+  height: 40px;
+  background: url("/assets/images/bg-game-table-open.svg") center center no-repeat transparent;
+  transform: translateX(-50%);
+}
+
+.mini-table-div {
+  height: 10rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.mini-table-player {
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+  background-color: #eee7dd;
+  border-radius: 50%;
+  transition: opacity .3s ease-in-out;
+  opacity: 0.5;
+}
+
+.mini-player-div {
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  transform-origin: right center;
+  width: 10rem;
+  right: 50%;
+  padding-right: 40px;
+}
+
+@for $i from 1 through 7 {
+  .mini-table-pos-#{$i} {
+    bottom: 8px;
+    transform: rotate(0deg);
+  }
+}
+
+
+.mini-table-pos-1 {
+  bottom: 8px;
+  transform: rotate(0deg);
+  span {
+    text-align: center;
+  }
+}
+.mini-table-pos-2 {
+  bottom: 4px;
+  transform: rotate(30deg);
+  span {
+    transform: rotate(-30deg);
+    text-align: center;
+  }
+}
+.mini-table-pos-3 {
+  bottom: 0;
+  transform: rotate(60deg);
+  span {
+    transform: rotate(-60deg);
+    text-align: center;
+  }
+}
+.mini-table-pos-4 {
+  bottom: -4px;
+  transform: rotate(90deg);
+  span {
+    transform: rotate(-90deg);
+    text-align: center;
+  }
+}
+.mini-table-pos-5 {
+  bottom: 0;
+  transform: rotate(120deg);
+  span {
+    transform: rotate(-120deg);
+    text-align: center;
+  }
+}
+.mini-table-pos-6 {
+  bottom: 4px;
+  transform: rotate(150deg);
+  span {
+    transform: rotate(-150deg);
+    text-align: center;
+  }
+}
+.mini-table-pos-7 {
+  bottom: 8px;
+  transform: rotate(180deg);
+  span {
+    transform: rotate(-180deg);
+    text-align: center;
+  }
+}
+
+.five-pos-table {
+  .mini-table-pos-1 {
+    bottom: 8px;
+    transform: rotate(0deg);
+    span {
+      text-align: center;
+    }
+  }
+  .mini-table-pos-2 {
+    bottom: 4px;
+    transform: rotate(45deg);
+    span {
+      transform: rotate(-45deg);
+      text-align: center;
+    }
+  }
+  .mini-table-pos-3 {
+    bottom: 0;
+    transform: rotate(90deg);
+    span {
+      transform: rotate(-90deg);
+      text-align: center;
+    }
+  }
+  .mini-table-pos-4 {
+    bottom: 4px;
+    transform: rotate(135deg);
+    span {
+      transform: rotate(-135deg);
+      text-align: center;
+    }
+  }
+  .mini-table-pos-5 {
+    bottom: 8px;
+    transform: rotate(180deg);
+    span {
+      transform: rotate(-180deg);
+      text-align: center;
+    }
+  }
+}
+
+
+.negative-prop-value {
+  color: red;
+}

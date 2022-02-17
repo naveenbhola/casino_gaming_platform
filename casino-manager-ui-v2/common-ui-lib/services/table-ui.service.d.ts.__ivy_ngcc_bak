@@ -1,0 +1,6 @@
+import { HttpClient } from '@angular/common/http';
+export declare class TableUIService {
+    private http;
+    constructor(http: HttpClient);
+    isLoggedIn(clientId: any): import("rxjs").Observable<any>;
+}

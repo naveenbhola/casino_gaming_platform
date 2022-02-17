@@ -1,0 +1,11 @@
+import { OnInit } from '@angular/core';
+export interface PlayersList {
+    playername: string;
+    playerwinloss: number;
+}
+export declare class AppTabBarComponent implements OnInit {
+    constructor();
+    ngOnInit(): void;
+    playersListColumns: string[];
+    winningPlayersList: PlayersList[];
+}

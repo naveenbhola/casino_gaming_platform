@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>{{title | translate }}</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>{{message | translate}}</h3>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <div>
+  <button mat-raised-button color="primary" mat-dialog-close tabindex="-1">
+    {{'application.app.common.labels.OK' | translate}}
+  </button>
+  </div>
+</mat-dialog-actions>

@@ -1,0 +1,12 @@
+import { OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
+export declare class ConfirmDeleteComponent implements OnInit {
+    dialogRef: MatDialog;
+    data: any;
+    translate: TranslateService;
+    nodeToDelete: any;
+    constructor(dialogRef: MatDialog, data: any, translate: TranslateService);
+    ngOnInit(): void;
+    closeDialogBox(): void;
+}

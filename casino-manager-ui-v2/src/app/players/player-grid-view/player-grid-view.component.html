@@ -1,0 +1,43 @@
+<div *ngIf="totalRecordsForGrid" class="players-player-card__container">
+  <mat-card class="players-player-card"
+  *ngFor="let playerOb of playerListArray;trackBy:trackByIndex"
+  role="group" (click)="openPlayeDashBoard(playerOb)">
+    <mat-card-header class="players-player-card__header">
+      <img mat-card-avatar *ngIf="playerOb.imageType === 'URL'" [src]="playerOb.PLAYER_IMAGE" onerror="this.src='/assets/images/player.png';"/>
+      <img mat-card-avatar *ngIf="playerOb.imageType !== 'URL'" [src]="'data:image/png;base64,' + playerOb.PLAYER_IMAGE" onerror="this.src='/assets/images/player.png';"/>
+      <!--<img mat-card-avatar *ngIf="!playerOb.PLAYER_IMAGE || playerOb.PLAYER_IMAGE === 'null'" src="/assets/images/player.png"/>-->
+      <mat-card-title>{{  getTranslatedVal(playerOb.PLAYERS) }}</mat-card-title>
+      <mat-card-subtitle *ngIf="( playerOb.PLAYER_ID && playerOb.PLAYER_ID != '-' && checkIsCBPTONAndNonAnony(playerOb.PLAYERS) )">({{ playerOb.PLAYER_ID }})</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="((!playerOb.PLAYER_ID || playerOb.PLAYER_ID == '-')  && checkIsCBPTONAndNonAnony(playerOb.PLAYERS) )">({{ playerOb.CCAS_ID_PLAYER }})</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="players-player-card__row">
+        <div class="players-player-card__label">{{ 'application.app.common.labels.PLAYER_WL' | translate }} </div>
+        <div class="players-player-card__value" [ngClass]="{'negative-value': playerOb.CASINO_WL_PLAYER < 0 }">{{playerOb.CASINO_WL_PLAYER < 0 ? '(' + (playerOb.CASINO_WL_PLAYER * -1 | roundUp) + ')' : playerOb.CASINO_WL_PLAYER | roundUp}}</div>
+      </div>
+
+      <div class="players-player-card__row">
+        <div class="players-player-card__label">{{'application.app.PLAYER_DASH_LABELS.TIME_PLAYED' | translate}}</div>
+        <div class="players-player-card__value">{{playerOb.PLAYER_TOTAL_TIME_PLAYED}}</div>
+      </div>
+
+      <div class="players-player-card__row">
+        <div class="players-player-card__label">{{'application.app.CASINO_MGR_LABELS.TABLE_BUY_IN' | translate}}</div>
+        <div class="players-player-card__value">{{playerOb.BUY_INS_PLAYER | roundUp}}</div>
+      </div>
+
+      <div class="players-player-card__row" *ngIf="appService.isCBPT">
+        <div class="players-player-card__label">{{'application.app.CASINO_MGR_LABELS.CURRENT_BANKROLL_VALUE' | translate}}</div>
+        <div class="players-player-card__value">{{playerOb.PLAYER_BANKROLL_VALUE | roundUp}}</div>
+      </div>
+
+      <div class="players-player-card__row">
+        <div class="players-player-card__label">{{ 'application.app.PLAYER_DASH_LABELS.LAST_TIME'| translate}}</div>
+        <div class="players-player-card__value" *ngIf="playerOb.PLAYER_LAST_TIME != '-'">{{playerOb.PLAYER_LAST_TIME | date: 'HH:mm'}}</div>
+        <div class="players-player-card__value" *ngIf="playerOb.PLAYER_LAST_TIME === '-'">{{playerOb.PLAYER_LAST_TIME}}</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

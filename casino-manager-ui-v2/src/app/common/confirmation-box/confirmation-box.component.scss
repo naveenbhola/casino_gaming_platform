@@ -1,0 +1,19 @@
+/*@import "~common-ui/styles/styles";
+
+.dialog__confirmation__content {
+  @include tbl_dialog;
+  &.confirm-dialog{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 30vh;
+    .confirm-msg {
+      margin: 5% 0;
+    }
+    .dialog__footer__default-controls {
+      display: block;
+      border: none;
+    }
+  }
+}
+*/

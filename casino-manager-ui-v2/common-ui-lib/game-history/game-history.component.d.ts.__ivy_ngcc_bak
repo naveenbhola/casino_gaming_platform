@@ -1,0 +1,15 @@
+import { OnInit } from '@angular/core';
+export interface PeriodicElement {
+    name: string;
+    position: number;
+    weight: number;
+    symbol: string;
+    description: string;
+}
+export declare class GameHistoryComponent implements OnInit {
+    dataSource: PeriodicElement[];
+    columnsToDisplay: string[];
+    expandedElement: PeriodicElement | null;
+    constructor();
+    ngOnInit(): void;
+}

@@ -1,0 +1,18 @@
+//
+////Styles for showing Player-types: anonymous, known, rated & manrate.
+//
+@mixin player--type ($type:anonymous) {
+	@if $type == anonymous {
+			background-color: $red-bright !important;
+			border: 2px solid $red !important;
+	} @else if $type == known {
+			background-color: $yellow-bright !important;
+			border: 2px solid $yellow-dark !important;
+	} @else if $type == rated {
+			background-color: $green-bright !important;
+			border: 2px solid $green-dark !important;
+	} @else if $type == manrate {
+			background-color: $blue !important;
+			border: 2px solid $blue-dark !important;
+	}
+}

@@ -1,0 +1,17 @@
+<app-tabs></app-tabs>
+<div class="fills-credits-details__container has-page-top-tab-bar">
+  <app-tables class="fills-credits-details-table"
+              [tableTitleNotRequired]="true"
+              [tableHeaders]="fctxnsTableHeaders"
+              [tableRows]="fctxnsTableData"
+              [totalRecords]="totalRecords"
+              [filterOptions]="filterConfig"
+              (filter)="updateFilter($event)"
+              [inputStart]="inputStart"
+              [inputCurrentPage]="inputCurrentPage"
+              [inputLimit]="inputLimit"
+              (node)="updateEventObj($event)"
+              (pagination)="updatePagination($event)"
+              (sort)="sortData($event)">
+  </app-tables>
+</div>

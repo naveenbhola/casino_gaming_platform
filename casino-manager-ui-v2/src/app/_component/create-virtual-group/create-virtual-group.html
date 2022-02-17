@@ -1,0 +1,60 @@
+<h2 mat-dialog-title class="create-virtual-group-dialog__title">
+  <!--Add New Virtal Group-->
+  <h3 *ngIf="true"
+        translate="application.app.CONFIGURATION_LABELS.AREAS.ADD_VIRTUAL_GROUP"></h3>
+  <span class="space-filler"></span>
+  <button mat-button tabindex="-1" class="close-btn">
+    <mat-icon (click)="closeDialogBox()">close</mat-icon>
+  </button>
+</h2>
+
+<div class="create-virtual-group-dialog__content-wrapper">
+  <div class="form-control__wrapper">
+    <p>
+      <span translate="application.app.CONFIGURATION_LABELS.AREAS.SITE_NAME"></span>
+    </p>
+
+    <mat-form-field>
+      <mat-label translate="application.app.CONFIGURATION_LABELS.AREAS.SELECT_SITE_NAME"></mat-label>
+      <mat-select [(value)]="selectedSiteId" appAppAutoFocus>
+        <mat-option *ngFor="let site of listOfSites;trackBy:trackByIndex;"
+                    [value]="site.name.nodeId">
+          {{site.name.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form-control__wrapper">
+    <p>
+      <span translate="application.app.common.labels.VIRTUAL_GROUP_NAME"></span>
+    </p>
+
+    <mat-form-field>
+      <mat-label translate="application.app.common.labels.VIRTUAL_GROUP_NAME"></mat-label>
+      <input matInput
+             [(ngModel)]="inpVGName"
+             maxlength="20"
+             placeholder="{{'application.app.common.labels.VIRTUAL_GROUP_NAME' | translate}}"
+             autocomplete="off">
+    </mat-form-field>
+  </div>
+</div>
+
+<div mat-dialog-actions class="create-virtual-group-dialog__footer">
+  <span class="space-filler"></span>
+  <button mat-stroked-button
+          class="common-button"
+          tabindex="-1"
+          color="primary"
+          (click)="closeDialogBox()">
+    <span translate="application.app.common.labels.CANCEL"></span>
+  </button>
+  <button mat-stroked-button
+          class="common-button"
+          [disabled]="(!inpVGName || !selectedSiteId || !performLengthCheck() || VGCreationInProg )"
+          tabindex="-1"
+          color="primary"
+          (click)="createVirtualGroup()">
+    <span translate="application.app.common.labels.OK"></span>
+  </button>
+</div>

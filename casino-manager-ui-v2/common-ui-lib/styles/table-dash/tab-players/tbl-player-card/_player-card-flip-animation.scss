@@ -1,0 +1,40 @@
+@import "../../../../styles/variables";
+
+.flip-card-animation--container {
+	position: relative;
+	
+	.tbl-player-card {
+		perspective: 1000px;
+		position: relative;
+		width: $pCardW;
+		height: $pCardH;
+		transform-style: preserve-3d;
+		transition: all 0.5s ease-in;
+		
+		&.flipped {
+			transform: rotateY(180deg);
+			box-shadow: -5px 5px 5px #aaa;
+			
+			.tbl-player-card__flipped {
+				z-index: 2;
+			}
+		}
+		
+		.tbl-player-card__seated-player {
+			z-index: 1;
+		}
+		
+		.tbl-player-card__flipped {
+			transform: rotateY(180deg);
+			z-index: 0;
+		}
+		
+		.tbl-player-card__seated-player,
+		.tbl-player-card__flipped {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: white;
+		}
+	}
+}

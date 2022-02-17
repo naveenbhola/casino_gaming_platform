@@ -1,0 +1,108 @@
+<app-tabs></app-tabs>
+<div class="chip-details__chip-security has-page-top-tab-bar">
+  <div class="wrapper__top-padding" *ngIf="!chipSecurityTabAccess">
+    <div class="show__no-data-txt">
+      <h4>
+        {{ 'application.app.common.labels.NO_ACCESS_TO_REQUESTED_PAGE' | translate}}
+      </h4>
+    </div>
+  </div>
+
+  <div *ngIf="chipSecurityTabAccess">
+    <div class="table-header__row">
+      <button mat-stroked-button
+              (click)="backClicked()"
+              class="common-button" color="primary">
+        <mat-icon>chevron_left</mat-icon>
+        <span>
+          {{ 'application.app.common.labels.BACK' | translate}}
+        </span>
+      </button>
+      <h3 class="table-section__title-section">
+        <span>
+          {{'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.COMPARISON.CHIP_DETAILS' | translate}}
+        </span>
+      </h3>
+      <div class="space-filler"></div>
+
+      <!-- Injecting a 'Download(.csv)' Button in App-table component  -->
+      <button mat-stroked-button
+              class="common-button"
+              color='primary'
+              [disabled]="(!chipSetData || chipSetData.length == 0)"
+              (click)="downloadCSV()">
+        <span>
+          {{ 'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.COMPARISON.DOWNLOAD_CSV' | translate}}
+        </span>
+      </button>
+      <!-- End -->
+    </div>
+
+    <div *ngIf="(loading === 'show' || loading === 'updateChipStatusCall')">
+      <mat-spinner
+        [diameter]="60"
+        class="mx-auto mt-5"></mat-spinner>
+    </div>
+
+    <div class="msg-status-changed" *ngIf="(loading === 'updateChipStatusCall')">
+      {{'application.app.CASINO_MGR_LABELS.MESSAGE.CHANGE_STATUS_REQUEST_SUBMITTED' | translate}}</div>
+
+    <div *ngIf="(loading === 'hide')" class="wrapper__top-padding has-search-form">
+      <div class="table-section table-section__form__position">
+        <div class="table-section table-section__search">
+          <form [formGroup]="chipSearchFormGroup" class="table__form__search">
+            <mat-form-field class="search-input-field">
+              <input matInput
+                     placeholder="{{'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.COMPARISON.SEARCH_CHIP_ID' | translate}}"
+                     formControlName="searchChip" autocomplete="off">
+
+              <button mat-icon-button class="clear-button"
+                      [disabled]="(chipSearchFormGroup.invalid || chipSearchFormGroup.value.searchChip === '')"
+                      *ngIf="chipSearchFormGroup.value"
+                       mat-suffix aria-label="Clear"
+                      (click)="clearSearch();">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+            <button mat-stroked-button
+                    class="common-button common-button--primary common-button__search"
+                    color='primary'
+                    (click)="searchChip()"
+                    [disabled]="(chipSearchFormGroup.invalid || chipSearchFormGroup.value.searchChip === '')">
+              <mat-icon> search </mat-icon>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div *ngFor="let chipType of chipTypes;trackBy:trackByIndex">
+        <app-tables *ngIf="(filterType === chipType.type)" class="app-table__chip-details"
+                    [tableHeaders]="tableHeaders"
+                    [tableRows]="chipSetData"
+                    [totalRecords]="totalRecord"
+                    [filterOptions]="filterConfigOption"
+                    (filter)="updateFilter($event)"
+                    [showFilters]="true"
+                    (sort)="sortData($event)"
+                    (node)="updateEventObj($event)"
+                    [inputStart]="chipStart"
+                    [inputCurrentPage]="chipCurrentPage"
+                    [inputLimit]="chipLimit"
+                    (pagination)="updatePagination($event)">
+
+          <mat-radio-group class="radio-button-toggle" name="chipsListType" [(ngModel)]="filterType">
+            <mat-radio-button color="primary"
+                              value="suspect"
+                              class="pr-3"
+                              (change)="updateChipSetData('suspect')">{{'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.SUSPECT_CHIPS' | translate}}
+            </mat-radio-button>
+            <mat-radio-button color="primary"
+                              value="all"
+                              (change)="updateChipSetData('all')">{{'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.ALL_CHIPS' | translate}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </app-tables>
+      </div>
+    </div>
+  </div>
+</div>

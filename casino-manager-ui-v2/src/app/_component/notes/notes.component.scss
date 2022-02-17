@@ -1,0 +1,25 @@
+@import "~common-ui/styles/variables", "~common-ui/styles/mixins";
+
+.notes__text-field {
+  width: 100%;
+  @include include-font-style($font-h5-size, $font-base-weight);
+}
+
+.notes__list-item {
+  @include include-font-style($font-h5-size, $font-base-weight);
+
+  small {
+    line-height: 1.5;
+  }
+}
+
+:host .mat-dialog-content.notes-dialog-content {
+  max-height: 56vh;
+}
+
+.disabled{
+  pointer-events: none;
+  border-color: rgba(0, 0, 0, 0) !important;
+  background-color: rgba(0, 0, 0, 0.12) !important;
+  color: rgba(0, 0, 0, 0.26);
+}

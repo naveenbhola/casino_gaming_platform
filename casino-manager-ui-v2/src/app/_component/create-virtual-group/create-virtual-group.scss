@@ -1,0 +1,62 @@
+@import
+"~common-ui/styles/colors",
+"~common-ui/styles/variables",
+"~common-ui/styles/mixins",
+"~common-ui/styles/button",
+"~common-ui/styles/common",
+"~src/styles/mixins-local";
+
+.create-virtual-group-dialog {
+  &__title {
+    @include dialog-title;
+
+    .close-btn {
+      @include close-button;
+    }
+  }
+
+  &__content-wrapper {
+    @include dialog-body-content;
+  }
+
+  &__footer {
+    @include dialog-footer-controls;
+
+    .common-button {
+      @include make-common-button;
+
+      &[disabled]{
+        color: $black-alpha85;
+      }
+
+      &:nth-of-type(2){
+        margin-left: 1%;
+      }
+    }
+  }
+}
+
+.form-control__wrapper {
+  display: flex;
+  border: none;
+  margin-bottom: 2%;
+
+  &:last-child{
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  > p {
+    min-width: 16vw;
+  }
+
+  > .mat-form-field {
+    flex: 1;
+  }
+
+  > .mat-input-element {
+    border: 2px solid $w-primary;
+    border-radius: $border-radius;
+    padding: 0 2%;
+  }
+}

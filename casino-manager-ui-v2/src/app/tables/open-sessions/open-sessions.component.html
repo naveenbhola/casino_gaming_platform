@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>
+  <span [translate]="'application.app.common.labels.OPEN_SESSIONS'"></span>
+</h1>
+<div mat-dialog-content>
+  <app-tables [tableHeaders]="tableHeaders"
+              [tableRows]="tableData"
+              [totalRecords]="totalRecords"
+              [tableTitleNotRequired]="titleNotReq"
+              (node)="updateEventObj($event)"
+              [hideFilters]="true"
+              [hidePagination]=true>
+  </app-tables>
+</div>
+<div mat-dialog-actions style="float: right;">
+  <button mat-button (click)="closeTheBox()">
+    <span [translate]="'application.app.common.labels.CLOSE'"></span></button>
+</div>
+
+

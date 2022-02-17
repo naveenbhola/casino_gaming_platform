@@ -1,0 +1,14 @@
+import { OnInit } from '@angular/core';
+import { DecimalPipe } from "@angular/common";
+export declare class ChipIconsComponent implements OnInit {
+    private decimalPipe;
+    chipIconKey: string;
+    strCss: string;
+    strKey: string;
+    chipLabel: string;
+    constructor(decimalPipe: DecimalPipe);
+    ngOnInit(): void;
+    getChipIcon(): string;
+    getChipLabel(chipKey: any): string;
+    isFractionalChipDenom(denom: any): boolean;
+}

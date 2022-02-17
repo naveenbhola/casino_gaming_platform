@@ -1,0 +1,131 @@
+<div class="table-cards" [ngClass]="{'has-pagination': (totalRecords > 5)}"
+*ngIf="(tableData && tableData.length > 0 && totalRecords > 0)">
+    <mat-card class="table-card"
+              *ngFor="let grid of tableData;trackBy:trackByIndex"
+              (click)="openTableDash(grid['TABLE_NAME'])">
+      <div class="table-card__header">
+        <div class="table-card__title">{{grid['TABLE_NAME']}}</div>
+        <div class="table-card__alerts">
+          <button mat-flat-button color="primary"
+                  class="badge badge--critical faded"
+                  (click)="openAlertsTab('CRITICAL', grid['tableID'], $event)"
+                  matTooltip="Critical Alerts" aria-describedby="Critical Alerts">
+              <mat-icon class="badge--critical">notifications_active</mat-icon>
+              <span *ngIf="alertsData[grid['tableID']]">{{alertsData[grid['tableID']].criticalCount}}</span>
+          </button>
+          <button mat-flat-button color="primary"
+                  class="badge badge--high faded"
+                  (click)="openAlertsTab('HIGH', grid['tableID'], $event)"
+                  matTooltip="High Alerts" aria-describedby="High Alertss">
+            <mat-icon class="badge--high">notifications_active</mat-icon>
+            <span *ngIf="alertsData[grid['tableID']]">{{alertsData[grid['tableID']].highCount}}</span>
+          </button>
+          <button mat-flat-button color="primary"
+                  class="badge badge--low faded"
+                  (click)="openAlertsTab('LOW', grid['tableID'], $event)"
+                  matTooltip="Low Alerts" aria-describedby="Low Alerts">
+            <mat-icon class="badge--low">notifications_active</mat-icon>
+            <span *ngIf="alertsData[grid['tableID']]">{{alertsData[grid['tableID']].lowCount}}</span>
+          </button>
+        </div>
+      </div>
+      <div class="mini-table-div" [ngClass]="{'five-pos-table': (getTablePositionsNum(grid['TABLE_NAME']) === 5)}">
+          <div class="game-table"></div>
+          <div *ngIf="getTablePositionsNum(grid['TABLE_NAME']) > 0">
+            <div *ngFor="let position of getTableStats(grid['TABLE_NAME'], 'table-positions'); let i = index; trackBy:trackByIndex"
+                 class="mini-player-div mini-table-pos-{{i + 1}}">
+              <span class="mini-table-player"
+                    [ngStyle]="getSessionsNumOrColor(grid['TABLE_NAME'], position, 1, true) &&
+                    {'background-color': getSessionsNumOrColor(grid['TABLE_NAME'], position, 1, true), 'opacity': 1}"
+                    (click)="viewOpenSessions(grid['TABLE_NAME'], position)">
+                <span *ngIf="getSessionsNumOrColor(grid['TABLE_NAME'], position, 1) > 1">
+                  {{getSessionsNumOrColor(grid['TABLE_NAME'], position, 1)}}
+                </span>
+              </span>
+              <span class="mini-table-player"
+                    [ngStyle]="getSessionsNumOrColor(grid['TABLE_NAME'], position, 2, true) &&
+                    {'background-color': getSessionsNumOrColor(grid['TABLE_NAME'], position, 2, true), 'opacity': 1}"
+                    (click)="viewOpenSessions(grid['TABLE_NAME'], position)">
+                <span *ngIf="getSessionsNumOrColor(grid['TABLE_NAME'], position, 2) > 1">
+                  {{getSessionsNumOrColor(grid['TABLE_NAME'], position, 2)}}
+                </span>
+              </span>
+              <span class="mini-table-player"
+                    [ngStyle]="getSessionsNumOrColor(grid['TABLE_NAME'], position, 3, true) &&
+                    {'background-color': getSessionsNumOrColor(grid['TABLE_NAME'], position, 3, true), 'opacity': 1}"
+                    (click)="viewOpenSessions(grid['TABLE_NAME'], position)">
+                <span *ngIf="getSessionsNumOrColor(grid['TABLE_NAME'], position, 3) > 1">
+                  {{getSessionsNumOrColor(grid['TABLE_NAME'], position, 3)}}
+                </span>
+              </span>
+            </div>
+          </div>
+      </div>
+      <div class="stats-div">
+        <div class="table-stats-div">
+          <span [translate]="'CasinoManager_View1_CASINO_WIN'" class="table-stats-label"></span>
+          <span class="table-stats-span text-right"
+                [ngClass]="{'negative-prop-value': isNegativeNumber(getCasinoWLValue(grid['TABLE_NAME']))}">
+            <span *ngIf="isNegativeNumber(getCasinoWLValue(grid['TABLE_NAME']))"
+                  class="negative-prop-value">(</span>
+              {{getNumber(getCasinoWLValue(grid['TABLE_NAME'])) | roundUp}}
+            <span *ngIf="isNegativeNumber(getCasinoWLValue(grid['TABLE_NAME']))"
+                  class="negative-prop-value">)</span>
+          </span>
+        </div>
+        <div class="table-stats-div">
+          <span [translate]="'SHOE_WIN'" class="table-stats-label"></span>
+          <span class="table-stats-span text-right"
+                *ngIf="tableStats[getTableStats(grid['TABLE_NAME'])] && tableStats[getTableStats(grid['TABLE_NAME'])]['SHOE_WIN']"
+                [ngClass]="{'negative-prop-value': isNegativeNumber(tableStats[getTableStats(grid['TABLE_NAME'])]['SHOE_WIN'])}">
+            <span *ngIf="isNegativeNumber(tableStats[getTableStats(grid['TABLE_NAME'])]['SHOE_WIN'])"
+                  class="negative-prop-value">(</span>
+          {{getNumber(tableStats[getTableStats(grid['TABLE_NAME'])]['SHOE_WIN']) | roundUp}}
+            <span *ngIf="isNegativeNumber(tableStats[getTableStats(grid['TABLE_NAME'])]['SHOE_WIN'])"
+                  class="negative-prop-value">)</span>
+          </span>
+        </div>
+        <div class="table-stats-div">
+          <span  class="table-stats-label" [translate]="'SHOE_GAME_NUMBER'"></span>
+          <span class="table-stats-span text-right"
+          *ngIf="tableStats[getTableStats(grid['TABLE_NAME'])] && tableStats[getTableStats(grid['TABLE_NAME'])]['SHOE_GAME_NUMBER']">
+          {{tableStats[getTableStats(grid['TABLE_NAME'])]['SHOE_GAME_NUMBER']}}</span>
+        </div>
+        <div class="table-stats-div">
+          <span [translate]="'CasinoManager_View1_TABLE_LIMITS'" class="table-stats-label"></span>
+          <span class="table-stats-span text-right">
+          {{getTableStats(grid['TABLE_NAME'], 'limit')}}</span>
+        </div>
+        <div class="table-stats-div">
+          <span [translate]="'CHIP_TRAY_VARIANCE'" class="table-stats-label"></span>
+          <span class="table-stats-span text-right"
+                *ngIf="tableStats[getTableStats(grid['TABLE_NAME'])] &&
+                tableStats[getTableStats(grid['TABLE_NAME'])]['CHIP_TRAY_VARIANCE']"
+                [ngClass]="{'negative-prop-value': isNegativeNumber(tableStats[getTableStats(grid['TABLE_NAME'])]['CHIP_TRAY_VARIANCE'])}">
+            <span *ngIf="isNegativeNumber(tableStats[getTableStats(grid['TABLE_NAME'])]['CHIP_TRAY_VARIANCE'])"
+                  class="negative-prop-value">(</span>
+          {{getNumber(tableStats[getTableStats(grid['TABLE_NAME'])]['CHIP_TRAY_VARIANCE']) | amountFormat}}
+            <span *ngIf="isNegativeNumber(tableStats[getTableStats(grid['TABLE_NAME'])]['CHIP_TRAY_VARIANCE'])"
+                  class="negative-prop-value">)</span>
+          </span>
+        </div>
+        <div class="table-stats-div">
+          <span [translate]="'GAMING_DAY'" class="table-stats-label"></span>
+          <span class="table-stats-span text-right"
+          *ngIf="tableStats[getTableStats(grid['TABLE_NAME'])] && tableStats[getTableStats(grid['TABLE_NAME'])]['GAMING_DAY']">
+          {{tableStats[getTableStats(grid['TABLE_NAME'])]['GAMING_DAY'] | date: "dd-MMM"}}</span>
+        </div>
+      </div>
+    </mat-card>
+</div>
+<app-pagination *ngIf="totalRecords > limit"
+  class="table-grid-view-pagination"
+                [perPageOption]="perPageOption"
+                [totalRecord]="totalRecords"
+                [isTableGrid]="true"
+                (EMIT_PAGINATION)="updatePagination($event)"></app-pagination>
+<div class="table-data__container" *ngIf="(!tableData) || (tableData.length === 0) || (totalRecords === 0)">
+  <div class="show__no-data-txt">
+    <h4 [translate]="'application.app.common.labels.NO_DATA_AVAILABLE'"></h4>
+  </div>
+</div>

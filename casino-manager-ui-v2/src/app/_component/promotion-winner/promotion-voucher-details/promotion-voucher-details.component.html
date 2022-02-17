@@ -1,0 +1,24 @@
+<h2 mat-dialog-title class="table-voucherids-dialog__title">
+  {{'application.app.CASINO_MGR_LABELS.PROMOTION_WINNER.VOUCHER_ID' | translate}}  {{data.voucherId}}
+
+  <span class="space-filler"></span>
+
+  <button mat-button tabindex="-1" class="close-btn">
+    <mat-icon (click)="closeDialogBox()">close</mat-icon>
+  </button>
+</h2>
+<div mat-dialog-content class="table-voucherids-dialog__content-wrapper">
+  <div *ngIf="loading">
+    <mat-spinner
+      [diameter]="60"
+      class="mx-auto mt-5"></mat-spinner>
+  </div>
+  <app-tables *ngIf="!loading"
+              [tableTitleNotRequired]="true"
+              [totalRecords]="totalRecords"
+              [tableRows]="promotionVoucherDetailsList"
+              [tableHeaders]="tableHeaders"
+              [hidePagination]="true"
+              class="table-voucherids">
+  </app-tables>
+</div>

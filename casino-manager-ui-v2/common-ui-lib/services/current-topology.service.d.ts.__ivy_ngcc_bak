@@ -1,0 +1,11 @@
+import { BehaviorSubject } from 'rxjs';
+export declare class CurrentTopologyService {
+    private defaultTopologyID;
+    private defaultGamingDay;
+    topology: BehaviorSubject<number>;
+    currentTopology: import("rxjs").Observable<number>;
+    gamingDay: BehaviorSubject<Date>;
+    currentGamingDay: import("rxjs").Observable<Date>;
+    constructor();
+    updateTopology(topologyID: number, gamingDay: Date): void;
+}

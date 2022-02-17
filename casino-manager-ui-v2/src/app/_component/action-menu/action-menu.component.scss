@@ -1,0 +1,39 @@
+//
+.button-more {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  min-width: 4em;
+}
+
+
+::ng-deep .js-promotion-winner-dialog.cdk-overlay-pane {
+  max-width: 98vw !important;
+
+  .mat-table {
+    .mat-header-cell,
+    .mat-cell{
+      padding-left: 0.2%;
+      padding-right: 0.2%;
+      white-space: pre-wrap;
+      max-width: 14vw;
+      min-width: 5vw;
+    }
+  }
+}
+
+
+
+::ng-deep .js-player-search .table-searched-players {
+  .table__wrapper {
+    height: calc(100vh - 18em);
+    padding: 1% 0;
+  }
+}
+
+::ng-deep .js-user-search .table-searched-players {
+  .table__wrapper {
+    height: calc(100vh - 20em);
+    padding: 1% 0;
+  }
+}

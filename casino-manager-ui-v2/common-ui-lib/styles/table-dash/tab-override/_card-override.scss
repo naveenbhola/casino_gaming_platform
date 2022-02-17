@@ -1,0 +1,226 @@
+@import "../../../styles/colors", "../../../styles/variables", "../../../styles/functions", "../../../styles/mixins";
+
+.override-tab-contents__wrapper {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+  /* autoprefixer: off */
+	grid-template-areas:
+			"a a a a a a"
+			"a a a a a a"
+			"a a a a a a"
+			"b b b c c c"
+			"b b b c c c"
+			"b b b d d d"
+			"b b b d d d";
+	grid-row-gap: 8px;
+	padding: 16px;
+}
+
+%override-sections {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	border: 1px solid get-color('primary');
+	border-radius: $border-radius * 1.5;
+	background-color: get-color('wwhite');
+}
+
+@each $section in $override-sections {
+	.override-section__#{$section}{
+		@extend %override-sections;
+		
+		@if $section == "result" {
+			grid-area: a;
+			min-height: 280px;
+			
+		}
+		
+		@else if $section == "bet-management" {
+			grid-area: b;
+			min-height: 254px;
+			width: 52vw;
+		}
+		
+		@else if $section == "card-buffer" {
+			grid-area: c;
+			min-height: 152px;
+			width: 40vw;
+		}
+		
+		@else if $section == "burn-btns" {
+			grid-area: d;
+			min-height: 86px;
+		}
+		
+		////Include styles for inner-sections in each section.
+		&__inner-section {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 0.5rem 0;
+		}
+	}
+}
+
+.override-section__burn-btns {
+	.common-button {
+		@include tbl-button;
+		margin-right: 1rem;
+		
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
+.override-section__card-buffer__inner-section {
+	flex-direction: row;
+	justify-items: stretch;
+	justify-content: space-around;
+}
+
+.override-section__burn-btns__inner-section {
+	align-self: center;
+}
+
+.section-title {
+	font-size: $font-base-size * 1.875;
+	font-weight: $font-base-weight;
+	color: transparentize(get-color('bblack'), 0.35);
+	line-height: 1;
+	transform: rotate(-90deg);
+	transform-origin: left;
+	position: absolute;
+	left: 24px;
+	bottom: 0;
+	white-space: nowrap;
+	
+	&__wrapper {
+		display: flex;
+		background-color: get-color('primary');
+		width: 4vw;
+		position: relative;
+		max-width: 80px;
+	}
+	
+	&__transform--rotate {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: relative;
+		width: 100%;
+	}
+	
+	&.result__title--position {
+		bottom: 80px;
+	}
+	
+	&.bet-management__title--position {
+		bottom: 26px;
+	}
+	
+	&.card-buffer__title--position {
+		bottom: 0;
+	}
+	
+	&.card-burn__title--position {
+		bottom: 10px;
+	}
+}
+
+.result-section__control-buttons {
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	align-items: flex-end;
+	
+	.common-button {
+		@include tbl-button;
+		width: 12vw;
+		max-width: 172px;
+		border-radius: $border-radius * 1.5;
+		margin-right: 1rem;
+		
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
+.result-section__sides {
+	display: flex;
+	flex-grow: 1;
+	max-height: 24px;
+	justify-content: center;
+	
+	&--label {
+		font-size: $font-base-size * 1.25;
+		font-weight: $font-base-weight;
+		line-height: 1.2;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		background-color: get-color('gray-light');
+		position: relative;
+		padding: 0 1rem;
+		
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			border: 12px solid transparent;
+			top: 0;
+		}
+		
+		&:first-child:before {
+			border-right: 16px solid get-color('gray-light');
+			left: -28px;
+		}
+		
+		&:last-child:after {
+			border-left: 16px solid get-color('gray-light');
+			right: -28px;
+		}
+	}
+}
+
+
+.buffer-playing-cards__wrapper {
+	display: flex;
+	flex-grow: 1;
+	justify-content: space-between;
+	align-self: center;
+	padding: 0 0 0 1rem;
+	
+	.playing-card {
+		min-width: 23%;
+		max-height: 100px;
+		border-radius: 6px;
+		margin-right: 0.25rem;
+		
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
+.override-section__card-buffer {
+	.result-section__control-buttons {
+		flex-direction: column;
+		flex-grow: 0;
+		padding: 0 1rem;
+	}
+	
+	.common-button {
+		margin-right: 0;
+		margin-bottom: 1rem;
+		
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.override-section__result {
+	.result-section__control-buttons {
+		padding: 0 20%;
+	}
+}

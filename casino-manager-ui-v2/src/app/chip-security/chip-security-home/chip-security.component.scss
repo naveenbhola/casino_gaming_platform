@@ -1,0 +1,257 @@
+@import
+"~bootstrap/dist/css/bootstrap.min.css",
+"~common-ui/styles/colors",
+"~common-ui/styles/variables",
+"~common-ui/styles/mixins",
+"~common-ui/styles/button",
+"~common-ui/styles/common",
+"~common-ui/styles/icons",
+"~src/styles/mixins-local",
+"~src/styles/common",
+"~src/styles";
+
+.chip-security-tab__chip-security {
+  ::ng-deep app-tables.chip-security-table {
+    .table__wrapper {
+      padding: 0;
+    }
+
+    .pagination__bottom-fixed {
+      position: relative;
+      bottom: 0;
+
+      .mx-5 {
+        padding-left: 1% !important;
+        padding-right: 1% !important;
+        margin: 0;
+        margin-right: 1% !important;
+        white-space: nowrap;
+        min-width: 10vw;
+      }
+    }
+
+    .table-filters__inner-container {
+      min-height: 18vh;
+    }
+
+    .table-data__container {
+      height: 56vh;
+
+      &.has-opened-filters {
+        height: 38vh;
+      }
+
+      &.has-pagination {
+        height: 48vh;
+
+        &.has-opened-filters {
+          height: 30vh;
+        }
+      }
+    }
+
+    .common-button {
+      @include style-button-label;
+    }
+
+    .common-button-drop-down[disabled] {
+      @include style-button-disabled;
+    }
+  }
+}
+
+::ng-deep .chip-security-table__action-status-menu.mat-menu-panel {
+  button.mat-menu-item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+
+    > span {
+      opacity: 0.85;
+    }
+  }
+}
+
+.chip-security-table__top-row-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 1% 0;
+
+  &__buttons-wrapper {
+    flex: 3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    > .common-button:not(:first-child) {
+      margin-left: 0;
+
+      &:last-child {
+        margin-left: 4%;
+      }
+    }
+  }
+}
+
+.table-section__search{
+  flex: 2;
+  display: flex;
+}
+
+.table__form__search {
+  background-color: transparentize($gray, 0.85);
+  border: 2px solid $w-primary;
+  border-radius: $border-radius;
+  display: flex;
+  padding: 0;
+  width: 100%;
+}
+
+.clear-button {
+  position: absolute;
+  right: 0;
+  opacity: 0.35;
+  min-width: 24px;
+  padding: 0;
+  top: -0.5rem;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  .mat-icon {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.search-input-field {
+  width: 100%;
+  min-width: 30vmin;
+
+  &.mat-focused{
+    background-color: $white;
+  }
+}
+
+::ng-deep .chip-security-action-menu.mat-menu-panel {
+  min-width: 130px;
+
+  .mat-menu-item {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.msg-status-changed {
+  display: flex;
+  color: $w-primary;
+  @include include-font-style($base-font-size, $base-font-weight, 1.3);
+  max-width: 28vw;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 2%;
+}
+
+////
+.common-button.common-button__search {
+  border-radius: 0 3px 3px 0;
+  border: none;
+
+  &.common-button--primary {
+    color: $white;
+  }
+
+ .mat-icon {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.4rem;
+  }
+}
+
+.search-input-field {
+  padding: 0 4%;
+}
+
+.chip-security-tab__chip-security {
+  ::ng-deep .table-header__flex-row {
+
+    > .table-section {
+      &:first-child {
+        order: 1;
+        flex: 1;
+      }
+
+      &:nth-child(3){
+        order: 0;
+        flex: 0;
+      }
+
+      &:last-child {
+        order: 4;////Reordering table-section
+      }
+    }
+
+    > .space-filler {
+      order: 3;
+    }
+
+    .table-section__title-section {
+      @include table-section-title;
+      margin-bottom: 0;
+    }
+  }
+
+  ::ng-deep .common-button {
+    font-weight: $font-base-weight !important;////making font-type bold
+  }
+
+  ::ng-deep .expandable-detail-row .expanded-section .table-column--inner > header {
+    background-color: $white;
+    color: $black-alpha15;
+    font-size: 13px;
+    padding: 0 2%;
+    line-height: 2;
+    margin-bottom: 2%;
+    opacity: 0.85;
+
+    + main[class *= "ng-star"]{
+      padding: 0 2%;
+      font-size: 15px;
+    }
+  }
+
+////Merging style of action and submit buttons
+  .action-button {
+    border-radius: 4px 0 0 4px;
+
+    + .common-button {
+      border-radius: 0 4px 4px 0;
+      border-left: none;
+    }
+  }
+}
+
+::ng-deep  app-tables.chip-security-table td[class *= "CHIP_SECURITY-ACTION"] {
+  .common-button {
+    background-color: transparent;
+  }
+}
+
+////Hover effect on table-row
+.chip-security-tables {
+  min-height: 0;
+
+  &:first-of-type {
+    ::ng-deep .table-data__container tbody > .mat-row:not(.expandable-expanded-row):not(.expandable-detail-row) {
+      @include table-row-hovered;
+    }
+  }
+
+  &:nth-child(2) {
+    ::ng-deep .table-data__container tbody > .mat-row:not(.expandable-expanded-row):not(.expandable-detail-row) {
+      @include table-row-hovered;
+    }
+  }
+}

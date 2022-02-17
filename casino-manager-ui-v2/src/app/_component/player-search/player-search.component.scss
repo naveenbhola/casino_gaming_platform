@@ -1,0 +1,28 @@
+@import
+"~common-ui/styles/variables",
+"~common-ui/styles/button",
+"~common-ui/styles/mixins",
+"~common-ui/styles/common",
+"~src/styles/mixins-local";
+
+.player-search-dialog {
+  &__title {
+    @include dialog-title;
+
+    .close-btn {
+      @include close-button;
+    }
+  }
+}
+
+.search-component {
+  @include search-component;
+
+  &__button {
+    min-width: 5em;
+  }
+
+  &__button .material-icons {
+    font-size: 3.5em;
+  }
+}

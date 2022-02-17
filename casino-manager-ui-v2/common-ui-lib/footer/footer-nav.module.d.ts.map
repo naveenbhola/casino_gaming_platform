@@ -1,0 +1,1 @@
+{"version":3,"file":"footer-nav.module.d.ts","sources":["footer-nav.module.d.ts"],"names":[],"mappings":";;;;;;AAAA;;;AACA","sourcesContent":["export declare class FooterNavModule {\n}\n"]}

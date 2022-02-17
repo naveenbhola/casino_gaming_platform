@@ -1,0 +1,15 @@
+export declare const protocol = "https://";
+export declare const authenticationType = "LDAP";
+export declare const webServerDNS = "wdts-gateway-qe6.wdtablesystems.com";
+export declare const treasuryPort = "785";
+export declare const webDashboardPort = "792";
+export declare const webConfigurationTLSPort = "782";
+export declare const webCasinoManagerTLSPort = "783";
+export declare const webPlayerDashboardTLSPort = "789";
+export declare const webAlertsTLSPort = "791";
+export declare const webTableDashboardTLSPort = "#@webTableDashboardTLSPort@#";
+export declare const webCamTLSPort = "781";
+export declare const webCashierTLSPort = "786";
+export declare const webLoginPort = "#@webLoginTLSPort@#";
+export declare const tableUIProtocol = "#@webserverTableUIProtocol@#";
+export declare const tableUIPort = "#@singleTablePort@#";

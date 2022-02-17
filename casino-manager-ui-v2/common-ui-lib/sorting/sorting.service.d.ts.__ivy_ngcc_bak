@@ -1,0 +1,5 @@
+export declare class SortingService {
+    sortObj: object;
+    constructor();
+    getSortObject(sort: any): object;
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="62px" height="46px" viewBox="0 0 62 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-table-dash</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M4.99902433,32.8074999 C7.75990923,32.8074999 9.99804866,30.5980252 9.99804866,27.8724999 C9.99804866,25.1469747 7.75990923,22.9375 4.99902433,22.9375 C2.23813943,22.9375 0,25.1469747 0,27.8724999 C0,30.5980252 2.23813943,32.8074999 4.99902433,32.8074999 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9.99804866" height="9.86999989" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <ellipse id="path-3" cx="56.9139179" cy="27.8724999" rx="4.99902433" ry="4.93499994"></ellipse>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9.99804866" height="9.86999989" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <path d="M31.4990243,9.86999989 C34.2599092,9.86999989 36.4980487,7.66052515 36.4980487,4.93499994 C36.4980487,2.20947473 34.2599092,0 31.4990243,0 C28.7381394,0 26.5,2.20947473 26.5,4.93499994 C26.5,7.66052515 28.7381394,9.86999989 31.4990243,9.86999989 Z" id="path-5"></path>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9.99804866" height="9.86999989" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <path d="M18.9990243,11.8699999 C21.7599092,11.8699999 23.9980487,9.66052515 23.9980487,6.93499994 C23.9980487,4.20947473 21.7599092,2 18.9990243,2 C16.2381394,2 14,4.20947473 14,6.93499994 C14,9.66052515 16.2381394,11.8699999 18.9990243,11.8699999 Z" id="path-7"></path>
+        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9.99804866" height="9.86999989" fill="white">
+            <use xlink:href="#path-7"></use>
+        </mask>
+        <path d="M43.9990243,12.8699999 C46.7599092,12.8699999 48.9980487,10.6605252 48.9980487,7.93499994 C48.9980487,5.20947473 46.7599092,3 43.9990243,3 C41.2381394,3 39,5.20947473 39,7.93499994 C39,10.6605252 41.2381394,12.8699999 43.9990243,12.8699999 Z" id="path-9"></path>
+        <mask id="mask-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9.99804866" height="9.86999989" fill="white">
+            <use xlink:href="#path-9"></use>
+        </mask>
+        <ellipse id="path-11" cx="8.99902433" cy="15.9349999" rx="4.99902433" ry="4.93499994"></ellipse>
+        <mask id="mask-12" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9.99804866" height="9.86999989" fill="white">
+            <use xlink:href="#path-11"></use>
+        </mask>
+        <ellipse id="path-13" cx="52.9990243" cy="16.9349999" rx="4.99902433" ry="4.93499994"></ellipse>
+        <mask id="mask-14" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9.99804866" height="9.86999989" fill="white">
+            <use xlink:href="#path-13"></use>
+        </mask>
+        <path d="M20.1170213,42.0907184 C15.4578531,42.0907184 11.6808511,37.7884547 11.6808511,32.4813434 C11.6808511,27.7721225 14.6547689,23.8540936 18.5800672,23.0310653 L43.1713326,22.9375 C47.3637591,23.4959941 50.6170213,27.5559138 50.6170213,32.4813434 C50.6170213,37.7884547 46.8400192,42.0907184 42.1808511,42.0907184 C39.3418928,42.0907184 36.830465,40.4933751 35.3014688,38.0446658 L26.9964036,38.0446658 C25.4674074,40.4933751 22.9559795,42.0907184 20.1170213,42.0907184 Z" id="path-15"></path>
+        <mask id="mask-16" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="38.9361702" height="19.1532184" fill="white">
+            <use xlink:href="#path-15"></use>
+        </mask>
+    </defs>
+    <g id="Current" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Apps-Dashboard-colored" transform="translate(-270.000000, -478.000000)" stroke="#BB9156">
+            <g id="Group-7" transform="translate(201.000000, 451.000000)">
+                <g id="icon-table-dash" transform="translate(68.000000, 20.000000)">
+                    <g id="Group-6" transform="translate(1.000000, 7.000000)">
+                        <g id="Group">
+                            <use id="Oval-3" mask="url(#mask-2)" stroke-width="2" fill="#BB9156" xlink:href="#path-1"></use>
+                            <use id="Oval-3-Copy-4" mask="url(#mask-4)" stroke-width="4" fill="#FFFFFF" xlink:href="#path-3"></use>
+                            <use id="Oval-3-Copy" mask="url(#mask-6)" stroke-width="4" fill="#FFFFFF" xlink:href="#path-5"></use>
+                            <use id="Oval-3-Copy-2" mask="url(#mask-8)" stroke-width="2" fill="#BB9156" xlink:href="#path-7"></use>
+                            <use id="Oval-3-Copy-5" mask="url(#mask-10)" stroke-width="4" fill="#FFFFFF" xlink:href="#path-9"></use>
+                            <use id="Oval-3-Copy-3" mask="url(#mask-12)" stroke-width="4" fill="#FFFFFF" xlink:href="#path-11"></use>
+                            <use id="Oval-3-Copy-6" mask="url(#mask-14)" stroke-width="2" fill="#BB9156" xlink:href="#path-13"></use>
+                            <use id="Combined-Shape" mask="url(#mask-16)" stroke-width="2" fill="#BB9156" xlink:href="#path-15"></use>
+                        </g>
+                        <path d="M16.8723404,44.71875 L44.1276596,44.71875" id="Path-753"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

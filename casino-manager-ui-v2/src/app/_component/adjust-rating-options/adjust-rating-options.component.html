@@ -1,0 +1,199 @@
+<!--
+** Showing Title for the Dialog component.
+-->
+<h2 mat-dialog-title class="d-flex border-bottom">
+  <span translate="">{{breadCrumsPath}}</span>
+  <span class="space-filler"></span>
+  <button mat-button tabindex="-1" class="close-btn">
+    <mat-icon (click)="onClose()">close</mat-icon>
+  </button>
+</h2>
+<!--<mat-divider></mat-divider>-->
+<!-- ** Showing Main Contents for the Dialog component. -->
+<div mat-dialog-content class="table-limits__dialog-content">
+  <form [formGroup]='adjustRatingForm' autocomplete="off" class="player-tier__form">
+    <div class="player-tier__card">
+      <h5 class="player-tier__card__header">
+        <span *ngIf="initialPlayersRankingData" translate="application.app.common.labels.ADD"></span>
+        <span *ngIf="!initialPlayersRankingData" translate="application.app.common.labels.EDIT"></span>&nbsp;
+        <span translate="application.app.common.labels.OPTION"></span>
+        <span class="space-filler"></span>
+      </h5>
+      <div class="player-tier__card__body">
+        <div class="form-group flex border-bottom">
+          <label class="player-tier__label col-xs-4"
+                 translate="application.app.common.labels.PLAYER_RANKINGS">
+          </label>
+
+          <div class="col-xs-8">
+            <mat-form-field class="w-100">
+              <!--<mat-label [translate]="'application.app.common.labels.PLAYER_RANKINGS'">Player Rankings</mat-label>-->
+              <mat-select [(value)]="seletedRanking"
+                          [disabled]="isPlayerRankingEditing"
+                          (selectionChange)="selectedPlayerRanking($event)"
+                          formControlName="playerRanking">
+                <mat-option *ngFor="let option of playerRankingList;trackBy:trackByIndex" [value]="option">
+                  {{option | translate}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="border-bottom">
+          <div class="form-group flex"
+               [ngClass]="{ 'error-state': playerRankingObj['minMaxError'] || performHandsPlayedValidation() }">
+            <label class="player-tier__label col-xs-4"
+                   translate="application.app.common.labels.TOPSUBNAV.HANDS_PLAYED">
+            </label>
+            <div class="col-xs-8 hands-played-range">
+              <!--<mat-form-field>-->
+              <input matInput
+                     type="text"
+                     placeholder="1"
+                     class="form-control hands-played"
+                     (keyup)="resetError($event)"
+                     appNumberOnly
+                     (inputChange)="onChangeValue($event,3)"
+                     [lengthForField]="3"
+                     formControlName="handsPlayedMin"
+                     aria-label="hands-played-min"
+                     (keypress)="validateHandsPlayedMin($event,3)">
+              <!-- </mat-form-field>-->
+              <span translate="application.app.common.labels.TO"></span>
+              <!--<mat-form-field>-->
+              <input matInput
+                     type="text"
+                     appNumberOnly
+                     [lengthForField]="4"
+                     (inputChange)="onChangeValue($event,4)"
+                     class="form-control hands-played"
+                     formControlName="handsPlayedMax"
+                     (keyup)="resetError($event)"
+                     aria-label="hands-played-max"
+                     placeholder="1000"
+                     (keypress)="validateHandsPlayedMax($event,4)">
+              <!--</mat-form-field>-->
+
+            </div>
+          </div>
+          <mat-error class="errors-list" *ngIf="playerRankingObj['minMaxError']"
+                     [translate]="'application.app.common.labels.TOPSUBNAV.OUT_OF_RANGE'">
+          </mat-error>
+          <mat-error class="errors-list" *ngIf="performHandsPlayedValidation()"
+                     [translate]="'application.app.common.labels.TOPSUBNAV.ERROR_GAMES_PLAYED'">
+            Enter integer between 1 and 1000
+          </mat-error>
+        </div>
+
+        <div class="form-group flex border-bottom">
+          <label class="player-tier__label col-xs-4"
+                 translate="application.app.common.labels.TOPSUBNAV.DISCOUNT_LABEL">
+          </label>
+          <div class="col-xs-8">
+            <input matInput
+                   type="text"
+                   formControlName="discount"
+                   class="form-control discount"
+                   [pattern]="numericNumberReg"
+                   (keyup)="validateDiscoutField($event);"
+                   placeholder="0"
+                   (keypress)="validatePercentage($event)"
+                   aria-label="discount-percentage">
+          </div>
+        </div>
+
+        <div class="player-tier__card__row" *ngIf="!isAskRemovePlayerRankings">
+          <button mat-stroked-button color="primary"  class="common-button" style="margin-right: 4%;"
+                  (click)="cancelPlayerTier()">
+            <span *ngIf="initialPlayersRankingData"
+                  translate="application.app.CONFIGURATION_LABELS.PROMOTION.RESET"></span>
+            <span *ngIf="!initialPlayersRankingData"
+                  translate="application.app.common.labels.CANCEL"></span>
+            <!--{{adjustRatingForm.controls['handsPlayedMax'].value}}-->
+          </button>
+          <button mat-raised-button  class="common-button" tabindex="-1" color="primary"
+                  [disabled]="playerRankingObj['minMaxError'] ||
+                                            playerRankingObj['discountError'] ||
+                                            adjustRatingForm.controls['handsPlayedMax'].errors?.min ||
+                                            adjustRatingForm.controls['handsPlayedMax'].errors?.max ||
+                                            adjustRatingForm.controls['handsPlayedMin'].errors?.min ||
+                                            adjustRatingForm.controls['handsPlayedMin'].errors?.max ||
+                                            adjustRatingForm.controls['handsPlayedMin'].value == '' ||
+                                            adjustRatingForm.controls['handsPlayedMax'].value == '' ||
+                                            !adjustRatingForm.controls['handsPlayedMin'].value ||
+                                            !adjustRatingForm.controls['handsPlayedMax'].value ||
+                                            adjustRatingForm.controls['handsPlayedMin'].value == adjustRatingForm.controls['handsPlayedMax'].value
+                                            || ishandsPlayedMaxSmaller || dataFetched"
+                  (click)="savePlayerTierData()">
+            <span *ngIf="initialPlayersRankingData" translate="application.app.common.labels.ADD"></span>
+            <span *ngIf="!initialPlayersRankingData" translate="application.app.common.labels.SAVE"></span>
+          </button>
+        </div>
+
+        <div class="text-center" *ngIf="isAskRemovePlayerRankings">
+          <h5 class="highlight-red" translate="application.app.common.labels.TOPSUBNAV.DELETE_ADJUSTMENT_OPTION">
+            </h5>
+          <button mat-raised-button class="common-button" color="primary" style="margin-right: 4%"
+                  (click)="removePlayerRanking($event)">
+            <span translate="application.app.common.labels.OK"></span>
+          </button>
+          <button mat-stroked-button  class="common-button" color="primary"
+                  (click)="cancelRemovePlayerRanking($event)">
+            <span translate="application.app.common.labels.CANCEL"></span>
+          </button>
+        </div>
+
+        <div class="text-center" *ngIf="playerRankingObj['maxPlayerRanking']">
+          <h5 class="highlight-red" translate="application.app.common.labels.TOPSUBNAV.MAX_PLAYER_TIER">
+            </h5>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="player-tier__card">
+      <h5 class="player-tier__card__header"
+          translate="application.app.common.labels.TOPSUBNAV.RATING_ADJUSTMENT_OPTIONS"></h5>
+      <!-- Default will always be there. -->
+
+      <div class="spinner" *ngIf="dataFetched">
+        <mat-spinner [diameter]="60" class="mx-auto mt-5"></mat-spinner>
+      </div>
+
+      <div class="player-tier__card__body player-tier__card__body--scrollable"
+           *ngIf="arrPlayerRankingData.length > 0">
+
+        <div class="player-tier__item"
+             [ngClass]="{'active': item['editing'],'delete-progress': isAskRemovePlayerRankings}"
+             *ngFor="let item of arrPlayerRankingData;trackBy:trackByIndex"
+             (click)="editPlayerRanking(item)">
+          <div class="player-tier__item__name">{{item['name']}}</div>
+          <div class="space-filler"></div>
+          <div class="player-tier__item__badge percentage">
+            {{item['discount']}}%
+          </div>
+          <div class="player-tier__item__badge min__max">
+            {{item['min']}} - {{item['max']}}
+          </div>
+          <mat-icon *ngIf="!item['editing']"
+                    class="close-btn" (click)="removePlayerRankingConfirm($event,item)">close
+          </mat-icon>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
+<div mat-dialog-actions align="end" class="d-flex w-100 modal-footer">
+  <div class="dialog__footer__confirm-controls">
+    <div class="space-filler"></div>
+    <button mat-stroked-button tabindex="-1" color="primary" class="dialog__footer--button button--default"
+            (click)="onClose()">
+      <span translate="application.app.common.labels.CLOSE"></span>
+    </button>
+  </div>
+</div>
+

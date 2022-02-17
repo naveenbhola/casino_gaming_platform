@@ -1,0 +1,1 @@
+{"version":3,"file":"app-tables.module.d.ts","sources":["app-tables.module.d.ts"],"names":[],"mappings":";;;;;;;;;;AAAA;;;AACA","sourcesContent":["export declare class AppTablesModule {\n}\n"]}

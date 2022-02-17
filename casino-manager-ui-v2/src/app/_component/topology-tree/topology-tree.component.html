@@ -1,0 +1,225 @@
+<!-- Areas section and others -->
+<ng-container class="assignedgroup"
+              *ngFor="let treeItem of arrTrees; let first = first; trackBy:trackByIndex">
+  <mat-divider></mat-divider>
+  <p class="topology-tree__section-title mb-1"
+     *ngIf="assignedDataSource.data && assignedDataSource.data.length > 0">
+    <button mat-button
+            class="common-button common-button__sm common-button__home__lmargin"
+            (click)="treeItem.treegroup === 'assignednode' && handleClick('areas')"
+            *ngIf="first">
+      <mat-icon>home</mat-icon>
+    </button>
+
+    <span (click)="treeItem.treegroup === 'assignednode' && handleClick('areas')"
+          [ngClass]="{'areas__label__text' : treeItem.treegroup === 'assignednode'}"
+          [translate]="treeItem.label"></span>
+
+    <button mat-button
+            class="common-button common-button__sm ml-3 icon--resize"
+            (click)="openCreateVG()"
+            *ngIf="treeItem.isPlusIconToShow && this.permissionToAccess">
+      <mat-icon>add</mat-icon>
+    </button>
+  </p>
+  <mat-tree *ngIf="assignedDataSource.data && assignedDataSource.data.length > 0"
+            [dataSource]="arrNestedDataSource[treeItem.treegroup]"
+            [treeControl]="treeControl"
+            id="{{treeItem.treegroup}}"
+            class="topology-tree__container pr-1"
+            [ngClass]="treeItem.treegroup === 'assignednode' ? 'topology-tree__container__areas':''">
+
+    <mat-tree-node [ngClass]="{'tree-node-has-no-child': ('assignednode' && nodeNames && nodeNames[node.item] && nodeNames[node.item].type === 1000)}"
+                   id="mat-tree-node_{{node.item}}"
+                   *matTreeNodeDef="let node;"
+                   matTreeNodeToggle
+                   matTreeNodePadding
+                   [matTreeNodePaddingIndent]="treeIndent">
+      <button mat-button color="primary"
+              class="common-button text-left"
+              [ngClass]="(isEditable && nodeToEdit === node.item &&
+                                    node.dataSourceName === 'accessgroup'
+                                    && node.level === 0)?'button__min-width':''"
+              *ngIf="isButtonVisible(node, treeItem)"
+              draggable="true"
+              (dragstart)="handleDragStart($event, node);"
+              (dragover)="handleDragOver($event, node);"
+              (click)="handleClick(node, nodeNames[node.item])"
+              (contextmenu)="handleRightClick(node, $event)"
+              (drop)="handleDrop($event, node);"
+              (dragend)="handleDragEnd($event);"
+              [attr.aria-label]="node.item">
+               <span
+                     [ngClass]="((node.level === 0) && node.dataSourceName === 'accessgroup')? 'text-editable' : ''">
+                {{node.item}}==nav==
+               </span>
+      </button>
+      <button mat-button
+              class="common-button common-button__xsm"
+              color="primary"
+              *ngIf="isEditButtonEnabled(node,treeItem)"
+              (click)="editVirtualGroupName(node)">
+        <mat-icon class="icon__hovered">edit</mat-icon>
+      </button>
+      <form [formGroup]='virtualGroupForm'
+            (ngSubmit)="updateNodeName( node, 'virtualGroupForm')"
+            ngClass="editable-text__form"
+            *ngIf="isEditableFormEnabled( node )">
+        <mat-form-field class="mr-3">
+          <input matInput value={{node.item}}
+                 maxlength="20"
+                 formControlName="groupName"
+                 [errorStateMatcher]="validateVirtualGroupName"/>
+          <mat-error *ngIf="isGroupNameInvalid"
+                     [translate]="'application.app.CONFIGURATION_LABELS.CHIPSETS.MESSAGE.GROUP_WITH_SAME_NAME_EXIST'">
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-stroked-button
+                class="done-button mat-elevation-z1 ml-1"
+                color="primary"
+                type="submit"
+                [disabled]="isGroupNameInvalid||  !this.virtualGroupForm.dirty || !virtualGroupForm.valid">
+          <mat-icon>done</mat-icon>
+        </button>
+        <button mat-stroked-button
+                class="common-button common-button__sm mat-elevation-z1 ml-1"
+                color="primary"
+                (click)="clearNodeName()">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </form>
+      <button mat-button color="primary" class="common-button pl-1" draggable="true"
+              *ngIf="treeItem.treegroup === 'assignednode' && nodeNames && nodeNames[node.item] && nodeNames[node.item].type !== 1000"
+              draggable="true"
+              (dragstart)="handleDragStart($event, node);"
+              (dragover)="handleDragOver($event, node);"
+              (drop)="handleDrop($event, node);"
+              (dragend)="handleDragEnd($event);"
+              [disabled]="!checkByTopologyPerm(node,treeItem)"
+              (click)="handleClick(node, nodeNames[node.item])"
+              [attr.aria-label]="node.item"
+              [ngClass]="{'selected__node': selectedNode === node.item}">
+        <mat-icon class="icon__tbl-inactive" *ngIf="nodeNames[node.item].status === 'INACTIVE'" color="accent">cancel
+        </mat-icon>
+        {{nodeNames[node.item].name}}
+      </button>
+      <button mat-button color="primary" class="common-button pl-1  text-left terminal__node"
+              [ngClass]="{'tree-node-has-no-child': 'assignednode' && nodeNames && nodeNames[node.item] && nodeNames[node.item].type === 1000}"
+              *ngIf="treeItem.treegroup === 'assignednode' && nodeNames && nodeNames[node.item] && nodeNames[node.item].type === 1000"
+              draggable="true"
+              [disableRipple]="true"
+              (dragstart)="handleDragStart($event, node);"
+              (dragover)="handleDragOver($event, node);"
+              (drop)="handleDrop($event, node);"
+              (dragend)="handleDragEnd($event);"
+              [attr.aria-label]="node.item"
+              [ngClass]="{'selected__node': selectedNode === node.item, 'pit__terminal': isTerminalOfPit( node )}">
+        {{nodeNames[node.item].name}}
+      </button>
+    </mat-tree-node>
+
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild"
+                    id="hasChild_{{node.item}}"
+                    matTreeNodePadding
+                    [matTreeNodePaddingIndent]="treeIndent">
+      <button class="common-button access-groups__button"
+              color="primary"
+              mat-button
+              matTreeNodeToggle
+              draggable="true"
+              *ngIf="treeItem.treegroup != 'assignednode'"
+              (click)="handleClick(node, nodeNames[node.item])"
+              (contextmenu)="handleRightClick(node, $event)"
+              (dragstart)="handleDragStart($event, node);"
+              (dragover)="handleDragOver($event, node);"
+              (drop)="handleDrop($event, node);"
+              (dragend)="handleDragEnd($event);"
+              [attr.aria-label]="'toggle ' + node.item">
+        <mat-icon style="order: 1;">
+          {{treeControl.isExpanded(node) ? 'arrow_drop_down' : 'arrow_right'}}
+        </mat-icon>
+        <span *ngIf="(node.dataSourceName !== 'accessgroup' ||
+                                ((node.dataSourceName === 'accessgroup') && nodeToEdit !== node.item))"
+              [ngClass]="((node.level === 0) && node.dataSourceName === 'accessgroup')? 'text-editable' : ''">
+                                {{node.item}}</span>
+
+      </button>
+
+      <button mat-button
+              class="common-button common-button__xsm"
+              color="primary"
+              *ngIf="isEditButtonEnabled(node,treeItem)"
+              (click)="editVirtualGroupName(node)">
+        <mat-icon class="icon__hovered">edit</mat-icon>
+      </button>
+      <form [formGroup]='virtualGroupEditForm'
+            (ngSubmit)="updateNodeName( node, 'virtualGroupEditForm')"
+            ngClass="editable-text__form"
+            *ngIf="isEditableFormEnabled( node )">
+        <mat-form-field>
+          <input matInput value={{node.item}}
+                 maxlength="20"
+                 formControlName="groupParentName"
+                 [errorStateMatcher]="validateVirtualGroupEditName"/>
+          <mat-error *ngIf="isGroupNameInvalid"
+                     [translate]="'application.app.CONFIGURATION_LABELS.CHIPSETS.MESSAGE.GROUP_WITH_SAME_NAME_EXIST'">
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-stroked-button
+                class="done-button mat-elevation-z1"
+                color="primary"
+                type="submit"
+                [disabled]="isGroupNameInvalid ||  !this.virtualGroupEditForm.dirty || !virtualGroupEditForm.valid">
+          <mat-icon>done</mat-icon>
+        </button>
+        <button mat-stroked-button
+                class="common-button common-button__sm mat-elevation-z1 ml-1"
+                color="primary"
+                (click)="clearNodeName()">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </form>
+
+      <button class="common-button" color="primary" mat-button matTreeNodeToggle draggable="true"
+              *ngIf="treeItem.treegroup === 'assignednode' && nodeNames"
+              [attr.aria-label]="'toggle ' + node.filename"
+              [ngClass]="{'selected__node': selectedNode === node.item}">
+        <mat-icon *ngIf="nodeNames[node.item] && nodeNames[node.item].type !== 1100">
+          {{treeControl.isExpanded(node)? 'arrow_drop_down' : 'arrow_right'}}
+        </mat-icon>
+        <mat-icon *ngIf="nodeNames[node.item] && nodeNames[node.item].type === 1100">
+        {{treeControl.isExpanded(node) ? '' : ''}}
+      </mat-icon>
+      </button>
+      <button class="common-button" color="primary" mat-button matTreeNodeToggle draggable="true"
+              *ngIf="treeItem.treegroup === 'assignednode' && nodeNames"
+              (dragstart)="handleDragStart($event, node);"
+              (dragover)="handleDragOver($event, node);"
+              (drop)="handleDrop($event, node);"
+              (dragend)="handleDragEnd($event);"
+              [disabled]="!checkByTopologyPerm(node,treeItem)"
+              (click)="handleClick(node, nodeNames[node.item])"
+              [attr.aria-label]="'toggle ' + node.filename"
+              [ngClass]="{'selected__node': selectedNode === node.item}">
+        <mat-icon class="icon__tbl-inactive" *ngIf="nodeNames[node.item].status === 'INACTIVE'" color="accent">cancel
+        </mat-icon>
+        {{nodeNames[node.item].name}}
+      </button>
+    </mat-tree-node>
+  </mat-tree>
+  <span #emptyItem></span>
+  <div style="visibility: hidden; position: fixed"
+       [style.left]="contextMenuPosition.x"
+       [style.top]="contextMenuPosition.y"
+       [matMenuTriggerFor]="contextMenu">
+  </div>
+  <mat-menu #contextMenu="matMenu">
+    <ng-template matMenuContent let-item="item">
+      <button mat-menu-item (click)="this.onRemoveVGItemClick()"><span [translate]="'REMOVE_ITEM'">Remove Item</span>
+      </button>
+    </ng-template>
+  </mat-menu>
+</ng-container>
+<!--<app-toplogy-tree-dragdrop [arrTrees]="arrTrees" (addNode)="updateEventObj($event)"></app-toplogy-tree-dragdrop>-->

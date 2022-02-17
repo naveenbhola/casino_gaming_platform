@@ -1,0 +1,23 @@
+<app-tabs></app-tabs>
+<div class="opener-closer-div has-page-top-tab-bar">
+  <button mat-raised-button
+          *ngIf="openerCloserData && openerCloserData.length > 0"
+          (click)="initiatePrint()"
+          [disabled]="( !isPrintEnabled || rowsChecked.length === 0 || noTableRolled )"
+          class="print-button">
+    <mat-icon>print</mat-icon>
+  </button>
+  <app-tables class="table-overview-opener-closer"
+              [tableHeaders]="tableHeaders"
+              [tableRows]="openerCloserData"
+              [totalRecords]="totalRecords"
+              [alternateTitle]="alternateTitleObj"
+              [hidePagination]=true
+              [filterOptions]="filterConf"
+              (filter)="updateFilter($event)"
+              (node)="updateEventObj($event)"
+              (checkAll)="checkAllRows($event)"
+              (checkBoxEvent)="checkBoxEvent($event)"
+              (sort)="sortData($event)">
+  </app-tables>
+</div>

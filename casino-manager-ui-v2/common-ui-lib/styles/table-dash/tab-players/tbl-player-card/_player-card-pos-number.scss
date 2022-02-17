@@ -1,0 +1,21 @@
+@mixin player-card-pos-number ($radius: $rd, $fSize: $base-font-size, $fColor: $fc, $bgColor: $bg) {
+	position: absolute;
+	background-color: transparent;
+	width: $radius;
+	height: $radius;
+	top: 0;
+	left: 0;
+	font-size: $fSize * 1.875;
+	font-weight: $base-font-weight;
+	color: $fColor;
+	border-radius: 50%;
+	
+	&:before{
+		content: '';
+		position: absolute;
+		width: $radius;
+		height: $radius;
+		background-color: $bgColor;
+		border-radius: 0 0 $radius 0;
+	}
+}

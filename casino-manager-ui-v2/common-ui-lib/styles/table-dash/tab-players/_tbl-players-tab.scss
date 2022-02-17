@@ -1,0 +1,218 @@
+@import "../../../styles/colors", "../../../styles/variables";
+
+.tbl-players-tab {
+	&--wrapper {
+		display: flex;
+		min-height: 80vh;
+		overflow: hidden;
+		position: relative;
+		
+		@include respond-to(desktop) {
+			min-height: 83vh;
+		}
+		
+		@include respond-to(wideScreens) {
+			min-height: 85vh;
+		}
+	}
+	
+	&--bg {
+		background: transparent url("/assets/images/tbl-bg-opened.png") no-repeat bottom center ;
+		background-size: 99%;
+		min-height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		position: absolute;
+		bottom: 0;
+		padding-bottom: 3.25rem;
+		width: 100%;
+		
+		@include respond-to(desktop) {
+			background-size: 116%;
+		}
+		
+		.title,
+		.sub-title {
+			font-weight: $base-font-weight;
+			line-height: 1;
+		}
+		
+		.title {
+			font-size: $base-font-size * 2.625;
+			
+			@include respond-to(desktop) {
+				font-size: $base-font-size * 2.25;
+			}
+		}
+		
+		.sub-title {
+			font-size: $base-font-size * 2;
+			
+			@include respond-to(desktop) {
+				font-size: $base-font-size * 1.5;
+			}
+		}
+	}
+	
+	&__player-cards--wrapper {
+		display: grid;
+		grid-template-columns: repeat(7, minmax(120px, 1fr));
+		grid-gap: 0.5rem;
+		justify-items: stretch;
+		min-height: 246px;
+		overflow: hidden;
+		position: relative;
+		align-content: end;
+		align-items: end;
+		grid-template-rows: 1fr;
+		width: 100%;
+		padding: 0 0.5rem;
+		padding-bottom: 2.75rem;
+		
+		//Give a oval shape to cards-arrangement.
+		app-player-card {
+			margin-bottom: 0;
+			&:nth-of-type(2),
+			&:nth-of-type(6) { margin-bottom: 3rem; }
+			
+			&:nth-of-type(3),
+			&:nth-of-type(5) { margin-bottom: 5rem; }
+			
+			&:nth-of-type(4) { margin-bottom: 6rem; }
+			
+			@include respond-to(wideScreens) {
+				margin-bottom: 2rem;
+				&:nth-of-type(2),
+				&:nth-of-type(6) { margin-bottom: 4rem; }
+				
+				&:nth-of-type(3),
+				&:nth-of-type(5) { margin-bottom: 6rem; }
+				
+				&:nth-of-type(4) { margin-bottom: 8rem; }
+			}
+		}
+	}
+}
+
+.tbl-players-tab__ind-bets--row {
+	width: 100%;
+	background-color: $w-gray-light;
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	align-content: center;
+	align-items: center;
+	gap: 2px;
+	grid-gap: 2px;//IE fix.
+	position: absolute;
+	bottom: 0.5rem;
+	padding: 0.125rem 2rem;
+	
+	@include respond-to(desktop) {
+		padding: 0.125rem 0.5rem;
+	}
+	
+	@include respond-to(desktop) {
+		bottom: 0.25rem;
+	}
+	
+	.label,
+	.values {
+		color: $w-black;
+		line-height: 1;
+		font-weight: $base-font-weight;
+	}
+	
+	.label {
+		font-size: $base-font-size * 1.5;
+		text-align: right;
+		padding-right: 1rem;
+		
+		@include respond-to(desktop) {
+			font-size: $base-font-size * 1.25;
+		}
+	}
+	
+	.values {
+		color: $white;
+		font-size: $base-font-size * 1.75;
+		display: flex;
+		flex-direction: row;
+		
+		> .bet-type {
+			margin-right: 1rem;
+			display: flex;
+			flex-grow: 1;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			background-color: $w-black;
+			padding: 0 8px;
+			border-radius: $border-radius;
+			cursor: pointer;
+			
+			&:last-child { margin-right: 0; }
+		}
+	}
+}
+
+.tbl-players-tab__top-contents--wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	justify-content: space-between;
+	position: absolute;
+	z-index: 20;
+	width: 100%;
+}
+
+.tbl-player-card {
+	position: relative;
+	
+	.count-badge {
+		position: absolute;
+		top: -36px;
+		right: 4px;
+	}
+}
+
+::ng-deep.mat-form-field.mat-form-field__select-row {
+	max-width: 160px;
+	
+	@include respond-to(wideScreens) {
+		max-width: 160px;
+	}
+	
+	.mat-select-value {
+		font-size: 1.25rem;
+		font-weight: 600;
+		text-transform: capitalize;
+	}
+	
+	.mat-form-field-label {
+		font-size: 18px;
+		font-weight: 600;
+	}
+}
+
+
+::ng-deep.mat-select-panel {
+	.mat-form-field__select-row__option {
+		font-size: 1.25rem;
+		font-weight: 600;
+		text-transform: capitalize;
+	}
+}
+
+.common-content-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin-right: 0.25rem;
+	
+	@include respond-to(wideScreens) {
+		margin-right: 0.75rem;
+	}
+}

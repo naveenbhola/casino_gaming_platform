@@ -1,0 +1,84 @@
+<app-tabs></app-tabs>
+<div class="page-content" *ngIf="currentScreen === 'COMPANY'">
+  <div class="site-thumbnail__wrapper" *ngFor="let site of sitesData;trackBy:trackByIndex">
+    <button mat-stroked-button
+            [disabled]="!checkByTopologyPerm(site)"
+            color="primary"
+            class="site-thumbnail mat-elevation-z4"
+            (click)="navigateTochildScreen(site)">
+      <h2>{{site.name}}</h2>
+    </button>
+  </div>
+
+  <div class="no_data_parent" *ngIf="!fetchingData && (!sitesData || sitesData.length === 0)">
+    <div class="show__no-data-txt">
+      <h4 [translate]="'application.app.common.labels.NO_DATA_AVAILABLE'"></h4>
+    </div>
+  </div>
+
+</div>
+<mat-spinner
+  *ngIf="fetchingData || (!currentScreen && !isVirtualGroup)"
+  [diameter]="40"
+  class="wloader"></mat-spinner>
+<div class="page-content" *ngIf="currentScreen === 'SITE'">
+  <div class="site-thumbnail__wrapper" *ngFor="let ga of gaData;trackBy:trackByIndex">
+    <button mat-stroked-button color="primary" class="site-thumbnail mat-elevation-z4"
+            (click)="navigateTochildScreen(ga)">
+      <h2>{{ga.name}}</h2>
+    </button>
+  </div>
+  <div class="no_data_parent" *ngIf="!fetchingData && (!gaData || gaData.length === 0)">
+    <div class="show__no-data-txt">
+      <h4 [translate]="'application.app.common.labels.NO_DATA_AVAILABLE'"></h4>
+    </div>
+  </div>
+</div>
+<div class="page-content" *ngIf="currentScreen === 'GA' || currentScreen === 'OA' || isVirtualGroup">
+  <div class="page-content__left-section" *ngIf="(oaData && oaData.length > 0)">
+    <mat-card class="site__data-card__wrapper" *ngFor="let oa of oaData; index as i; trackBy:trackByIndex"
+              (click)="navigateTochildScreen(oaChildNodesData[i])"
+              [ngClass]="{'disabled': !checkByTopologyPerm(oaChildNodesData[i])}">
+      <mat-card-title class="site__data-card__title">{{oa.name}}</mat-card-title>
+      <mat-divider color="primary"></mat-divider>
+      <mat-card-content>
+        <!-- Show Gaming area data here -->
+        <div class="site__data-card__row">
+          <div class="site__data-card__column" *ngFor="let key of objectKeys(oa.data);trackBy:trackByIndex">
+            <div *ngIf="isAdvKpiPermitted(key)" class="site__data-card__label"
+                 translate="CasinoManager_View1_{{key}}"></div>
+            <ng-container *ngIf="isAdvKpiPermitted(key)">
+              <div *ngIf="oa.data[key].toString().indexOf('/') >=0" class="site__data-card__value">{{oa.data[key]}}
+              </div>
+              <div *ngIf="oa.data[key]>=0" class="site__data-card__value">{{ oa.data[key] | roundUp}}</div>
+              <div *ngIf="oa.data[key]<0" class="site__data-card__value negative-value">({{ oa.data[key] * -1 |
+                roundUp}})
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-spinner
+    *ngIf="fetchingData || (!currentScreen && !isVirtualGroup) || loadingTopWinning || loadingTopLosing"
+    [diameter]="40"
+    class="wloader"></mat-spinner>
+  <div class="page-content__right-section" *ngIf="(losingPlayersList && losingPlayersList.length > 0) || (winningPlayersList && winningPlayersList.length > 0)">
+    <app-top-winning-lossing [losingPlayersList]="losingPlayersList"
+                             [winningPlayersList]="winningPlayersList"></app-top-winning-lossing>
+  </div>
+
+  <div class="no_data_parent" *ngIf="(!fetchingData && oaData.length === 0 &&
+  losingPlayersList && losingPlayersList.length === 0 && winningPlayersList &&
+   winningPlayersList.length === 0)">
+    <div class="show__no-data-txt">
+      <h4 [translate]="'application.app.common.labels.NO_DATA_AVAILABLE'"></h4>
+    </div>
+  </div>
+</div>
+
+
+
+

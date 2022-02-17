@@ -1,0 +1,6 @@
+/**
+ * this module provide the topology tree component, service etc.. as you will add later like Pipe, Filters etc...
+ * exported into the CommonUILib Module.
+ */
+export declare class TopologyTreeModule {
+}

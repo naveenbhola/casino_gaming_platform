@@ -1,0 +1,64 @@
+@import
+"~common-ui/styles/variables",
+"~common-ui/styles/mixins";
+
+////Styling container
+:host {
+  display: grid;
+  margin-top: 3em;
+  overflow: auto;
+  max-height: 100%;
+}
+
+////Styling player-card for Grid-view
+.players-player-card {
+  width: 20vw;
+  height: 13.5em;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  cursor: pointer;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  > :first-child {
+    padding-bottom: 2%;
+  }
+
+  &__header {
+    > img {
+      width: 64px;
+      height: 64px;
+      border: 0.2vw solid $gray;
+      border-radius: 50%;
+      text-indent: -10000px;
+    }
+
+    .mat-card-title {
+      color: $w-primary;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content:  space-between;
+    padding: 1%;
+    border-radius: 2px;
+
+    &:nth-child(odd) {
+      background-color: $black-alpha95;
+    }
+  }
+
+  &__label {
+    @include include-font-style($font-h6-size * 0.9, $font-base-weight, 1.5);
+    color: $black-alpha35;
+  }
+
+  &__value {
+    @include include-font-style($font-h6-size * 0.9, $font-base-weight, 1.5);
+    color: $black-alpha15;
+  }
+}

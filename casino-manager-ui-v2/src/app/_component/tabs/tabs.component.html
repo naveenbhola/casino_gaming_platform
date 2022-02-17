@@ -1,0 +1,11 @@
+<nav mat-tab-nav-bar class="page-top-tab-bar">
+  <a mat-tab-link *ngFor="let tab of tabs"
+     [routerLink]="tab.url"
+     (click)="setClickedTabName(tab)"
+     routerLinkActive #rla="routerLinkActive"
+     [ngClass]="{'disabled': tab.isDisable}"
+     [active]="(rla.isActive || tabs.length == 1)">
+  {{tab.content | translate}}
+  </a>
+</nav>
+

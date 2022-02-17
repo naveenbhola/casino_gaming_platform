@@ -1,0 +1,48 @@
+@import
+"~common-ui/styles/colors",
+"~common-ui/styles/variables",
+"~common-ui/styles/mixins",
+"~common-ui/styles/button",
+"~common-ui/styles/common",
+"~src/styles/mixins-local";
+
+.roll-time-dialog {
+  &__title {
+    @include dialog-title;
+
+    .close-btn {
+      @include close-button;
+    }
+  }
+
+  &__content-wrapper {
+    @include dialog-body-content;
+  }
+
+  &__data-container {
+    height: 100%;
+    background-color: $black-alpha95;
+  }
+
+  &__data-row {
+    @include dialog-body-data-row;
+    align-items: center;
+    padding: 0 1%;
+  }
+
+  &__footer {
+    @include dialog-footer-controls;
+
+    .common-button {
+      @include make-common-button;
+
+      &[disabled]{
+        color: $black-alpha85;
+      }
+
+      &:nth-of-type(2){
+        margin-left: 1%;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+import { EventEmitter, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { AppTablesService } from '../app-tables/app-tables.service';
+import { UtilityService } from '../services/utility.service';
+export declare class PaginationComponent implements OnInit, OnChanges, OnDestroy {
+    private tableService;
+    private utilityService;
+    perPageOption: Array<number>;
+    totalRecord: number;
+    inputStart: number;
+    inputCurrentPage: number;
+    inputLimit: number;
+    isTableGrid?: boolean;
+    EMIT_PAGINATION: EventEmitter<any>;
+    start: number;
+    limit: number;
+    currentPage: number;
+    totalPage: number;
+    paginationSubscriber: any;
+    constructor(tableService: AppTablesService, utilityService: UtilityService);
+    ngOnInit(): void;
+    ngOnChanges(): void;
+    handleSubscription(): void;
+    nextPage(): void;
+    previousPage(): void;
+    firstPage(): void;
+    lastPage(): void;
+    changePageLimit(limit: any): void;
+    goToAnyPage(event: any, currntPage: any): void;
+    emitPagination(): void;
+    ngOnDestroy(): void;
+}

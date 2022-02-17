@@ -1,0 +1,45 @@
+//You can add global styles to this file, and also import other style files.
+//Styles from the common-library.
+@import
+"~ng-pick-datetime/assets/style/picker.min.css",
+"~common-ui/styles/custom-theme",
+"~common-ui/styles/typography",
+"~common-ui/styles/colors",
+"~common-ui/styles/variables",
+"~common-ui/styles/snackbars",
+"~common-ui/styles/common",
+"~src/styles/common";
+
+////Customizing styles for Date-time calendar plug-in
+.owl-dt-calendar-table .owl-dt-calendar-cell {
+  &-selected {
+    background-color: $gold;
+
+    .owl-dt-calendar-cell-selected {
+      background-color: $gold;
+    }
+  }
+
+  &-in-range {
+    background-color: transparentize($gold, 0.8);
+  }
+}
+
+.owl-dt-control-button:hover {
+  background-color: rgba(0,0,0,.04);
+}
+
+.owl-dt-container {
+  &-buttons {
+    color: $gray;
+  }
+
+  &-control-button:hover {
+    color: $red;
+  }
+
+  &-info .owl-dt-container-info-active {
+    color: $gold;
+  }
+}
+///End of customization

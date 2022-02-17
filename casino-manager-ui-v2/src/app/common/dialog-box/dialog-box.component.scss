@@ -1,0 +1,72 @@
+@import "~common-ui/styles/colors", "~common-ui/styles/variables", "~common-ui/styles/mixins";
+
+::ng-deep .mat-header-cell {
+  font-weight: 600 !important;
+}
+
+.table-header-cell {
+  &__gray {
+    background-color: transparentize($light-gray,0.5);
+  }
+  &__compact {
+    padding: 10px 8px !important;
+  }
+}
+
+.table-cell__compact {
+  @extend .table-header-cell__compact;
+}
+
+.table-header-row__compact {
+  height: 42px ;
+}
+
+.btn__remove {
+  color: $gray;
+
+  &:hover {
+    color: $gold;
+  }
+}
+
+
+/*
+** Styles for Editable Text-boxes.
+*/
+.editable-text__form,
+.form__editable-text {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparentize($gold, 0.85);
+  padding: 0 4%;
+  border-radius: $border-radius;
+  border: 1px solid transparentize($gold, 0.75);
+  font-size: small;
+
+  .common-button {
+    background-color: $white;
+  }
+
+  &__width {
+    width: 95%;
+  }
+}
+
+.label-underline,
+.form__editable-text__underlined-label {
+  border-bottom: 1px dashed;
+  margin-right: 30%;
+
+  &:hover{
+    color: $red;
+    cursor: pointer;
+    border-bottom-color: $red;
+  }
+}
+/*
+** Styles to make table-header opaque.
+*/
+.table-header-cell__gray {
+  background-color: rgba(230,229,229,1);
+}

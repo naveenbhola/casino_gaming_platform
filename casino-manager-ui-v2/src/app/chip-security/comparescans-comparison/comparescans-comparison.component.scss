@@ -1,0 +1,75 @@
+@import
+"~bootstrap/dist/css/bootstrap.min.css",
+"~common-ui/styles/colors",
+"~common-ui/styles/variables",
+"~common-ui/styles/mixins",
+"~common-ui/styles/button",
+"~common-ui/styles/common",
+"~common-ui/styles/icons",
+"~src/styles/mixins-local",
+"~src/styles/common",
+"~src/styles";
+
+.scan-data__chip-security {
+  ::ng-deep .table-header__row {
+    display: flex;
+    align-items: center;
+    margin-top: 1%;
+
+    > .common-button {
+      @include include-font-style($font-base-size, inherit, 2.5);
+    }
+
+    > .table-section__title-section {
+      @include table-section-title;
+      margin-left: 2%;
+      color: $w-primary;
+    }
+  }
+
+  ::ng-deep app-tables {
+    .table__wrapper {
+      margin-top: -4%;
+      padding: 0;
+
+      .table-header__flex-row > .table-section:first-child {
+        display: none;
+      }
+    }
+
+    tr.row-freezed {
+      opacity: 0.2;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    app-pagination .pagination__container.pagination__bottom-fixed {
+      position: relative;
+      bottom: 0;
+
+      .mx-5 {
+        padding-left: 2% !important;
+        padding-right: 2% !important;
+        margin: 0;
+        white-space: nowrap;
+        min-width: 10vw;
+      }
+    }
+
+    .table-data__container {
+      height: 66vh;
+
+      &.has-opened-filters {
+        height: 54vh;
+      }
+
+      &.has-pagination {
+        height: 58vh;
+
+        &.has-opened-filters {
+          height: 46vh;
+        }
+      }
+    }
+  }
+}

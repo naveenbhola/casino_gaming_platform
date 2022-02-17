@@ -1,0 +1,64 @@
+<h2 mat-dialog-title class="opener-closer-dialog__title">
+  <span [translate]="'application.app.common.labels.OPENER_CLOSER'"></span>&nbsp;
+  <span [translate]="'application.app.CONFIGURATION_LABELS.AREAS.DETAILS'"></span>
+  <span class="space-filler"></span>
+  <button mat-button tabindex="0" class="close-btn" (click)="closeDialogBox()">
+    <mat-icon>close</mat-icon>
+  </button>
+</h2>
+
+<div mat-dialog-content class="opener-closer-dialog__content-wrapper">
+  <!--Opener Data -->
+  <mat-card-content class="opener-closer__row"
+                    [ngClass]="{'active': toggleOpener}"
+                    *ngIf="GamingDayOpenerLength > 0">
+
+    <mat-expansion-panel class="opener-closer__panel" [ngClass]="{'disabled': openerTotalValue <= 0}"
+                         (opened)="toggleOpener = true"
+                         (closed)="toggleOpener = false"
+                         [disabled]="openerTotalValue <= 0"
+                         [expanded]= "true">
+
+      <mat-expansion-panel-header class="opener-closer__header">
+        <div class="opener-closer__header__contents">
+          <h4 [translate]="'OPENER'"></h4>
+          <div class="opener-closer__value-amount">
+            <h5 [translate]="'TOTAL_VALUE'"></h5>
+            <h5>{{openerTotalValue | amountFormat }}</h5>
+          </div>
+        </div>
+      </mat-expansion-panel-header>
+      <app-chipset-panel [chipSetData] = "openerChipSetData" *ngIf="openerTotalValue > 0"></app-chipset-panel>
+    </mat-expansion-panel>
+  </mat-card-content>
+  <!--Closer Data -->
+  <mat-card-content class="opener-closer__row"
+                    [ngClass]="{'active': toggleOpener}"
+                    *ngIf="GamingDayCloserLength > 0">
+    <mat-expansion-panel class="opener-closer__panel" [ngClass]="{'disabled': closerTotalValue <= 0}"
+                         (opened)="toggleOpener = true"
+                         (closed)="toggleOpener = false"
+                         [disabled]="closerTotalValue <= 0"
+                         [expanded]= "true">
+
+      <mat-expansion-panel-header class="opener-closer__header">
+        <div class="opener-closer__header__contents">
+          <h4 [translate]="'CLOSER'"></h4>
+          <div class="opener-closer__value-amount">
+            <h5 [translate]="'TOTAL_VALUE'"></h5>
+            <h5>{{closerTotalValue | amountFormat }}</h5>
+          </div>
+        </div>
+      </mat-expansion-panel-header>
+      <app-chipset-panel [chipSetData] = "closerChipSetData" *ngIf="closerTotalValue > 0"></app-chipset-panel>
+    </mat-expansion-panel>
+  </mat-card-content>
+  <span *ngIf="(GamingDayOpenerLength === 0) && (GamingDayCloserLength === 0)" [translate]="'application.app.common.labels.NO_DATA_AVAILABLE'"></span>
+</div>
+
+<div mat-dialog-actions class="opener-closer-dialog__footer">
+  <span class="space-filler"></span>
+  <button class="common-button" mat-stroked-button tabindex="-1" color="primary" (click)="closeDialogBox()">
+    <span [translate]="'application.app.common.labels.CLOSE'"></span>
+  </button>
+</div>

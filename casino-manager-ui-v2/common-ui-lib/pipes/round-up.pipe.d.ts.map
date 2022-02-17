@@ -1,0 +1,1 @@
+{"version":3,"file":"round-up.pipe.d.ts","sources":["round-up.pipe.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;;;AACA","sourcesContent":["import { PipeTransform } from '@angular/core';\nexport declare class RoundUpPipe implements PipeTransform {\n    transform(value: any, args?: any): any;\n}\n"]}

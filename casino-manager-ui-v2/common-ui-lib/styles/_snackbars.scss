@@ -1,0 +1,19 @@
+// Snackbar customization:
+// Success::Green | Error:: Red | Warn::Orange | Info::Blue
+%snack-bottom-margin {
+  margin-bottom: 5em !important;
+}
+
+$snack-colors:  "success" $green, "error" $error-red, "warn" $orange-bright, "info" $blue-bright;
+@each $name, $bgcolor in $snack-colors {
+  .snack__#{$name}.mat-snack-bar-container{
+    background-color: $bgcolor;
+    color: $white;
+    font-weight: 600;
+    float:right;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    @extend %snack-bottom-margin;
+  }
+}

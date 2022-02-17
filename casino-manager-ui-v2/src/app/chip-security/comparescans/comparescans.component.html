@@ -1,0 +1,38 @@
+<app-tabs></app-tabs>
+<div class="last-scan-details__chip-security has-page-top-tab-bar">
+  <div class="wrapper__top-padding" *ngIf="!chipSecurityTabAccess">
+    <div class="show__no-data-txt">
+      <h4 [translate]="'application.app.common.labels.NO_ACCESS_TO_REQUESTED_PAGE'"></h4>
+    </div>
+  </div>
+
+  <div *ngIf="chipSecurityTabAccess">
+    <div class="table-header__row">
+      <!-- <div class="table-section d-flex align-items-center"> -->
+        <button mat-stroked-button
+                (click)="backClicked()"
+                class="common-button" color="primary">
+          <mat-icon>chevron_left</mat-icon>
+          <span >
+          {{'application.app.common.labels.BACK' | translate}}
+        </span>
+        </button>
+        <h3 class="table-section__title-section">
+          <span >
+            {{'application.app.CASINO_MGR_LABELS.CHIP_SECURITY.COMPARISON.LAST_SCAN_DETAILS' | translate}}
+          </span>
+        </h3>
+      <!-- </div> -->
+    </div>
+    <app-tables *ngIf="loaded"
+                [tableHeaders]="tableHeaders"
+                [tableRows]="lastScanDetails"
+                [totalRecords]="totalRecord"
+                (node)="updateEventObj($event);"
+                [inputStart]="inputStart"
+                [inputCurrentPage]="inputCurrentPage"
+                [inputLimit]="inputLimit"
+                (pagination)="updatePagination($event)">
+    </app-tables>
+  </div>
+</div>

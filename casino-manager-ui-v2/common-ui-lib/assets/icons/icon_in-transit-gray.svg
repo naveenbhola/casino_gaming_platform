@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>*icon/status/in-transit-blue</title>
+    <desc>Created with Sketch.</desc>
+    <g id="*icon/status/in-transit-gray" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#696969" stroke-width="2" fill="#A8A8A8" cx="12" cy="12" r="10"></circle>
+        <path d="M12,19 C15.8659932,19 19,15.8659932 19,12 C19,8.13400675 15.8659932,5 12,5 C12,6 12,8.13400675 12,12 C9.5,13.6695337 9,14 6.01574831,15.6335944 C7.24393973,17.6520057 9.4645494,19 12,19 Z" id="Oval-Copy" fill="#696969"></path>
+    </g>
+</svg>

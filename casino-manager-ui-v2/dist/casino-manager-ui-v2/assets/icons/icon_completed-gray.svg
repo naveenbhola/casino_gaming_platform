@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>completed-gray</title>
+    <desc>Created with Sketch.</desc>
+    <g id="completed-gray" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_completed" transform="translate(2.000000, 2.000000)">
+            <circle id="491a1a1d-9c55-4bb3-9ffe-2e0754289f5a" stroke="#696969" stroke-width="2" fill="#A8A8A8" cx="10" cy="10" r="10"></circle>
+            <polyline id="e763e0cc-6dc6-442a-a3a3-4fcda7f4f323" stroke="#ECECEC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="6 10.15 8.7 12.63 14.55 7"></polyline>
+        </g>
+    </g>
+</svg>

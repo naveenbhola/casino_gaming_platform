@@ -1,0 +1,7 @@
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+export declare class ChipService {
+    private http;
+    constructor(http: HttpClient);
+    getChipset(options: {}): Observable<HttpResponse<Object>>;
+}

@@ -1,0 +1,115 @@
+////
+@import
+"~common-ui/styles/common",
+"~src/styles/common",
+"~src/styles/mixins-local",
+"~src/styles/table-common";
+
+::ng-deep .js-fills-credits-details-dialog.cdk-overlay-pane {
+  max-width: 98vw !important;
+}
+
+.fills-credits-details-table__container {
+  display: block;
+  position: relative;
+
+  ::ng-deep .table-section__filter-section {
+    position: relative;
+    right: 6rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%chipset-panel-row-span {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2%;
+
+  > span:first-child {
+    min-width: 7vw;
+  }
+
+  > span:nth-child(2){
+    min-width: 4vw;
+    text-align: center;
+  }
+
+  > span:last-child {
+    min-width: 4vw;
+    text-align: right;
+  }
+}
+
+::ng-deep .js-fills-credits-details-dialog {
+  ::ng-deep div.chipsets__wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .chipset {
+    background-color: $white;
+
+    .mat-expansion-panel .mat-expansion-panel-header {
+      padding: 1% 2%;
+
+      .panel-header--collapsed {
+        gap: 2px;
+      }
+
+      .labels-row,
+      .values-row {
+        padding-left: 2%;
+      }
+    }
+
+    &__table {
+      background-color: $white;
+
+      &__header {
+        @extend %chipset-panel-row-span;
+        font-weight: $font-base-weight;
+        opacity: 0.65;
+        margin-bottom: 1%;
+      }
+
+      &__body {
+        gap: 0;
+      }
+
+      &__body--row {
+        @extend %chipset-panel-row-span;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        font-weight: $font-base-weight;
+
+        &:last-child{
+          border-bottom: none;
+        }
+      }
+
+      &__footer {
+        @extend %chipset-panel-row-span;
+        font-weight: $font-base-weight;
+        padding-bottom: 2%;
+        border-top: 1px solid rgba(0,0,0,0.15);
+        margin-top: 2%;
+      }
+    }
+
+    .mat-expansion-panel.mat-expanded {
+      background-color: #eee7dd;
+    }
+  }
+}

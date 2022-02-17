@@ -1,0 +1,10 @@
+import { EventEmitter } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { DecodedTokenService } from '../services/Authentication/decoded-token.service';
+export declare class CommonTranslationService {
+    private translate;
+    private tokenService;
+    languageChanged: EventEmitter<any>;
+    constructor(translate: TranslateService, tokenService: DecodedTokenService);
+    handleSubscription(): void;
+}

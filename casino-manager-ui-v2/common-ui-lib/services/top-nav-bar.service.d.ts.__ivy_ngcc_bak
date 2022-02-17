@@ -1,0 +1,9 @@
+import { BehaviorSubject } from 'rxjs';
+import { UserDetailInterface } from '../interface/user-detail.interface';
+export declare class TopNavBarService {
+    private userDetails;
+    userDetailsSubject: BehaviorSubject<UserDetailInterface>;
+    userDetailsObservable: import("rxjs").Observable<UserDetailInterface>;
+    constructor();
+    updateUserDetails(userDetails: UserDetailInterface): void;
+}

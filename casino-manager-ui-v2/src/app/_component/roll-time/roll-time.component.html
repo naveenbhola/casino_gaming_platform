@@ -1,0 +1,67 @@
+<h2 mat-dialog-title class="roll-time-dialog__title">
+  <!--Roll Time-->
+  {{'application.app.common.labels.ROLL_TIME' | translate}}
+  <span class="space-filler"></span>
+
+  <button mat-button tabindex="-1" class="close-btn">
+    <mat-icon (click)="closeDialogBox()">close</mat-icon>
+  </button>
+</h2>
+<h5 *ngIf="!loading">
+  <mat-form-field class="form-field--primary">
+    <!--<mat-label>Gaming Day</mat-label>-->
+    <mat-label>{{'application.app.ALERTS_LABELS.Gaming_Day' | translate}}</mat-label>
+    <mat-select (selectionChange)="gamingDayChanged()" [(ngModel)]="gamingDaySelected">
+      <mat-option *ngFor="let rollDate of rollDateArray;trackBy:trackByIndex;" [value]="rollDate">
+        {{rollDate}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</h5>
+
+<mat-spinner
+  *ngIf="loading"
+  [diameter]="40"
+  class="wloader"></mat-spinner>
+<div mat-dialog-content class="roll-time-dialog__content-wrapper" *ngIf="!loading">
+  <div class="roll-time-dialog__data-container">
+    <div class="roll-time-dialog__data-row" *ngFor="let rollTimeObjRef of dataForRollTime;trackBy:trackByIndex">
+      <div class="roll-time-dialog__data-column">
+        <mat-checkbox (change)="addOrRemoveAccordingToTopology(rollTimeObjRef, $event)"
+                      [checked]="rollTimeObjRef.checked"
+                      [disabled]="rollTimeObjRef.disabled">
+          <span *ngFor="let path of rollTimeObjRef.path; let idx = index; trackBy:trackByIndex">
+            <span *ngIf="idx < rollTimeObjRef.path.length - 1">{{path}}/</span>
+            <span *ngIf="idx === rollTimeObjRef.path.length - 1">{{path}}</span>
+          </span>
+        </mat-checkbox>
+      </div>
+      <div class="roll-time-dialog__data-column">
+        <mat-form-field color="primary">
+          <input matInput [owlDateTimeTrigger]="dt"
+                 [min]="minDate"
+                 [max]="maxDate"
+                 (dateTimeInput)="triggerDtChange(rollTimeObjRef)"
+                 [(ngModel)]="rollTimeObjRef.nextRollDtm"
+                 [owlDateTime]="dt">
+          <owl-date-time #dt></owl-date-time>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div mat-dialog-actions class="roll-time-dialog__footer">
+  <span class="space-filler"></span>
+  <button class="common-button" mat-stroked-button tabindex="-1" color="primary" (click)="closeDialogBox()">
+    <span [translate]="'application.app.common.labels.CANCEL'"></span>
+  </button>
+  <button class="common-button"
+          mat-stroked-button
+          color="primary"
+          (click)="submitSelectedRollDate()"
+          [disabled]="( selectedRows.length < 1 || !rollTimeUpdatPermited) ">
+    <span [translate]="'application.app.common.labels.TOPSUBNAV.CHANGE_ROLL_TIME'"> Change Roll Time </span>
+  </button>
+</div>

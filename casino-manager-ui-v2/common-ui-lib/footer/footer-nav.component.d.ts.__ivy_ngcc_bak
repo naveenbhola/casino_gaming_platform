@@ -1,0 +1,10 @@
+import { OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+export declare class FooterNavComponent implements OnInit {
+    translate: TranslateService;
+    objFooterNavData: any;
+    objTabsNameToDisplay: any;
+    translateLabel: string;
+    constructor(translate: TranslateService);
+    ngOnInit(): void;
+}

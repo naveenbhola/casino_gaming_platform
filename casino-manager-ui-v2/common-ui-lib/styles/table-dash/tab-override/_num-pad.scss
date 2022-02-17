@@ -1,0 +1,97 @@
+@import "../../../styles/mixins";
+
+.num-pad {
+	display: grid;
+	border-radius: $border-radius * 1.5;
+	overflow: hidden;
+	width: 100%;
+
+	&__wrapper {
+		width: 284px;
+		border: 2px solid get-color('primary');
+		border-radius: $border-radius * 3;
+		padding: 0.25rem;
+		background-color: get-color('wwhite');
+	}
+
+	&__title {
+		font-size: $font-base-size * 1.25;
+		font-weight: $font-base-weight;
+		line-height: 2;
+		text-align: center;
+		color: inherit;
+	}
+
+	&__suits__wrapper,
+	&__digits__wrapper,
+	&__control-buttons__wrapper {
+		display: flex;
+		justify-content: space-between;
+		max-width: inherit;
+	}
+}
+
+.num-pad__digits__wrapper {
+	flex-flow: wrap;
+	flex-direction: column;
+}
+
+.num-pad__control-buttons__wrapper {
+	flex-wrap: wrap;
+
+	.num-pad__control-button {
+		@include tbl-button;
+		min-width: 45%;
+		display: flex;
+		flex: 1 0 auto;
+		justify-content: center;
+		margin: 0.0625rem;
+		border: 1px solid get-color("gray-light");
+		align-items: center;
+	}
+}
+
+.num-pad__row--digits-lg,
+.num-pad__row--digits {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.num-pad__row--digits {
+	flex-flow: wrap;
+}
+
+////Include playing-card suit.
+@each $suit in $playing-card-suits {
+	.num-pad__suit-#{$suit} {
+		background: url("/assets/images/icon-suit-#{$suit}.svg") no-repeat;
+		background-position: center center;
+		background-size: 80%;
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.num-pad__button {
+	@include tbl-button;
+	@extend .common-button--default;
+	min-width: 20%;//override the default button-width.
+	width: 24%;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	flex: 1 0 auto;
+	margin: 0.0625rem;
+	align-items: center;
+}
+
+.num-pad__row--digits .num-pad__button {
+	min-width: 32%;
+}
+
+.num-pad__button--text {
+	font-size: $font-base-size * 1.875;
+	font-weight: 800;
+	color: inherit;
+}

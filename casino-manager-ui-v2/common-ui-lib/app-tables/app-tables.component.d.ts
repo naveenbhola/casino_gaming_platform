@@ -1,0 +1,170 @@
+/**
+ * Created by akgupta on 12/14/18.
+ */
+import { EventEmitter, OnChanges, OnInit, QueryList, SimpleChange, ElementRef, AfterViewChecked } from '@angular/core';
+import { FilterComponent } from '../filter/filter.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import * as ɵngcc0 from '@angular/core';
+export declare const MY_CUSTOM_FORMATS: {
+    fullPickerInput: {
+        year: string;
+        month: string;
+        day: string;
+        hour: string;
+        minute: string;
+        hour12: boolean;
+    };
+    datePickerInput: {
+        year: string;
+        month: string;
+        day: string;
+        hour12: boolean;
+    };
+    timePickerInput: {
+        hour: string;
+        minute: string;
+        hour12: boolean;
+    };
+    monthYearLabel: {
+        year: string;
+        month: string;
+    };
+    dateA11yLabel: {
+        year: string;
+        month: string;
+        day: string;
+    };
+    monthYearA11yLabel: {
+        year: string;
+        month: string;
+    };
+};
+export declare class AppTablesComponent implements OnInit, OnChanges, AfterViewChecked {
+    snackBar: MatSnackBar;
+    translate: TranslateService;
+    input01: ElementRef;
+    input02: ElementRef;
+    input03: ElementRef;
+    input04: ElementRef;
+    domdateTime4: any;
+    rowHeader: any[];
+    isCheckedAll: boolean;
+    sortObj: {
+        active: string;
+        sortField: string;
+        sortOrder: string;
+    };
+    selectedFilter: {};
+    perPageOption: number[];
+    perPageLimit: any;
+    isFilterOpen: boolean;
+    loading: boolean;
+    noDataAvailable: boolean;
+    bulkUpdateActive: boolean;
+    fromTime: Date;
+    toTime: Date;
+    toMinTime: Date;
+    toMaxTime: Date;
+    fromToFilter: any[];
+    fromTimeArr: any[];
+    toTimeArr: any[];
+    promoFromDate: Date;
+    promoToDate: Date;
+    minStartTime: Date;
+    valueTextAutofill: any;
+    isDblClicked: boolean;
+    indexDblClicked: number;
+    changedLabel: string;
+    editedCol: string;
+    editableColumnWidth: boolean;
+    disableFilterButton: boolean;
+    headerSelected: string;
+    expandedElement: any;
+    clearFilterFlag: any;
+    filterComponents: QueryList<FilterComponent>;
+    tableRows: any[];
+    tableHeaders: any[];
+    totalRecords: number;
+    filterOptions: any[];
+    editableTable: boolean;
+    tableTitle: string;
+    isPitClicked: boolean;
+    alternateTitle?: any;
+    tableTitleNotRequired?: any;
+    gamingDay?: any;
+    nodeType: string;
+    tabName: string;
+    description: string;
+    playerPositions: string;
+    hidePagination: boolean;
+    tableExpandableRows: any[];
+    hideFilters: boolean;
+    showFilters: boolean;
+    inputStart: number;
+    inputCurrentPage: number;
+    inputLimit: number;
+    checkAll: EventEmitter<any>;
+    checkBoxEvent: EventEmitter<any>;
+    checkBoxAllEvent: EventEmitter<any>;
+    node: EventEmitter<any>;
+    filter: EventEmitter<any>;
+    filterChange: EventEmitter<any>;
+    pagination: EventEmitter<any>;
+    sort: EventEmitter<any>;
+    math: Math;
+    deletePPId: any;
+    textAutofillControl: FormControl;
+    options: string[];
+    filteredOptionsAutofillControl: Observable<string[]>;
+    constructor(snackBar: MatSnackBar, translate: TranslateService);
+    ngOnInit(): void;
+    ngOnChanges(changes: {
+        [propKey: string]: SimpleChange;
+    }): void;
+    private _filter;
+    checkForDisable(event: any): void;
+    updateRowStatus(): void;
+    setRowHeaders(): void;
+    setSelectedFilters(): void;
+    checkAllRows(): void;
+    bulkCheckBoxClickEvt(e: any): boolean;
+    unCheckAllRows(): void;
+    updateEventObj(obj: any): void;
+    sortData(obj: any): void;
+    updateFilter(obj: any): void;
+    applyFilter(): void;
+    timeForLocalGamingDay(time: any): Date;
+    clearFilter(): void;
+    updatePagination(obj: any): void;
+    bulkStatusUpdate(status: any): void;
+    updateCheckedStatus(isDisable: any, _index: any, elem: any): void;
+    cancelUpdate(elem: any): void;
+    resetValues(): void;
+    getLabel(oldName: any, value: any): void;
+    labelDblClicked(isDisable: any, index: any, element: any, header: any, col?: string): boolean;
+    updateLabel(elem: any, col?: string): void;
+    throwValueError(col: any): void;
+    setPath(colValue: any): string;
+    getText(value: any): any;
+    isUndefinedValue(value: any): boolean;
+    trimWhiteSpace(x: any): string;
+    numberFormatterRequired(col: any): boolean;
+    validateInputs(event: any, field: any): void;
+    isArrayEmpty(_array: any): boolean;
+    getRoundedNum(value: any): number;
+    concatEmpId(headerRowElem: any, empCode: any): any;
+    isPPMasterRow(ELEM: any): boolean;
+    getCustomTranslatedText(text: string, separator: any): any;
+    loadDefaultImage(event: any): void;
+    restrictNumberField(_evt: any, maxLen?: any, val?: any): boolean;
+    validateInputsTime(): void;
+    ngAfterViewChecked(): void;
+    getAnonymousTranslatedVal(): any;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<AppTablesComponent, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<AppTablesComponent, "app-tables", never, { "tableRows": "tableRows"; "tableHeaders": "tableHeaders"; "totalRecords": "totalRecords"; "filterOptions": "filterOptions"; "editableTable": "editableTable"; "tableTitle": "tableTitle"; "isPitClicked": "isPitClicked"; "tableExpandableRows": "tableExpandableRows"; "inputStart": "inputStart"; "inputCurrentPage": "inputCurrentPage"; "inputLimit": "inputLimit"; "alternateTitle": "alternateTitle"; "tableTitleNotRequired": "tableTitleNotRequired"; "gamingDay": "gamingDay"; "nodeType": "nodeType"; "tabName": "tabName"; "description": "description"; "playerPositions": "playerPositions"; "hidePagination": "hidePagination"; "hideFilters": "hideFilters"; "showFilters": "showFilters"; }, { "checkAll": "checkAll"; "checkBoxEvent": "checkBoxEvent"; "checkBoxAllEvent": "checkBoxAllEvent"; "node": "node"; "filter": "filter"; "filterChange": "filterChange"; "pagination": "pagination"; "sort": "sort"; }, never, ["*"]>;
+}
+
+//# sourceMappingURL=app-tables.component.d.ts.map

@@ -1,0 +1,15 @@
+<app-tabs></app-tabs>
+<app-tables class="manualratings-table has-page-top-tab-bar"
+            [tableTitleNotRequired]="true"
+            [totalRecords]="totalRecord"
+            [tableRows]="manualRatingList"
+            [tableHeaders]="tableHeaders"
+            [filterOptions]="filterConfigOption"
+            (sort)="sortData($event)"
+            [inputStart]="ratingStart"
+            [inputCurrentPage]="ratingCurrentPage"
+            [inputLimit]="ratingLimit"
+            (pagination)="updatePagination($event)"
+            (filter)="updateFilter($event)"
+            (node)="updateEventObj($event)">
+</app-tables>

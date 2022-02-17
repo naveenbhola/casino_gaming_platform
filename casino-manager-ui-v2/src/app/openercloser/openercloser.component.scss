@@ -1,0 +1,107 @@
+////
+@import
+"~common-ui/styles/common",
+"~src/styles/common",
+"~src/styles/mixins-local",
+"~src/styles/table-common";
+
+::ng-deep .js-opener-closer-dialog.cdk-overlay-pane {
+  max-width: 98vw !important;
+}
+
+.table-overview-opener-closer {
+  @include set-table-height;
+
+  ::ng-deep .table__wrapper {
+    padding: 1% 0;
+  }
+
+  ::ng-deep tr.row-freezed {
+    td.mat-column-checkbox{
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}
+
+.opener-closer-div {
+  display: block;
+  position: relative;
+
+  ::ng-deep .table-section__filter-section {
+    position: relative;
+    right: 6rem;
+  }
+}
+
+.print-button {
+  position: absolute;
+  top: 3%;
+  right: 1%;
+}
+
+app-print-window {
+  display: none;
+}
+
+@media print {
+  /* invert the display (show/hide) properties of the main */
+  /* aplication component and the printing component       */
+
+  app-print-window {
+    display: block;
+  }
+}
+
+
+::ng-deep .js-opener-closer-dialog .opener-closer-dialog {
+  &__title {
+    @include dialog-title;
+    margin-bottom: 0;
+
+    .close-btn {
+      @include close-button;
+    }
+  }
+
+  &__content-wrapper {
+    @include dialog-body-content;
+    min-height: 15vh;
+  }
+
+  &__footer {
+    @include dialog-footer-controls;
+
+    .common-button {
+      @include make-common-button;
+
+      &[disabled]{
+        color: $black-alpha85;
+      }
+
+      &:nth-of-type(2){
+        margin-left: 1%;
+      }
+    }
+  }
+}
+
+::ng-deep .has-opened-sidepanel .table-overview-opener-closer .table-header__flex-row {
+  .is-decorated .table-section__title-section {
+    @include respond-to(ipad){
+      max-width: 80% !important;
+    }
+  }
+}
+
+
+::ng-deep .js-opener-closer-dialog .opener-closer__header {
+  height: 64px !important;
+}
+
+
+.opener-closer-div {
+  ::ng-deep .mat-table th[class *= 'mat-column-checkbox'] {
+    min-width: 2em;
+  }
+}

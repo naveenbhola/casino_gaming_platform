@@ -1,0 +1,183 @@
+//
+@import
+"~bootstrap/dist/css/bootstrap.min.css",
+"~common-ui/styles/colors",
+"~common-ui/styles/variables",
+"~common-ui/styles/button",
+"~common-ui/styles/common";
+
+//Mixins
+@mixin topology-tree-container {
+  width: 100%;
+  padding: 0 5%;
+  margin-right: 0;
+  margin-left: 0;
+  overflow: auto;
+  min-height: 60px;
+  height: auto !important;
+  border-bottom: 2px solid rgba(0,0,0,0.04);
+}
+
+@mixin topology-tree-section-title {
+  background-color: $light-gray;
+  width: 100%;
+  padding: 2% 5%;
+	margin: 0;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+@mixin editable-text {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparentize($gold, 0.85);
+  padding: 0 4%;
+  border-radius: $border-radius;
+  border: 1px solid transparentize($gold, 0.75);
+  font-size: small;
+}
+
+@mixin access-group-button {
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  padding: 0;
+  margin-right: 0.5rem;
+  min-width: 20px;
+}
+
+@mixin style-text-hovered {
+  cursor: pointer;
+  text-decoration: underline;
+  color: $red;
+}
+
+////Styles
+.topology-tree {
+  &__container {
+    @include topology-tree-container;
+    max-height: 40vh;
+
+    ul, li {
+      margin-top: 0;
+      margin-bottom: 0;
+      list-style-type: none;
+    }
+
+    .mat-tree-node {
+      min-height: 40px; //overriding default value
+
+      &:last-child {
+        margin-bottom: 18px;
+      }
+
+      .common-button:first-of-type {
+        display: flex;
+        justify-content: center;
+        min-width: 32px;
+        padding: 1px;
+      }
+    }
+  }
+
+  &__section-title {
+    @include topology-tree-section-title;
+    @extend .text-secondary !optional;
+
+    .common-button__sm {
+  		background-color: transparent;
+  	}
+
+    .icon--resize .material-icons {
+      font-weight: 800;
+      font-size: 28px;
+      width: 40px;
+      height: 28px;
+    }
+  }
+}
+
+.common-button__home__lmargin {
+  margin-left: -10px;
+}
+
+.areas__label__text:hover {
+  @include style-text-hovered;
+}
+
+.editable-text__form {
+  @include editable-text;
+
+  .common-button {
+		background-color: $white;
+
+		&__sm {
+			margin-left: 2%;
+			padding: 1px;
+      min-height: 2.5rem;
+		}
+	}
+  .done-button {
+    background-color: $white;
+    margin-left: 2%;
+    padding: 1px;
+    min-height: 2.5rem;
+    min-width: 40px;
+  }
+}
+
+.icon-tbl-properties,
+.icon__tbl-properties{
+  font-size: 18px;
+}
+
+.icon__hovered {
+  color: $light-gray;
+  width: 32px;
+  font-size: 20px;
+
+  &:hover {
+    color: $gold;
+  }
+}
+
+.access-groups__button {
+  @include access-group-button;
+}
+
+.tree-node-has-no-child {
+  min-height:0;
+  display: none;
+}
+
+.editable-text__form {
+  .common-button {
+    background-color: $white;
+  }
+
+  .mat-form-field {
+    max-width: 9vw;
+  }
+}
+
+.topology-tree__container__areas {
+  .mat-tree-node {
+    > .common-button {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      padding: 0;
+      text-align: left;
+    }
+
+    + .mat-tree-node  {
+      > .common-button {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding: 0;
+        text-align: left;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import "../../../styles/mixins";
+
+.dialog-burning-cards {
+	width: 48vw;
+	border: 2px dotted silver;
+	border-radius: 6px;
+	padding: 1.5rem;
+	
+	&--start {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		
+		p {
+			font-size: $font-base-size * 1.25;
+			font-weight: $base-font-weight;
+		}
+	}
+	
+	&__header {
+		margin-bottom: 2rem;
+	}
+	
+	h1 {
+		font-size: $font-base-size * 1.5;
+		font-weight: $base-font-weight;
+		line-height: 1;
+		color: inherit;
+	}
+	
+	&__wrapper {
+		display: flex;
+		flex-flow: wrap;
+		justify-content: space-evenly;
+	}
+		
+	.playing-card--dummy {
+		min-width: 18%;
+		min-height: 9rem;
+		margin: 0 0.25rem 0.5rem;
+		border: 2px dashed get-color('gray');
+		border-radius: $border-radius;
+		background-color: get-color('gray-light');
+	}
+	
+	.common-button {
+		@include tbl-button;
+		margin-right: 0.5rem;
+		border-radius: $border-radius * 1.5;
+		
+		&:last-of-type {
+			margin-right: 0;
+		}
+		
+		&.add-remove-button {
+			font-size: $font-base-size * 3;
+			font-weight: $font-base-weight;
+			line-height: 1;
+			min-width: 64px;
+		}
+	}
+	
+	&__footer {
+		display: flex;
+		margin-top: 2rem;
+		padding: 0 1.5rem;
+		
+		&--align-center {
+			justify-content: center;
+		}
+	}
+	
+	&__control-buttons--right {
+		justify-content: flex-end;
+	}
+}

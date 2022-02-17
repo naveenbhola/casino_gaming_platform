@@ -1,0 +1,122 @@
+@import
+"~common-ui/styles/colors",
+"~common-ui/styles/variables",
+"~common-ui/styles/mixins",
+"~common-ui/styles/common",
+"~common-ui/styles/icons";
+
+//Styles for Sub-nav bar:
+//----------------------
+//Create a full-width container for sub-nav element.
+.sub-nav-data {
+  background-color: $red;
+  padding: 0;
+  display: flex;
+
+  &__container {
+    display: flex;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+    height: $sub-nav__height;
+    @include fixed-at-top;
+    top: 50px;
+  }
+
+  ::ng-deep .mat-tab-links {
+    flex-grow: 1;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    flex-grow: 1;
+  }
+
+  &__data-wrapper {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+  }
+
+  &__column {
+    flex-direction: column;
+  }
+
+  &__back-btn-wrapper,
+  &__alerts-wrapper {
+    display: flex;
+    min-width: 10vmax;
+    background-color: $dark-red !important;
+  }
+
+  &__alerts-wrapper {
+    padding: 0 0.5em 0 0;
+  }
+
+  &__tab-link {
+    font-size: 15px;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.sub-nav-data {
+  &__label {
+    display: block;
+    font-size: 13px;
+    color: $gold;
+    font-weight: 800;
+    padding-top: 0.25rem;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+
+    @include respond-to(ipad){
+      font-size: 0.75em;
+    }
+  }
+
+  &__value {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: $white;
+
+    @include respond-to(ipad){
+      font-size: 0.9em;
+    }
+  }
+}
+
+.sub-nav-data {
+  &__alert-bell-btn {
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+  }
+
+  &__back-btn {
+    background-color: transparent;
+    padding: 0 0.5em 0 1em;
+
+    &-icon {
+      font-size: 1.75em;
+      color: white;
+    }
+
+    &-label {
+      font-size: 1.25em;
+      color: white;
+      padding-left: 0.25em;
+      padding-right: 0.25em;
+      outline: none;
+    }
+  }
+}

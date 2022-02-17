@@ -1,0 +1,55 @@
+@import
+"~src/styles/common",
+"~src/styles/mixins-local",
+"~src/styles/table-common";
+
+.tables-tab-container {
+  position: relative;
+  display: grid;
+  height: calc(100vh - 10.5em);
+
+  ::ng-deep .table-section:last-child {
+    margin-right: 14%;
+  }
+}
+
+.view-type-div {
+  position: absolute;
+  z-index: 10;
+  right: 1%;
+  margin-top: 0.5%;
+
+  ::ng-deep .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 36px;
+    padding: 0 1.2em;
+
+    @include respond-to(ipad){
+      padding: 0 0.8em;
+    }
+
+    .mat-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+.view-list-button {
+  @include view-list-button;
+}
+
+.view-grid-button {
+  @include view-grid-button;
+}
+
+.selected-view {
+  background-color: #c4c4c4;
+}
+
+
+//Re-positioning of block
+.has-table-cards {
+  ::ng-deep .table-data__container {
+    display: grid;
+    min-height: 18vh;
+  }
+}

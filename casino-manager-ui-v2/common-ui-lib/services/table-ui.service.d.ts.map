@@ -1,0 +1,1 @@
+{"version":3,"file":"table-ui.service.d.ts","sources":["table-ui.service.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;AACA;AACA;;AACA","sourcesContent":["import { HttpClient } from '@angular/common/http';\nexport declare class TableUIService {\n    private http;\n    constructor(http: HttpClient);\n    isLoggedIn(clientId: any): import(\"rxjs\").Observable<any>;\n}\n"]}

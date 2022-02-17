@@ -1,0 +1,15 @@
+{
+  "authenticationType": "LDAP",
+  "webserverUrl": "wdts-gateway-qe6.wdtablesystems.com",
+  "webTreasuryTLSPort": "785",
+  "webDashboardTLSPort": "792",
+  "webserverProtocol": "https://",
+  "webConfigurationTLSPort": "782",
+  "webAlertsTLSPort": "791",
+  "webCamTLSPort": "781",
+  "webCashierTLSPort": "786",
+  "webCasinoManagerTLSPort": "783",
+  "treasuryPort": "785",
+  "webPlayerDashboardTLSPort": "789",
+  "webserverProtocol": "https://"
+}

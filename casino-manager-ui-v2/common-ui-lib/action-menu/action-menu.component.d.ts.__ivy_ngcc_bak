@@ -1,0 +1,8 @@
+import { MatDialog } from '@angular/material/dialog';
+export declare class ActionMenuComponent {
+    dialog: MatDialog;
+    appName: string;
+    constructor(dialog: MatDialog);
+    winnerEligibleSessions(cmd: any): void;
+    openPlayerSearch(): void;
+}

@@ -1,0 +1,35 @@
+<button mat-button class="button-more"
+        [matMenuTriggerFor]="usermenu"
+        color="primary"
+        aria-hasPopup="true"
+        role="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+<mat-menu #usermenu="matMenu" [overlapTrigger]="false">
+  <!--<app-roll-time ></app-roll-time>-->
+  <!--<mat-divider></mat-divider>-->
+  <button mat-menu-item role="menuitem" (click)="openShowRollTime()">
+    <span translate="application.app.common.labels.SHOW_ROLL_TIME"></span>
+  </button>
+  <button mat-menu-item role="menuitem" (click)="openPlayerSearch()">
+    <span translate="application.app.common.labels.PLAYER_SEARCH"></span>
+  </button>
+
+  <button mat-menu-item role="menuitem" (click)="openUserSearch()">
+    <span translate="application.app.common.labels.USER_SEARCH"></span>
+  </button>
+  <button *ngIf="isPlayerAdjustmentPermission && appService.isPlayerAdjustmentEnabled && checkIfPit()" mat-menu-item role="menuitem" (click)="openAdjustRating()" >
+    <span translate="application.app.common.labels.TOPSUBNAV.RATING_ADJUSTMENT_OPTIONS"></span>
+  </button>
+  <button mat-menu-item *ngIf="appService.isGlobalAnonymousHostEnabled === 'true' && checkIfPit()" (click)="openHostCallDialog()" role="menuitem">
+    <span translate="application.app.common.labels.TOPSUBNAV.HOST"></span>
+  </button>
+  <button mat-menu-item (click)="openPromotionWinner()"
+          *ngIf="appName === 'CASINO_MGR' && appService.hasPermissionOf('CASINO_MGR','VIEW_PROMOTIONS')  && appService.isPromotionWinnerEnabled">
+    <span translate="application.app.CASINO_MGR_LABELS.PROMOTION_WINNER.PROMOTIONS_WINNER"></span>
+  </button>
+  <!--<button mat-menu-item (click)="winnerEligibleSessions('ELIGIBLE_SESSION')" *ngIf="appName === 'CASINO_MGR'">-->
+    <!--<span>Promotions - Eligible Sessions</span>-->
+  <!--</button>-->
+</mat-menu>

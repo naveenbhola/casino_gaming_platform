@@ -1,0 +1,156 @@
+@import "functions";
+
+:root {
+	--primary: #bb9156;
+	--primary-light: #d9cb9e;
+	--primary-lighten: #e0cdb2;
+	--primary-dark: #AB7348;
+	--primary-bg: #eee7dd;
+	--primary-beige: #F0EDCA;
+	--accent: #9c1c23;
+	--accent-dark: #7d161b;
+	--accent-bright: #FF562D;
+	--secondary: #ccc;
+	--secondary-light: #e6e6e6;
+	--dark: #333;
+	--dark-light: #808080;
+	--white: #fff;
+	--white-text: #f5f5f5;
+	--black: #000;
+	--danger: #dc3545;
+	--warning: #FBB03B;
+	--success: #22b573;
+	--success-bright: #24FF00;
+	--green-dark: #1c925d;
+	--green-darker: #0a3321;
+	--green-light: #b2f0d5;
+  --info: #0facd2;
+	--cyan: #23a6ad;
+	--blue: #00ceff;
+	--blue-dark: #00a3cc;
+	--yellow: #ff0;
+	--yellow-bright: #FFEA00;
+	--yellow-dark: #cc0;
+	--gray80: #d9d8d8;
+	--gray50: #817e7e;
+	--gray30: #5a5858;
+}
+
+//common colors.
+$light-gray: hsl(0, 0, 90%);//#e6e6e6;
+$gray: hsl(0, 0, 80%);//#cccccc;
+$darker-gray: hsl(0, 0, 50%);//#808080;
+$dark-gray: hsl(0, 0, 20%);//#333333;
+
+
+//
+$gold: rgb(187, 145, 86) !default; //#bb9156 !default;
+$light-gold: rgb(217, 203, 158); //#d9cb9e;
+$lighter-gold: rgb(238, 231, 221); //#eee7dd;
+
+//
+$error-red: rgb(220, 53, 34); //#dc3522;
+$red: rgb(156, 28, 35); //#9c1c23;
+$dark-red: rgb(122, 25, 27); //#7d161b;
+$red-bright: rgb(255, 86, 45); //#FF562D
+$orange-bright: rgb(251, 176, 59); //#FBB03B
+$hover-color: $dark-red;
+
+//
+$cyan: rgb(35, 166, 173); //#23a6ad;
+$green: rgb(34, 181, 115); //#22b573;
+$green-bright: #24FF00;
+$green-dark: darken($green, 20%);
+$blue-bright: rgb(15, 172, 210);//#0facd2;
+$blue: #00ceff;
+$blue-dark: darken($blue, 20%);
+
+//
+$white: hsl(0, 0, 100%); //#ffffff;
+$black: hsl(0, 0, 0%); //#000000;
+$yellow: rgb(255, 255, 0); //#ffff00 hsl(60%, 100%, 50%)
+$yellow-bright: #FFEA00;
+$yellow-dark: darken($yellow, 20%);
+
+$wdts-colors: (
+		'primary': $gold,
+		'primary-light': #E6E1A9,
+		'primary-dark': #AB7348,
+		'primary-beige': #F0EDCA,
+		'accent': $red,
+		'orange': #{$orange-bright},
+		'wwhite': hsl(0,0,100%),
+		'text-white': hsl(0,0,96%),
+		'bblack': hsl(0,0,0%),
+		'gray-light': lighten(hsl(0,0,0%), 85%),
+		'gray': lighten(hsl(0,0,0%), 50%),
+		'gray-dark': lighten(hsl(0,0,0%), 35%)
+);
+
+
+$primary:       $gold !default;
+$secondary:     $gray !default;
+$accent:        $red !default;
+$success:       $green !default;
+$info:          $blue-bright !default;
+$warning:       $orange-bright !default;
+$danger:        $error-red !default;
+$light:         $light-gray !default;
+$dark:          $gray !default;
+
+$tbl-theme-colors: () !default;
+
+$tbl-theme-colors: map-merge (
+	(
+			"primary":    $primary,
+			"secondary":  $secondary,
+			"accent":     $accent,
+			"success":    $success,
+			"info":       $info,
+			"warning":    $warning,
+			"danger":     $danger,
+			"light":      $light,
+			"dark":       $dark
+	),
+	$tbl-theme-colors
+);
+
+$dark-green: darken($green, 70%);
+$light-green: lighten($green, 92%);
+
+$w-primary:       get-color('primary') !default;
+$w-primary-dark:  get-color('primary-dark') !default;
+$w-primary-light: get-color('primary-beige') !default;
+$w-accent:        get-color('accent') !default;
+$w-black:         get-color('bblack') !default;
+$w-gray:          get-color("gray") !default;
+$w-gray-light:    get-color('gray-light') !default;
+$dark-green:      darken($green, 70%);
+$light-green:     lighten($green, 92%);
+
+$black-alpha95:     transparentize($w-black, 0.96);
+$black-alpha85:     transparentize($w-black, 0.85);
+$black-alpha65:     transparentize($w-black, 0.65);
+$black-alpha35:     transparentize($w-black, 0.35);
+$black-alpha15:     transparentize($w-black, 0.15);
+
+$gray-alpha85:      transparentize($w-gray, 0.85);
+$gray-alpha65:      transparentize($w-gray, 0.65);
+$gray-alpha35:      transparentize($w-gray, 0.35);
+$gray-alpha15:      transparentize($w-gray, 0.15);
+
+$dark-gray-alpha85: transparentize($dark-gray, 0.85);
+$dark-gray-alpha65: transparentize($dark-gray, 0.65);
+$dark-gray-alpha35: transparentize($dark-gray, 0.35);
+$dark-gray-alpha15: transparentize($dark-gray, 0.15);
+$dark-gray-alpha0:  transparentize($dark-gray, 0);
+
+$white-alpha85:     transparentize($white, 0.85);
+$white-alpha65:     transparentize($white, 0.65);
+$white-alpha35:     transparentize($white, 0.35);
+$white-alpha15:     transparentize($white, 0.15);
+
+$tbl-shadows: 0 2px 4px transparentize($w-black, 0.35);
+
+////Players Gallery Carousel.
+$primary-lighten: lighten($w-primary, 50%);

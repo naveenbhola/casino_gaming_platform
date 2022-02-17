@@ -1,0 +1,50 @@
+@import
+"~bootstrap/dist/css/bootstrap.min.css",
+"~common-ui/styles/colors",
+"~common-ui/styles/variables",
+"~common-ui/styles/button",
+"~common-ui/styles/mixins",
+"~common-ui/styles/common",
+"~src/styles/mixins-local";
+
+.user-search-dialog {
+  &__title {
+    @include dialog-title;
+
+    .close-btn {
+      @include close-button;
+    }
+  }
+
+  &__select {
+    background-color: $black-alpha95;
+    padding: 1%;
+    @include border-radius($border-radius);
+    margin-bottom: 1%;
+
+    &-options {
+      display: flex;
+
+      * {
+        margin: 0 1%;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.user-search-component {
+  @include search-component;
+
+  &__button {
+    padding: 0;
+    min-width: 6vw;
+  }
+
+  &__button .material-icons {
+    font-size: 3.5em;
+  }
+}

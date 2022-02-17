@@ -1,0 +1,55 @@
+<h2 mat-dialog-title class="user-search-dialog__title">
+  {{'application.app.common.labels.USER_SEARCH' | translate}}
+  <span class="space-filler"></span>
+
+  <button mat-button tabindex="-1" class="close-btn">
+    <mat-icon (click)="closeDialogBox()">close</mat-icon>
+  </button>
+</h2>
+<div class="user-search-dialog__select">
+  <mat-radio-group class="user-search-dialog__select-options" aria-label="Select an option" [(ngModel)]="userType">
+    <mat-radio-button [value]="'SUPERVISOR'">{{'application.app.common.labels.SUPERVISOR' | translate}}</mat-radio-button>
+    <mat-radio-button [value]="'DEALER'">{{'application.app.common.labels.DEALER' | translate}}</mat-radio-button>
+    <mat-radio-button [value]="'CASHIER'">{{'Cashier' | translate}}</mat-radio-button>
+  </mat-radio-group>
+</div>
+<div class="user-search-component__container">
+  <mat-form-field class="user-search-component__select">
+    <mat-label [translate]="'application.app.common.labels.SEARCHBY'">Search Option</mat-label>
+    <mat-select [(ngModel)]="selectedOption" (selectionChange)="selectionChangeHandler($event)" [disabled]="isDisabled">
+      <mat-option *ngFor="let option of searchOption;trackBy:trackByIndex" [value]="option.value">
+        {{option.viewValue | translate}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="user-search-component__input-box">
+    <input matInput placeholder="{{'application.app.common.labels.ENTER_USERIDRNAME' | translate}}"
+           *ngIf="(selectedOption === 'employeeId' || (selectedOption === 'casinoCardData'))"
+           [disabled]="isDisabled"
+           [(ngModel)]="searchText"
+           appAppAutoFocus
+           autocomplete="off"
+           appWdtsSpecialChar
+           (valChangeEvent)="searchText = $event"/>
+    <input matInput placeholder="{{'application.app.common.labels.ENTER_PLAYERIDRNAME' | translate}}"
+           *ngIf="(selectedOption === 'firstName' || (selectedOption === 'lastName' || selectedOption === 'userName'))"
+           [disabled]="isDisabled"
+           [(ngModel)]="searchText"
+           appAppAutoFocus
+           autocomplete="off"
+           appWdtsSpecialChar
+           (valChangeEvent)="searchText = $event"/>
+  </mat-form-field>
+
+  <button mat-raised-button
+          class="user-search-component__button"
+          type="button" [disabled]="!searchText || isDisabled"
+          color='primary' (click)="searchUser(searchText)">
+    <i class="material-icons">search</i>
+  </button>
+</div>
+
+<div class="d-flex" *ngIf="!isCMSUp">
+  <small class="text-danger">{{'application.app.common.labels.PLAYER_INFO_NOT_AVAILABLE' | translate}}</small>
+</div>

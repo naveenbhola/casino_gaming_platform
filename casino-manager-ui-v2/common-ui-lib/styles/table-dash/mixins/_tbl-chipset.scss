@@ -1,0 +1,55 @@
+@import
+"../../../styles/colors",
+"../../../styles/variables",
+"../../../styles/functions";
+
+%table-row {
+	display: grid;
+	/* autoprefixer: off */
+	grid-template-columns: repeat(3, minmax(72px, 1fr));
+	align-items: center;
+	padding: 0 8px;
+}
+
+@mixin make-chipset-panel {
+	background-color: $white;
+	border-radius: $border-radius;
+
+	&__table {
+		display: grid;
+		grid-template-columns: 1fr;
+		font-size: $chipset-panel--font-size;
+		font-weight: $chipset-panel--font-weight;
+
+		span:nth-child(2) {
+			text-align: center;
+		}
+		span:nth-last-child(1) {
+			text-align: right;
+		}
+
+		&__header,
+		&__footer {
+			@extend %table-row;
+			font-size: 0.85em;
+			padding: 4px 8px;
+			background-color: $w-black;
+			color: $w-primary-light;
+		}
+
+		&__body {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto;
+			align-items: start;
+			grid-gap: 8px;
+			min-height: 64px;
+			margin: 8px 0;
+
+			&--row {
+				@extend %table-row;
+				background-color: $white;
+			}
+		}
+	}
+}

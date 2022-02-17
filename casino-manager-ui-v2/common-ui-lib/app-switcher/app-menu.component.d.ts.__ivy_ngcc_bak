@@ -1,0 +1,9 @@
+import { OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+export declare class AppMenuComponent implements OnInit {
+    dialogRef: MatDialogRef<AppMenuComponent>;
+    data: any;
+    currentAppCode: any;
+    constructor(dialogRef: MatDialogRef<AppMenuComponent>, data: any);
+    ngOnInit(): void;
+}

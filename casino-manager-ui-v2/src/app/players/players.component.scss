@@ -1,0 +1,88 @@
+@import
+"~common-ui/styles/variables",
+"~common-ui/styles/mixins",
+"~common-ui/styles/common",
+"~src/styles/common",
+"~src/styles/mixins-local",
+"~src/styles/table-common";
+
+.players-tab-container {
+  position: relative;
+  display: grid;
+
+  ::ng-deep div.table-data__container {
+    .mat-table {
+      width: 100%;
+    }
+  }
+
+  ::ng-deep .table-section:last-child {
+    margin-right: 14%;
+  }
+
+  ::ng-deep .filter-link-button__wrapper .common-button {
+    line-height: 2.3;
+    @include border-radius($border-radius);
+  }
+}
+
+.view-type-div {
+  position: absolute;
+  right: 1%;
+  margin-top: 0.5%;
+  z-index: 10;
+
+  ::ng-deep .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 36px;
+    padding: 0 1.2em;
+
+    @include respond-to(ipad){
+      padding: 0 0.8em;
+    }
+
+    .mat-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+.view-list-button {
+  @include view-list-button;
+}
+
+.view-grid-button {
+  @include view-grid-button;
+}
+
+.selected-view {
+  background-color: #c4c4c4;
+}
+
+
+.players-tab-container {
+  ::ng-deep .table__wrapper {
+    .mat-sort-header-button {
+      flex: 0;
+      white-space: pre;
+    }
+
+    [class *= 'CURRENT_ACTIVE_LOCATION'] .mat-sort-header-button {
+      min-width: 7em;
+    }
+
+    [class *= 'TOTAL_BUY_INS_PLAYER'] .mat-sort-header-button {
+      min-width: 3em;
+    }
+
+    th[class *= 'LAST_ACTIVE_LOCATION'],
+    th[class *= 'PLAYER_BANKROLL_VALUE']{
+      min-width: 4vmax;
+    }
+
+    th[class *= 'PLAYERS'],
+    th[class *= 'PLAYER_ID'] {
+      min-width: 5vmax;
+    }
+
+  }
+}

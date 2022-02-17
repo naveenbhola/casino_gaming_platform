@@ -1,0 +1,50 @@
+<h2 mat-dialog-title class="promotion-winners-dialog__title">
+  {{'application.app.CASINO_MGR_LABELS.PROMOTION_WINNER.PROMOTION_WINNER_LIST' | translate}}
+
+  <span class="space-filler"></span>
+
+  <button mat-button tabindex="-1" class="close-btn">
+    <mat-icon (click)="closeDialogBox()">close</mat-icon>
+  </button>
+</h2>
+
+<div mat-dialog-content class="promotion-winners-dialog__content-wrapper">
+  <div *ngIf="loading">
+    <mat-spinner
+      [diameter]="60"
+      class="mx-auto mt-5"></mat-spinner>
+  </div>
+  <!-- <div class="show__no-data-txt" *ngIf="totalRecords === 0 && !loading">
+    <h4 [translate]="'application.app.common.labels.NO_DATA_AVAILABLE'"></h4>
+  </div> -->
+  <mat-form-field *ngIf="!loading" class="promotion-winners-dialog__date-form-field">
+    <input matInput
+           placeholder="{{'application.app.CASINO_MGR_LABELS.PROMOTION_WINNER.DATE' | translate }}"
+           [(ngModel)]="calenderDay"
+           [min]="maxStartDate"
+           [max]="todayDate"
+           (dateTimeInput)="onDateSelected($event)"
+           [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2"
+           autocomplete="off" readonly>
+    <mat-icon matSuffix [owlDateTimeTrigger]="dt2" class="calender-icon">date_range</mat-icon>
+    <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+  </mat-form-field>
+
+  <app-tables *ngIf="!loading"
+    [tableTitle]="'application.app.CASINO_MGR_LABELS.PROMOTION_WINNER.PROMOTIONS_WINNER'"
+    [totalRecords]="totalRecords"
+    [tableRows]="promotionList"
+    [tableHeaders]="tableHeaders"
+    [hidePagination]="true"
+    [hideFilters]="true"
+    (node)="updateEventObj($event)"
+    class="table-player-promotions">
+  </app-tables>
+</div>
+
+<div mat-dialog-actions *ngIf="promotionList.length > 0">
+  <span class="space-filler"></span>
+  <button class="common-button" mat-stroked-button tabindex="-1" color="primary" (click)="closeDialogBox()">
+    <span [translate]="'application.app.common.labels.CLOSE'"></span>
+  </button>
+</div>

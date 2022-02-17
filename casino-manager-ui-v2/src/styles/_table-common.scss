@@ -1,0 +1,26 @@
+//Setting table line-height
+@mixin set-table-height {
+  ::ng-deep div.table-data__container {
+    .mat-table {
+      width: 100%;
+    }
+
+    .has-opened-sidepanel & {
+      height: calc(100vh - 230px);
+
+      &.has-pagination {
+        height: calc(100vh - 290px);
+      }
+
+      &.has-opened-filters {
+        height: calc(100vh - 315px);
+
+        &.has-pagination {
+          height: calc(100vh - 370px);
+        }
+      }
+    }
+
+
+  }
+}

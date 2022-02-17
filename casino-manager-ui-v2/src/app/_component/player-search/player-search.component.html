@@ -1,0 +1,38 @@
+<h2 mat-dialog-title class="player-search-dialog__title">
+  {{'application.app.common.labels.PLAYER_SEARCH' | translate}}
+  <span class="space-filler"></span>
+
+  <button mat-button tabindex="-1" class="close-btn">
+    <mat-icon (click)="closeDialogBox()">close</mat-icon>
+  </button>
+</h2>
+<h5 class="search-component__container">
+  <mat-form-field class="search-component__select">
+    <mat-label [translate]="'application.app.common.labels.SEARCHBY'">Search Option</mat-label>
+    <mat-select [(ngModel)]="selectedOption" [disabled]="isDisabled">
+      <mat-option *ngFor="let option of searchOption;trackBy:trackByIndex;" [value]="option.value">
+        {{option.viewValue | translate}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="search-component__input-box">
+    <input matInput placeholder="{{'application.app.common.labels.ENTER_PLAYERIDRNAME' | translate}}"
+           *ngIf="(selectedOption === 'casinoPlayerId' || (selectedOption === 'casinoCardData'))"
+           [disabled]="isDisabled" [(ngModel)]="searchText" appAppAutoFocus autocomplete="off"/>
+    <input matInput placeholder="{{'application.app.common.labels.ENTER_PLAYERIDRNAME' | translate}}"
+           *ngIf="(selectedOption === 'firstName' || (selectedOption === 'lastName'))"
+           [disabled]="isDisabled" [(ngModel)]="searchText" appAppAutoFocus autocomplete="off"/>
+  </mat-form-field>
+
+  <button mat-raised-button
+          class="search-component__button"
+          type="button" [disabled]="!searchText || isDisabled"
+          color='primary' (click)="searchPlayer(searchText)">
+    <i class="material-icons">search</i>
+  </button>
+</h5>
+
+<div class="d-flex" *ngIf="!isCMSUp">
+  <small class="text-danger">{{'application.app.common.labels.PLAYER_INFO_NOT_AVAILABLE' | translate}}</small>
+</div>

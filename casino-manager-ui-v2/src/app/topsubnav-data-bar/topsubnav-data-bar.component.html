@@ -1,0 +1,107 @@
+<!-- This following block can be used to create new component.
+**** Note: The class 'sub-nav__fixed-at-top' would be needed to fix Top-sub-nav bar beneath the top bar.
+**** ****  This class needs to be added in 'nav' tag.
+-->
+<nav mat-tab-nav-bar class="sub-nav-data sub-nav-data__container"
+     role="navigation" aria-label="top-sub-nav" color="accent" backgroundColor="accent">
+
+  <div class="sub-nav-data__row">
+    <div class="sub-nav-data__back-btn-wrapper">
+      <button mat-button class="common-button sub-nav-data__back-btn">
+        <mat-icon class="sub-nav-data__back-btn-icon" [routerLink]="backButton.url" *ngIf="backButton && backButton.root == false">chevron_left
+        </mat-icon>
+        <span class="sub-nav-data__back-btn-label" [routerLink]="backButton.url"
+              *ngIf="backButton && backButton.labelName">
+                  {{backButton.labelName}}
+              </span>
+      </button>
+    </div>
+
+    <div class="sub-nav-data__data-wrapper" *ngIf="topologyStatistics">
+      <!-- Show column-wise data -->
+      <div class="sub-nav-data__column" *ngFor="let stats of topologyStatistics.statCodes;let i = index; trackBy:trackByIndex">
+               <span *ngIf="hasAdvKpiPermission">
+                <span class="sub-nav-data__label" translate="CasinoManager_View1_{{stats}}"></span>
+                <span class="sub-nav-data__value"
+                      *ngIf="(topologyStatistics.data[0].stats[i]).indexOf('/') > -1">{{topologyStatistics.data[0].stats[i] }}</span>
+                <span class="sub-nav-data__value"
+                      *ngIf="!((topologyStatistics.data[0].stats[i]) < 0) && (topologyStatistics.data[0].stats[i]).indexOf('/') < 0">{{topologyStatistics.data[0].stats[i] | roundUp}}</span>
+                <span class="sub-nav-data__value negative-value"
+                      *ngIf="(topologyStatistics.data[0].stats[i]) < 0  && (topologyStatistics.data[0].stats[i]).indexOf('/') < 0">({{topologyStatistics.data[0].stats[i] * -1 | roundUp}})</span>
+               </span>
+        <span *ngIf="!hasAdvKpiPermission && advKpis.indexOf(stats) === -1">
+                <span class="sub-nav-data__label" translate="CasinoManager_View1_{{stats}}"></span>
+                <span class="sub-nav-data__value"
+                      *ngIf="(topologyStatistics.data[0].stats[i]).indexOf('/') > -1">{{topologyStatistics.data[0].stats[i] }}</span>
+                <span class="sub-nav-data__value"
+                      *ngIf="!((topologyStatistics.data[0].stats[i]) < 0) && (topologyStatistics.data[0].stats[i]).indexOf('/') < 0">{{topologyStatistics.data[0].stats[i] | roundUp}}</span>
+                <span class="sub-nav-data__value negative-value"
+                      *ngIf="(topologyStatistics.data[0].stats[i]) < 0  && (topologyStatistics.data[0].stats[i]).indexOf('/') < 0">({{topologyStatistics.data[0].stats[i] * -1 | roundUp}})</span>
+               </span>
+      </div>
+    </div>
+    <div class="sub-nav-data__data-wrapper" *ngIf="!topologyStatistics">
+      <!-- Show column-wise data -->
+      <div class="sub-nav-data__column">
+        <span class="sub-nav-data__label">{{'application.app.CASINO_MGR_LABELS.OPEN_TABLES' | translate }}</span>
+        <span class="sub-nav-data__value"></span>
+      </div>
+      <div class="sub-nav-data__column" *ngIf="hasAdvKpiPermission">
+        <span class="sub-nav-data__label">{{'application.app.CASINO_MGR_LABELS.UTILIZATION' | translate }}</span>
+        <span class="sub-nav-data__value"></span>
+      </div>
+      <div class="sub-nav-data__column">
+        <span class="sub-nav-data__label">{{'application.app.CASINO_MGR_LABELS.CASINO_WL_CAP' | translate }}</span>
+        <span class="sub-nav-data__value negative-value"></span>
+      </div>
+      <div class="sub-nav-data__column" *ngIf="hasAdvKpiPermission">
+        <span class="sub-nav-data__label">{{'application.app.common.labels.TOPSUBNAV.THEO_WIN' | translate }}</span>
+        <span class="sub-nav-data__value"></span>
+      </div>
+      <div class="sub-nav-data__column" *ngIf="hasAdvKpiPermission">
+        <span class="sub-nav-data__label">{{'application.app.CASINO_MGR_LABELS.HOLD' | translate }}(%)</span>
+        <span class="sub-nav-data__value"></span>
+      </div>
+      <div class="sub-nav-data__column">
+        <span class="sub-nav-data__label">{{'application.app.CASINO_MGR_LABELS.TOTAL_BUY_IN' | translate }}</span>
+        <span class="sub-nav-data__value"></span>
+      </div>
+      <div class="sub-nav-data__column">
+        <span class="sub-nav-data__label">{{'application.app.CASINO_MGR_LABELS.AVERAGE_BET' | translate }}</span>
+        <span class="sub-nav-data__value"></span>
+      </div>
+      <div class="sub-nav-data__column">
+        <span class="sub-nav-data__label">{{'application.app.common.labels.HANDLE' | translate }}</span>
+        <span class="sub-nav-data__value"></span>
+      </div>
+      <div class="sub-nav-data__column">
+        <span class="sub-nav-data__label" *ngIf="hasAdvKpiPermission">{{'application.app.CASINO_MGR_LABELS.RATED_PLAY' | translate }}(%)</span>
+        <span class="sub-nav-data__value"></span>
+      </div>
+    </div>
+
+    <div class="sub-nav-data__alerts-wrapper">
+      <!-- Show Alerts data -->
+      <button *ngIf="alertCounts" mat-button color="primary" class="sub-nav-data__alert-bell-btn"
+              matTooltip="Critical Alerts" aria-describedby="Critical Alerts" (click)="openAlerts('CRITICAL')">
+        <mat-icon>notifications_active</mat-icon>
+        <span class="badge badge-critical">{{alertCounts.criticalCount}}</span>
+      </button>
+      <button *ngIf="alertCounts" mat-button color="primary" class="sub-nav-data__alert-bell-btn"
+              matTooltip="High Alerts" aria-describedby="High Alerts" (click)="openAlerts('HIGH')">
+        <mat-icon>notifications_active</mat-icon>
+        <span class="badge badge-high">{{alertCounts.highCount}}</span>
+      </button>
+      <button *ngIf="alertCounts" mat-button color="primary" class="sub-nav-data__alert-bell-btn"
+              matTooltip="Low Alerts" aria-describedby="Low Alerts" (click)="openAlerts('LOW')">
+        <mat-icon>notifications_active</mat-icon>
+        <span class="badge badge-low">{{alertCounts.lowCount}}</span>
+      </button>
+      <mat-divider [vertical]="true" class="sub-nav-data__more-btn vert-line"></mat-divider>
+
+      <app-action-menu [appName]="'CASINO_MGR'"></app-action-menu>
+    </div>
+
+  </div>
+
+</nav>

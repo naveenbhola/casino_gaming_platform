@@ -1,0 +1,51 @@
+//
+@font-face {
+	font-family: 'Lato';
+	src: url("/assets/fonts/Lato-Regular.eot"); /* IE */
+	src:
+	url("/assets/fonts/Lato-Regular.eot#iefix") format('embedded-opentype'),
+	url("/assets/fonts/Lato-Regular.woff2") format("woff2"),
+	url("/assets/fonts/Lato-Regular.woff") format("woff"),
+	url("/assets/fonts/Lato-Regular.ttf") format("truetype"),
+	url("/assets/fonts/Lato-Regular.ttf") format("opentype");
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Lato';
+	src: url("/assets/fonts/Lato-Bold.eot"); /* IE */
+	src:
+	url("/assets/fonts/Lato-Bold.eot#iefix") format('embedded-opentype'),
+	url("/assets/fonts/Lato-Bold.woff2") format("woff2"),
+	url("/assets/fonts/Lato-Bold.woff") format("woff"),
+	url("/assets/fonts/Lato-Bold.ttf") format("truetype"),
+	url("/assets/fonts/Lato-Bold.ttf") format("opentype");
+	font-style: normal;
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: 'Lato';
+	src: url("/assets/fonts/Lato-Black.eot"); /* IE */
+	src:
+	url("/assets/fonts/Lato-Black.eot#iefix") format('embedded-opentype'),
+	url("/assets/fonts/Lato-Black.woff2") format("woff2"),
+	url("/assets/fonts/Lato-Black.woff") format("woff"),
+	url("/assets/fonts/Lato-Black.ttf") format("truetype"),
+	url("/assets/fonts/Lato-Black.ttf") format("opentype");
+	font-style: normal;
+	font-weight: 900;
+}
+
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url("/assets/fonts/iconfont/MaterialIcons-Regular.eot"); /* For IE6-8 */
+	src: local('Material Icons'),
+	local('MaterialIcons-Regular'),
+	url("/assets/fonts/iconfont/MaterialIcons3-Regular.woff2") format('woff2'),
+	url("/assets/fonts/iconfont/MaterialIcons-Regular.woff") format('woff'),
+	url("/assets/fonts/iconfont/MaterialIcons3-Regular.ttf") format('truetype');
+}

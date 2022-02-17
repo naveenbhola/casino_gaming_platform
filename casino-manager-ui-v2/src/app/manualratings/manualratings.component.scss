@@ -1,0 +1,42 @@
+@import "~src/styles/common", "~src/styles/table-common";
+
+.manualratings-table {
+  @include set-table-height;
+
+  ::ng-deep div.table-data__container {
+    td.mat-cell:first-of-type,
+    td.mat-footer-cell:first-of-type,
+    th.mat-header-cell:first-of-type {
+        padding-left: 8px;
+    }
+
+    td.mat-cell:last-of-type,
+    td.mat-footer-cell:last-of-type,
+    th.mat-header-cell:last-of-type {
+        padding-right: 8px;
+    }
+
+    td.mat-cell {
+      font-size: 13px;
+
+      &:nth-child(2) {
+        word-break: keep-all;
+      }
+    }
+  }
+
+  ::ng-deep .has-opened-sidepanel & {
+    div.table-data__container {
+      td.mat-cell {
+        font-size: 11px !important;
+      }
+    }
+  }
+
+  ::ng-deep .table__wrapper {
+    .mat-sort-header-button {
+      flex: 0;
+      white-space: pre;
+    }
+  }
+}

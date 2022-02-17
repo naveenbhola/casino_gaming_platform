@@ -1,0 +1,195 @@
+@import "colors", "variables", "functions";
+
+////Common mixins
+@mixin border-radius($rad...){
+  @if $rad == null {
+    border-radius: $border-radius;
+  }
+  border-radius: $rad;
+}
+
+@mixin include-font-style($fs: $font-base-size, $fw: $font-base-weight, $lh: 1){
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
+}
+
+@mixin define-size($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin define-min-size($w, $h: $w) {
+  min-width: $w;
+  min-height: $h;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin set-zindex($index) {
+  z-index: $index;
+}
+
+@mixin fixed-at-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+//Include box-shadow for Table-dashboard elements.
+@mixin tbl-element-shadow($shadow...) {
+  @if $shadow == null {
+    $shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.35);
+  }
+  box-shadow: $shadow;
+}
+
+@mixin make-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin make-view-table-placeholder {
+  @include make-flex-center;
+  @include border-radius(6px);
+  background-color: $white;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  border: 0.1vmin solid $gray-alpha65;
+  width: inherit;
+  min-height: 18vh;
+  margin-bottom: 0.5vmin;
+  padding: 0.125vmin;
+  position: relative;
+  height: 100%;
+}
+
+@mixin respond-to($media) {
+  @if $media == dd {
+    @media only screen and (max-width: $breakpoint-dd) { @content; }
+  }
+  @if $media == ipadsm {
+    @media only screen and (max-width: $breakpoint-lg) { @content; }
+  }
+  @if $media == ipad {
+    @media only screen and (max-width: $breakpoint-lg2) and (max-height: $breakpoint-md) { @content; }
+  }
+  @else if $media == desktop-sm {
+    @media only screen and (max-width: $breakpoint-xxl-width) and (max-height: $breakpoint-sm-height) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (max-width: $breakpoint-xxl-width) and (max-height: $breakpoint-md) { @content; }
+  }
+  @else if $media == surface-sm {
+    @media only screen and (max-width: $breakpoint-xxl-width) and (max-height: $breakpoint-height-sm) { @content; }
+  }
+  @else if $media == surface {
+    @media only screen and (max-width: $breakpoint-xxl) and (max-height: $breakpoint-xxl-height) { @content; }
+  }
+  @else if $media == laptop {
+    @media only screen and (max-width: $breakpoint-xxl2-width) and (max-height: $breakpoint-xxl2-height) { @content; }
+  }
+  @else if $media == wideScreens {
+    @media only screen and (min-width: $breakpoint-xxxl) { @content; }
+  }
+}
+
+@mixin menu-item {
+  @include include-font-style($font-base-size, $font-base-weight, 1);
+  height: 56px;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 600;
+  color: $w-black;
+
+  &[disabled],
+  &[disabled="true"] {
+    color: $w-gray;
+  }
+}
+
+@mixin menu-panel {
+  padding: 8px 0;
+  min-width: 224px;
+  max-width: 280px;
+}
+
+@mixin menu-panel-sm {
+  min-width: 112px;
+  max-width: 280px;
+}
+
+@mixin table-info-item {
+  border-right: 1px solid $white;
+  padding: 0 16px;
+
+  &__left,
+  &__right {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__right {
+    justify-content: flex-end;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}
+
+@mixin tbl-sub-footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(80px, 1fr));
+  grid-template-rows: 24px;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: $w-black;
+  color: $white;
+}
+
+@mixin search-component {
+  &__container {
+    display: flex;
+    justify-content: center;
+    padding: 1% 2% 0;
+    border: 1px solid $black-alpha85;
+    margin: 0 auto;
+    width: 70%;
+    @include border-radius($border-radius);
+  }
+
+  &__select {
+    @include include-font-style($font-base-size, $font-base-weight, 1.3);
+    flex: 1;
+  }
+
+  &__input-box {
+    @include include-font-style($font-base-size, $font-base-weight, 1.3);
+    margin: 0 2%;
+    flex: 3;
+  }
+
+  &__button {
+    @include include-font-style($font-base-size, $font-base-weight, 1.3);
+    flex: 0;
+    min-width: 6vw;
+    margin-top: -1.5%;
+    margin-right: -3%;
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+@mixin set-body-title {
+  @include include-font-style(15px, 600, 1.5);
+}
+
+@mixin set-body-text {
+  @include include-font-style(15px, 500, 1.1);
+}

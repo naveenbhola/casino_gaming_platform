@@ -1,0 +1,66 @@
+@import "../../../../styles/colors", "../../../../styles/variables";
+
+@mixin make-player-card-header($positionType: "clockin", $fs: $base-font-size, $fw: $base-font-weight) {
+	display: grid;
+	$position-num-width: 48px;
+	grid-template-columns: $position-num-width 1fr;
+	background-color: transparent;
+	font-size: $fs * 1.875;
+	font-weight: $fw;
+	color: $w-black;
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	
+	&:before{
+		content: '';
+		position: absolute;
+		$corner-radius: 64px;
+		width: $corner-radius;
+		height: $corner-radius;
+		background-color: $w-primary;
+		border-radius: 0 0 $corner-radius 0;
+	}
+	
+	@if $positionType == row-a {
+		display: flex;
+		flex-grow: 1;
+		width: 100%;
+		background-color: $w-primary;
+		border-radius: 0;
+		max-height: 56px;
+		
+		&:before {
+			display: none;
+		}
+	}
+	
+	.tbl-player-profile__wrapper {
+		@if $positionType == row-a {
+			display: inline-flex;
+		}
+		@else {
+			display: none;
+		}
+		
+		.tbl-player-profile {
+			&__name {
+				font-size: $fs * 1.125;
+				font-weight: $fw;
+				line-height: 1.5;
+				@if $positionType == row-a {
+					line-height: 1.2;
+				}
+			}
+			
+			&__id {
+				font-size: $fs;
+				font-weight: $fw;
+				line-height: 1;
+			}
+		}
+	}
+}

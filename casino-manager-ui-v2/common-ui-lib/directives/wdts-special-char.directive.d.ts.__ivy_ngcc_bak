@@ -1,0 +1,9 @@
+import { ElementRef, EventEmitter } from '@angular/core';
+export declare class WdtsSpecialCharDirective {
+    private _el;
+    valChangeEvent: EventEmitter<any>;
+    onlyAlphaNumaric: boolean;
+    isLimitTabSpecialChar: boolean;
+    constructor(_el: ElementRef);
+    onInputChange(event: any): void;
+}

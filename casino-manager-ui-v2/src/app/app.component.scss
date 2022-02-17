@@ -1,0 +1,105 @@
+@import "~common-ui/styles/common", "~common-ui/styles/mixins";
+
+//
+.drawer-container {
+  width: 100%;
+  height: $container__net-height;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.areas-sidenav {
+  width: 330px;
+
+  @include respond-to(ipad){
+    width: 260px;
+  }
+}
+
+.areas-tab {
+  padding: 1%;
+  top: 0;
+  height: 100%;
+  max-height: calc(100vh - 130px);
+  overflow: hidden;
+
+  > button.mat-primary {
+    position: absolute;
+    top: 1%;
+    margin-left: -1em;
+    padding: 0 1%;
+    border-radius: 0 4px 4px 0;
+    height: 3em;
+
+    &.drawer-button--sm {
+      padding: 0 1%;
+    }
+  }
+}
+
+//
+::ng-deep .top-nav__row .app-breadcrumb__wrapper app-breadcrumb .breadcrumbs-wrapper {
+  height: 100%;
+
+  .breadcrumbs__item {
+    @include include-font-style(16px, 500, 1);
+    background-color: #484848;
+    color: $white-alpha35;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 .5rem 0 1.25rem;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    position: relative;
+    margin: 2px auto;
+    min-width: 12%;
+    user-select: none;
+
+    &:hover {
+      color: $w-accent;
+      cursor: pointer;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      border: 25px solid transparent;
+      border-left: 11px solid $w-black;
+      left: 2px;
+      width: 13px;
+      border-right: 0;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      border: 25px solid transparent;
+      border-left: 11px solid #484848;
+      left: 100%;
+      z-index: 10;
+      width: 13px;
+      border-right: 0;
+    }
+
+    &:nth-child(2):before {
+      display:none;
+    }
+
+    > span {
+      white-space: nowrap;
+    }
+  }
+}
+
+
+
+::ng-deep .players-tab-container {
+  div.grid-view__container {
+    display: grid;
+    height: calc(100vh - 11.8em);
+    padding: 1%;
+
+    .show__no-data-txt {
+      margin-top: 3.2em;
+    }
+  }
+}

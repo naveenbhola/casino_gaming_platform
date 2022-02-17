@@ -1,0 +1,64 @@
+%before-after {
+  content: '';
+  position: absolute;
+  border: 18px solid transparent;
+  border-left: 9px solid transparentize($white, 0.8);
+}
+
+@mixin tbl-breadcrumb-item {
+  @include include-font-style($font-base-size, 600, 2.4);
+  display:inline-flex;
+  align-items: center;
+  padding: 0 4px 0 16px;
+  background-color: $w-black;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+  position: relative;
+  margin: 0;
+  min-width: 12vmin;
+  color: $w-primary-light;
+  cursor: pointer;
+  user-select: none;
+
+  &:before {
+    @extend %before-after;
+    border-left-color: invert($w-black);
+    left: 0;
+    border-width: 24px;
+    border-left-width: 12px;
+  }
+
+  &:first-child {
+    padding-left: 8px;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:after {
+    @extend %before-after;
+    border-left-color: $w-black;
+    right: -27px;
+    z-index: 10;
+  }
+
+  &:last-child:not(:first-of-type) {
+    background-color: $w-gray-light;
+    color: invert($w-primary-light);
+    cursor: default;
+    font-weight: 600;
+
+    &:after {
+      border-left-color: $w-gray-light;
+    }
+  }
+
+  &:hover:not(:last-child) {
+    //color: $w-primary-light-hovered;
+  }
+}
+
+@mixin tbl-breadcrumb {
+  @include tbl-breadcrumb-item;
+}

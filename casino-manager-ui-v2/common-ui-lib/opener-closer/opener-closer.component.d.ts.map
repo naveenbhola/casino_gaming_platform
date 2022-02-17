@@ -1,0 +1,1 @@
+{"version":3,"file":"opener-closer.component.d.ts","sources":["opener-closer.component.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;AACA;;;AACA","sourcesContent":["import { OnInit } from '@angular/core';\nexport declare class OpenerCloserComponent implements OnInit {\n    constructor();\n    ngOnInit(): void;\n}\n"]}
